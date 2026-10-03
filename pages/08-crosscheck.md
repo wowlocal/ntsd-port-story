@@ -14,6 +14,84 @@ stats: 47 из 47 случайных матчей равны · 156 730 свер
 
 ---
 
+<Kicker>2 октября, 18:35–21:23 · из журнала сессии Claude</Kicker>
+
+# Агент попросил человека посидеть у экрана
+
+<div class="grid grid-cols-[1.25fr_1fr] gap-6 mt-1">
+<ChatLog :messages="[
+  { who: 'agent', time: '18:35', text: '<b>Для прогона в CrossOver нужны вы у экрана:</b> окно Wine мне не видно.' },
+  { who: 'human', time: '19:02', text: 'зачем я у экрана? что мне нужно будет делать?' },
+  { who: 'agent', time: '19:02', text: 'Вариант А — вы проходите сами, около 20–30 минут: открываете повтор, смотрите до экрана итогов и делаете скриншот <code>⌘⇧3</code>. Так для каждого из пяти.' },
+  { who: 'human', time: '19:03', text: 'а если ты используешь это <code>github.com/trycua/cua</code>?', hot: true },
+  { who: 'agent', time: '19:04', text: 'Да, это может заметно облегчить дело. Скрипт установки я сначала прочитаю и только потом запущу.' },
+  { who: 'human', time: '19:08', text: 'да, ставь cua driver и делай пробу' },
+  { who: 'event', time: '19:22', text: 'единственное ручное действие: два переключателя для CuaDriver в настройках macOS' },
+  { who: 'agent', time: '19:23', text: 'Главное меню оригинала под CrossOver видно. <b>До этого места прошлая попытка не дошла.</b>', hot: true },
+  { who: 'event', time: '21:23', text: '3313088 · девять целых матчей сыграны в обеих программах', hot: true },
+]" />
+<div>
+
+<div class="card">
+<div class="pixel hl small">что было до этого</div>
+<p class="small ink2 mb-0">26 сентября Codex пытался управлять окном оригинала через AppleScript и встроенный Computer Use: macOS отказала в assistive access (<span class="mono">-1728</span>), а инструмент не стал работать с окном терминала. Окно игры агенту так и не открылось.</p>
+<div class="xsmall muted mt-1">REFERENCE_ENVIRONMENT_ACCESS.md · 3cea373</div>
+</div>
+
+<div class="grid grid-cols-2 gap-3 mt-3">
+<StatTile value="21 мин" label="от «а если cua?» до меню оригинала на экране агента" size="sm" />
+<StatTile value="2 ч 20 мин" label="до девяти сверенных целых матчей" size="sm" accent="var(--s1)" />
+</div>
+
+<div class="card-soft mt-3 small ink2">
+Перед установкой агент прочитал обёртку и проверил установщик на <b>1 605 строк</b>: sudo, автозапуск, правки shell rc, телеметрию. Телеметрию выключил.
+</div>
+
+</div>
+</div>
+
+<div class="source">~/.claude/projects: сессия 7ea5b99f, 2 октября (время местное, UTC+2) · 3313088 · docs/research/REFERENCE_ENVIRONMENT_ACCESS.md</div>
+
+<!--
+Поворот роли: агент по привычке предложил сделать человека своими руками и глазами. Человек вместо этого дал агенту руки — драйвер управления компьютером. Дальше вся сверка с оригиналом шла без человека у экрана.
+-->
+
+---
+
+<Kicker>руки для агента · Cua Driver 0.32.0</Kicker>
+
+# Чему агент научился, управляя Wine
+
+<div class="grid grid-cols-3 gap-3 mt-3">
+<QuirkCard title="Клик в три приёма" icon="🖱" commit="tools/crossover_drive/cua.py">
+Wine игнорирует фоновые клики по кнопкам. Работает так: вывести окно вперёд, фоновым кликом поставить игровой курсор, затем клик в режиме foreground в ту же точку.
+</QuirkCard>
+<QuirkCard title="Клавишу надо держать" icon="⌨" commit="tools/crossover_drive/keyhold.swift">
+Мгновенное нажатие игра теряет: состояние клавиш она читает раз в кадр. Нажатия отправляются через <code>CGEvent.postToPid</code> с удержанием 150 мс.
+</QuirkCard>
+<QuirkCard title="ERROR на каждой музыке" icon="🎵" commit="da5eaaa · 23139fe">
+Под CrossOver каждый запуск музыки показывает «Could not create a filter graph». Окно закрывается кликом по OK, а не клавишей: клавиша дошла бы до игры. Однажды окно съело отпускание J.
+</QuirkCard>
+<QuirkCard title="Экран не должен спать" icon="☕" commit="docs/CROSSPLAY_LOOP.md">
+Заблокированный экран останавливает снимки и ввод. <i>«наверное mac mini уснул?»</i> — после этого прогоны идут под <code>caffeinate</code>. А <code>winedbg</code> читает память оригинала и при заблокированном экране.
+</QuirkCard>
+<QuirkCard title="Чужое окно с тем же именем" icon="🪟" commit="CROSSOVER_REPLAY_CROSSPLAY.md">
+Окна нативного приложения параллельного агента тоже называются «Little Fighter 2». Два нажатия J и два клика ушли в его сетевой матч. Теперь ввод идёт только в окна <code>NTSD 2.4.exe</code>.
+</QuirkCard>
+<QuirkCard title="Терминалы не трогать" icon="🚫" commit="codex-cua-ghostty-refusal-2026-09-26.json">
+После отказа 26 сентября правило цикла: Cua не отправляет ввод в терминалы и другие приложения — только в окно оригинала.
+</QuirkCard>
+</div>
+
+<div class="card mt-4 flex items-center gap-4">
+<div class="pixel hl" style="font-size: 1.5rem">→</div>
+<div class="small ink2">Вариант «вы проходите сами» стоил бы человеку ~20–30 минут на <b>пять</b> повторов. С Cua и <code>/loop</code> на следующий день агент сам сыграл и сверил <b>47 матчей</b> — 156 730 тиков. Человек за эти девять часов написал восемь сообщений.</div>
+</div>
+
+<div class="source">docs/CROSSPLAY_LOOP.md · docs/research/CROSSOVER_REPLAY_CROSSPLAY.md · da5eaaa · 23139fe · журнал сессии 7ea5b99f</div>
+
+---
+
 <Kicker>2 октября · детектив</Kicker>
 
 # Оракул разделял нашу ошибку

@@ -100,6 +100,26 @@ stats: 34 сессии · 31 095 ответов моделей · 1 101 ход �
 
 ---
 
+<Kicker>память агента</Kicker>
+
+# Как агент «дышит» контекстом
+
+<div class="xsmall ink2 mt-1"><i class="swatch" style="background: var(--s2)" /><b>Claude Opus 5.5</b> · сессия 28 сентября — 3 октября · 5 257 запросов · 9 автосжатий · медиана контекста 492 тыс. токенов</div>
+<ContextBreath agent="claude" :height="150" />
+
+<div class="xsmall ink2 mt-1"><i class="swatch" style="background: var(--s1)" /><b>Codex · GPT-6 Astra</b> · первая сессия 7–9 сентября, ночной спринт · 4 057 запросов · 54 сжатия · медиана 146 тыс.</div>
+<ContextBreath agent="codex" :height="130" />
+
+<div class="grid grid-cols-3 gap-4 mt-2 small ink2">
+<div>Каждая точка — один запрос к модели. Контекст растёт с каждым выводом инструмента, а при сжатии агент сохраняет лишь краткий пересказ.</div>
+<div>Claude доходит до ~967 тыс. и падает до 11–36 тыс. — одно сжатие на ~580 запросов. У Codex окно в 258 тыс., и сжатие случается раз в ~75 запросов.</div>
+<div>Поэтому всё, что должно пережить сжатие, живёт в файлах: <code>AGENTS.md</code>, <code>CURRENT_WORK.md</code>, карточки и коммиты.</div>
+</div>
+
+<div class="source">~/.claude/projects: usage каждого запроса, compact_boundary · ~/.codex/sessions: token_usage_record, compacted · scripts/collect_context.py</div>
+
+---
+
 <Kicker>почему была пауза</Kicker>
 
 # Восемь дней тишины совпали с лимитом

@@ -117,3 +117,47 @@ stats: 4 коммита практики · 1 разворот
 </div>
 
 <div class="source">docs/RESEARCH_MAP.md @ c9a5263</div>
+
+---
+
+<Kicker>что видит движок · chars/naruto.dat</Kicker>
+
+# Наруто глазами движка
+
+<div class="mt-3">
+<FrameInspector :ids="[0, 63, 72, 258]" :scale="2.4" />
+</div>
+
+<div class="grid grid-cols-3 gap-4 mt-3 small ink2">
+<div>Картинка — ячейка 79×79 из спрайт-листа <code>naruto_0.bmp</code> / <code>naruto_2.bmp</code>. Чёрный цвет — прозрачный, как в игре.</div>
+<div>Рамки — не разметка художника: движок читает их из текста DAT для этого же кадра. Урон, отбрасывание и падение — поля самого <code>itr</code>.</div>
+<div>У каждого из этих кадров есть <b>второй bdy на y: 80 000</b> — в 80 000 пикселях под персонажем. Такой есть в 127 из 318 определений кадров Наруто.</div>
+</div>
+
+<div class="source">scripts/extract_frames.py · data/engine_frames.json · decoder: tools/import_ntsd.py</div>
+
+---
+
+<Kicker>кадр — это текст</Kicker>
+
+# Так выглядит кадр после расшифровки
+
+<div class="grid grid-cols-[1fr_1fr_0.95fr] gap-4 mt-2">
+<div>
+<div class="xsmall muted mb-1">frame 72 · super_punch — удар с полями урона и падения</div>
+<DatText :id="72" :odd="['80000']" />
+</div>
+<div>
+<div class="xsmall muted mb-1">frame 123 · catching — определён в файле дважды</div>
+<DatText :id="123" :odd="['-842150451']" />
+</div>
+<div class="small ink2">
+
+- **Шифр.** Из каждого байта вычитается байт ключа `SiuHungIsAGoodBearBecauseHeIsVeryGood`; 123 байта мусорного заголовка тоже прокручивают ключ.
+- **−842150451 = 0xCDCDCDCD** — так отладочная куча MSVC заполняет только что выделенную память. В <code>naruto.dat</code> это число встречается 68 раз, во всех DAT персонажей — 1 573 раза в 62 файлах: похоже, редактор, которым сохраняли файлы, записал мусор из памяти.
+- **Кадр 123 определён дважды:** 318 определений дают 317 кадров, а второе определение дописывает поля первого.
+
+</div>
+</div>
+
+<div class="source">chars/naruto.dat, расшифровано · scripts/extract_frames.py · docs/FRAME_LOADER.md</div>

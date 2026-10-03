@@ -107,6 +107,31 @@
 
 ---
 
+<Kicker>те же 27 дней · Gource</Kicker>
+
+# Репозиторий растёт как дерево
+
+<div class="grid grid-cols-[1fr_14rem] gap-5 mt-1 items-start">
+<WindowFrame video="/media/gource.mp4" poster="/media/gource-poster.jpg" :pixel="false" title="gource · 7 сентября → 3 октября 2026 · 7 256 изменений файлов" />
+<div class="small ink2">
+
+<div class="flex flex-col gap-1 mb-3">
+<span><i class="swatch" style="background: var(--s1)" />Codex</span>
+<span><i class="swatch" style="background: var(--s2)" />Claude</span>
+<span><i class="swatch" style="background: var(--s3)" />Codex параллельно: сеть</span>
+</div>
+
+Каждая точка — файл, ветки — папки. Файл окрашивается в цвет агента, который трогал его последним; паузы без коммитов пропущены.
+
+<div class="card-soft mt-3 xsmall">28 сентября — вспышка у <code>native/</code>: проверенный кандидат на 2 291 файл переезжает в корень, а с ним 1 199 ресурсов оригинального каталога.</div>
+
+</div>
+</div>
+
+<div class="source">scripts/make_gource.sh · git log --name-status · gource 0.56</div>
+
+---
+
 <Kicker>ритм</Kicker>
 
 # Агенты не спят

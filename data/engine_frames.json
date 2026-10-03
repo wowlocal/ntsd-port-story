@@ -1,0 +1,317 @@
+{
+ "object": "chars/naruto.dat",
+ "sheets": [
+  {
+   "first": 0,
+   "last": 69,
+   "file": "sprite/sys/naruto_0.bmp",
+   "w": 79,
+   "h": 79,
+   "row": 10,
+   "col": 7
+  },
+  {
+   "first": 70,
+   "last": 139,
+   "file": "sprite/sys/naruto_2.bmp",
+   "w": 79,
+   "h": 79,
+   "row": 10,
+   "col": 7
+  }
+ ],
+ "frames": [
+  {
+   "id": 0,
+   "name": "standing",
+   "pic": 0,
+   "state": 0,
+   "wait": 3,
+   "next": 1,
+   "centerx": 39,
+   "centery": 79,
+   "image": "/img/frames/naruto-0.png",
+   "w": 79,
+   "h": 79,
+   "sheet": "sprite/sys/naruto_0.bmp",
+   "cell": {
+    "x": 0,
+    "y": 0
+   },
+   "bdy": [
+    {
+     "kind": 0,
+     "x": 21,
+     "y": 18,
+     "w": 43,
+     "h": 62
+    },
+    {
+     "kind": 0,
+     "x": 21,
+     "y": 80000,
+     "w": 43,
+     "h": 62
+    }
+   ],
+   "itr": [],
+   "wpoint": [
+    {
+     "kind": 1,
+     "x": 33,
+     "y": 58,
+     "weaponact": 21,
+     "attacking": 0,
+     "cover": 0,
+     "dvx": 0,
+     "dvy": 0,
+     "dvz": 0
+    }
+   ],
+   "cpoint": [],
+   "raw": "<frame> 0 standing\n   pic: 0  state: 0  wait: 3  next: 1  dvx: 0  dvy: 0  centerx: 39  centery: 79  hit_a: 0  hit_d: 0  hit_j: 0 hit_Fj: 240 hit_Fa: 263 hit_Da: 285 hit_Ua: 265 hit_ja: 290 hit_Dj: 271 hit_Uj: 300\n   wpoint:\n      kind: 1  x: 33  y: 58  weaponact: 21  attacking: 0  cover: 0  dvx: 0  dvy: 0  dvz: 0\n   wpoint_end:\n   bdy:\n      kind: 0  x: 21  y: 18  w: 43  h: 62\n   bdy_end:\n   bdy:\n      kind: 0  x: 21  y: 80000  w: 43  h: 62\n   bdy_end:\n<frame_end>",
+   "definitions": 1
+  },
+  {
+   "id": 63,
+   "name": "punch",
+   "pic": 13,
+   "state": 3,
+   "wait": 1,
+   "next": 999,
+   "centerx": 32,
+   "centery": 79,
+   "image": "/img/frames/naruto-63.png",
+   "w": 79,
+   "h": 79,
+   "sheet": "sprite/sys/naruto_0.bmp",
+   "cell": {
+    "x": 240,
+    "y": 80
+   },
+   "bdy": [
+    {
+     "kind": 0,
+     "x": 39,
+     "y": 19,
+     "w": 21,
+     "h": 61
+    },
+    {
+     "kind": 0,
+     "x": 21,
+     "y": 80000,
+     "w": 43,
+     "h": 62
+    }
+   ],
+   "itr": [
+    {
+     "kind": 0,
+     "x": 49,
+     "y": 33,
+     "w": 30,
+     "h": 16,
+     "dvx": 2,
+     "bdefend": 16,
+     "injury": 20
+    }
+   ],
+   "wpoint": [],
+   "cpoint": [],
+   "raw": "<frame> 63 punch\n   pic: 13  state: 3  wait: 1  next: 999  dvx: 0  dvy: 0  centerx: 32  centery: 79  hit_a: 0  hit_d: 0  hit_j: 0\n   itr:\n      kind: 0  x: 49  y: 33  w: 30  h: 16  dvx: 2  bdefend: 16  injury: 20\n   itr_end:\n   bdy:\n      kind: 0  x: 39  y: 19  w: 21  h: 61\n   bdy_end:\n   bdy:\n      kind: 0  x: 21  y: 80000  w: 43  h: 62\n   bdy_end:\n<frame_end>",
+   "definitions": 1
+  },
+  {
+   "id": 72,
+   "name": "super_punch",
+   "pic": 39,
+   "state": 3,
+   "wait": 2,
+   "next": 73,
+   "centerx": 39,
+   "centery": 79,
+   "image": "/img/frames/naruto-72.png",
+   "w": 79,
+   "h": 79,
+   "sheet": "sprite/sys/naruto_0.bmp",
+   "cell": {
+    "x": 720,
+    "y": 240
+   },
+   "bdy": [
+    {
+     "kind": 0,
+     "x": 31,
+     "y": 2,
+     "w": 27,
+     "h": 78
+    },
+    {
+     "kind": 0,
+     "x": 21,
+     "y": 80000,
+     "w": 43,
+     "h": 62
+    }
+   ],
+   "itr": [
+    {
+     "kind": 0,
+     "x": 45,
+     "y": 34,
+     "w": 35,
+     "h": 14,
+     "dvx": 19,
+     "dvy": -7,
+     "fall": 70,
+     "arest": 15,
+     "bdefend": 60,
+     "injury": 60
+    }
+   ],
+   "wpoint": [
+    {
+     "kind": 1,
+     "x": 39,
+     "y": -999,
+     "weaponact": 21,
+     "attacking": 0,
+     "cover": 0,
+     "dvx": 0,
+     "dvy": 0,
+     "dvz": 0
+    }
+   ],
+   "cpoint": [],
+   "raw": "<frame> 72 super_punch\n   pic: 39  state: 3  wait: 2  next: 73  dvx: 0  dvy: 0  centerx: 39  centery: 79  hit_a: 0  hit_d: 0  hit_j: 0\n  sound: data\\007.wav\n   itr:\n      kind: 0  x: 45  y: 34  w: 35  h: 14  dvx: 19  dvy: -7  fall: 70  arest: 15  bdefend: 60  injury: 60\n   itr_end:\n   bdy:\n      kind: 0  x: 31  y: 2  w: 27  h: 78\n   bdy_end:\n   bdy:\n      kind: 0  x: 21  y: 80000  w: 43  h: 62\n   bdy_end:\n   wpoint:\n      kind: 1  x: 39 y: -999 weaponact: 21 attacking: 0  cover: 0  dvx: 0  dvy: 0  dvz: 0\n   wpoint_end:\n<frame_end>",
+   "definitions": 1
+  },
+  {
+   "id": 258,
+   "name": "rasengan",
+   "pic": 107,
+   "state": 3,
+   "wait": 0,
+   "next": 259,
+   "centerx": 39,
+   "centery": 79,
+   "image": "/img/frames/naruto-258.png",
+   "w": 79,
+   "h": 79,
+   "sheet": "sprite/sys/naruto_2.bmp",
+   "cell": {
+    "x": 560,
+    "y": 240
+   },
+   "bdy": [
+    {
+     "kind": 0,
+     "x": 21,
+     "y": 18,
+     "w": 43,
+     "h": 62
+    },
+    {
+     "kind": 0,
+     "x": 21,
+     "y": 80000,
+     "w": 43,
+     "h": 62
+    }
+   ],
+   "itr": [
+    {
+     "kind": 3,
+     "x": 60,
+     "y": 80000,
+     "w": 25,
+     "h": 65,
+     "catchingact": 120,
+     "caughtact": 130
+    }
+   ],
+   "wpoint": [
+    {
+     "kind": 1,
+     "x": 24,
+     "y": 45,
+     "weaponact": 35,
+     "attacking": 0,
+     "cover": 1,
+     "dvx": 0,
+     "dvy": 0,
+     "dvz": 0
+    }
+   ],
+   "cpoint": [],
+   "raw": "<frame> 258 rasengan run\n   pic: 107  state: 3  wait: 0 next: 259  dvx: 35 dvy: 0  dvz: 0 centerx: 39  centery: 79  hit_a: 0  hit_d: 0  hit_j: 0\n bdy:\n      kind: 0  x: 21  y: 18  w: 43  h: 62\n   bdy_end:\nitr:\n      kind: 3  x: 60  y: 80000 w: 25  h: 65\n      catchingact: 120 120  caughtact: 130 130\n   itr_end:\n   bdy:\n      kind: 0  x: 21  y: 80000  w: 43  h: 62\n   bdy_end:\nwpoint:\n      kind: 1  x: 24  y: 45  weaponact: 35  attacking: 0  cover: 1  dvx: 0  dvy: 0  dvz: 0\n   wpoint_end:\n<frame_end>",
+   "definitions": 1
+  },
+  {
+   "id": 123,
+   "name": "catching",
+   "pic": 50,
+   "state": 9,
+   "wait": 0,
+   "next": 124,
+   "centerx": 39,
+   "centery": 79,
+   "image": "/img/frames/naruto-123.png",
+   "w": 79,
+   "h": 79,
+   "sheet": "sprite/sys/naruto_0.bmp",
+   "cell": {
+    "x": 0,
+    "y": 400
+   },
+   "bdy": [
+    {
+     "kind": 0,
+     "x": 19,
+     "y": 15,
+     "w": 28,
+     "h": 65
+    }
+   ],
+   "itr": [],
+   "wpoint": [
+    {
+     "kind": 1,
+     "x": 39,
+     "y": -999,
+     "weaponact": 35,
+     "attacking": 0,
+     "cover": 1,
+     "dvx": 0,
+     "dvy": 0,
+     "dvz": 0
+    }
+   ],
+   "cpoint": [
+    {
+     "kind": 1,
+     "x": 80,
+     "y": 38,
+     "injury": 15,
+     "vaction": 132,
+     "throwvz": -842150451,
+     "hurtable": 1,
+     "throwinjury": -842150451,
+     "decrease": 3
+    }
+   ],
+   "raw": "<frame> 123 catching\n   pic: 50  state: 9  wait: 0  next: 124  dvx: 0  dvy: 550  centerx: 39  centery: 79  hit_a: 0  hit_d: 370 hit_j: 0\n  sound: data\\014.wav\n   cpoint:\n      kind: 1  x: 80  y: 38\n      injury: 15  vaction: 132  throwvz: -842150451  hurtable: 1 throwinjury: -842150451 decrease: 3\n   cpoint_end:\nwpoint:\n      kind: 1  x: 39 y: -999 weaponact: 35  attacking: 0  cover: 1  dvx: 0  dvy: 0  dvz: 0\n   wpoint_end:\n   bdy:\n      kind: 0  x: 19  y: 15  w: 28  h: 65\n   bdy_end:\n<frame_end>",
+   "definitions": 2
+  }
+ ],
+ "stats": {
+  "frame_definitions": 318,
+  "frames": 317,
+  "repeated": [
+   123
+  ],
+  "with_phantom_bdy": 127,
+  "debug_fill_values": 68
+ }
+}
