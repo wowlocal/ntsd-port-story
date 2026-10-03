@@ -1,0 +1,149 @@
+{
+ "note": "free-space readings recorded by the agents (bytes; UTC is the time of the reading or of the commit that recorded it) and sizes measured on 2026-10-03",
+ "internal": [
+  {
+   "t": "2026-09-10T21:21Z",
+   "free": 67645734912,
+   "src": "df -h in Codex session 01a08766: 63Gi available"
+  },
+  {
+   "t": "2026-09-11T08:59Z",
+   "free": 5933752320,
+   "src": "APPLICATION_CATALOG_PLAN.md: before deduplication; Catalog4 exited at the 6 GiB researchStorageLimit",
+   "phase": "before"
+  },
+  {
+   "t": "2026-09-11T08:59Z",
+   "free": 22000947200,
+   "src": "APPLICATION_CATALOG_PLAN.md: 125,292 copies -> APFS clones, 15,817,825,009 duplicate bytes"
+  },
+  {
+   "t": "2026-09-11T10:24Z",
+   "free": 7035580416,
+   "src": "LIB_SELECTION_COMMANDS.md: before 194 identical files became APFS clones",
+   "phase": "before"
+  },
+  {
+   "t": "2026-09-11T10:24Z",
+   "free": 8193622016,
+   "src": "LIB_SELECTION_COMMANDS.md: 7,035,580,416 -> 8,193,622,016, physical extent sharing"
+  },
+  {
+   "t": "2026-09-11T10:46Z",
+   "free": 8076685312,
+   "src": "APPLICATION_CATALOG_TRACE_STORAGE.md: before the move",
+   "phase": "before"
+  },
+  {
+   "t": "2026-09-11T10:46Z",
+   "free": 9534283776,
+   "src": "APPLICATION_CATALOG_TRACE_STORAGE.md: 8,076,685,312 -> 9,534,283,776 after the live trace moved to X5"
+  },
+  {
+   "t": "2026-09-12T11:54Z",
+   "free": 9417273344,
+   "src": "LIB_WAR_NULLABLE_BITMAP.md"
+  },
+  {
+   "t": "2026-09-22T17:48Z",
+   "free": 66567090176,
+   "src": "APPLICATION_HOST_MATCH_CANDIDATE.md (old Codex builds deleted that afternoon at the user's request)"
+  },
+  {
+   "t": "2026-09-26T06:31Z",
+   "free": 63105515520,
+   "src": "APPLICATION_HOST_GAMEPLAY_CORRECTION1.md"
+  },
+  {
+   "t": "2026-09-26T13:52Z",
+   "free": 58875383808,
+   "src": "APPLICATION_OBSERVED_STARTUP_CORRECTION1.md"
+  },
+  {
+   "t": "2026-10-03T16:00Z",
+   "free": 38654705664,
+   "src": "df -h on 2026-10-03: 36Gi available"
+  }
+ ],
+ "x5": [
+  {
+   "t": "2026-09-11T10:46Z",
+   "free": 244800352256,
+   "src": "APPLICATION_CATALOG_TRACE_STORAGE.md: X5 had 244,800,352,256 bytes free"
+  },
+  {
+   "t": "2026-09-22T17:48Z",
+   "free": 161269678080,
+   "src": "APPLICATION_HOST_MATCH_CANDIDATE.md"
+  },
+  {
+   "t": "2026-09-22T19:57Z",
+   "free": 156937142272,
+   "src": "APPLICATION_HOST_GAMEPLAY_VALIDATION.md"
+  },
+  {
+   "t": "2026-09-26T06:31Z",
+   "free": 125450493952,
+   "src": "APPLICATION_HOST_GAMEPLAY_CORRECTION1.md"
+  },
+  {
+   "t": "2026-09-26T07:29Z",
+   "free": 181243486208,
+   "src": "APPLICATION_HOST_GAMEPLAY_COMPLETION.md: +56.9 GB volume observation, not attributed"
+  },
+  {
+   "t": "2026-09-26T13:52Z",
+   "free": 165747548160,
+   "src": "APPLICATION_OBSERVED_STARTUP_CORRECTION1.md"
+  },
+  {
+   "t": "2026-09-26T23:24Z",
+   "free": 147737792512,
+   "src": "APPLICATION_MAC_FRONT_RASTER_CORRECTION2.md"
+  },
+  {
+   "t": "2026-09-27T05:44Z",
+   "free": 139814252544,
+   "src": "APPLICATION_DECIMAL_MATERIALIZATION.md"
+  },
+  {
+   "t": "2026-10-02T15:53Z",
+   "free": 104260542464,
+   "src": "NETWORK_PLAY.md: 97.1 GiB free"
+  },
+  {
+   "t": "2026-10-03T16:00Z",
+   "free": 48629698560,
+   "src": "diskutil on 2026-10-03: container free 48.6 GB"
+  }
+ ],
+ "events": [
+  {
+   "t": "2026-09-11T08:59Z",
+   "label": "дубли трасс → APFS-клоны"
+  },
+  {
+   "t": "2026-09-11T10:46Z",
+   "label": "живая трасса переезжает на X5"
+  },
+  {
+   "t": "2026-09-26T07:21Z",
+   "label": "подключён T7"
+  }
+ ],
+ "sizes_gib": {
+  "x5_research_logical": 2032.1,
+  "x5_volume": 1862.6,
+  "repo_build": 200.1,
+  "repo_build_research": 123.3,
+  "repo_build_research_files": 228276,
+  "repo_build_swift_dirs": 34.2,
+  "repo_build_swift_dirs_count": 23,
+  "repo_build_original_corpora": 8.5,
+  "native_build": 9.6,
+  "git": 4.5,
+  "test_fixtures": 4.3,
+  "t7_artifacts": 15.8,
+  "codex_logs": 3.8
+ }
+}

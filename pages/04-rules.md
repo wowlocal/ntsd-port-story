@@ -241,6 +241,91 @@ stats: AGENTS.md 4 954 → 153 строки · WORKFLOW.md · реестр от�
 
 ---
 
+<Kicker>диск · из карточек и журналов агентов</Kicker>
+
+# Когда закончился диск
+
+<div class="xsmall ink2 mt-1"><b>Ночь на 11 сентября</b> · свободное место на внутреннем SSD Mac mini (время московское)</div>
+<DiskTimeline from="2026-09-10T18:00Z" to="2026-09-11T12:30Z" :y-max="70" :volumes="['internal']" :height="165" hour-ticks
+  :ticks="['2026-09-10T21:00Z', '2026-09-11T00:00Z', '2026-09-11T03:00Z', '2026-09-11T06:00Z', '2026-09-11T09:00Z', '2026-09-11T12:00Z']"
+  :guards="[{ v: 6.44, label: 'гард 6 GiB: здесь захват останавливается' }]"
+  :notes="[
+    { t: '2026-09-10T21:21Z', v: 67.6, text: '67,6 ГБ свободно', dx: 8, dy: -6 },
+    { t: '2026-09-11T02:30Z', v: 44, text: '−62 ГБ: трасса каталога за ночь', dx: 8, dy: 0 },
+    { t: '2026-09-11T08:59Z', v: 33, text: '+16 ГБ: дубли → APFS-клоны', dx: -10, dy: 0, anchor: 'end' },
+    { t: '2026-09-11T10:46Z', v: 9.5, text: '→ X5', dx: 8, dy: -6 },
+  ]" />
+
+<div class="xsmall ink2 mt-1"><b>Дальше</b> · внутренний SSD и внешний X5 до 3 октября</div>
+<DiskTimeline from="2026-09-11T00:00Z" to="2026-10-04T00:00Z" :y-max="260" :height="165"
+  :ticks="['2026-09-14T09:00Z', '2026-09-21T09:00Z', '2026-09-28T09:00Z', '2026-10-03T09:00Z']"
+  :markers="[{ t: '2026-09-26T07:21Z', label: '+ T7: 2 ТБ ExFAT для трасс и архивов' }]"
+  :notes="[
+    { t: '2026-09-11T10:46Z', v: 244.8, text: 'X5: 244,8 ГБ свободно', dx: 8, dy: 4 },
+    { t: '2026-09-22T17:48Z', v: 66.6, text: 'удалены старые сборки Codex', dx: -8, dy: -8, anchor: 'end' },
+    { t: '2026-10-03T16:00Z', v: 48.6, text: 'X5: 48,6 ГБ — занято 98 %', dx: -10, dy: -20, anchor: 'end' },
+  ]" />
+
+<div class="source">APPLICATION_CATALOG_PLAN.md · APPLICATION_CATALOG_TRACE_STORAGE.md · LIB_SELECTION_COMMANDS.md · карточки валидаций 22–27 сентября · df/diskutil 3 октября · data/storage.json</div>
+
+<!--
+11 сентября утром Unicorn-захват каталога остановился на гарде 6 GiB: за ночь трассы съели ~62 ГБ. Агент не стал ничего удалять — нашёл 15,8 ГБ побайтно одинаковых трасс и заменил копии APFS-клонами. Через полтора часа новый захват снова съел 15 ГБ, и его на ходу перенесли на внешний диск за 7 секунд.
+-->
+
+---
+
+<Kicker>куда ушли терабайты</Kicker>
+
+# Клоны, которых не видно в du
+
+<div class="grid grid-cols-[1.1fr_1fr] gap-6 mt-2">
+<div>
+
+<div class="xsmall muted mb-2">занято на 3 октября, ГиБ (по du)</div>
+<div class="sizes">
+<div class="srow"><span class="sl">X5: исследовательские папки агентов</span><span class="st"><i style="width: 100%" /></span><span class="sv">2 032</span></div>
+<div class="srow"><span class="sl">папка <code>build/</code> в репозитории</span><span class="st"><i style="width: 9.85%" /></span><span class="sv">200</span></div>
+<div class="srow sub"><span class="sl">— из них трассы и отчёты задач</span><span class="st"><i style="width: 6.07%" /></span><span class="sv">123</span></div>
+<div class="srow sub"><span class="sl">— 23 отдельные Swift-сборки задач</span><span class="st"><i style="width: 1.68%" /></span><span class="sv">34</span></div>
+<div class="srow"><span class="sl">T7: архивы и трассы</span><span class="st"><i style="width: 0.78%" /></span><span class="sv">16</span></div>
+<div class="srow"><span class="sl"><code>native/.build</code></span><span class="st"><i style="width: 0.47%" /></span><span class="sv">9,6</span></div>
+<div class="srow"><span class="sl">весь <code>.git</code> (включая 4,3 ГиБ фикстур)</span><span class="st"><i style="width: 0.22%" /></span><span class="sv">4,5</span></div>
+<div class="srow"><span class="sl">журналы сессий Codex</span><span class="st"><i style="width: 0.19%" /></span><span class="sv">3,8</span></div>
+</div>
+
+<div class="card-soft mt-3 small ink2">du насчитывает <b>≈2 ТиБ</b> исследовательских данных на X5 — больше, чем весь диск (1,82 ТиБ). Так du считает клоны: каждый — как отдельный файл, хотя блоки у них общие.</div>
+
+<div class="card-soft mt-2 xsmall ink2">Вечером 11 сентября X5 отвалился, и два WIP-коммита ждали диск: <span class="mono">"Never recapture the completed original corpus to replace unavailable storage."</span></div>
+
+</div>
+<div class="small ink2">
+
+<div class="card">
+<div class="pixel hl small">ход агента</div>
+<p class="mb-0">APFS-клон — копия файла, которая делит блоки с оригиналом, пока её не изменят. Утром 11 сентября агент сверил трассы побайтно и заменил <b>125 292 одинаковые копии</b> клонами <b>42 174</b> канонических файлов: +16 ГБ, а все байты, SHA, пути, права и время изменения остались. «Нет ни перекодирования, ни логического удаления».</p>
+</div>
+
+- Кандидаты кода тоже клонировались: неизменённые файлы — без копирования, с проверкой байтов.
+- T7 — ExFAT, клонов там нет: туда трассы, отчёты и архивы, а сборки остаются на X5.
+- Резервы 6 GiB на SSD и 40 GiB на X5 и T7 не снижаются; доказательства ради места не удаляются.
+
+</div>
+</div>
+
+<div class="source">APPLICATION_CATALOG_PLAN.md · APPLICATION_CATALOG_TRACE_STORAGE.md · 13f48b1 · 3ab0ada · du/df 3 октября</div>
+
+<style>
+.sizes { display: flex; flex-direction: column; gap: 0.35rem; }
+.srow { display: grid; grid-template-columns: 13.5rem 1fr 2.6rem; align-items: center; gap: 0.5rem; }
+.srow .sl { font-size: 0.66rem; color: var(--ink); line-height: 1.2; }
+.srow.sub .sl { color: var(--ink-2); padding-left: 0.6rem; }
+.srow .st i { display: block; height: 10px; min-width: 3px; background: var(--s2); border-radius: 0 4px 4px 0; }
+.srow.sub .st i { background: rgba(217,89,38,0.55); }
+.srow .sv { font-size: 0.7rem; font-weight: 650; color: var(--ink); text-align: right; font-variant-numeric: tabular-nums; }
+</style>
+
+---
+
 <Kicker>12 сентября, 10:13–14:23 · побочная линия</Kicker>
 
 # Соблазн готового движка

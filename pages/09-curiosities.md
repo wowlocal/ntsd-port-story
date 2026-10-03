@@ -84,6 +84,45 @@ A, B, C поднимают флаг диагностики, F2 открывае�
 
 ---
 
+<Kicker>случайная находка · из дизассемблера</Kicker>
+
+# Код LF2.NET и скрытый режим
+
+<div class="grid grid-cols-[0.9fr_1.4fr] gap-5 mt-1">
+<div>
+<ChatLog agent="Claude" human="автор" :messages="[
+  { who: 'human', time: '3 окт, 15:58', text: 'что такое «CRAZY!»?' },
+  { who: 'agent', time: '3 окт', text: 'Нашёл скрытую пятую сложность «CRAZY!» (-1): включается через фл… …поэтому помечаю как непроверенную.', hot: true },
+]" />
+<div class="small ink2 mt-3">
+
+В файлах дистрибутива об этом ни слова — режим нашёлся при разборе экрана выбора и обработчика клавиатуры EXE. Коды — домены Little Fighter 2: механизм достался NTSD от движка.
+
+- Второй код **HEROFIGHTER.COM** переключает ещё один флаг, `0x45842c`.
+- Оба флага пишутся в запись матча и восстанавливаются при просмотре.
+- CRAZY! ещё не сверен с оригиналом под CrossOver.
+
+</div>
+</div>
+<div>
+
+<Pipeline :steps="[
+  { name: 'LF2.NET', ru: 'набрать в меню режимов', desc: 'автомат в WndProc ведёт состояние 0x45857c' },
+  { name: '0x455471 = 100', ru: 'защёлка-клавиша', desc: 'индекс 249 в таблице клавиш' },
+  { name: '0x416c70', ru: 'флаг 0x458428', desc: 'флаг = 1 − флаг, звук подтверждения' },
+  { name: 'UNLOCK', ru: 'скрытый режим', desc: 'CRAZY! (−1), бойцы с ID 30–39 и 50–59, трансформации без порога HP < 177', accent: true },
+]" />
+
+<div class="xsmall muted mt-3 mb-1">17 скрытых бойцов, которых экран выбора пропускает без флага (имена из их DAT-файлов)</div>
+<HiddenRoster />
+
+</div>
+</div>
+
+<div class="source">OriginalWindowInput.swift · INPUT_CONTROL.md · CHARACTER_SCREEN.md · MATCH_SELECTION.md · CROSSPLAY_MATRIX.md · скриншот 3 октября</div>
+
+---
+
 <Kicker>археология</Kicker>
 
 # Внутри NTSD всё ещё живёт Little Fighter 2

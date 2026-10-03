@@ -1,0 +1,107 @@
+{
+ "rule": "type-0 objects with ID/10 in {3, 5} are selectable only while 458428 == 1 (LF2.NET)",
+ "characters": [
+  {
+   "id": 30,
+   "file": "sound_nin.dat",
+   "name": "Enemy",
+   "image": "/img/hidden/sound_nin.png"
+  },
+  {
+   "id": 31,
+   "file": "sound_nin2.dat",
+   "name": "Striker_Nin",
+   "image": "/img/hidden/sound_nin2.png"
+  },
+  {
+   "id": 32,
+   "file": "hunter.dat",
+   "name": "Hunter_Nin",
+   "image": "/img/hidden/hunter.png"
+  },
+  {
+   "id": 33,
+   "file": "naruto_clone.dat",
+   "name": "Clone",
+   "image": "/img/hidden/naruto_clone.png"
+  },
+  {
+   "id": 34,
+   "file": "kidomaru.dat",
+   "name": "Kidomaru",
+   "image": "/img/hidden/kidomaru.png"
+  },
+  {
+   "id": 35,
+   "file": "sakon.dat",
+   "name": "Sakon",
+   "image": "/img/hidden/sakon.png"
+  },
+  {
+   "id": 36,
+   "file": "tayuya.dat",
+   "name": "Tayuya",
+   "image": "/img/hidden/tayuya.png"
+  },
+  {
+   "id": 37,
+   "file": "jiroubou.dat",
+   "name": "Jiroubou",
+   "image": "/img/hidden/jiroubou.png"
+  },
+  {
+   "id": 38,
+   "file": "sasuke_cs2.dat",
+   "name": "Sasuke",
+   "image": "/img/hidden/sasuke_cs2.png"
+  },
+  {
+   "id": 39,
+   "file": "sand_creature.dat",
+   "name": "Sand_Creature",
+   "image": "/img/hidden/sand_creature.png"
+  },
+  {
+   "id": 50,
+   "file": "pein.dat",
+   "name": "Pein",
+   "image": "/img/hidden/pein.png"
+  },
+  {
+   "id": 51,
+   "file": "sasori.dat",
+   "name": "Sasori",
+   "image": "/img/hidden/sasori.png"
+  },
+  {
+   "id": 52,
+   "file": "kyubi.dat",
+   "name": "Naruto",
+   "image": "/img/hidden/kyubi.png"
+  },
+  {
+   "id": 55,
+   "file": "puppet_sasori.dat",
+   "name": "Puppet",
+   "image": "/img/hidden/puppet_sasori.png"
+  },
+  {
+   "id": 56,
+   "file": "reaper.dat",
+   "name": "Hidan",
+   "image": "/img/hidden/reaper.png"
+  },
+  {
+   "id": 57,
+   "file": "nckakuzu.dat",
+   "name": "Kakuzu",
+   "image": "/img/hidden/nckakuzu.png"
+  },
+  {
+   "id": 58,
+   "file": "deidara_bird.dat",
+   "name": "Deidara_Bird",
+   "image": "/img/hidden/deidara_bird.png"
+  }
+ ]
+}
