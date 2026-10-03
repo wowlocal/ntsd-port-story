@@ -5,7 +5,7 @@ import tokens from '../data/tokens.json'
 // Processed tokens per local day, stacked by agent (millions).
 const days = (tokens as any).daily as { date: string, codex: number, claude: number }[]
 const W = 900
-const H = 196
+const H = 180
 const m = { l: 60, r: 8, t: 22, b: 38 }
 const plotW = W - m.l - m.r
 const plotH = H - m.t - m.b

@@ -4,7 +4,8 @@ num: 11
 total: 13
 kicker: Глава одиннадцатая
 dates: журналы сессий
-image: /img/screens/12-all-17-backgrounds-grid.jpg
+image: /img/covers/ch11-context-breath.jpg
+imagePixel: false
 stats: 34 сессии · 31 095 ответов моделей · 1 101 ход · 6,3 млрд токенов
 ---
 
@@ -71,32 +72,54 @@ stats: 34 сессии · 31 095 ответов моделей · 1 101 ход �
 
 # Кто нажимал Enter
 
-<div class="grid grid-cols-2 gap-5 mt-2">
+<div class="enter mt-3">
+<div class="enter-row">
+<div class="who"><span class="pixel hl">Codex · /goal</span><span>20 дней работы</span></div>
 <div>
-<div class="pixel hl small mb-2">Codex · /goal</div>
-<div class="grid grid-cols-2 gap-3">
-<StatTile :value="383" label="автопродолжения /goal" sub="8 запусков цели, 129,5 часа автопилота" size="sm" accent="var(--s1)" />
-<StatTile :value="163" label="сообщения человека" sub="за 20 дней работы" size="sm" accent="var(--s1)" />
-<StatTile :value="820" label="ходов" sub="медиана 9,3 мин, самый длинный — 8,4 ч" size="sm" accent="var(--s1)" />
-<StatTile :value="299" label="компакций контекста" sub="окно — 258 тыс. токенов" size="sm" accent="var(--s1)" />
+<div class="units"><i v-for="n in 163" :key="`h${n}`" class="sq-human" /><i v-for="n in 383" :key="`g${n}`" class="sq-goal" /></div>
+<div class="keys"><span><i class="sq-human" /><b>163</b> сообщения человека</span><span><i class="sq-goal" /><b>383</b> автопродолжения /goal — 8 запусков цели, 129,5 ч автопилота</span></div>
+<div class="turns"><b>≈ 2,3</b> автопродолжения на одно сообщение человека · <b>820</b> ходов: медиана <b>9,3 мин</b>, самый длинный <b>8,4 ч</b>, всего <b>241 ч</b> · <b>299</b> компакций контекста, окно 258 тыс. токенов</div>
 </div>
 </div>
+<div class="enter-row">
+<div class="who"><span class="pixel hl">Claude Code · /loop</span><span>6 дней работы</span></div>
 <div>
-<div class="pixel hl small mb-2">Claude Code · /loop</div>
-<div class="grid grid-cols-2 gap-3">
-<StatTile :value="60" label="итераций /loop" sub="и 55 пробуждений по таймеру" size="sm" accent="var(--s2)" />
-<StatTile :value="25" label="сообщений человека" sub="за 6 дней работы" size="sm" accent="var(--s2)" />
-<StatTile :value="281" label="ход" sub="медиана 0,9 мин, самый длинный — 4,4 ч" size="sm" accent="var(--s2)" />
-<StatTile :value="9" label="компакций контекста" sub="каждая — с ~967 тыс. до 11–36 тыс. токенов" size="sm" accent="var(--s2)" />
+<div class="units"><i v-for="n in 25" :key="`h${n}`" class="sq-human" /><i v-for="n in 60" :key="`l${n}`" class="sq-loop" /><i v-for="n in 55" :key="`w${n}`" class="sq-wake" /></div>
+<div class="keys"><span><i class="sq-human" /><b>25</b> сообщений человека</span><span><i class="sq-loop" /><b>60</b> итераций /loop</span><span><i class="sq-wake" /><b>55</b> пробуждений по таймеру</span></div>
+<div class="turns"><b>≈ 4,6</b> итерации и пробуждения на одно сообщение человека · <b>281</b> ход: медиана <b>0,9 мин</b>, самый длинный <b>4,4 ч</b>, всего <b>43,5 ч</b> · <b>9</b> компакций, каждая с ~967 тыс. до 11–36 тыс. токенов</div>
 </div>
 </div>
 </div>
 
 <div class="card-soft mt-4 small ink2">
-<b>241 час</b> ходов у Codex и <b>43,5 часа</b> у Claude. На одно сообщение человека приходилось ~2,3 автопродолжения у Codex и ~4,6 итерации и пробуждения у Claude. Длинные ходы Codex и короткие у Claude — разные режимы: <span class="mono">/goal</span> держит одну задачу часами, <span class="mono">/loop</span> просыпается, делает шаг и засыпает.
+Один квадрат — одно сообщение агенту: от человека или от автопилота. Длинные ходы Codex и короткие у Claude — разные режимы: <span class="mono">/goal</span> держит одну задачу часами, <span class="mono">/loop</span> просыпается, делает шаг и засыпает.
 </div>
 
 <div class="source">~/.codex/sessions: task_started/complete, compacted, сообщения goal · ~/.claude/projects: turn_duration, compact_boundary, scheduled_task_fire · data/sessions.json</div>
+
+<style>
+.enter-row { display: grid; grid-template-columns: 9rem 1fr; column-gap: 1rem; align-items: start; }
+.enter-row + .enter-row { margin-top: 1.1rem; }
+.enter .who { display: flex; flex-direction: column; gap: 0.15rem; font-size: 0.8rem; }
+.enter .who span:last-child { font-size: 0.64rem; color: var(--muted); }
+.enter .units { display: grid; grid-template-rows: repeat(7, 7px); grid-auto-flow: column; grid-auto-columns: 7px; gap: 2px; }
+.enter .units i { display: block; border-radius: 1.5px; }
+.enter .keys { display: flex; flex-wrap: wrap; gap: 0.2rem 1.1rem; margin-top: 0.45rem; font-size: 0.7rem; color: var(--ink-2); }
+.enter .keys i { display: inline-block; width: 8px; height: 8px; border-radius: 2px; margin-right: 0.35rem; }
+.enter .keys b { color: var(--ink); }
+.enter .turns { margin-top: 0.2rem; font-size: 0.66rem; line-height: 1.4; color: var(--muted); }
+.enter .turns b { color: var(--ink-2); font-weight: 600; }
+.enter .sq-human { background: var(--ink-2); }
+.enter .sq-goal { background: var(--s1); }
+.enter .sq-loop { background: var(--s2); }
+.enter .sq-wake { background: #8f4325; }
+</style>
+
+<!--
+Было плитками: Codex — 383 автопродолжения /goal (8 запусков цели, 129,5 часа автопилота), 163 сообщения человека за 20 дней работы, 820 ходов (медиана 9,3 мин, самый длинный — 8,4 ч), 299 компакций контекста (окно — 258 тыс. токенов). Claude Code — 60 итераций /loop и 55 пробуждений по таймеру, 25 сообщений человека за 6 дней работы, 281 ход (медиана 0,9 мин, самый длинный — 4,4 ч), 9 компакций контекста (каждая — с ~967 тыс. до 11–36 тыс. токенов).
+
+241 час ходов у Codex и 43,5 часа у Claude. На одно сообщение человека приходилось ~2,3 автопродолжения у Codex и ~4,6 итерации и пробуждения у Claude. Квадраты — те же счётчики: в каждом столбце семь сообщений, человек слева, автопилот справа.
+-->
 
 ---
 
@@ -105,10 +128,10 @@ stats: 34 сессии · 31 095 ответов моделей · 1 101 ход �
 # Как агент «дышит» контекстом
 
 <div class="xsmall ink2 mt-1"><i class="swatch" style="background: var(--s2)" /><b>Claude Opus 5.5</b> · сессия 28 сентября — 3 октября · 5 257 запросов · 9 автосжатий · медиана контекста 492 тыс. токенов</div>
-<ContextBreath agent="claude" :height="150" />
+<ContextBreath agent="claude" :height="140" />
 
 <div class="xsmall ink2 mt-1"><i class="swatch" style="background: var(--s1)" /><b>Codex · GPT-6 Astra</b> · первая сессия 7–9 сентября, ночной спринт · 4 057 запросов · 54 сжатия · медиана 146 тыс.</div>
-<ContextBreath agent="codex" :height="130" />
+<ContextBreath agent="codex" :height="120" />
 
 <div class="grid grid-cols-3 gap-4 mt-2 small ink2">
 <div>Каждая точка — один запрос к модели. Контекст растёт с каждым выводом инструмента, а при сжатии агент сохраняет лишь краткий пересказ.</div>
