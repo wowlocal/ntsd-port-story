@@ -90,8 +90,8 @@ const totals = (cp as any).totals
 .tile .f {
   position: absolute;
   left: 3px;
-  top: 1px;
-  font-size: 0.5rem;
+  top: 0;
+  font-size: 0.56rem;
   color: var(--ink-2);
   font-family: var(--font-mono);
 }
@@ -99,6 +99,7 @@ const totals = (cp as any).totals
   color: #7ee07e;
   font-weight: 800;
   font-size: 0.8rem;
+  margin: 3px 0 0 4px;
 }
 .tip {
   display: none;

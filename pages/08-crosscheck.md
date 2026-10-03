@@ -34,7 +34,7 @@ stats: 47 из 47 случайных матчей равны · 156 730 свер
 
 <div class="card">
 <div class="pixel hl small">что было до этого</div>
-<p class="small ink2 mb-0">26 сентября Codex пытался управлять окном оригинала через AppleScript и встроенный Computer Use: macOS отказала в assistive access (<span class="mono">-1728</span>), а инструмент не стал работать с окном терминала. Окно игры агенту так и не открылось.</p>
+<p class="small ink2 mb-0" style="line-height: 1.45">26 сентября Codex пытался управлять окном оригинала через AppleScript и встроенный Computer Use: macOS отказала в assistive access (<span class="mono">-1728</span>), а инструмент не стал работать с окном терминала. Окно игры агенту так и не открылось.</p>
 <div class="xsmall muted mt-1">REFERENCE_ENVIRONMENT_ACCESS.md · 3cea373</div>
 </div>
 
@@ -62,33 +62,38 @@ stats: 47 из 47 случайных матчей равны · 156 730 свер
 
 # Чему агент научился, управляя Wine
 
-<div class="grid grid-cols-3 gap-3 mt-3">
-<QuirkCard title="Клик в три приёма" icon="🖱" commit="tools/crossover_drive/cua.py">
-Wine игнорирует фоновые клики по кнопкам. Работает так: вывести окно вперёд, фоновым кликом поставить игровой курсор, затем клик в режиме foreground в ту же точку.
-</QuirkCard>
-<QuirkCard title="Клавишу надо держать" icon="⌨" commit="tools/crossover_drive/keyhold.swift">
-Мгновенное нажатие игра теряет: состояние клавиш она читает раз в кадр. Нажатия отправляются через <code>CGEvent.postToPid</code> с удержанием 150 мс.
-</QuirkCard>
-<QuirkCard title="ERROR на каждой музыке" icon="🎵" commit="da5eaaa · 23139fe">
-Под CrossOver каждый запуск музыки показывает «Could not create a filter graph». Окно закрывается кликом по OK, а не клавишей: клавиша дошла бы до игры. Однажды окно съело отпускание J.
-</QuirkCard>
-<QuirkCard title="Экран не должен спать" icon="☕" commit="docs/CROSSPLAY_LOOP.md">
-Заблокированный экран останавливает снимки и ввод. <i>«наверное mac mini уснул?»</i> — после этого прогоны идут под <code>caffeinate</code>. А <code>winedbg</code> читает память оригинала и при заблокированном экране.
-</QuirkCard>
-<QuirkCard title="Чужое окно с тем же именем" icon="🪟" commit="CROSSOVER_REPLAY_CROSSPLAY.md">
-Окна нативного приложения параллельного агента тоже называются «Little Fighter 2». Два нажатия J и два клика ушли в его сетевой матч. Теперь ввод идёт только в окна <code>NTSD 2.4.exe</code>.
-</QuirkCard>
-<QuirkCard title="Терминалы не трогать" icon="🚫" commit="codex-cua-ghostty-refusal-2026-09-26.json">
-После отказа 26 сентября правило цикла: Cua не отправляет ввод в терминалы и другие приложения — только в окно оригинала.
-</QuirkCard>
-</div>
+<IconCards class="mt-3" :cols="3" :items="[
+  { icon: 'i-pixelarticons-mouse', title: 'Клик в три приёма', text: 'Фоновые клики по кнопкам Wine игнорирует: окно вперёд → фоновый клик ставит курсор игры → клик foreground в ту же точку.', tag: 'tools/crossover_drive/cua.py' },
+  { icon: 'i-pixelarticons-keyboard', title: 'Клавишу надо держать', text: 'Клавиши игра читает раз в кадр — нажатие держится 150 мс через <code>CGEvent.postToPid</code>.', tag: 'tools/crossover_drive/keyhold.swift' },
+  { icon: 'i-pixelarticons-music', title: 'ERROR на каждой музыке', text: '«Could not create a filter graph» закрывается кликом по OK: клавиша дошла бы до игры.', tag: 'da5eaaa · 23139fe' },
+  { icon: 'i-pixelarticons-coffee', title: 'Экран не должен спать', text: 'Блокировка экрана останавливает снимки и ввод — прогоны идут под <code>caffeinate</code>.', tag: 'docs/CROSSPLAY_LOOP.md' },
+  { icon: 'i-pixelarticons-duplicate', title: 'Чужое окно с тем же именем', text: 'Окна параллельного агента тоже «Little Fighter 2» — ввод теперь только в <code>NTSD 2.4.exe</code>.', tag: 'CROSSOVER_REPLAY_CROSSPLAY.md' },
+  { icon: 'i-pixelarticons-terminal', title: 'Терминалы не трогать', text: 'После отказа 26 сентября Cua шлёт ввод только в окно оригинала.', tag: 'codex-cua-ghostty-refusal-2026-09-26.json' },
+]" />
 
-<div class="card mt-4 flex items-center gap-4">
-<div class="pixel hl" style="font-size: 1.5rem">→</div>
-<div class="small ink2">Вариант «вы проходите сами» стоил бы человеку ~20–30 минут на <b>пять</b> повторов. С Cua и <code>/loop</code> на следующий день агент сам сыграл и сверил <b>47 матчей</b> — 156 730 тиков. Человек за эти девять часов написал восемь сообщений.</div>
+<div class="grid grid-cols-3 gap-3 mt-4">
+<StatTile value="~20–30 мин" label="вариант «вы проходите сами»" sub="человек у экрана — на пять повторов" size="sm" accent="var(--muted)" />
+<StatTile :value="47" suffix="матчей" label="на следующий день с Cua и /loop" sub="агент сам сыграл и сверил 156 730 тиков" size="sm" accent="var(--s2)" />
+<StatTile :value="8" suffix="сообщений" label="написал человек за эти девять часов" size="sm" accent="var(--chakra)" />
 </div>
 
 <div class="source">docs/CROSSPLAY_LOOP.md · docs/research/CROSSOVER_REPLAY_CROSSPLAY.md · da5eaaa · 23139fe · журнал сессии 7ea5b99f</div>
+
+<!--
+Клик в три приёма (tools/crossover_drive/cua.py). Wine игнорирует фоновые клики по кнопкам. Работает так: вывести окно вперёд, фоновым кликом поставить игровой курсор, затем клик в режиме foreground в ту же точку.
+
+Клавишу надо держать (tools/crossover_drive/keyhold.swift). Мгновенное нажатие игра теряет: состояние клавиш она читает раз в кадр. Нажатия отправляются через CGEvent.postToPid с удержанием 150 мс.
+
+ERROR на каждой музыке (da5eaaa · 23139fe). Под CrossOver каждый запуск музыки показывает «Could not create a filter graph». Окно закрывается кликом по OK, а не клавишей: клавиша дошла бы до игры. Однажды окно съело отпускание J.
+
+Экран не должен спать (docs/CROSSPLAY_LOOP.md). Заблокированный экран останавливает снимки и ввод. «наверное mac mini уснул?» — после этого прогоны идут под caffeinate. А winedbg читает память оригинала и при заблокированном экране.
+
+Чужое окно с тем же именем (CROSSOVER_REPLAY_CROSSPLAY.md). Окна нативного приложения параллельного агента тоже называются «Little Fighter 2». Два нажатия J и два клика ушли в его сетевой матч. Теперь ввод идёт только в окна NTSD 2.4.exe.
+
+Терминалы не трогать (codex-cua-ghostty-refusal-2026-09-26.json). После отказа 26 сентября правило цикла: Cua не отправляет ввод в терминалы и другие приложения — только в окно оригинала.
+
+Итог: вариант «вы проходите сами» стоил бы человеку ~20–30 минут на пять повторов. С Cua и /loop на следующий день агент сам сыграл и сверил 47 матчей — 156 730 тиков. Человек за эти девять часов написал восемь сообщений.
+-->
 
 ---
 
@@ -112,21 +117,21 @@ Wine игнорирует фоновые клики по кнопкам. Раб�
 </div>
 <div>
 
-<div class="card text-center">
+<div class="card text-center" style="padding: 0.7rem 1rem 0.65rem">
 <div class="xsmall muted">контрольная сумма порта + веса двойных токенов</div>
-<div class="display mt-2" style="font-size: 1.15rem; line-height: 1.6">31 475 378<br>+ 137 × 5 239 <span class="xsmall muted">(&lt;frame_end&gt;)</span><br>+ 17 × 3 749 <span class="xsmall muted">(layer_end)</span></div>
-<div class="mt-2" style="border-top: 1px solid var(--axis); padding-top: .5rem"><span class="display hl" style="font-size: 1.5rem">= 32 256 854</span></div>
-<div class="mono small muted mt-1">0x1e046b2 → 0x1ec3356</div>
+<div class="display mt-1" style="font-size: 1rem; line-height: 1.45">31 475 378<br>+ 137 × 5 239 <span class="xsmall muted">(&lt;frame_end&gt;)</span><br>+ 17 × 3 749 <span class="xsmall muted">(layer_end)</span></div>
+<div class="mt-1" style="border-top: 1px solid var(--axis); padding-top: .4rem"><span class="display hl" style="font-size: 1.3rem">= 32 256 854</span></div>
+<div class="mono small muted">0x1e046b2 → 0x1ec3356</div>
 </div>
 
-<div class="xsmall muted mt-2 mb-1">OriginalObjectLoader.swift: если на EOF новый токен не прочитан, в сумму снова идёт прежний</div>
+<div class="xsmall muted mt-2 mb-1">OriginalObjectLoader.swift: на EOF в сумму снова идёт прежний токен</div>
+
+<div class="oracle-code">
 
 ```swift
 while !input.eof {
     if let next = try input.observedToken() { token = next }
-    guard let current = token else {
-        throw Self.error("No initialized outer token")
-    }
+    guard let current = token else { throw Self.error("No initialized outer token") }
     for (index, scalar) in current.unicodeScalars.enumerated() {
         checksum &+= UInt32(bitPattern: Int32(Int8(
             bitPattern: UInt8(scalar.value)))) &* UInt32(index)
@@ -134,17 +139,26 @@ while !input.eof {
 ```
 
 </div>
+
+</div>
 </div>
 
 <div class="source">3313088 · 53bc59e · docs/research/APPLICATION_CATALOG_CHECKSUM.md</div>
 
+<style>
+.oracle-code .slidev-code,
+.oracle-code pre.shiki { font-size: 10px !important; line-height: 15px !important; }
+</style>
+
+---
+clicks: 3
 ---
 
 <Kicker>как играет пара программ</Kicker>
 
 # Одна запись — две программы — одна таблица итогов
 
-<FlowDiagram class="mt-2" input=".lfr запись" input-sub="Mac → оригинал или оригинал → Mac" :lanes="[
+<FlowDiagram stepwise class="mt-2" input=".lfr запись" input-sub="Mac → оригинал или оригинал → Mac" :lanes="[
   { title: 'NTSD Native.app', sub: 'release-сборка, --virtual-clock, --playback-file, --summary-json', out: 'Summary в JSON прямо из состояния порта', color: 'var(--s1)', tag: 'macOS' },
   { title: 'NTSD 2.4.exe под CrossOver 26.3', sub: 'APFS-клон проверенной копии; клавиши через Cua Driver, 150 мс удержания', out: 'winedbg: x /x 0x450bbc… поля мест +0x348…+0x35c', color: 'var(--s2)', tag: 'Windows' },
 ]" verdict="равно" verdict-sub="Kill, Attack, HP Lost, MP Usage, Picking, время, победитель, итоги War" />
@@ -163,12 +177,44 @@ while !input.eof {
 
 # Слева Mac пишет матч, справа оригинал его проигрывает
 
-<img src="/img/screens/15-summary-mac-vs-original-side-by-side.jpg" class="rounded-lg border border-white/10 mt-2" style="width: 100%">
-
-<div class="grid grid-cols-[1fr_auto] gap-4 mt-3 items-center">
-<div class="small ink2">Kill, Attack, HP Lost, MP Usage, Picking и время 00:54 совпадают во всех трёх строках. Внизу слева — <span class="mono">Recording file '20260101_010000_VS.lfr' saved!</span>: запись сделана на Mac со скриптом и виртуальными часами.</div>
-<span class="tag">docs/evidence/crossover-replay-crossplay-20261002</span>
+<div class="grid grid-cols-[30.5rem_1fr] gap-5 mt-1">
+<BeforeAfter before="/img/compare/summary-mac.jpg" after="/img/compare/summary-original.jpg" before-label="Mac" after-label="оригинал под CrossOver" height="21.1rem" :start="50" />
+<div class="flex flex-col gap-3">
+<div class="card sumcard">
+<div class="pixel hl xsmall">Summary · одинаково в обеих программах</div>
+<table class="sumt">
+<tr><th></th><th>Kill</th><th>Attack</th><th>HP Lost</th><th>MP Usage</th><th>Picking</th><th>Status</th></tr>
+<tr><td>P1</td><td>1</td><td>985</td><td>780</td><td>275</td><td>0</td><td>Lose (Dead)</td></tr>
+<tr><td>P2</td><td>0</td><td>30</td><td>960</td><td>0</td><td>0</td><td>Lose (Dead)</td></tr>
+<tr><td>Com</td><td>1</td><td>1270</td><td>545</td><td>1165</td><td>6</td><td>Win (Alive)</td></tr>
+</table>
+<div class="sumtime"><span class="i-pixelarticons-clock" /> time <b>00 : 54</b></div>
 </div>
+<div class="small ink2">Kill, Attack, HP Lost, MP Usage, Picking и время 00:54 совпадают во всех трёх строках.</div>
+<div class="small ink2">Внизу слева — <span class="mono xsmall">Recording file '20260101_010000_VS.lfr' saved!</span>: запись сделана на Mac со скриптом и виртуальными часами.</div>
+<span class="tag self-start">docs/evidence/crossover-replay-crossplay-20261002</span>
+</div>
+</div>
+
+<style>
+.sumcard { padding: 0.6rem 0.75rem 0.55rem; }
+.sumt { margin-top: 0.35rem; font-size: 0.62rem !important; font-variant-numeric: tabular-nums; }
+.sumt th { font-size: 0.56rem; font-weight: 600; color: var(--muted); padding: 0.15rem 0.2rem !important; text-align: right; white-space: nowrap; }
+.sumt td { padding: 0.2rem 0.2rem !important; color: var(--ink) !important; text-align: right; white-space: nowrap; }
+.sumt td:first-child, .sumt th:first-child { text-align: left; color: var(--ink-2) !important; }
+.sumt td:last-child { color: var(--ink-2) !important; }
+.sumtime { display: flex; align-items: center; justify-content: flex-end; gap: 0.35rem; margin-top: 0.35rem; font-size: 0.62rem; color: var(--muted); }
+.sumtime b { color: var(--ink); font-family: var(--font-mono); }
+.sumtime span { width: 0.9rem; height: 0.9rem; color: var(--naruto); }
+</style>
+
+<!--
+Ползунок можно тянуть: слева от ручки — кадр Mac-приложения, справа — тот же матч в оригинале под CrossOver 26.3. Оба кадра вырезаны из одного снимка по игровой области окна (794 × 550), без рамок.
+
+Это два отдельных снимка: Mac — из своего e2e-прогона, оригинал — снимок через Cua. Сцена за таблицей на них разная: игра за Summary идёт дальше, а снимки сняты отдельно. Сравниваются итоги.
+
+Mac-сборка этого кадра — ещё до исправления дыр RLE (55fd92d), отсюда чёрные плашки под подписями вроде «P1» и «Com». Оригинал проигрывал копию записи, в которой изменены только байты контрольной суммы каталога (+0x744…+0x746): тогда суммы у программ ещё расходились.
+-->
 
 ---
 
@@ -180,16 +226,30 @@ while !input.eof {
 <CrossplayTiles />
 </div>
 
-<div class="grid grid-cols-4 gap-3 mt-4">
+<div class="grid grid-cols-4 gap-3 mt-3">
 <StatTile value="25 / 25" label="персонажей сыграли в равных матчах" size="sm" />
 <StatTile value="17 / 17" label="фонов" size="sm" accent="var(--s1)" />
 <StatTile :value="35272" label="тика — самый длинный War, ГСЧ сверялся каждые 1 000 тиков" size="sm" accent="var(--s3)" />
 <StatTile value="1-1 … 5-1" label="первая фаза каждой группы Stage" size="sm" accent="var(--s4)" />
 </div>
 
-<CharacterBars class="mt-3" />
+<CharacterBars class="mt-2" />
 
 <div class="source">docs/evidence/crossplay-*.json · docs/research/CROSSPLAY_MATRIX.md · data/evidence/crossplay-matches.json</div>
+
+---
+layout: statement
+kicker: 2–3 октября
+big: 58 / 58
+image: /img/screens/15-summary-mac-vs-original-side-by-side.jpg
+shade: 0.9
+---
+
+<b>58 целых матчей</b> сверены с оригиналом под CrossOver.<br><b>Ни одного расхождения порта.</b>
+
+<!--
+58 = 42 случайных матча Mac → оригинал (VS 32, Stage 6, War 4) + 5 матчей оригинал → Mac + 11 ранних повторов; все равны (data/evidence/crossplay-matches.json, totals.allEqual). Demo остаётся открытым — следующий слайд.
+-->
 
 ---
 
@@ -245,6 +305,8 @@ try:
 <div class="source">data/evidence/demo-frames.json · docs/evidence/readme-demo-frames.json · 2e2992b</div>
 
 ---
+clicks: 5
+---
 
 <Kicker>/loop · 3 октября, 07:06–16:05</Kicker>
 
@@ -252,13 +314,14 @@ try:
 
 <div class="xsmall muted mb-2 mt-2">CROSSPLAY_LOOP.md — задание для самотактируемого <code>/loop</code> Claude Code</div>
 
-<Pipeline :steps="[
+<Pipeline stepwise :steps="[
   { name: 'READ', ru: 'прочитать задание', desc: 'CROSSPLAY_LOOP.md и общие правила' },
   { name: 'PICK', ru: 'взять строку', desc: 'верхняя непроверенная в матрице' },
   { name: 'PLAY', ru: 'сыграть', desc: 'запись — в другой программе' },
   { name: 'DIFF', ru: 'локализовать', desc: 'тик → функция → инструкция', accent: true },
   { name: 'FIX', ru: 'исправить и записать', desc: 'тест, матрица, коммит' },
 ]" />
+<CrossLoopBack :steps="5" :at="5" label="следующая итерация — пока в матрице есть непроверенные строки" />
 
 <div class="grid grid-cols-[1fr_1fr_1.6fr] gap-4 mt-4">
 <StatTile :value="18" label="коммитов Claude за 9 часов цикла" size="sm" />
@@ -289,11 +352,22 @@ try:
 <Meter :value="0.514" label="инструкций реально исполнено в записях" sub="47,0 % — в фикстурах, которые сравнивают тесты" />
 <Meter :value="0.978" label="процитировано в карточках или порте" sub="160 функций" />
 
-<div class="card-soft mt-3 small ink2">
-<b>Аудит на следующий день</b> (другой агент): метрика засчитала 293 адреса из статического файла, не нашла WndProc <code>0x43b3d0</code>, переданный через <code>push</code>, и пропустила 2 529 входов в блоки. Вывод: 47 % — ни процент реализованного кода, ни проверенная нижняя граница, интервал 51–92 % тоже не обоснован; новый процент готовности не объявлен.
+<div class="card-soft mt-3 audit">
+<div class="flex items-center gap-2"><span class="i-pixelarticons-warning-box audit-ico" /><b>Аудит на следующий день</b> <span class="muted">· другой агент</span></div>
+<div class="mt-1">Метрика засчитала 293 адреса из статического файла, не нашла WndProc <code>0x43b3d0</code> и пропустила 2 529 входов в блоки. 47&nbsp;% — ни процент реализованного кода, ни проверенная нижняя граница, интервал <span style="white-space: nowrap">51–92&nbsp;%</span> тоже не обоснован; новый процент готовности не объявлен.</div>
 </div>
 
 </div>
 </div>
 
 <div class="source">6fcf8b9 · f9ee219 · docs/research/EXE_COVERAGE_2026-10-02.md · EXE_COVERAGE_AUDIT_2026-10-03.md</div>
+
+<style>
+.audit { font-size: 0.72rem; line-height: 1.42; color: var(--ink-2); padding: 0.6rem 0.8rem; }
+.audit b { color: var(--ink); }
+.audit-ico { width: 1.1rem; height: 1.1rem; color: var(--naruto); flex: none; }
+</style>
+
+<!--
+Аудит на следующий день (другой агент): метрика засчитала 293 адреса из статического файла, не нашла WndProc 0x43b3d0, переданный через push, и пропустила 2 529 входов в блоки. Вывод: 47 % — ни процент реализованного кода, ни проверенная нижняя граница, интервал 51–92 % тоже не обоснован; новый процент готовности не объявлен.
+-->

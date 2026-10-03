@@ -19,12 +19,12 @@ stats: все режимы за день · 200 000 тиков без остан
 # Все режимы за один день
 
 <div class="grid grid-cols-3 gap-3 mt-2">
-<WindowFrame src="/img/screens/07-mission-stage-1-1-storyboard.png" height="128px" title="Stage 1-1 · efcdedc" caption="Mission: логика стейджей 437860 — диалог Какаши, бой, Summary" />
-<WindowFrame src="/img/screens/09-war-battle-cave.png" height="128px" title="War · 4651853" caption="War: логика битвы 43a860, десятки войск на арене" />
-<WindowFrame src="/img/screens/10-team-tournament-bracket-winner.png" height="128px" title="Team Tournament · 16f36a0" caption="Tournament и Team Tournament: сетка и победитель" />
-<WindowFrame src="/img/screens/06-demo-arena-ai.png" height="128px" title="Demo · 6c384fc" caption="Demo: компьютерные бойцы на арене" />
-<WindowFrame src="/img/screens/11-summary-table-values.png" height="128px" title="Playback · d86c783" caption="Просмотр записей: zlib 1.1.4, пролог проигрывания 41bd24" />
-<WindowFrame src="/img/screens/17-gdi-text-controls.png" height="128px" title="CONTROL SETTINGS · 69ffa8e" caption="Настройки управления: клавиши игрока сохраняются" />
+<WindowFrame src="/img/screens/07-mission-stage-1-1-storyboard.png" height="122px" title="Stage 1-1 · efcdedc" caption="Mission: логика стейджей 437860 — диалог Какаши, бой, Summary" />
+<WindowFrame src="/img/screens/09-war-battle-cave.png" height="122px" title="War · 4651853" caption="War: логика битвы 43a860, десятки войск на арене" />
+<WindowFrame src="/img/screens/10-team-tournament-bracket-winner.png" height="122px" title="Team Tournament · 16f36a0" caption="Tournament и Team Tournament: сетка и победитель" />
+<WindowFrame src="/img/screens/06-demo-arena-ai.png" height="122px" title="Demo · 6c384fc" caption="Demo: компьютерные бойцы на арене" />
+<WindowFrame src="/img/screens/11-summary-table-values.png" height="122px" title="Playback · d86c783" caption="Просмотр записей: zlib 1.1.4, пролог проигрывания 41bd24" />
+<WindowFrame src="/img/screens/17-gdi-text-controls.png" height="122px" title="CONTROL SETTINGS · 69ffa8e" caption="Настройки управления: клавиши игрока сохраняются" />
 </div>
 
 <div class="source">efcdedc · 4651853 · 6c384fc · d86c783 · 16f36a0 · abf941f · 69ffa8e · 553d100</div>
@@ -125,28 +125,55 @@ stats: все режимы за день · 200 000 тиков без остан
 
 # Мелочи, которые делают игру той самой
 
-<div class="grid grid-cols-3 gap-4 mt-2">
-<div class="card">
-<div class="pixel hl small">Alt+Enter · cb33304</div>
-<p class="small ink2 mb-0">Полноэкранный режим как в оригинале — вместе с его багом: звуковые эффекты глохнут до конца сессии, а во время записи повтора игра падает через обнулённый указатель <code>0x4588a8</code>. В порту это остановка «Source fault»; обычный полноэкранный режим macOS добавлен отдельно.</p>
+<div class="grid grid-cols-[30rem_1fr] gap-5 mt-1">
+<div>
+<BeforeAfter before="/img/screens/13a-rle-holes-before.png" after="/img/screens/13b-rle-holes-after.png" before-label="до исправления" after-label="после" height="18rem" :start="47" fit="cover" position="20% 50%" pixelated />
+<div class="rle-cap">
+<span class="i-pixelarticons-image-broken rle-ico" />
+<div>
+<div class="flex items-center gap-2"><b>Дыры RLE</b><code class="mini-tag">55fd92d</code></div>
+<div class="rle-txt">«Com» и «P1» — bitmap-шрифты RLE8 с 20 800+ незаписанными пикселями. Windows заливает их индексом палитры 0, и color key их вырезает.</div>
 </div>
-<div class="card">
-<div class="pixel hl small">GDI-текст · 778a8c4</div>
-<p class="small ink2 mb-0">Часть подписей оригинал рисует через Windows GDI шрифтом <code>SYSTEM_FONT</code>. На Mac — системный шрифт, bold 13 px в ячейке 16 px: позиция, размер и цвет сохранены. Это одно из двух объявленных отличий.</p>
 </div>
-<div class="card">
-<div class="pixel hl small">дыры RLE · 55fd92d</div>
-<div class="flex gap-2 mt-1">
-<img src="/img/screens/13a-rle-holes-before.png" class="pixelated rounded" style="width: 48%">
-<img src="/img/screens/13b-rle-holes-after.png" class="pixelated rounded" style="width: 48%">
 </div>
-<p class="xsmall ink2 mb-0 mt-1">«Com» и «P1» — bitmap-шрифты в RLE8 с 20 800+ незаписанными пикселями. Windows заполняет дыры индексом палитры 0, и color key их вырезает. Без этого под надписью — чёрная плашка.</p>
+<div class="flex flex-col gap-2">
+<IconCards :cols="1" :items="[
+  { icon: 'i-pixelarticons-expand', title: 'Alt+Enter', text: 'Полный экран как в оригинале — вместе с его багом: эффекты глохнут, а при записи повтора игра падает через обнулённый указатель <code>0x4588a8</code>.', tag: 'cb33304' },
+  { icon: 'i-pixelarticons-text-start-t', title: 'GDI-текст', text: 'Подписи <code>SYSTEM_FONT</code> рисует системный шрифт Mac: позиция, размер и цвет те же. Одно из двух объявленных отличий.', tag: '778a8c4' },
+]" />
+<div class="also">
+<div class="pixel hl also-h">и ещё</div>
+<div class="also-row"><span class="i-pixelarticons-play also-ico" /><span>Приложение сразу открывает оригинальную игру</span><code class="mini-tag">80c83c1</code></div>
+<div class="also-row"><span class="i-pixelarticons-gamepad also-ico" /><span>Геймпады — как джойстики оригинала, через GameController</span><code class="mini-tag">f265f11</code></div>
+<div class="also-row"><span class="i-pixelarticons-image also-ico" /><span>У бандла — иконка из самого EXE</span><code class="mini-tag">60cd161</code></div>
+</div>
 </div>
 </div>
 
-<div class="card-soft mt-4 small ink2">
+<style>
+.rle-cap { display: flex; gap: 0.6rem; align-items: flex-start; margin-top: 0.65rem; }
+.rle-ico { flex: none; width: 1.45rem; height: 1.45rem; color: var(--naruto); }
+.rle-cap b { font-size: 0.78rem; font-weight: 650; color: var(--ink); }
+.rle-txt { font-size: 0.66rem; line-height: 1.38; color: var(--ink-2); margin-top: 0.2rem; }
+.mini-tag { font-size: 0.56rem !important; color: var(--muted) !important; background: rgba(255, 255, 255, 0.05) !important; border: 0 !important; border-radius: 4px !important; padding: 0.05rem 0.35rem !important; }
+.also { background: rgba(255, 255, 255, 0.03); border: 1px solid var(--hair); border-radius: 12px; padding: 0.5rem 0.8rem 0.55rem; }
+.also-h { font-size: 0.66rem; margin-bottom: 0.2rem; }
+.also-row { display: grid; grid-template-columns: 1.1rem 1fr auto; align-items: center; gap: 0.5rem; font-size: 0.66rem; line-height: 1.3; color: var(--ink-2); padding: 0.2rem 0; }
+.also-row + .also-row { border-top: 1px solid var(--hair); }
+.also-ico { width: 1.05rem; height: 1.05rem; color: var(--naruto); }
+</style>
+
+<!--
+Слайдер: «до исправления» — чёрные плашки под буквами, «после» — сквозь буквы видна кладка. Ползунок можно тянуть.
+
+Alt+Enter (cb33304). Полноэкранный режим как в оригинале — вместе с его багом: звуковые эффекты глохнут до конца сессии, а во время записи повтора игра падает через обнулённый указатель 0x4588a8. В порту это остановка «Source fault»; обычный полноэкранный режим macOS добавлен отдельно.
+
+GDI-текст (778a8c4). Часть подписей оригинал рисует через Windows GDI шрифтом SYSTEM_FONT. На Mac — системный шрифт, bold 13 px в ячейке 16 px: позиция, размер и цвет сохранены. Это одно из двух объявленных отличий.
+
+Дыры RLE (55fd92d). «Com» и «P1» — bitmap-шрифты в RLE8 с 20 800+ незаписанными пикселями. Windows заполняет дыры индексом палитры 0, и color key их вырезает. Без этого под надписью — чёрная плашка.
+
 И ещё: приложение сразу открывает оригинальную игру (80c83c1), геймпады работают как джойстики оригинала через GameController (f265f11), у бандла — иконка из самого EXE (60cd161).
-</div>
+-->
 
 ---
 

@@ -5,7 +5,7 @@ import cov from '../data/evidence/exe-coverage.json'
 // Squarified treemap of the 174 game-code functions of NTSD 2.4.exe, area = instructions.
 // Three classes (all-pairs form → at most three categorical slots).
 const W = 900
-const H = 300
+const H = 380
 const cls = (s: string) => (s === 'recordedOrCompared' ? 'rec' : s === 'portedInsideComparedCallers' ? 'inside' : 'gap')
 const color: Record<string, string> = { rec: 'var(--s1)', gap: 'var(--s2)', inside: 'var(--s3)' }
 
@@ -71,6 +71,11 @@ const rects = computed(() => {
 })
 const fmt = new Intl.NumberFormat('ru-RU')
 const short = (s?: string) => (s || '').replace(/\s*\(.*\)\s*/g, '').split(' / ')[0]
+// labels are 15px in a 900-unit viewBox (≈ 0.55rem on the slide); cut to the rect width with an ellipsis
+const fit = (s: string, w: number) => {
+  const n = Math.floor((w - 12) / 7.4)
+  return s.length > n ? `${s.slice(0, Math.max(1, n - 1)).trimEnd()}…` : s
+}
 const totals = (cov as any).gameFunctionsByStatus
 const legend = [
   { k: 'rec', label: `есть записи исполнения или сравнённый корпус — ${totals.functions.recordedOrCompared} функций` },
@@ -89,9 +94,9 @@ const legend = [
         >
           <title>{{ r.it.entry }} · {{ fmt.format(r.it.instructions) }} инструкций · {{ r.it.label || 'без метки' }}</title>
         </rect>
-        <template v-if="r.w > 74 && r.h > 30">
-          <text :x="r.x + 6" :y="r.y + 15" class="addr">{{ r.it.entry }}</text>
-          <text v-if="r.w > 110 && r.h > 44" :x="r.x + 6" :y="r.y + 29" class="lbl">{{ short(r.it.label).slice(0, Math.floor(r.w / 6.2)) }}</text>
+        <template v-if="r.w > 87 && r.h > 28">
+          <text :x="r.x + 6" :y="r.y + 19" class="addr">{{ r.it.entry }}</text>
+          <text v-if="r.w > 120 && r.h > 48" :x="r.x + 6" :y="r.y + 37" class="lbl">{{ fit(short(r.it.label), r.w) }}</text>
         </template>
       </g>
     </svg>
@@ -104,13 +109,13 @@ const legend = [
 <style scoped>
 .addr {
   font-family: var(--font-mono);
-  font-size: 10.5px;
+  font-size: 15.5px;
   font-weight: 700;
   fill: #fff;
 }
 .lbl {
   font-family: var(--font-sans);
-  font-size: 10px;
+  font-size: 15px;
   fill: rgba(255, 255, 255, 0.86);
 }
 .legend {

@@ -83,9 +83,17 @@ const ticks = [150, 300, 450, 600, 750, 900, 1050]
   font-size: 11px;
   font-weight: 600;
   fill: var(--ink);
+  paint-order: stroke;
+  stroke: var(--bg);
+  stroke-width: 4px;
+  stroke-linejoin: round;
 }
 .ann2 {
   font-size: 11px;
   fill: var(--ink-2);
+  paint-order: stroke;
+  stroke: var(--bg);
+  stroke-width: 4px;
+  stroke-linejoin: round;
 }
 </style>

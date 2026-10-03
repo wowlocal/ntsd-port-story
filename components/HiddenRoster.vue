@@ -50,7 +50,7 @@ const chars = (data as any).characters as { id: number, file: string, name: stri
   position: absolute;
   top: 3px;
   left: 4px;
-  font-size: 0.5rem;
+  font-size: 0.56rem;
   color: #fff;
   background: rgba(10, 13, 19, 0.75);
   border-radius: 3px;

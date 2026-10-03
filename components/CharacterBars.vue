@@ -6,7 +6,7 @@ import cp from '../data/evidence/crossplay-matches.json'
 const items = computed(() => {
   const a = (cp as any).characterAppearances as Record<string, number>
   const list = Object.entries(a).map(([k, v]) => ({
-    name: k.startsWith('Sasori (') ? 'Сасори · скрытый id 51' : k.replace('_', ' '),
+    name: k.startsWith('Sasori (') ? 'Сасори · id 51' : k.replace('_', ' '),
     n: v,
     hidden: k.startsWith('Sasori ('),
   }))
@@ -18,7 +18,7 @@ const max = computed(() => Math.max(...items.value.map(i => i.n)))
 <template>
   <div>
     <div class="head">
-      сколько раз персонаж выходил на арену в равных матчах
+      сколько раз персонаж выходил на арену в равных матчах · <span class="hl">оранжевым</span> — скрытый Сасори (id 51), его выбирал Random
     </div>
     <div class="grid4">
       <div v-for="it in items" :key="it.name" class="row" :class="{ hidden: it.hidden }">
@@ -46,7 +46,7 @@ const max = computed(() => Math.max(...items.value.map(i => i.n)))
   grid-template-columns: 5.6rem 1fr 1.1rem;
   align-items: center;
   gap: 0.35rem;
-  height: 15px;
+  height: 14px;
 }
 .nm {
   font-size: 0.6rem;
