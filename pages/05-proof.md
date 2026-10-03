@@ -79,6 +79,66 @@ stats: 96 коммитов · 0 правок в native/Sources · +20 700 стр
 
 ---
 
+<Kicker>7–27 сентября · месяц вслепую</Kicker>
+
+# 3,4 млрд токенов — и никакой новой картинки
+
+<BlindMonth class="mt-1" />
+
+<div class="grid grid-cols-4 gap-3 mt-1">
+<StatTile :value="36104" prefix="+" label="строк Swift-тестов за 7–27 сентября" size="sm" accent="var(--s1)" />
+<StatTile :value="58621" prefix="+" label="строк в карточках исследований" size="sm" accent="var(--s4)" />
+<StatTile value="52,87 %" label="кода .text EXE в описанных диапазонах порта" size="sm" accent="var(--s3)" />
+<StatTile value="801 → 801" label="строк в слое приложения: на экране ничего нового" size="sm" accent="var(--s2)" />
+</div>
+
+<div class="source">data/tokens.json (журналы сессий) · data/app_lines.json (native/Sources/NTSDApp по дням) · data/growth.json · docs/estimates</div>
+
+<!--
+55 % всех токенов проекта ушло до первого матча в приложении. Снаружи это выглядело как сжигание денег: в окне — тренировочная сцена 7 сентября. Внутри росли ядро, оракулы и эталоны, на которых потом всё собралось за один день.
+-->
+
+---
+
+<Kicker>что говорили аудиторы — что решали</Kicker>
+
+# Не ускорять видимый прогресс
+
+<div class="grid grid-cols-2 gap-x-6 gap-y-2 mt-2 blind">
+<div class="hdr">аудиторы Codex видели</div>
+<div class="hdr">решение</div>
+
+<div class="q"><span class="d">8 сен</span>«Но прироста подтверждённых игровых возможностей Practice за эти 12 часов нет».</div>
+<div class="a"><span class="d">8 сен</span>«<b>Не ускоряем видимый прогресс добавлением персонажей и техник на неполной основе.</b> Сейчас основной результат будет появляться в движке и проверках; тренировочное окно некоторое время может выглядеть прежним».</div>
+
+<div class="q"><span class="d">12 сен</span>«Сейчас основная проблема — разрыв между большим проверенным ядром и ограниченной Practice».</div>
+<div class="a"><span class="d">12 сен</span>Готовый движок L2DF дал работающее приложение через 16 минут после просьбы — и был остановлен: <i>«кароче не стоит полагаться на движок? лучше делать как в main-е, продолжить как шли?»</i> → <i>«ок, остановил. продолжаем на main»</i>.</div>
+
+<div class="q"><span class="d">14 сен</span>«Это полезно, но пользовательского результата пока не добавляет: MeleeScene всё ещё использует OriginalMelee».</div>
+<div class="a"><span class="d">13 сен</span>«Основную стратегию менять не стоит… Погоня за ростом диапазонов сейчас дала бы красивый процент, но не приблизила бы так сильно первый настоящий матч».</div>
+
+<div class="q"><span class="d">27 сен</span>«Ни одного коммита в <code>native/</code> за эти 9 часов. Приложение продолжает запускать Practice».</div>
+<div class="a"><span class="d">27 сен</span>Правила прогресса: проверенное — сразу переносить в <code>native/</code>. Но ни одна проверка не отменяется и ни один эталон не правится.</div>
+</div>
+
+<div class="card thesis mt-3">
+<div class="mono small">«Методология валидации — это всё. Это самое важное. Это ровно то, что в самом конце привело нас к полному паритету в интеграционных тестах».</div>
+<div class="xsmall muted mt-1">автор проекта · <b class="hl">28 сентября</b> — первый матч в приложении, <b class="hl">3 октября</b> — 58 целых матчей без единого расхождения с оригиналом</div>
+</div>
+
+<div class="source">~/.codex/sessions: сессии-аудиты 8, 12, 13, 14, 26 и 27 сентября · 007c007 · docs/research/PROGRESS_RULES.md</div>
+
+<style>
+.blind .hdr { font-family: var(--font-pixel); font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--naruto); }
+.blind .q, .blind .a { font-size: 0.68rem; line-height: 1.35; padding: 0.4rem 0.6rem; border-radius: 10px; }
+.blind .q { background: var(--surface); border: 1px solid var(--hair); color: var(--ink-2); }
+.blind .a { background: rgba(57,135,229,0.12); border: 1px solid rgba(57,135,229,0.35); color: var(--ink); }
+.blind .d { display: inline-block; font-family: var(--font-mono); font-size: 0.58rem; color: var(--muted); margin-right: 0.4rem; }
+.thesis { border-color: rgba(255,138,61,0.55); }
+</style>
+
+---
+
 <Kicker>27 сентября</Kicker>
 
 # Правила прогресса

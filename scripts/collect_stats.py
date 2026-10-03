@@ -282,3 +282,14 @@ for p in git("ls-tree", "-r", "--name-only", "HEAD", "native/Tests").split("\n")
 summary["test_functions"] = tests
 dump("summary.json", summary)
 print(json.dumps({k: v for k, v in summary.items() if k != "prologue"}, ensure_ascii=False, indent=1))
+
+
+# ------------------------------------------------------------------ the app layer: what a player could see
+app_lines = {}
+for d, h in last_of_day.items():
+    n = 0
+    for p in git("ls-tree", "-r", "--name-only", h, "native/Sources/NTSDApp").split("\n"):
+        if p.endswith(".swift"):
+            n += git("show", f"{h}:{p}").count("\n")
+    app_lines[d] = n
+dump("app_lines.json", {"note": "lines of native/Sources/NTSDApp/*.swift at the last commit of each day with commits", "app_lines": app_lines})
