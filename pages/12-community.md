@@ -4,7 +4,8 @@ num: 12
 total: 13
 kicker: Сообщество
 dates: 2007 → 3 октября 2026
-image: /img/screens/10-team-tournament-bracket-winner.png
+image: /img/covers/ch12-collage.jpg
+imagePixel: false
 stats: Discord · лента · что дальше
 ---
 
@@ -18,7 +19,7 @@ stats: Discord · лента · что дальше
 
 # Девятнадцать лет без исходников
 
-<HistoryTimeline class="mt-1" from="2007-07-01" to="2026-12-31" :ticks="['2008-01-01', '2010-01-01', '2012-01-01', '2014-01-01', '2016-01-01', '2018-01-01', '2020-01-01', '2022-01-01', '2024-01-01', '2026-01-01']" :height="142" :axis="80"
+<HistoryTimeline class="mt-1" from="2007-07-01" to="2026-12-31" :ticks="['2008-01-01', '2010-01-01', '2012-01-01', '2014-01-01', '2016-01-01', '2018-01-01', '2020-01-01', '2022-01-01', '2024-01-01', '2026-01-01']" :height="196" :axis="100" :gap="22"
   :kinds="{ ntsd: { color: '#c3c2b7', name: 'версии NTSD' }, base: { color: 'var(--s1)', name: 'основа порта' }, community: { color: 'var(--s3)', name: 'сообщество' }, port: { color: 'var(--naruto)', name: 'этот порт' } }"
   :events="[
     { t: '2007-11-15', label: '2007 · тема на форуме LF-Empire', row: 3, kind: 'community' },
@@ -29,14 +30,14 @@ stats: Discord · лента · что дальше
     { t: '2014-12-26', label: 'Neora · 2014', row: 1, end: true, kind: 'ntsd' },
     { t: '2015-07-01', label: 'турнир 2015 · .lfr', row: -1, end: true, kind: 'community' },
     { t: '2016-12-01', label: 'Discord · 2016', row: 1, kind: 'community' },
-    { t: '2018-07-07', label: 'Community Edition · 2018', row: -1, end: true, kind: 'ntsd' },
+    { t: '2018-07-07', label: 'Community Edition · 2018', row: -3, end: true, kind: 'ntsd' },
     { t: '2019-02-19', label: 'NTSD 2.5 · 2019', sub: '«after 10 years of inactivity»', row: 2, kind: 'ntsd' },
     { t: '2019-09-19', label: 'NTSD 2.6', sub: 'Конан, высокое разрешение', row: -2, kind: 'ntsd' },
     { t: '2021-06-07', label: '2021 · «…I would have to move to a new engine»', row: 1, kind: 'community' },
     { t: '2026-10-02', label: '2 окт 2026 · «Not anymore 🙂»', row: -1, end: true, kind: 'port' },
   ]" />
 
-<div class="grid grid-cols-3 gap-4 mt-2 xsmall ink2">
+<div class="grid grid-cols-3 gap-4 mt-4 xsmall ink2">
 <div><b class="ink">«2.4_2.0a» — не новая версия, а пересадка.</b> Кредиты и <code>data.txt</code> совпадают побайтно; EXE заменён на LF2 2.0a ради фикса зеркальных спрайтов — 326 файлов <code>*_mirror.bmp</code>.</div>
 <div><b class="ink">Сообщество живо.</b> В Discord около 3 842 участников, на форуме с 2008 года — 6 390 пользователей и 273 666 сообщений; NTSD 2.6 на ModDB скачали около 49,8 тыс. раз.</div>
 <div><b class="ink">Исходники закрыты официально.</b> FAQ LF2: «Will LF2 be open source? No, we are not planning to do that.» Новые сборки после 2.6 раздают только через Discord.</div>
@@ -104,12 +105,23 @@ stats: Discord · лента · что дальше
 <div class="source">скриншоты Discord-сервера NTSD, 10 февраля 2024 · ники как на сервере, аватары не показаны</div>
 
 ---
+layout: statement
+kicker: Discord NTSD · 2 октября 2026
+---
+
+Not anymore 🙂
+
+<!--
+Ответ автора порта на то самое сообщение Remie 2024 года — «The engine itself has always been closed for everyone though…». 2 октября 2026, 09:19.
+-->
+
+---
 
 <Kicker>Discord NTSD · 2–3 октября 2026</Kicker>
 
-# «Not anymore 🙂»
+# От ссылки до релиза
 
-<div class="grid grid-cols-2 gap-4 mt-2">
+<div class="grid grid-cols-2 gap-4 mt-1">
 <DiscordLog :messages="[
   { day: '2 октября 2026' },
   { me: true, who: 'resultBuilder', color: '#b5c4a8', time: '09:01', text: 'Hello everybody! Huge fan of the game. Played with my pals when we were kids… We tried to do original game exe analysis with most powerful AI at the time (GPT Astra xhigh and Opus 5.5 xhigh). Take a look what we’ve got <span class=link>github.com/wowlocal/ntsd-2.4</span><br><br>The game is playable, bot AI is working, sounds, everything except remote coop (LLMs refuse to write low level networking code)' },
@@ -182,8 +194,8 @@ stats: Discord · лента · что дальше
 
 <style>
 .trend figure { margin: 0; background: var(--surface); border: 1px solid var(--hair); border-radius: 10px; overflow: hidden; }
-.trend img { display: block; width: 100%; height: 150px; object-fit: cover; object-position: top; }
-.trend .wide img { height: 150px; object-fit: contain; background: #0f0f0f; }
+.trend img { display: block; width: 100%; height: 136px; object-fit: cover; object-position: top; }
+.trend .wide img { height: 136px; object-fit: contain; background: #0f0f0f; }
 .trend figcaption { font-size: 0.6rem; color: var(--ink-2); padding: 0.3rem 0.55rem 0.35rem; line-height: 1.3; }
 .trend figcaption b { color: var(--ink); font-weight: 600; }
 </style>
@@ -248,38 +260,43 @@ stats: Discord · лента · что дальше
 
 <div class="persp grid grid-cols-3 gap-3 mt-3">
 <div class="card">
-<div class="pixel small" style="color: var(--s3)">работает</div>
+<div class="ph pixel" style="color: var(--s3)"><span class="i-pixelarticons-check" />работает</div>
 <ul>
-<li><b>Сеть по протоколу оригинала</b>: TCP 12345, таблица случайных чисел 3 001 байт, 22 байта на тик. Два Mac-приложения сыграли матч до итогов — 836 пакетов в каждую сторону, общее состояние совпало.</li>
-<li><b>v0.4.0</b> подписан и нотаризован, сеть включена; онлайн в README пока «in progress».</li>
+<li><b>Сеть по протоколу оригинала</b>: два Mac-приложения сыграли матч до итогов, общее состояние совпало</li>
+<li><b>v0.4.0</b> подписан и нотаризован, сеть включена; онлайн в README — «in progress»</li>
 </ul>
 </div>
 <div class="card">
-<div class="pixel small" style="color: var(--s1)">в работе</div>
+<div class="ph pixel" style="color: var(--s1)"><span class="i-pixelarticons-loader" />в работе</div>
 <ul>
-<li><b>«Одно ядро на всех платформах»</b> — без веток геймплея под платформу и без второго движка.</li>
-<li>3 октября ядро впервые собралось под <b>Linux</b>; дальше Windows, затем <b>iPad</b> (контроллер и клавиатура, потом тач) и Android — всё кросс-компиляцией с Mac.</li>
-<li>Кроссплей по сети с оригиналом под Windows — цель, пока не наблюдался.</li>
+<li><b>Одно ядро на всех платформах</b> — без веток геймплея и второго движка</li>
+<li><b>Linux</b>: ядро впервые собралось 3 октября; дальше Windows, iPad и Android</li>
+<li><b>Кроссплей с оригиналом</b> под Windows — цель, пока не наблюдался</li>
 </ul>
 </div>
 <div class="card">
-<div class="pixel small hl">становится возможным</div>
+<div class="ph pixel hl"><span class="i-pixelarticons-lightbulb" />становится возможным</div>
 <ul>
-<li>новые механики и режимы — кодом, а не переходами в DLL;</li>
-<li>инструменты моддинга поверх загрузчика данных ядра;</li>
-<li>Metal и SDL3 вместо программной отрисовки 794×550, консоли;</li>
-<li>игра через интернет без проброса портов.</li>
+<li>новые механики и режимы — кодом, а не переходами в DLL</li>
+<li>инструменты моддинга поверх загрузчика данных ядра</li>
+<li>Metal и SDL3 вместо программной отрисовки, консоли</li>
+<li>игра через интернет без проброса портов</li>
 </ul>
 </div>
 </div>
 
-<div class="xsmall muted mt-2">Сейчас правила проекта требуют точной верности оригиналу, поэтому третья колонка — идеи. Но у любой из них остаётся эталон: оригинальное поведение можно держать за переключателем и сверять, что оно не сломалось.</div>
+<div class="xsmall muted mt-3">Сейчас правила требуют точной верности оригиналу, поэтому третья колонка — идеи. Но эталон остаётся: оригинальное поведение можно держать за переключателем и сверять, что оно не сломалось.</div>
 
 <style>
-.persp ul { margin: 0.35rem 0 0; padding-left: 1rem; }
-.persp li { font-size: 0.66rem; line-height: 1.38; color: var(--ink-2); margin: 0.2rem 0; }
+.persp .ph { display: flex; align-items: center; gap: 0.4rem; font-size: 0.8rem; }
+.persp .ph span { width: 1.1rem; height: 1.1rem; }
+.persp ul { margin: 0.4rem 0 0; padding-left: 1rem; }
+.persp li { font-size: 0.72rem; line-height: 1.38; color: var(--ink-2); margin: 0.3rem 0; }
 .persp li b { color: var(--ink); }
 </style>
 
 <div class="source">ntsd-2.4: CROSS_PLATFORM.md L3–21, L86–124 · NETWORK_PLAY.md L21–23, L233–250 · NETWORK_PLAY_PLAN.md L13–45, L93–94 · LIB_RUNTIME.md L3–6, L63–66 · PLAN.md L28–30 · 65c6916 (локальная ветка)</div>
 
+<!--
+Подробности, убранные со слайда. Сеть по протоколу оригинала: TCP 12345, таблица случайных чисел 3 001 байт, 22 байта на тик; два Mac-приложения сыграли матч до итогов — 836 пакетов в каждую сторону. iPad — сначала контроллер и клавиатура, потом тач; все платформы — кросс-компиляцией с Mac. Сейчас отрисовка программная, 794×550.
+-->

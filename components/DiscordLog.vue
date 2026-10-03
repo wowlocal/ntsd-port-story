@@ -50,14 +50,14 @@ defineProps<{ messages: Msg[] }>()
   padding: 0.55rem 0.8rem 0.6rem;
   display: flex;
   flex-direction: column;
-  gap: 0.42rem;
+  gap: 0.36rem;
   font-family: var(--font-sans);
 }
 .day {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 0.52rem;
+  font-size: 0.56rem;
   color: var(--muted);
   font-weight: 600;
 }
@@ -73,7 +73,7 @@ defineProps<{ messages: Msg[] }>()
   margin-left: -0.55rem;
 }
 .reply {
-  font-size: 0.52rem;
+  font-size: 0.56rem;
   color: var(--muted);
   white-space: nowrap;
   overflow: hidden;
@@ -106,7 +106,7 @@ defineProps<{ messages: Msg[] }>()
   font-weight: 600;
 }
 .t {
-  font-size: 0.5rem;
+  font-size: 0.56rem;
   color: var(--muted);
 }
 .text {
@@ -127,7 +127,7 @@ defineProps<{ messages: Msg[] }>()
   max-width: 26rem;
 }
 .site {
-  font-size: 0.5rem;
+  font-size: 0.56rem;
   color: var(--muted);
 }
 .et {

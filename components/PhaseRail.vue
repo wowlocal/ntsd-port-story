@@ -64,7 +64,7 @@ const word = { done: 'готово', part: 'частично', next: 'следу
   font-weight: 500;
 }
 .st {
-  font-size: 0.52rem;
+  font-size: 0.56rem;
   color: var(--muted);
   margin-left: 0.4rem;
 }

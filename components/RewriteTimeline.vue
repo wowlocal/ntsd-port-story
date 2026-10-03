@@ -9,7 +9,7 @@ const old: Ev[] = [
   { t: '2019-07-01', label: '2019 · SM64', sub: 'побайтовая декомпиляция', row: 2, kind: 'old' },
   { t: '2021-11-01', label: '2021 · Ocarina of Time', sub: '21 месяц до 100 %', row: -2, end: true, kind: 'old' },
   { t: '2024-05-10', label: '2024 · Zelda 64: Recompiled', row: 1, end: true, kind: 'old' },
-  { t: '2025-03-01', label: '2025 · Unleashed Recomp', row: -1, end: true, kind: 'old' },
+  { t: '2025-03-01', label: '2025 · Unleashed Recomp', row: -3, end: true, kind: 'old' },
 ]
 const now: Ev[] = [
   { t: '2026-07-24', label: '24 июл · benilla', sub: 'WoW 1.12.1, ≈ 3 месяца с Claude', row: 1, kind: 'ai' },

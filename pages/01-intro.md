@@ -13,6 +13,18 @@
 <div class="source">docs/media/demo-side-by-side.mp4 · docs/evidence/readme-demo-frames.json · tools/crossover_drive/demo_frames.py</div>
 
 ---
+layout: statement
+kicker: с чего начинали
+big: "0"
+---
+
+строк исходного кода — у нас был только <b>один EXE</b>
+
+<!--
+Ноль строк исходного кода. Был только дистрибутив игры: NTSD 2.4.exe, DAT-файлы с кадрами, BMP-спрайты, WAV и WMA — о нём следующий слайд.
+-->
+
+---
 
 <Kicker>что портируем</Kicker>
 
@@ -50,33 +62,61 @@
 
 # Задача, сформулированная запретами
 
-<div class="grid grid-cols-2 gap-5 mt-3">
+<div class="rules grid grid-cols-2 gap-5 mt-3">
 <div class="card">
-<div class="pixel hl small">нужно</div>
-
-- Нативная macOS-игра: поведение, вид, ввод, звук и **ощущение** оригинала.
-- Весь объём: контент, режимы, AI, меню, настройки, сохранения, повторы, сеть.
-- Даже **оригинальные ошибки**, достижимые в игре.
-- Правила — из EXE: общие DAT-обработчики плюс исключения по ID, которые есть в самом EXE.
-
+<div class="rh pixel hl"><span class="i-pixelarticons-check" />нужно</div>
+<div class="rr"><span class="ri i-pixelarticons-app-mac" /><div><b>Нативная macOS-игра</b><span>поведение, вид, ввод, звук и ощущение оригинала</span></div></div>
+<div class="rr"><span class="ri i-pixelarticons-gamepad" /><div><b>Весь объём игры</b><span>режимы, AI, меню, сохранения, повторы, сеть</span></div></div>
+<div class="rr"><span class="ri i-pixelarticons-bug" /><div><b>Даже ошибки оригинала</b><span>если они достижимы в игре</span></div></div>
+<div class="rr"><span class="ri i-pixelarticons-binary" /><div><b>Правила — из EXE</b><span>общие DAT-обработчики + исключения по ID из самого EXE</span></div></div>
 </div>
-<div class="card">
-<div class="pixel small" style="color: var(--s8)">нельзя</div>
-
-- В рантайме: браузерный движок, Windows-EXE, CrossOver, Wine, эмуляция.
-- Угадывать физику, тайминги комбо, урон, AI и случайность.
-- Брать правила из F.LF или другой реимплементации LF2.
-- Трогать оригинальные ассеты, чтобы подогнать их под недописанный движок.
-
+<div class="card no">
+<div class="rh pixel"><span class="i-pixelarticons-close" />нельзя</div>
+<div class="rr"><span class="ri i-pixelarticons-app-windows" /><div><b>В рантайме</b><span>браузерный движок, Windows-EXE, CrossOver, Wine, эмуляция</span></div></div>
+<div class="rr"><span class="ri i-pixelarticons-dice" /><div><b>Угадывать</b><span>физику, тайминги комбо, урон, AI и случайность</span></div></div>
+<div class="rr"><span class="ri i-pixelarticons-copy-x" /><div><b>Брать правила</b><span>из F.LF или другой реимплементации LF2</span></div></div>
+<div class="rr"><span class="ri i-pixelarticons-image-broken" /><div><b>Трогать оригинальные ассеты</b><span>чтобы подогнать их под недописанный движок</span></div></div>
 </div>
 </div>
 
-<div class="card-soft mt-4 flex items-center gap-4">
+<div class="card-soft mt-5 flex items-center gap-4">
 <div class="pixel hl" style="font-size: 1.6rem">!</div>
 <div class="small"><span class="mono">"The user rejected the previous JavaScript implementation. Do not copy its behavior."</span><br><span class="muted xsmall">первый AGENTS.md, 7 сентября 2026, коммит ceead97</span></div>
 </div>
 
+<style>
+.rules .card { padding: 0.85rem 1rem 0.9rem; }
+.rules .rh { display: flex; align-items: center; gap: 0.45rem; font-size: 0.8rem; margin-bottom: 0.55rem; }
+.rules .rh span { width: 1.05rem; height: 1.05rem; }
+.rules .no .rh { color: var(--s8); }
+.rules .rr { display: grid; grid-template-columns: 1.6rem 1fr; gap: 0.65rem; align-items: start; margin-top: 0.85rem; }
+.rules .ri { width: 1.5rem; height: 1.5rem; color: var(--naruto); margin-top: 0.1rem; }
+.rules .no .ri { color: var(--s8); }
+.rules .rr b { display: block; font-size: 0.92rem; line-height: 1.25; color: var(--ink); font-weight: 650; }
+.rules .rr div > span { display: block; font-size: 0.76rem; line-height: 1.35; color: var(--ink-2); margin-top: 0.12rem; }
+</style>
+
 <div class="source">AGENTS.md · ceead97</div>
+
+<!--
+Полные формулировки из AGENTS.md.
+Нужно: нативная macOS-игра — поведение, вид, ввод, звук и ощущение оригинала. Весь объём: контент, режимы, AI, меню, настройки, сохранения, повторы, сеть. Даже оригинальные ошибки, достижимые в игре. Правила — из EXE: общие DAT-обработчики плюс исключения по ID, которые есть в самом EXE.
+Нельзя: в рантайме — браузерный движок, Windows-EXE, CrossOver, Wine, эмуляция. Угадывать физику, тайминги комбо, урон, AI и случайность. Брать правила из F.LF или другой реимплементации LF2. Трогать оригинальные ассеты, чтобы подогнать их под недописанный движок.
+-->
+
+---
+
+<Kicker>оглавление · 13 глав</Kicker>
+
+# Маршрут на 27 дней
+
+<MetroMap class="mt-2" />
+
+<div class="source">даты и цифры — с обложек глав · цвет линии — автор коммитов: git log, трейлер Co-Authored-By</div>
+
+<!--
+Тринадцать глав — станции одной линии. Синий участок — Codex (GPT-6 Astra), 7–27 сентября; оранжевый — Claude Opus 5.5 с 28 сентября, пересадка — глава «Поворот». Главы 9–11 — обо всём проекте сразу, поэтому там идут обе линии. Пролог — 31 марта, за 160 дней тишины до старта. Пунктир в конце — что дальше: Linux, Windows, iPad.
+-->
 
 ---
 
@@ -102,7 +142,7 @@
 <div class="source">git log · data/daily.json · docs/evidence/codex-safety-incidents-2026-09-12.json · docs/GOAL_100.md</div>
 
 <!--
-Цвет — кто сделал коммит. Серые плашки — дни без коммитов: восемь дней с 15 по 21 сентября и три дня с 23 по 25.
+Цвет — кто сделал коммит. Серые плашки — дни без коммитов: семь дней с 15 по 21 сентября и три дня с 23 по 25.
 -->
 
 ---

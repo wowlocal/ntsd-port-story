@@ -93,28 +93,59 @@ stats: релиз v0.4.0 · что дальше · чему научились
 
 # Что стоит унести с собой
 
-<div class="grid grid-cols-2 gap-x-6 gap-y-3 mt-3">
-<div class="lesson"><span class="n pixel">1</span><div><b>Один эталон, неизменяемые ожидания.</b> Ни одно expected не переписывали под код: исправление получает своё доказательство и свой run ID.</div></div>
-<div class="lesson"><span class="n pixel">2</span><div><b>У каждого утверждения — класс доказательства.</b> Статика, вывод, дифференциальное сравнение, настоящий рантайм. Неизвестное не становится нулём.</div></div>
-<div class="lesson"><span class="n pixel">3</span><div><b>Оракул может разделять вашу ошибку.</b> Контрольная сумма совпадала с Unicorn байт в байт — и была неверной. Нужен настоящий оригинал.</div></div>
-<div class="lesson"><span class="n pixel">4</span><div><b>Проверка без интеграции — тоже долг.</b> Две недели доказательств без единой правки в <code>native/</code> закончились правилом: после успешного сравнения — перенос.</div></div>
-<div class="lesson"><span class="n pixel">5</span><div><b>Провал — это артефакт.</b> Сохранённые assertion, гарды памяти и таймауты превращают историю проекта в воспроизводимое расследование.</div></div>
-<div class="lesson"><span class="n pixel">6</span><div><b>Отказ модели не обходят — и не раздувают.</b> Остановиться, записать, продолжать независимую работу; но неизвестный предмет отказа — не запрет на всю сеть.</div></div>
-<div class="lesson"><span class="n pixel">7</span><div><b>Целое — не сумма частей.</b> 692 теста и 215 оракулов не заменили 58 целых матчей против настоящего оригинала.</div></div>
-<div class="lesson"><span class="n pixel">8</span><div><b>Правила — не журнал.</b> Свод из 4 954 строк перестал работать как свод. Инструкции отдельно, статус отдельно — и следить, куда утечёт журнал.</div></div>
+<div class="lessons grid grid-cols-4 gap-3 mt-4">
+<div class="ls"><div class="top"><span class="i-pixelarticons-lock" /><i class="pixel">01</i></div><b>Один эталон, неизменяемые ожидания</b><p>ни одно expected не переписывали под код</p></div>
+<div class="ls"><div class="top"><span class="i-pixelarticons-checklist" /><i class="pixel">02</i></div><b>У каждого утверждения — класс доказательства</b><p>статика, вывод, дифференциальное сравнение, настоящий рантайм</p></div>
+<div class="ls"><div class="top"><span class="i-pixelarticons-robot" /><i class="pixel">03</i></div><b>Оракул может разделять вашу ошибку</b><p>контрольная сумма совпадала с Unicorn — и была неверной</p></div>
+<div class="ls"><div class="top"><span class="i-pixelarticons-git-merge" /><i class="pixel">04</i></div><b>Проверка без интеграции — тоже долг</b><p>после успешного сравнения — перенос в <code>native/</code></p></div>
+<div class="ls"><div class="top"><span class="i-pixelarticons-archive" /><i class="pixel">05</i></div><b>Провал — это артефакт</b><p>assertion, гарды памяти и таймауты сохраняются</p></div>
+<div class="ls"><div class="top"><span class="i-pixelarticons-shield" /><i class="pixel">06</i></div><b>Отказ модели не обходят — и не раздувают</b><p>остановиться, записать, продолжать независимую работу</p></div>
+<div class="ls"><div class="top"><span class="i-pixelarticons-tournament" /><i class="pixel">07</i></div><b>Целое — не сумма частей</b><p>692 теста и 215 оракулов не заменили 58 целых матчей</p></div>
+<div class="ls"><div class="top"><span class="i-pixelarticons-book-open" /><i class="pixel">08</i></div><b>Правила — не журнал</b><p>инструкции отдельно, статус отдельно</p></div>
 </div>
 
 <style>
-.lesson { display: grid; grid-template-columns: 2rem 1fr; gap: 0.6rem; align-items: start; font-size: 0.8rem; color: var(--ink-2); line-height: 1.4; }
-.lesson b { color: var(--ink); }
-.lesson .n { width: 2rem; height: 2rem; display: grid; place-items: center; background: rgba(255,138,61,.14); color: var(--naruto); border-radius: 8px; font-size: 1rem; }
+.lessons { row-gap: 0.85rem; }
+.lessons .ls { position: relative; background: var(--surface); border: 1px solid var(--hair); border-radius: 12px; padding: 0.95rem 0.9rem 1rem; overflow: hidden; }
+.lessons .ls::before { content: ''; position: absolute; left: 0; top: 0; height: 3px; width: 42px; background: var(--naruto); }
+.lessons .top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.65rem; }
+.lessons .top span { width: 1.75rem; height: 1.75rem; color: var(--naruto); }
+.lessons .top i { font-style: normal; font-size: 0.75rem; color: var(--muted); }
+.lessons b { display: block; font-size: 0.9rem; line-height: 1.24; color: var(--ink); font-weight: 700; }
+.lessons p { font-size: 0.72rem; line-height: 1.4; color: var(--ink-2); margin: 0.45rem 0 0; }
 </style>
+
+<!--
+Восемь уроков полностью.
+1. Один эталон, неизменяемые ожидания. Ни одно expected не переписывали под код: исправление получает своё доказательство и свой run ID.
+2. У каждого утверждения — класс доказательства. Статика, вывод, дифференциальное сравнение, настоящий рантайм. Неизвестное не становится нулём.
+3. Оракул может разделять вашу ошибку. Контрольная сумма совпадала с Unicorn байт в байт — и была неверной. Нужен настоящий оригинал.
+4. Проверка без интеграции — тоже долг. Две недели доказательств без единой правки в native/ закончились правилом: после успешного сравнения — перенос.
+5. Провал — это артефакт. Сохранённые assertion, гарды памяти и таймауты превращают историю проекта в воспроизводимое расследование.
+6. Отказ модели не обходят — и не раздувают. Остановиться, записать, продолжать независимую работу; но неизвестный предмет отказа — не запрет на всю сеть.
+7. Целое — не сумма частей. 692 теста и 215 оракулов не заменили 58 целых матчей против настоящего оригинала.
+8. Правила — не журнал. Свод из 4 954 строк перестал работать как свод. Инструкции отдельно, статус отдельно — и следить, куда утечёт журнал.
+-->
+
+---
+
+<Kicker>весь маршрут · 31 марта — 3 октября</Kicker>
+
+# Маршрут пройден
+
+<MetroMap class="mt-2" :visited="13" :current="13" />
+
+<div class="source">даты и цифры — с обложек глав · цвет линии — автор коммитов: git log, трейлер Co-Authored-By</div>
+
+<!--
+Та же карта, что в начале: все тринадцать станций пройдены. Пунктир дальше — ветка dev/crossplatform: Linux, Windows, iPad.
+-->
 
 ---
 layout: hero
-image: /img/menu-back-red-purple.jpg
+image: /img/covers/end-valley-of-the-end.jpg
 align: center
-shade: 0.72
+shade: 0.7
 ---
 
 <div class="flex flex-col items-center">
@@ -131,3 +162,7 @@ shade: 0.72
 <style>
 .cover-title { font-size: 2.8rem !important; line-height: 1.08 !important; margin: 0.3rem 0 0.8rem !important; text-align: center; }
 </style>
+
+<!--
+Фон — сцена Valley_of_the_End из оригинального дистрибутива (bg/sys/Valley): слои собраны по её bg.dat, кадр водопада — первый из анимации.
+-->

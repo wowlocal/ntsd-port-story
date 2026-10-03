@@ -13,7 +13,7 @@ const gridH = 24 * (cellH + gap)
 const histX = left + gridW + 26
 const histW = 150
 const W = histX + histW + 34
-const H = top + gridH + 34
+const H = top + gridH + 42
 
 // one hue (blue); on the dark surface more commits = lighter step, empty cells recede
 const ramp = ['#184f95', '#1c5cab', '#256abf', '#2a78d6', '#3987e5', '#6da7ec']
@@ -49,7 +49,7 @@ const fmtDate = (d: string) => {
   <div class="wrap">
     <svg :viewBox="`0 0 ${W} ${H}`" width="100%" role="img" aria-label="Коммиты по дням и часам">
       <g>
-        <text v-for="h in [0, 3, 6, 9, 12, 15, 18, 21]" :key="h" :x="left - 6" :y="top + h * (cellH + gap) + cellH - 1" text-anchor="end" class="tick">
+        <text v-for="h in [0, 3, 6, 9, 12, 15, 18, 21]" :key="h" :x="left - 6" :y="top + h * (cellH + gap) + cellH" text-anchor="end" class="tick">
           {{ String(h).padStart(2, '0') }}
         </text>
       </g>
@@ -61,13 +61,13 @@ const fmtDate = (d: string) => {
       </rect>
       <g>
         <text
-          v-for="(d, i) in days" :key="d" :x="left + i * (cellW + gap) + cellW / 2" :y="top + gridH + 12"
+          v-for="(d, i) in days" :key="d" :x="left + i * (cellW + gap) + cellW / 2" :y="top + gridH + 15"
           text-anchor="middle" class="tick"
         >
           {{ dayLabel(d) }}
         </text>
-        <text :x="left + cellW / 2" :y="top + gridH + 26" class="month" text-anchor="middle">сен</text>
-        <text :x="left + days.indexOf('2026-10-01') * (cellW + gap) + cellW / 2" :y="top + gridH + 26" class="month" text-anchor="middle">окт</text>
+        <text :x="left + cellW / 2" :y="top + gridH + 33" class="month" text-anchor="middle">сен</text>
+        <text :x="left + days.indexOf('2026-10-01') * (cellW + gap) + cellW / 2" :y="top + gridH + 33" class="month" text-anchor="middle">окт</text>
       </g>
       <!-- marginal: commits per hour of day -->
       <g>
@@ -79,9 +79,9 @@ const fmtDate = (d: string) => {
           >
             <title>{{ String(h).padStart(2, '0') }}:00–{{ String(h).padStart(2, '0') }}:59 — {{ v }} коммит(ов) за всё время</title>
           </path>
-          <text v-if="v === hmax || v === hmin" :x="histX + (v / hmax) * histW + 5" :y="top + h * (cellH + gap) + cellH - 1" class="val">{{ v }}</text>
+          <text v-if="v === hmax || v === hmin" :x="histX + (v / hmax) * histW + 5" :y="top + h * (cellH + gap) + cellH" class="val">{{ v }}</text>
         </g>
-        <text :x="histX" :y="top + gridH + 12" class="tick">всего по часам суток</text>
+        <text :x="histX" :y="top + gridH + 15" class="tick">всего по часам суток</text>
       </g>
     </svg>
     <div class="legend">
@@ -94,18 +94,19 @@ const fmtDate = (d: string) => {
 
 <style scoped>
 .tick {
-  font-size: 9px;
+  /* the chart renders at ~0.7 scale: 13px here is ~9px (0.57rem) on the slide */
+  font-size: 13px;
   fill: var(--muted);
   font-family: var(--font-sans);
   font-variant-numeric: tabular-nums;
 }
 .month {
-  font-size: 9.5px;
+  font-size: 13px;
   fill: var(--muted);
   font-family: var(--font-pixel);
 }
 .val {
-  font-size: 9.5px;
+  font-size: 13px;
   fill: var(--ink-2);
   font-family: var(--font-sans);
   font-weight: 600;

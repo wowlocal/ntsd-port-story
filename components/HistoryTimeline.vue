@@ -1,5 +1,6 @@
 <script setup lang="ts">
 // One time axis with hand-placed labels: row > 0 above the axis, row < 0 below; `end` anchors the label left of the dot.
+// `gap` is the distance between label rows.
 interface Ev { t: string, label: string, sub?: string, row: number, end?: boolean, kind: string }
 const props = withDefaults(defineProps<{
   events: Ev[]
@@ -9,11 +10,12 @@ const props = withDefaults(defineProps<{
   kinds: Record<string, { color: string, name: string }>
   height?: number
   axis?: number
-}>(), { ticks: () => [], height: 132, axis: 76 })
+  gap?: number
+}>(), { ticks: () => [], height: 132, axis: 76, gap: 18 })
 const W = 900
 const m = { l: 14, r: 14 }
 const x = (t: string) => m.l + ((Date.parse(t) - Date.parse(props.from)) / (Date.parse(props.to) - Date.parse(props.from))) * (W - m.l - m.r)
-const labelY = (row: number) => props.axis + (row > 0 ? -12 - (row - 1) * 18 : 20 + (-row - 1) * 18)
+const labelY = (row: number) => props.axis + (row > 0 ? -12 - (row - 1) * props.gap : 20 + (-row - 1) * props.gap)
 </script>
 
 <template>

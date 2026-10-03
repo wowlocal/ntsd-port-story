@@ -1,13 +1,15 @@
 <script setup lang="ts">
 // A breathing slide between chapters: one big figure or phrase, a kicker above and the slot as caption.
-// `big` is the figure ("58 / 58"); leave it empty to make the slot itself the statement.
-withDefaults(defineProps<{
-  big?: string
+// `big` is the figure ("58 / 58", or a bare number); leave it out to make the slot itself the statement.
+const props = withDefaults(defineProps<{
+  big?: string | number
   kicker?: string
   image?: string
   shade?: number
   accent?: string
 }>(), { shade: 0.86, accent: 'var(--naruto)' })
+// `big: 0` arrives as the number 0, which must still render.
+const hasBig = () => props.big !== undefined && props.big !== null && props.big !== ''
 </script>
 
 <template>
@@ -18,10 +20,10 @@ withDefaults(defineProps<{
       <div v-if="kicker" class="kicker pixel">
         <i />{{ kicker }}
       </div>
-      <div v-if="big" class="big" :style="{ color: accent }">
+      <div v-if="hasBig()" class="big" :style="{ color: accent }">
         {{ big }}
       </div>
-      <div class="cap" :class="{ solo: !big }">
+      <div class="cap" :class="{ solo: !hasBig() }">
         <slot />
       </div>
     </div>
