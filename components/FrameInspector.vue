@@ -23,6 +23,11 @@ const itrNote = (b: Box) => {
   <div class="row" :style="{ gridTemplateColumns: `repeat(${frames.length}, 1fr)` }">
     <div v-for="f in frames" :key="f.id" class="cell">
       <div class="stage" :style="{ width: `${f.w * scale}px`, height: `${f.h * scale}px` }">
+        <!-- box fills sit under the picture so the sprite keeps its colours; outlines go on top -->
+        <svg :viewBox="`0 0 ${f.w} ${f.h}`" class="overlay">
+          <rect v-for="(b, i) in f.bdy.filter(b => onSprite(b, f))" :key="`bf${i}`" :x="b.x" :y="b.y" :width="b.w" :height="b.h" class="bdy fill" />
+          <rect v-for="(b, i) in f.itr.filter(b => onSprite(b, f))" :key="`if${i}`" :x="b.x" :y="b.y" :width="b.w" :height="b.h" class="itr fill" />
+        </svg>
         <img :src="f.image" class="pixelated" :style="{ width: `${f.w * scale}px`, height: `${f.h * scale}px` }" alt="">
         <svg :viewBox="`0 0 ${f.w} ${f.h}`" class="overlay">
           <rect v-for="(b, i) in f.bdy.filter(b => onSprite(b, f))" :key="`b${i}`" :x="b.x" :y="b.y" :width="b.w" :height="b.h" class="bdy" />
@@ -83,6 +88,7 @@ const itrNote = (b: Box) => {
   border-radius: 6px;
 }
 .stage img {
+  position: relative;
   display: block;
 }
 .overlay {
@@ -93,14 +99,24 @@ const itrNote = (b: Box) => {
   overflow: visible;
 }
 .bdy {
-  fill: rgba(57, 135, 229, 0.18);
-  stroke: #6da7ec;
+  fill: none;
+  stroke: var(--s1);
   stroke-width: 0.6;
+  filter: drop-shadow(0 0 1px var(--s1));
 }
 .itr {
-  fill: rgba(217, 89, 38, 0.3);
-  stroke: #ff8a3d;
+  fill: color-mix(in srgb, var(--naruto) 12%, transparent);
+  stroke: var(--naruto);
   stroke-width: 0.6;
+}
+.bdy.fill {
+  fill: color-mix(in srgb, var(--s1) 26%, transparent);
+  stroke: none;
+  filter: none;
+}
+.itr.fill {
+  fill: color-mix(in srgb, var(--naruto) 40%, transparent);
+  stroke: none;
 }
 .wpt {
   fill: #199e70;
@@ -169,12 +185,12 @@ const itrNote = (b: Box) => {
   vertical-align: -1px;
 }
 .sw.bdyc {
-  background: rgba(57, 135, 229, 0.35);
-  outline: 1px solid #6da7ec;
+  background: color-mix(in srgb, var(--s1) 40%, transparent);
+  outline: 1px solid var(--s1);
 }
 .sw.itrc {
-  background: rgba(217, 89, 38, 0.45);
-  outline: 1px solid #ff8a3d;
+  background: color-mix(in srgb, var(--naruto) 45%, transparent);
+  outline: 1px solid var(--naruto);
 }
 .sw.wptc {
   background: #199e70;

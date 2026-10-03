@@ -1,0 +1,471 @@
+{
+ "object": "chars/naruto.dat",
+ "start": 285,
+ "entry": {
+  "frames": [
+   0,
+   1,
+   2,
+   3,
+   5,
+   6,
+   7,
+   8
+  ],
+  "field": "hit_Da"
+ },
+ "end": {
+  "next": 999,
+  "becomes": 0,
+  "rule": "next 999 becomes 212 only for type 0 with integerY != 0, otherwise 0: docs/research/ACTOR_SCHEDULER.md:53-54"
+ },
+ "tick_rule": "wait counter resets on a frame change and then increments every scheduler call; when it exceeds the frame's wait it resets and next is written, so a frame lasts wait + 1 calls: docs/research/ACTOR_SCHEDULER.md:43-44, 51-52",
+ "tick_ms": 33,
+ "ticks": 24,
+ "frames": [
+  {
+   "id": 285,
+   "name": "clone_spin",
+   "pic": 78,
+   "state": 3,
+   "wait": 3,
+   "next": 286,
+   "ticks": 4,
+   "centerx": 39,
+   "centery": 79,
+   "dvx": 0,
+   "dvy": 0,
+   "mp": 100,
+   "sound": null,
+   "image": "/img/frames/seq/naruto-p78.png",
+   "w": 79,
+   "h": 79,
+   "sheet": "sprite/sys/naruto_2.bmp",
+   "cell": {
+    "x": 640,
+    "y": 0
+   },
+   "bdy": [
+    {
+     "kind": 0,
+     "x": 21,
+     "y": 18,
+     "w": 43,
+     "h": 62
+    },
+    {
+     "kind": 0,
+     "x": 22,
+     "y": 60000,
+     "w": 40,
+     "h": 500
+    }
+   ],
+   "itr": [],
+   "wpoint": [
+    {
+     "kind": 1,
+     "x": 45,
+     "y": 29,
+     "weaponact": 100,
+     "attacking": 0,
+     "cover": 1,
+     "dvx": 0,
+     "dvy": 0,
+     "dvz": 0
+    }
+   ],
+   "opoint": []
+  },
+  {
+   "id": 286,
+   "name": "clone_spin",
+   "pic": 79,
+   "state": 3,
+   "wait": 5,
+   "next": 287,
+   "ticks": 6,
+   "centerx": 39,
+   "centery": 79,
+   "dvx": 0,
+   "dvy": 0,
+   "mp": null,
+   "sound": null,
+   "image": "/img/frames/seq/naruto-p79.png",
+   "w": 79,
+   "h": 79,
+   "sheet": "sprite/sys/naruto_2.bmp",
+   "cell": {
+    "x": 720,
+    "y": 0
+   },
+   "bdy": [
+    {
+     "kind": 0,
+     "x": 21,
+     "y": 18,
+     "w": 43,
+     "h": 62
+    }
+   ],
+   "itr": [],
+   "wpoint": [
+    {
+     "kind": 1,
+     "x": 39,
+     "y": -999,
+     "weaponact": 21,
+     "attacking": 0,
+     "cover": 0,
+     "dvx": 0,
+     "dvy": 0,
+     "dvz": 0
+    }
+   ],
+   "opoint": [
+    {
+     "kind": 1,
+     "x": -3,
+     "y": 80,
+     "action": 240,
+     "dvx": 0,
+     "dvy": 0,
+     "oid": 33,
+     "facing": 0,
+     "file": "chars/naruto_clone.dat"
+    }
+   ]
+  },
+  {
+   "id": 287,
+   "name": "clone_spin",
+   "pic": 79,
+   "state": 3,
+   "wait": 0,
+   "next": 70,
+   "ticks": 1,
+   "centerx": 39,
+   "centery": 79,
+   "dvx": 0,
+   "dvy": 0,
+   "mp": null,
+   "sound": null,
+   "image": "/img/frames/seq/naruto-p79.png",
+   "w": 79,
+   "h": 79,
+   "sheet": "sprite/sys/naruto_2.bmp",
+   "cell": {
+    "x": 720,
+    "y": 0
+   },
+   "bdy": [
+    {
+     "kind": 0,
+     "x": 21,
+     "y": 18,
+     "w": 43,
+     "h": 62
+    }
+   ],
+   "itr": [],
+   "wpoint": [
+    {
+     "kind": 1,
+     "x": 39,
+     "y": -999,
+     "weaponact": 21,
+     "attacking": 0,
+     "cover": 0,
+     "dvx": 0,
+     "dvy": 0,
+     "dvz": 0
+    }
+   ],
+   "opoint": []
+  },
+  {
+   "id": 70,
+   "name": "super_punch",
+   "pic": 37,
+   "state": 3,
+   "wait": 0,
+   "next": 71,
+   "ticks": 1,
+   "centerx": 39,
+   "centery": 79,
+   "dvx": 0,
+   "dvy": 0,
+   "mp": null,
+   "sound": "data/SNDDATA_1883.wav",
+   "image": "/img/frames/seq/naruto-p37.png",
+   "w": 79,
+   "h": 79,
+   "sheet": "sprite/sys/naruto_0.bmp",
+   "cell": {
+    "x": 560,
+    "y": 240
+   },
+   "bdy": [
+    {
+     "kind": 0,
+     "x": 22,
+     "y": 14,
+     "w": 30,
+     "h": 65
+    },
+    {
+     "kind": 0,
+     "x": 21,
+     "y": 80000,
+     "w": 43,
+     "h": 62
+    }
+   ],
+   "itr": [],
+   "wpoint": [
+    {
+     "kind": 1,
+     "x": 39,
+     "y": -999,
+     "weaponact": 21,
+     "attacking": 0,
+     "cover": 0,
+     "dvx": 0,
+     "dvy": 0,
+     "dvz": 0
+    }
+   ],
+   "opoint": []
+  },
+  {
+   "id": 71,
+   "name": "super_punch",
+   "pic": 38,
+   "state": 3,
+   "wait": 2,
+   "next": 72,
+   "ticks": 3,
+   "centerx": 39,
+   "centery": 79,
+   "dvx": 4,
+   "dvy": 0,
+   "mp": null,
+   "sound": null,
+   "image": "/img/frames/seq/naruto-p38.png",
+   "w": 79,
+   "h": 79,
+   "sheet": "sprite/sys/naruto_0.bmp",
+   "cell": {
+    "x": 640,
+    "y": 240
+   },
+   "bdy": [
+    {
+     "kind": 0,
+     "x": 40,
+     "y": 21,
+     "w": 30,
+     "h": 43
+    },
+    {
+     "kind": 0,
+     "x": 21,
+     "y": 80000,
+     "w": 43,
+     "h": 62
+    }
+   ],
+   "itr": [],
+   "wpoint": [
+    {
+     "kind": 1,
+     "x": 39,
+     "y": -999,
+     "weaponact": 21,
+     "attacking": 0,
+     "cover": 0,
+     "dvx": 0,
+     "dvy": 0,
+     "dvz": 0
+    }
+   ],
+   "opoint": []
+  },
+  {
+   "id": 72,
+   "name": "super_punch",
+   "pic": 39,
+   "state": 3,
+   "wait": 2,
+   "next": 73,
+   "ticks": 3,
+   "centerx": 39,
+   "centery": 79,
+   "dvx": 0,
+   "dvy": 0,
+   "mp": null,
+   "sound": "data/007.wav",
+   "image": "/img/frames/seq/naruto-p39.png",
+   "w": 79,
+   "h": 79,
+   "sheet": "sprite/sys/naruto_0.bmp",
+   "cell": {
+    "x": 720,
+    "y": 240
+   },
+   "bdy": [
+    {
+     "kind": 0,
+     "x": 31,
+     "y": 2,
+     "w": 27,
+     "h": 78
+    },
+    {
+     "kind": 0,
+     "x": 21,
+     "y": 80000,
+     "w": 43,
+     "h": 62
+    }
+   ],
+   "itr": [
+    {
+     "kind": 0,
+     "x": 45,
+     "y": 34,
+     "w": 35,
+     "h": 14,
+     "dvx": 19,
+     "dvy": -7,
+     "fall": 70,
+     "arest": 15,
+     "bdefend": 60,
+     "injury": 60
+    }
+   ],
+   "wpoint": [
+    {
+     "kind": 1,
+     "x": 39,
+     "y": -999,
+     "weaponact": 21,
+     "attacking": 0,
+     "cover": 0,
+     "dvx": 0,
+     "dvy": 0,
+     "dvz": 0
+    }
+   ],
+   "opoint": []
+  },
+  {
+   "id": 73,
+   "name": "super_punch",
+   "pic": 29,
+   "state": 3,
+   "wait": 2,
+   "next": 74,
+   "ticks": 3,
+   "centerx": 39,
+   "centery": 79,
+   "dvx": 4,
+   "dvy": 0,
+   "mp": null,
+   "sound": null,
+   "image": "/img/frames/seq/naruto-p29.png",
+   "w": 79,
+   "h": 79,
+   "sheet": "sprite/sys/naruto_0.bmp",
+   "cell": {
+    "x": 720,
+    "y": 160
+   },
+   "bdy": [
+    {
+     "kind": 0,
+     "x": 40,
+     "y": 21,
+     "w": 30,
+     "h": 43
+    },
+    {
+     "kind": 0,
+     "x": 21,
+     "y": 80000,
+     "w": 43,
+     "h": 62
+    }
+   ],
+   "itr": [],
+   "wpoint": [
+    {
+     "kind": 1,
+     "x": 39,
+     "y": -999,
+     "weaponact": 21,
+     "attacking": 0,
+     "cover": 0,
+     "dvx": 0,
+     "dvy": 0,
+     "dvz": 0
+    }
+   ],
+   "opoint": []
+  },
+  {
+   "id": 74,
+   "name": "super_punch",
+   "pic": 37,
+   "state": 3,
+   "wait": 2,
+   "next": 999,
+   "ticks": 3,
+   "centerx": 39,
+   "centery": 79,
+   "dvx": 0,
+   "dvy": 0,
+   "mp": null,
+   "sound": null,
+   "image": "/img/frames/seq/naruto-p37.png",
+   "w": 79,
+   "h": 79,
+   "sheet": "sprite/sys/naruto_0.bmp",
+   "cell": {
+    "x": 560,
+    "y": 240
+   },
+   "bdy": [
+    {
+     "kind": 0,
+     "x": 22,
+     "y": 14,
+     "w": 30,
+     "h": 65
+    },
+    {
+     "kind": 0,
+     "x": 21,
+     "y": 80000,
+     "w": 43,
+     "h": 62
+    }
+   ],
+   "itr": [],
+   "wpoint": [
+    {
+     "kind": 1,
+     "x": 39,
+     "y": -999,
+     "weaponact": 21,
+     "attacking": 0,
+     "cover": 0,
+     "dvx": 0,
+     "dvy": 0,
+     "dvz": 0
+    }
+   ],
+   "opoint": []
+  }
+ ]
+}

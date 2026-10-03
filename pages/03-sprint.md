@@ -62,17 +62,19 @@ stats: 171 коммит за 102 часа · коммит каждые ~30 ми�
 <div class="source">git log · README.md @ 2026-09-12 · docs/research/LOADED_CATALOG.md</div>
 
 ---
+clicks: 3
+---
 
 <Kicker>как доказывали · дифференциальный оракул</Kicker>
 
 # Оригинал исполняется рядом — в Unicorn
 
-<FlowDiagram class="mt-1" input="одни и те же входы" input-sub="состояние, аргументы, байты DAT" :lanes="[
+<FlowDiagram stepwise class="mt-1" input="одни и те же входы" input-sub="состояние, аргументы, байты DAT" :lanes="[
   { title: 'NTSD 2.4.exe в Unicorn', sub: 'x86-код оригинала по 0x400000; импорты → страница-заглушка; настоящий MSVCR80', out: 'байты после вызова + маска записей, вызовы ГСЧ, события ресурсов', color: 'var(--s2)', tag: 'эталон' },
   { title: 'Swift NTSDCore', sub: 'порт той же функции, свои аллокации и откат', out: 'байты после вызова, вызовы ГСЧ, события', color: 'var(--s1)', tag: 'порт' },
 ]" verdict="совпало побайтно" verdict-sub="только там, где байт определён маской" />
 
-<div class="grid grid-cols-[1fr_1.05fr] gap-5 mt-3">
+<div class="grid grid-cols-[1fr_1.05fr] gap-5 mt-2">
 <div class="small ink2">
 
 - Канарейки `0x11223344…` в регистрах, куча залита `0xA5`: возврат засчитан, только если EIP дошёл до STOP, а стек и канарейки целы.
@@ -83,8 +85,8 @@ stats: 171 коммит за 102 часа · коммит каждые ~30 ми�
 <div>
 
 ```python
-# tools/oracle_crt.py — каждый импорт EXE ведёт на «стоп-страницу»,
-# где Python-заглушка снимает аргументы с ESP и сама делает ret
+# tools/oracle_crt.py: импорт EXE ведёт на «стоп-страницу»,
+# там Python-заглушка снимает аргументы с ESP и делает ret
 for item in pe.imports():
     address = STOP + 0x100 + len(self.boundaries) * 16
     self.put(int(item['iatVA'], 16), address)
@@ -93,7 +95,7 @@ self.uc.hook_add(UC_HOOK_CODE, self.boundary,
                  begin=STOP + 0x100, end=STOP + 0xFFFF)
 ```
 
-<div class="xsmall muted">Подвох: memory-хуки Unicorn увидели 259 526 из 524 454 байт, записанных <code>REP MOVSD</code> — маски теперь берутся из самих инструкций копирования.</div>
+<div class="xsmall muted">Подвох: memory-хуки Unicorn увидели 259 526 из 524 454 байт, записанных <code>REP&nbsp;MOVSD</code> — маски теперь берутся из самих инструкций копирования.</div>
 
 </div>
 </div>
@@ -173,17 +175,24 @@ return Int32(bitPattern: negative ? 0 &- value : value)
 ```
 
 </div>
-<div class="small ink2">
+<div>
 
-- `-6846518779` из `kyubi.dat` превращается в **1743415813**, `4294967296` — в **0**. Из 867 уникальных целых в DAT 39 не помещаются в Int32.
-- Настоящий **MSVCR80 8.0.50727.6195** достали из `vcredist_x86_2005sp1.exe` без запуска установщика (bsdtar → olefile → bsdtar) и исполняли в Unicorn: 919 912 сканов каталога.
-- `printf` VC80 округляет дважды: `%2.4f` от 0.03125 даёт `0.0313` (macOS — `0.0312`), а `1#INF` становится `1.#IO`.
-- float → int идёт двумя путями: для 4294967295 x87 даёт `0xffffffff`, SSE2 — `0x80000000`.
+<IconCards class="vc80" :cols="1" compact :items="[
+  { icon: 'i-pixelarticons-hash', title: 'Целые — по модулю 2³²', tone: 'naruto', text: '<code>-6846518779</code> из <code>kyubi.dat</code> превращается в <strong>1743415813</strong>, <code>4294967296</code> — в <strong>0</strong>. Из 867 уникальных целых в DAT 39 не помещаются в Int32.' },
+  { icon: 'i-pixelarticons-package', title: 'Настоящий MSVCR80 8.0.50727.6195', tone: 's1', text: 'Достали из <code>vcredist_x86_2005sp1.exe</code> без запуска установщика (bsdtar → olefile → bsdtar) и исполняли в Unicorn: 919 912 сканов каталога.' },
+  { icon: 'i-pixelarticons-printer', title: 'printf VC80 округляет дважды', tone: 's3', text: '<code>%2.4f</code> от 0.03125 даёт <code>0.0313</code> (macOS — <code>0.0312</code>), а <code>1#INF</code> становится <code>1.#IO</code>.' },
+  { icon: 'i-pixelarticons-git-branch', title: 'float → int идёт двумя путями', tone: 's7', text: 'Для 4294967295 x87 даёт <code>0xffffffff</code>, SSE2 — <code>0x80000000</code>.' },
+]" />
 
 </div>
 </div>
 
 <div class="source">fab8104 · docs/research/CRT_SCANNER.md · docs/research/DIAGNOSTIC_NUMBERS.md · adf93da</div>
+
+<style>
+.vc80 :deep(.head b) { font-size: 0.8rem; }
+.vc80 :deep(.txt) { font-size: 0.7rem; line-height: 1.42; }
+</style>
 
 ---
 
