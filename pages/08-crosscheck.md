@@ -183,10 +183,12 @@ clicks: 3
 <div class="card sumcard">
 <div class="pixel hl xsmall">Summary · одинаково в обеих программах</div>
 <table class="sumt">
-<tr><th></th><th>Kill</th><th>Attack</th><th>HP Lost</th><th>MP Usage</th><th>Picking</th><th>Status</th></tr>
+<thead><tr><th></th><th>Kill</th><th>Attack</th><th>HP Lost</th><th>MP Usage</th><th>Picking</th><th>Status</th></tr></thead>
+<tbody>
 <tr><td>P1</td><td>1</td><td>985</td><td>780</td><td>275</td><td>0</td><td>Lose (Dead)</td></tr>
 <tr><td>P2</td><td>0</td><td>30</td><td>960</td><td>0</td><td>0</td><td>Lose (Dead)</td></tr>
 <tr><td>Com</td><td>1</td><td>1270</td><td>545</td><td>1165</td><td>6</td><td>Win (Alive)</td></tr>
+</tbody>
 </table>
 <div class="sumtime"><span class="i-pixelarticons-clock" /> time <b>00 : 54</b></div>
 </div>
