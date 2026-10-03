@@ -1,7 +1,7 @@
 ---
 layout: chapter
 num: 8
-total: 11
+total: 12
 kicker: Глава восьмая
 dates: 2–3 октября
 image: /img/screens/15-summary-mac-vs-original-side-by-side.jpg

@@ -1,7 +1,7 @@
 ---
 layout: chapter
 num: 4
-total: 11
+total: 12
 kicker: Глава четвёртая
 dates: 12–14 сентября
 image: /img/menu-back-red-purple.jpg

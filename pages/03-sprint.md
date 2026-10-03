@@ -1,7 +1,7 @@
 ---
 layout: chapter
 num: 3
-total: 11
+total: 12
 kicker: Глава третья
 dates: 7–12 сентября
 image: /img/loading-screen-tobi.jpg

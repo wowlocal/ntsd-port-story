@@ -1,7 +1,7 @@
 ---
 layout: chapter
 num: 9
-total: 11
+total: 12
 kicker: Кунсткамера
 dates: что нашлось внутри EXE
 image: /img/screens/05-f8-full-pool-chaos.png

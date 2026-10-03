@@ -1,7 +1,7 @@
 ---
 layout: chapter
 num: 10
-total: 11
+total: 12
 kicker: В цифрах
 dates: 7 сентября — 3 октября
 image: /img/roster-25-faces-2x.png
@@ -108,45 +108,6 @@ stats: всё посчитано из git и evidence-файлов порта
 </div>
 
 <div class="source">git log · data/summary.json · d2c6eef · 2d6a7e5 · 007c007</div>
-
----
-
-<Kicker>токены · из журналов сессий Codex и Claude Code</Kicker>
-
-# 6,3 миллиарда токенов
-
-<div class="grid grid-cols-4 gap-3 mt-2">
-<StatTile value="6,28 млрд" label="токенов обработали модели за порт" sub="Codex 3,52 млрд · Claude 2,76 млрд" size="sm" />
-<StatTile value="25,7 млн" label="токенов модели написали сами" sub="код, карточки, вызовы инструментов, рассуждения" accent="var(--s2)" size="sm" />
-<StatTile :value="31095" label="ответ модели" sub="25 141 у Codex · 5 954 у Claude" accent="var(--s1)" size="sm" />
-<StatTile value="967 тыс." label="самый большой контекст одного запроса" sub="у Claude; у Codex — 256 тыс. из окна 258 тыс." accent="var(--s3)" size="sm" />
-</div>
-
-<TokenDays class="mt-2" />
-
-<div class="grid grid-cols-3 gap-4 mt-1 small ink2">
-<div>Пик — <b class="hl">29 сентября</b>, день «все режимы за один день»: Claude обработал 903 млн токенов.</div>
-<div>На коммит: <b>10,3 млн</b> токенов у Codex и <b>23 млн</b> у Claude — у второго окно контекста почти вчетверо больше.</div>
-<div>Эта презентация — ещё <b>260 млн</b> токенов: 4 % от всего порта.</div>
-</div>
-
-<div class="source">журналы ~/.codex/sessions (33 сессии) и ~/.claude/projects · scripts/collect_tokens.py · data/tokens.json</div>
-
----
-
-<Kicker>структура токенов</Kicker>
-
-# Из 1 000 токенов модель пишет шесть
-
-<TokenUnits class="mt-3" />
-
-<div class="grid grid-cols-3 gap-4 mt-4 small ink2">
-<div><b>97–99 % ввода — кэш.</b> Агент снова и снова перечитывает один и тот же длинный контекст: правила, карточки, вывод инструментов.</div>
-<div><b>Рассуждения Codex</b> — 7,25 млн токенов, треть всего его вывода. Почти все ответы — на усилии <span class="mono">xhigh</span> (20 374 из 25 141).</div>
-<div><b>На строку Swift-кода игры</b> приходится ~130 тыс. обработанных токенов — и ~530 написанных моделью.</div>
-</div>
-
-<div class="source">data/tokens.json · scripts/collect_tokens.py</div>
 
 ---
 

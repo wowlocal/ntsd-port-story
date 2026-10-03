@@ -1,0 +1,751 @@
+{
+ "note": "aggregates from local session logs; message text was only classified, never stored",
+ "codex": {
+  "sessions": 33,
+  "subagent_sessions": 9,
+  "responses": 25141,
+  "models": {
+   "gpt-6-astra": 24984,
+   "gpt-6-sol": 86,
+   "gpt-5.6-sol": 54,
+   "gpt-5.6-terra": 13,
+   "unknown": 4
+  },
+  "efforts_by_model": {
+   "gpt-6-astra": {
+    "xhigh": 20243,
+    "high": 4667,
+    "medium": 37,
+    "low": 37
+   },
+   "gpt-6-sol": {
+    "xhigh": 86
+   },
+   "gpt-5.6-terra": {
+    "medium": 13
+   },
+   "unknown": {
+    "default": 4
+   },
+   "gpt-5.6-sol": {
+    "xhigh": 45,
+    "medium": 9
+   }
+  },
+  "policies": [
+   {
+    "approval": "never",
+    "sandbox": "danger-full-access",
+    "turn_contexts": 1104
+   },
+   {
+    "approval": "on-request",
+    "sandbox": "workspace-write",
+    "turn_contexts": 24
+   }
+  ],
+  "turns": 820,
+  "turns_aborted": 10,
+  "turn_hours_total": 241.2,
+  "turn_minutes_median": 9.3,
+  "turn_hours_longest": 8.4,
+  "goal_runs": 8,
+  "goal_hours": 129.5,
+  "user_messages": {
+   "injected": 68,
+   "human": 163,
+   "goal": 383
+  },
+  "compactions": 299,
+  "tool_calls": {
+   "exec": 20899,
+   "send_message": 1603,
+   "sleep": 543,
+   "followup_task": 309,
+   "wait_agent": 255,
+   "js": 255,
+   "wait": 96,
+   "list_agents": 55,
+   "request_user_input_async": 15,
+   "spawn_agent": 9,
+   "js_reset": 4,
+   "interrupt_agent": 1
+  },
+  "shell_commands": 29410,
+  "shell_programs": {
+   "python3 -c / modules": 7701,
+   "sed": 4675,
+   "cat": 4124,
+   "rg": 3693,
+   "tail": 2715,
+   "python3 (other script)": 1287,
+   "git diff": 957,
+   "git status": 690,
+   "python3 tools/oracle_*": 516,
+   "ps": 433,
+   "git commit": 232,
+   "nl": 221,
+   "pwd": 185,
+   "swift test": 175,
+   "git log": 166,
+   "ls": 160,
+   "git add": 152,
+   "python3 tools/verify_*": 142,
+   "swift build": 138,
+   "head": 133,
+   "python3 tools/accept_*": 81,
+   "python3 tools/run_*": 68,
+   "cp": 65,
+   "xcrun": 58,
+   "df": 54
+  },
+  "weekly_limit_by_day": {
+   "2026-09-07": {
+    "used": 30.0,
+    "resets": "2026-09-14T07:19:56Z"
+   },
+   "2026-09-08": {
+    "used": 36.0,
+    "resets": "2026-09-14T07:19:56Z"
+   },
+   "2026-09-09": {
+    "used": 80.0,
+    "resets": "2026-09-15T01:29:05Z"
+   },
+   "2026-09-10": {
+    "used": 96.0,
+    "resets": "2026-09-15T01:29:05Z"
+   },
+   "2026-09-11": {
+    "used": 31.0,
+    "resets": "2026-09-17T09:22:33Z"
+   },
+   "2026-09-12": {
+    "used": 93.0,
+    "resets": "2026-09-17T09:22:33Z"
+   },
+   "2026-09-13": {
+    "used": 100.0,
+    "resets": "2026-09-19T08:23:43Z"
+   },
+   "2026-09-14": {
+    "used": 100.0,
+    "resets": "2026-09-20T05:36:56Z"
+   },
+   "2026-09-22": {
+    "used": 79.0,
+    "resets": "2026-09-28T09:10:50Z"
+   },
+   "2026-09-26": {
+    "used": 72.0,
+    "resets": "2026-10-01T17:29:21Z"
+   },
+   "2026-09-27": {
+    "used": 27.0,
+    "resets": "2026-10-03T16:58:33Z"
+   },
+   "2026-09-30": {
+    "used": 59.0,
+    "resets": "2026-10-03T16:58:33Z"
+   },
+   "2026-10-01": {
+    "used": 71.0,
+    "resets": "2026-10-03T16:58:33Z"
+   },
+   "2026-10-02": {
+    "used": 86.0,
+    "resets": "2026-10-03T16:58:33Z"
+   },
+   "2026-10-03": {
+    "used": 3.0,
+    "resets": "2026-10-09T21:14:12Z"
+   }
+  }
+ },
+ "claude": {
+  "sessions": 1,
+  "subagent_files": 10,
+  "responses": 5954,
+  "models": {
+   "claude-opus-5-5": 5954
+  },
+  "effort_commands": [
+   "2026-09-28T11:25:48.967000Z",
+   "Set effort level to xhigh (saved as your default for new sessions): Deeper reasoning than high, just below maximum (Fable 5, Opus 4.7+, Sonnet 5)"
+  ],
+  "turns": 281,
+  "turn_hours_total": 43.5,
+  "turn_minutes_median": 0.9,
+  "turn_hours_longest": 4.4,
+  "loop_iterations": 60,
+  "scheduled_wakeups": 55,
+  "human_messages": 25,
+  "compactions": 9,
+  "compaction_detail": [
+   {
+    "pre": 966694,
+    "post": 15015,
+    "trigger": "auto"
+   },
+   {
+    "pre": 971509,
+    "post": 12624,
+    "trigger": "auto"
+   },
+   {
+    "pre": 969359,
+    "post": 11904,
+    "trigger": "auto"
+   },
+   {
+    "pre": 967407,
+    "post": 22189,
+    "trigger": "auto"
+   },
+   {
+    "pre": 967318,
+    "post": 15875,
+    "trigger": "auto"
+   },
+   {
+    "pre": 967004,
+    "post": 10883,
+    "trigger": "auto"
+   },
+   {
+    "pre": 969346,
+    "post": 35566,
+    "trigger": "auto"
+   },
+   {
+    "pre": 967374,
+    "post": 15309,
+    "trigger": "auto"
+   },
+   {
+    "pre": 967892,
+    "post": 15628,
+    "trigger": "auto"
+   }
+  ],
+  "refusals": 2,
+  "tool_calls": {
+   "Bash": 5256,
+   "Read": 337,
+   "ScheduleWakeup": 184,
+   "Write": 151,
+   "Edit": 12,
+   "Agent": 10,
+   "TaskStop": 9,
+   "ToolSearch": 7,
+   "Monitor": 6,
+   "WebFetch": 1,
+   "PushNotification": 1,
+   "ListAgents": 1,
+   "Skill": 1
+  },
+  "shell_commands": 5256,
+  "shell_programs": {
+   "grep": 1130,
+   "sed": 978,
+   "python3 -c / modules": 847,
+   "cat": 425,
+   "python3 (other script)": 288,
+   "ls": 187,
+   "rm": 151,
+   "for": 127,
+   "git show": 115,
+   "until": 104,
+   "swift-build": 97,
+   "cp": 46,
+   "awk": 44,
+   "wc": 43,
+   "ps": 37,
+   "sleep": 33,
+   "pkill": 33,
+   "mkdir": 32,
+   "swift-test": 32,
+   "git (other)": 28,
+   "tail": 28,
+   "git commit": 25,
+   "head": 25,
+   "(time": 21,
+   "kill": 20
+  }
+ },
+ "sessions": [
+  {
+   "agent": "codex",
+   "id": "01a07b63",
+   "start": "2026-09-07T10:21:40.280000Z",
+   "end": "2026-09-09T15:34:43.170000Z",
+   "subagent": false,
+   "model": "gpt-6-astra",
+   "effort": "xhigh",
+   "responses": 4057,
+   "turns": 137,
+   "goal_msgs": 118,
+   "human_msgs": 21,
+   "compactions": 54
+  },
+  {
+   "agent": "codex",
+   "id": "01a080a3",
+   "start": "2026-09-08T10:49:36.166000Z",
+   "end": "2026-09-08T10:52:55.258000Z",
+   "subagent": false,
+   "model": "gpt-6-astra",
+   "effort": "high",
+   "responses": 9,
+   "turns": 1,
+   "goal_msgs": 0,
+   "human_msgs": 1,
+   "compactions": 0
+  },
+  {
+   "agent": "codex",
+   "id": "01a081f2",
+   "start": "2026-09-08T16:55:44.532000Z",
+   "end": "2026-09-10T06:53:10.078000Z",
+   "subagent": false,
+   "model": "gpt-6-astra",
+   "effort": "xhigh",
+   "responses": 153,
+   "turns": 24,
+   "goal_msgs": 0,
+   "human_msgs": 25,
+   "compactions": 2
+  },
+  {
+   "agent": "codex",
+   "id": "01a086e2",
+   "start": "2026-09-09T15:56:42.399000Z",
+   "end": "2026-09-09T23:11:09.956000Z",
+   "subagent": false,
+   "model": "gpt-6-astra",
+   "effort": "xhigh",
+   "responses": 659,
+   "turns": 13,
+   "goal_msgs": 13,
+   "human_msgs": 0,
+   "compactions": 7
+  },
+  {
+   "agent": "codex",
+   "id": "01a086e7",
+   "start": "2026-09-09T16:02:11.868000Z",
+   "end": "2026-09-09T16:05:47.082000Z",
+   "subagent": false,
+   "model": "gpt-6-astra",
+   "effort": "low",
+   "responses": 10,
+   "turns": 2,
+   "goal_msgs": 0,
+   "human_msgs": 2,
+   "compactions": 0
+  },
+  {
+   "agent": "codex",
+   "id": "01a08766",
+   "start": "2026-09-09T18:20:31.862000Z",
+   "end": "2026-09-12T00:31:57.668000Z",
+   "subagent": false,
+   "model": "gpt-6-astra",
+   "effort": "xhigh",
+   "responses": 4456,
+   "turns": 78,
+   "goal_msgs": 78,
+   "human_msgs": 0,
+   "compactions": 60
+  },
+  {
+   "agent": "codex",
+   "id": "01a089f1",
+   "start": "2026-09-10T06:12:02.019000Z",
+   "end": "2026-09-10T06:14:23.505000Z",
+   "subagent": false,
+   "model": "gpt-5.6-terra",
+   "effort": "medium",
+   "responses": 13,
+   "turns": 2,
+   "goal_msgs": 0,
+   "human_msgs": 2,
+   "compactions": 0
+  },
+  {
+   "agent": "codex",
+   "id": "01a08b7e",
+   "start": "2026-09-10T13:25:38.334000Z",
+   "end": "2026-09-10T20:42:14.191000Z",
+   "subagent": false,
+   "model": "gpt-6-astra",
+   "effort": "xhigh",
+   "responses": 11,
+   "turns": 2,
+   "goal_msgs": 0,
+   "human_msgs": 2,
+   "compactions": 0
+  },
+  {
+   "agent": "codex",
+   "id": "01a08eb4",
+   "start": "2026-09-11T04:23:06.161000Z",
+   "end": "2026-09-11T04:25:18.723000Z",
+   "subagent": false,
+   "model": "gpt-6-astra",
+   "effort": "xhigh",
+   "responses": 7,
+   "turns": 1,
+   "goal_msgs": 0,
+   "human_msgs": 1,
+   "compactions": 0
+  },
+  {
+   "agent": "codex",
+   "id": "01a093ff",
+   "start": "2026-09-12T05:02:49.217000Z",
+   "end": "2026-09-14T09:05:49.024000Z",
+   "subagent": false,
+   "model": "gpt-6-astra",
+   "effort": "high",
+   "responses": 5655,
+   "turns": 59,
+   "goal_msgs": 59,
+   "human_msgs": 8,
+   "compactions": 50
+  },
+  {
+   "agent": "codex",
+   "id": "01a09424",
+   "start": "2026-09-12T05:43:30.166000Z",
+   "end": "2026-09-12T11:24:05.407000Z",
+   "subagent": false,
+   "model": "gpt-6-astra",
+   "effort": "xhigh",
+   "responses": 513,
+   "turns": 9,
+   "goal_msgs": 1,
+   "human_msgs": 9,
+   "compactions": 6
+  },
+  {
+   "agent": "codex",
+   "id": "01a0942c",
+   "start": "2026-09-12T05:52:46.361000Z",
+   "end": "2026-09-14T09:05:13.523000Z",
+   "subagent": true,
+   "model": "gpt-6-astra",
+   "effort": "xhigh",
+   "responses": 2524,
+   "turns": 187,
+   "goal_msgs": 0,
+   "human_msgs": 6,
+   "compactions": 42
+  },
+  {
+   "agent": "codex",
+   "id": "01a09443",
+   "start": "2026-09-12T06:17:25.659000Z",
+   "end": "2026-09-12T11:21:57.280000Z",
+   "subagent": true,
+   "model": "gpt-6-astra",
+   "effort": "xhigh",
+   "responses": 412,
+   "turns": 7,
+   "goal_msgs": 0,
+   "human_msgs": 0,
+   "compactions": 4
+  },
+  {
+   "agent": "codex",
+   "id": "01a09446",
+   "start": "2026-09-12T06:20:14.830000Z",
+   "end": "2026-09-12T22:56:57.937000Z",
+   "subagent": true,
+   "model": "gpt-6-astra",
+   "effort": "xhigh",
+   "responses": 778,
+   "turns": 58,
+   "goal_msgs": 0,
+   "human_msgs": 2,
+   "compactions": 12
+  },
+  {
+   "agent": "codex",
+   "id": "01a09448",
+   "start": "2026-09-12T06:22:48.730000Z",
+   "end": "2026-09-12T22:54:19.404000Z",
+   "subagent": true,
+   "model": "gpt-6-astra",
+   "effort": "xhigh",
+   "responses": 614,
+   "turns": 39,
+   "goal_msgs": 0,
+   "human_msgs": 2,
+   "compactions": 7
+  },
+  {
+   "agent": "codex",
+   "id": "01a094b9",
+   "start": "2026-09-12T08:26:18.776000Z",
+   "end": "2026-09-12T11:22:47.625000Z",
+   "subagent": true,
+   "model": "gpt-6-astra",
+   "effort": "xhigh",
+   "responses": 231,
+   "turns": 21,
+   "goal_msgs": 0,
+   "human_msgs": 2,
+   "compactions": 4
+  },
+  {
+   "agent": "codex",
+   "id": "01a0952b",
+   "start": "2026-09-12T10:31:05.509000Z",
+   "end": "2026-09-12T11:23:52.650000Z",
+   "subagent": true,
+   "model": "gpt-6-astra",
+   "effort": "xhigh",
+   "responses": 79,
+   "turns": 4,
+   "goal_msgs": 0,
+   "human_msgs": 0,
+   "compactions": 1
+  },
+  {
+   "agent": "codex",
+   "id": "01a09554",
+   "start": "2026-09-12T11:15:38.443000Z",
+   "end": "2026-09-12T11:29:54.747000Z",
+   "subagent": false,
+   "model": "gpt-6-astra",
+   "effort": "xhigh",
+   "responses": 33,
+   "turns": 3,
+   "goal_msgs": 0,
+   "human_msgs": 4,
+   "compactions": 0
+  },
+  {
+   "agent": "codex",
+   "id": "01a0955d",
+   "start": "2026-09-12T11:25:44.308000Z",
+   "end": "2026-09-12T11:28:38.069000Z",
+   "subagent": true,
+   "model": "gpt-6-astra",
+   "effort": "xhigh",
+   "responses": 14,
+   "turns": 1,
+   "goal_msgs": 0,
+   "human_msgs": 4,
+   "compactions": 0
+  },
+  {
+   "agent": "codex",
+   "id": "01a0965d",
+   "start": "2026-09-12T16:05:31.019000Z",
+   "end": "2026-09-12T16:09:23.999000Z",
+   "subagent": false,
+   "model": "gpt-5.6-sol",
+   "effort": "medium",
+   "responses": 9,
+   "turns": 1,
+   "goal_msgs": 0,
+   "human_msgs": 1,
+   "compactions": 0
+  },
+  {
+   "agent": "codex",
+   "id": "01a096ef",
+   "start": "2026-09-12T18:44:27.798000Z",
+   "end": "2026-09-12T18:50:27.133000Z",
+   "subagent": false,
+   "model": "gpt-6-astra",
+   "effort": "xhigh",
+   "responses": 12,
+   "turns": 1,
+   "goal_msgs": 0,
+   "human_msgs": 1,
+   "compactions": 0
+  },
+  {
+   "agent": "codex",
+   "id": "01a09c54",
+   "start": "2026-09-13T19:52:46.260000Z",
+   "end": "2026-09-13T20:38:54.566000Z",
+   "subagent": false,
+   "model": "gpt-5.6-sol",
+   "effort": "xhigh",
+   "responses": 45,
+   "turns": 7,
+   "goal_msgs": 0,
+   "human_msgs": 7,
+   "compactions": 0
+  },
+  {
+   "agent": "codex",
+   "id": "01a09c6d",
+   "start": "2026-09-13T20:20:39.926000Z",
+   "end": "2026-09-13T20:22:48.991000Z",
+   "subagent": true,
+   "model": "gpt-6-astra",
+   "effort": "high",
+   "responses": 13,
+   "turns": 1,
+   "goal_msgs": 0,
+   "human_msgs": 3,
+   "compactions": 0
+  },
+  {
+   "agent": "codex",
+   "id": "01a09ecd",
+   "start": "2026-09-14T07:24:00.401000Z",
+   "end": "2026-09-14T09:06:12.027000Z",
+   "subagent": false,
+   "model": "gpt-6-astra",
+   "effort": "high",
+   "responses": 21,
+   "turns": 3,
+   "goal_msgs": 0,
+   "human_msgs": 3,
+   "compactions": 0
+  },
+  {
+   "agent": "codex",
+   "id": "01a0a15e",
+   "start": "2026-09-14T19:21:41.511000Z",
+   "end": "2026-09-14T19:21:58.153000Z",
+   "subagent": false,
+   "model": "gpt-6-astra",
+   "effort": "high",
+   "responses": 1,
+   "turns": 2,
+   "goal_msgs": 0,
+   "human_msgs": 2,
+   "compactions": 0
+  },
+  {
+   "agent": "codex",
+   "id": "01a0c7b2",
+   "start": "2026-09-22T05:59:29.951000Z",
+   "end": "2026-09-23T00:10:18.710000Z",
+   "subagent": false,
+   "model": "gpt-6-astra",
+   "effort": "xhigh",
+   "responses": 1238,
+   "turns": 33,
+   "goal_msgs": 33,
+   "human_msgs": 0,
+   "compactions": 13
+  },
+  {
+   "agent": "codex",
+   "id": "01a0c950",
+   "start": "2026-09-22T13:31:17.626000Z",
+   "end": "2026-09-22T13:47:29.944000Z",
+   "subagent": false,
+   "model": "gpt-6-astra",
+   "effort": "medium",
+   "responses": 36,
+   "turns": 6,
+   "goal_msgs": 0,
+   "human_msgs": 6,
+   "compactions": 0
+  },
+  {
+   "agent": "codex",
+   "id": "01a0dc49",
+   "start": "2026-09-26T05:56:36.390000Z",
+   "end": "2026-09-27T07:16:17.744000Z",
+   "subagent": false,
+   "model": "gpt-6-astra",
+   "effort": "xhigh",
+   "responses": 2810,
+   "turns": 72,
+   "goal_msgs": 71,
+   "human_msgs": 14,
+   "compactions": 29
+  },
+  {
+   "agent": "codex",
+   "id": "01a0deda",
+   "start": "2026-09-26T17:54:38.089000Z",
+   "end": "2026-09-26T18:01:52.548000Z",
+   "subagent": false,
+   "model": "gpt-6-sol",
+   "effort": "xhigh",
+   "responses": 13,
+   "turns": 2,
+   "goal_msgs": 0,
+   "human_msgs": 2,
+   "compactions": 0
+  },
+  {
+   "agent": "codex",
+   "id": "01a0e194",
+   "start": "2026-09-27T06:36:44.957000Z",
+   "end": "2026-09-27T06:55:21.964000Z",
+   "subagent": false,
+   "model": "gpt-6-sol",
+   "effort": "xhigh",
+   "responses": 38,
+   "turns": 3,
+   "goal_msgs": 0,
+   "human_msgs": 5,
+   "compactions": 0
+  },
+  {
+   "agent": "claude",
+   "id": "7ea5b99f",
+   "start": "2026-09-28T11:25:44.790000Z",
+   "end": "2026-10-03T14:51:42.947000Z",
+   "subagent": false,
+   "model": "claude-opus-5-5",
+   "effort": "xhigh",
+   "responses": 5954,
+   "subagent_files": 10
+  },
+  {
+   "agent": "codex",
+   "id": "01a0f0ac",
+   "start": "2026-09-30T04:57:01.489000Z",
+   "end": "2026-09-30T05:01:31.915000Z",
+   "subagent": false,
+   "model": "gpt-6-sol",
+   "effort": "xhigh",
+   "responses": 35,
+   "turns": 4,
+   "goal_msgs": 0,
+   "human_msgs": 4,
+   "compactions": 0
+  },
+  {
+   "agent": "codex",
+   "id": "01a0f597",
+   "start": "2026-10-01T03:52:19.625000Z",
+   "end": "2026-10-03T05:56:37.325000Z",
+   "subagent": false,
+   "model": "gpt-6-astra",
+   "effort": "xhigh",
+   "responses": 586,
+   "turns": 33,
+   "goal_msgs": 10,
+   "human_msgs": 24,
+   "compactions": 7
+  },
+  {
+   "agent": "codex",
+   "id": "01a0fe2b",
+   "start": "2026-10-02T19:50:44.035000Z",
+   "end": "2026-10-02T20:14:59.805000Z",
+   "subagent": true,
+   "model": "gpt-6-astra",
+   "effort": "xhigh",
+   "responses": 56,
+   "turns": 4,
+   "goal_msgs": 0,
+   "human_msgs": 0,
+   "compactions": 1
+  }
+ ]
+}
