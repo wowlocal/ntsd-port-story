@@ -8,3 +8,4 @@ exports
 .remote-assets
 components.d.ts
 _test*.md
+__render_*.md

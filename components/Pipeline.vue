@@ -1,12 +1,19 @@
 <script setup lang="ts">
+import { useNav, useSlideContext } from '@slidev/client'
+
+// `stepwise` reveals one step per click (the slide needs `clicks: <steps>` in its frontmatter);
+// export and print always show everything.
 interface Step { name: string, ru?: string, desc?: string, icon?: string, accent?: boolean }
-withDefaults(defineProps<{ steps: Step[], loopLabel?: string, loopFrom?: number, loopTo?: number }>(), {})
+const props = withDefaults(defineProps<{ steps: Step[], loopLabel?: string, loopFrom?: number, loopTo?: number, stepwise?: boolean }>(), { stepwise: false })
+const { $clicks } = useSlideContext()
+const nav = useNav()
+const shown = (i: number) => !props.stepwise || nav.isPrintMode.value || ($clicks?.value ?? 0) >= i
 </script>
 
 <template>
   <div class="pipe">
     <div class="row" :style="{ gridTemplateColumns: `repeat(${steps.length}, 1fr)` }">
-      <div v-for="(s, i) in steps" :key="s.name" class="step" :class="{ accent: s.accent }">
+      <div v-for="(s, i) in steps" :key="s.name" class="step" :class="{ accent: s.accent, off: !shown(i) }">
         <div class="idx pixel">
           {{ String(i + 1).padStart(2, '0') }}
         </div>
@@ -19,10 +26,10 @@ withDefaults(defineProps<{ steps: Step[], loopLabel?: string, loopFrom?: number,
         <div v-if="s.desc" class="desc">
           {{ s.desc }}
         </div>
-        <svg v-if="i < steps.length - 1" class="arrow" viewBox="0 0 16 16" width="16" height="16"><path d="M2 8h10M8 3l5 5-5 5" fill="none" stroke="var(--naruto)" stroke-width="2" stroke-linecap="square" /></svg>
+        <svg v-if="i < steps.length - 1" class="arrow" :class="{ off: !shown(i + 1) }" viewBox="0 0 16 16" width="16" height="16"><path d="M2 8h10M8 3l5 5-5 5" fill="none" stroke="var(--naruto)" stroke-width="2" stroke-linecap="square" /></svg>
       </div>
     </div>
-    <div v-if="loopLabel && loopFrom !== undefined && loopTo !== undefined" class="loop" :style="{ gridTemplateColumns: `repeat(${steps.length}, 1fr)` }">
+    <div v-if="loopLabel && loopFrom !== undefined && loopTo !== undefined" class="loop" :class="{ off: !shown(steps.length) }" :style="{ gridTemplateColumns: `repeat(${steps.length}, 1fr)` }">
       <div class="loopwrap" :style="{ gridColumn: `${Math.min(loopFrom, loopTo) + 1} / ${Math.max(loopFrom, loopTo) + 2}` }">
         <svg class="loopsvg" viewBox="0 0 200 28" preserveAspectRatio="none">
           <path d="M150,0 V14 Q150,22 142,22 H58 Q50,22 50,14 V6" fill="none" stroke="var(--naruto)" stroke-width="2" vector-effect="non-scaling-stroke" />
@@ -37,6 +44,18 @@ withDefaults(defineProps<{ steps: Step[], loopLabel?: string, loopFrom?: number,
 </template>
 
 <style scoped>
+.step,
+.arrow,
+.loop {
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+.off {
+  opacity: 0;
+  transform: translateY(6px);
+}
+.arrow.off {
+  transform: translateY(-50%);
+}
 .row {
   display: grid;
   gap: 1.1rem;

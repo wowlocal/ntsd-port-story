@@ -1,13 +1,20 @@
 <script setup lang="ts">
+import { useNav, useSlideContext } from '@slidev/client'
+
 // Two-lane flow: one shared input fans out to two programs whose outputs meet in a comparator.
+// `stepwise` reveals input → programs → outputs → verdict on clicks 0–3 (frontmatter `clicks: 3`).
 interface Lane { title: string, sub?: string, out: string, color?: string, tag?: string }
-withDefaults(defineProps<{
+const props = withDefaults(defineProps<{
   input: string
   inputSub?: string
   lanes: Lane[]
   verdict: string
   verdictSub?: string
-}>(), {})
+  stepwise?: boolean
+}>(), { stepwise: false })
+const { $clicks } = useSlideContext()
+const nav = useNav()
+const shown = (k: number) => !props.stepwise || nav.isPrintMode.value || ($clicks?.value ?? 0) >= k
 </script>
 
 <template>
@@ -20,13 +27,13 @@ withDefaults(defineProps<{
         {{ inputSub }}
       </div>
     </div>
-    <svg class="fan" viewBox="0 0 60 200" preserveAspectRatio="none">
+    <svg class="fan" :class="{ off: !shown(1) }" viewBox="0 0 60 200" preserveAspectRatio="none">
       <path d="M0,100 C30,100 30,40 60,40" fill="none" stroke="var(--axis)" stroke-width="2" vector-effect="non-scaling-stroke" />
       <path d="M0,100 C30,100 30,160 60,160" fill="none" stroke="var(--axis)" stroke-width="2" vector-effect="non-scaling-stroke" />
     </svg>
     <div class="lanes">
       <div v-for="l in lanes" :key="l.title" class="lane">
-        <div class="node prog" :style="{ borderColor: l.color }">
+        <div class="node prog" :class="{ off: !shown(1) }" :style="{ borderColor: l.color }">
           <div v-if="l.tag" class="tag">
             {{ l.tag }}
           </div>
@@ -37,19 +44,19 @@ withDefaults(defineProps<{
             {{ l.sub }}
           </div>
         </div>
-        <svg class="arrow" viewBox="0 0 40 12"><path d="M0 6h32M28 1l6 5-6 5" fill="none" stroke="var(--axis)" stroke-width="2" /></svg>
-        <div class="node out">
+        <svg class="arrow" :class="{ off: !shown(2) }" viewBox="0 0 40 12"><path d="M0 6h32M28 1l6 5-6 5" fill="none" stroke="var(--axis)" stroke-width="2" /></svg>
+        <div class="node out" :class="{ off: !shown(2) }">
           <div class="s">
             {{ l.out }}
           </div>
         </div>
       </div>
     </div>
-    <svg class="fan" viewBox="0 0 60 200" preserveAspectRatio="none">
+    <svg class="fan" :class="{ off: !shown(3) }" viewBox="0 0 60 200" preserveAspectRatio="none">
       <path d="M0,40 C30,40 30,100 60,100" fill="none" stroke="var(--axis)" stroke-width="2" vector-effect="non-scaling-stroke" />
       <path d="M0,160 C30,160 30,100 60,100" fill="none" stroke="var(--axis)" stroke-width="2" vector-effect="non-scaling-stroke" />
     </svg>
-    <div class="node verdict">
+    <div class="node verdict" :class="{ off: !shown(3) }">
       <div class="eq pixel">
         ==
       </div>
@@ -64,6 +71,15 @@ withDefaults(defineProps<{
 </template>
 
 <style scoped>
+.node,
+.fan,
+.arrow {
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+.off {
+  opacity: 0;
+  transform: translateX(-6px);
+}
 .flow {
   display: grid;
   grid-template-columns: 9.5rem 2.6rem 1fr 2.6rem 9rem;
