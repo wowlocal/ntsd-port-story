@@ -1,7 +1,7 @@
 ---
 layout: chapter
 num: 7
-total: 12
+total: 13
 kicker: Глава седьмая
 dates: 29 сентября — 2 октября
 image: /img/screens/12-all-17-backgrounds-grid.jpg

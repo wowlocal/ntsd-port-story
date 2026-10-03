@@ -1,7 +1,7 @@
 ---
 layout: chapter
-num: 12
-total: 12
+num: 13
+total: 13
 kicker: Эпилог
 dates: 3 октября и дальше
 image: /img/stage-1-1-background.jpg

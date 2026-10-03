@@ -301,6 +301,30 @@
    "score": 0
   }
  ],
+ "newcomers": [
+  {
+   "name": "OpenLF2",
+   "repo": "OpenLF2/OpenLF2",
+   "lang": "Lua/C++",
+   "loc": 19660,
+   "stars": 0,
+   "last": "2026-10",
+   "since": "2026-09-27",
+   "cells": {
+    "readsOriginalDat": "y",
+    "frameStateMachine": "y",
+    "combatBoxes": "y",
+    "physics": "y",
+    "computerAI": "y",
+    "modesBeyondVS": "y",
+    "replays": "y",
+    "network": "y",
+    "automatedTests": "n",
+    "comparesWithOriginal": "n",
+    "nativeMacOS": "y"
+   }
+  }
+ ],
  "port": {
   "name": "этот порт",
   "lang": "Swift",

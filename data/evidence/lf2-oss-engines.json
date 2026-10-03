@@ -2931,5 +2931,551 @@
    "smallCheckCLIs": 502
   },
   "testsSwift": 45074
- }
+ },
+ "followups": [
+  {
+   "repository": "OpenLF2/OpenLF2",
+   "url": "https://github.com/OpenLF2/OpenLF2",
+   "homepage": "https://openlf2.github.io/OpenLF2/",
+   "addedAtUTC": "2026-10-03T18:42:57.581853+00:00",
+   "trigger": "NTSD Discord, 2026-10-02: 'Also take a look for this project. As author says it is pure 100% reverse-engineered version of original LF2 but personally i didn't try to launch.'",
+   "category": "Behavioural reimplementation of LF2 v2.0a (C++23 engine + Lua gameplay), informed by reverse engineering of the original EXE; reads assets from the original installer",
+   "organization": {
+    "login": "OpenLF2",
+    "type": "Organization",
+    "createdAt": "2026-09-25T15:15:07Z",
+    "bio": "Open source reimplementation of Little Fighter 2",
+    "publicRepos": 1
+   },
+   "relationToXsoameixOpenlf2": "Unrelated new project: different owner (OpenLF2 org, 2026) vs xsoameix (user, 2014), not a fork (fork=false, no parent), no shared history (first commit 2026-09-28), no reference to xsoameix in the tree, different approach (standalone SDL3/LuaJIT engine vs DLL patched into LF2.exe). GitHub repo search for 'openlf2' in:name returns only these two.",
+   "pinned": {
+    "branch": "main",
+    "commit": "56e4a47e412673e6563dad95ceb5c0e5e800cb62",
+    "commitDateUTC": "2026-10-02T17:29:57Z",
+    "commitMessage": "version bump",
+    "isCurrentBranchHead": true,
+    "note": "No survey pin exists (repo created after the 2026-09-12 survey); pinned = main HEAD at retrieval."
+   },
+   "defaultBranch": {
+    "name": "main",
+    "headCommit": "56e4a47e412673e6563dad95ceb5c0e5e800cb62",
+    "lastCommitDateUTC": "2026-10-02T17:29:57Z",
+    "commitCount": 22
+   },
+   "github": {
+    "stars": 0,
+    "forks": 0,
+    "primaryLanguage": "Lua",
+    "languagesBytes": {
+     "Lua": 566524,
+     "C++": 551833,
+     "Python": 73848,
+     "CMake": 22638,
+     "Java": 2592,
+     "Objective-C++": 1206
+    },
+    "licenseAPI": "MIT",
+    "createdAt": "2026-09-27T19:20:14Z",
+    "pushedAt": "2026-10-02T17:31:27Z",
+    "archived": false,
+    "openIssues": 0,
+    "issuesAllStates": 2,
+    "pullRequestsAllStates": 0,
+    "contributorsGitHubAccounts": 1,
+    "contributorsInclAnonymous": 1,
+    "contributors": [
+     {
+      "login": "Laserlicht",
+      "name": null,
+      "type": "User",
+      "contributions": 22
+     }
+    ],
+    "releases": [
+     {
+      "tag": "v0.9.1",
+      "published_at": "2026-10-02T17:31:27Z",
+      "assets": [
+       "OpenLF2-aarch64.AppImage",
+       "OpenLF2-Android-api21-arm64-v8a.apk",
+       "OpenLF2-Android-api21-armeabi-v7a.apk",
+       "OpenLF2-Android-api21-x86.apk",
+       "OpenLF2-Android-api21-x86_64.apk",
+       "OpenLF2-i686.AppImage",
+       "OpenLF2-iOS-arm64-unsigned.ipa",
+       "OpenLF2-macos-arm64.app.zip",
+       "OpenLF2-macos-x64.app.zip",
+       "OpenLF2-PortMaster.zip",
+       "OpenLF2-Switch-arm64.nro",
+       "OpenLF2-Vita-armv7.vpk",
+       "OpenLF2-Web.zip",
+       "OpenLF2-Windows-arm64.zip",
+       "OpenLF2-Windows-x64.zip",
+       "OpenLF2-Windows-x86.zip",
+       "OpenLF2-x86_64.AppImage",
+       "openlf2_amd64.deb",
+       "openlf2_arm64.deb",
+       "openlf2_i386.deb"
+      ]
+     },
+     {
+      "tag": "v0.9.0",
+      "published_at": "2026-09-28T20:41:31Z",
+      "assets": [
+       "OpenLF2-aarch64.AppImage",
+       "OpenLF2-Android-api21-arm64-v8a.apk",
+       "OpenLF2-Android-api21-armeabi-v7a.apk",
+       "OpenLF2-Android-api21-x86.apk",
+       "OpenLF2-Android-api21-x86_64.apk",
+       "OpenLF2-i686.AppImage",
+       "OpenLF2-iOS-arm64-unsigned.ipa",
+       "OpenLF2-macos-arm64.app.zip",
+       "OpenLF2-macos-x64.app.zip",
+       "OpenLF2-Switch-arm64.nro",
+       "OpenLF2-Vita-armv7.vpk",
+       "OpenLF2-Web.zip",
+       "OpenLF2-Windows-arm64.zip",
+       "OpenLF2-Windows-x64.zip",
+       "OpenLF2-Windows-x86.zip",
+       "OpenLF2-x86_64.AppImage",
+       "openlf2_amd64.deb",
+       "openlf2_arm64.deb",
+       "openlf2_i386.deb"
+      ]
+     }
+    ],
+    "topics": [
+     "beatemup",
+     "decompiled",
+     "game-engine",
+     "lf2",
+     "littlefighter2",
+     "lua",
+     "open-source",
+     "reverse-engineering",
+     "sdl3"
+    ],
+    "workflows": [
+     {
+      "name": "Android APK",
+      "path": ".github/workflows/android.yml",
+      "state": "active"
+     },
+     {
+      "name": "iOS",
+      "path": ".github/workflows/ios.yml",
+      "state": "active"
+     },
+     {
+      "name": "Linux AppImage",
+      "path": ".github/workflows/linux-appimage.yml",
+      "state": "active"
+     },
+     {
+      "name": "Linux DEB",
+      "path": ".github/workflows/linux-deb.yml",
+      "state": "active"
+     },
+     {
+      "name": "macOS",
+      "path": ".github/workflows/macos.yml",
+      "state": "active"
+     },
+     {
+      "name": "PortMaster",
+      "path": ".github/workflows/portmaster.yml",
+      "state": "active"
+     },
+     {
+      "name": "Nintendo Switch",
+      "path": ".github/workflows/switch.yml",
+      "state": "active"
+     },
+     {
+      "name": "PlayStation Vita",
+      "path": ".github/workflows/vita.yml",
+      "state": "active"
+     },
+     {
+      "name": "WebAssembly",
+      "path": ".github/workflows/web.yml",
+      "state": "active"
+     },
+     {
+      "name": "Windows",
+      "path": ".github/workflows/windows.yml",
+      "state": "active"
+     }
+    ],
+    "workflowRunsTotal": 25,
+    "workflowRunConclusions": "all 25 runs 'success' (build/package only, manual workflow_dispatch)",
+    "retrievedAtUTC": "2026-10-03T18:35:59.645593+00:00"
+   },
+   "history": {
+    "initialCommit": {
+     "sha": "07a5c6583f",
+     "authorDateUTC": "2026-09-28T20:23:43Z",
+     "message": "initial commit",
+     "additions": 27268,
+     "files": 175
+    },
+    "firstReleaseUTC": "2026-09-28T20:41:31Z (v0.9.0, 18 minutes after the initial commit)",
+    "laterCommits": "21 commits 2026-09-28..2026-10-02, about 1.1k added lines: download buttons, Flatpak, PortMaster, on-screen gamepad/touch, filters, version bump",
+    "perCommitStats": [
+     {
+      "sha": "07a5c6583f",
+      "additions": 27268,
+      "deletions": 0,
+      "files": 175,
+      "message": "initial commit"
+     },
+     {
+      "sha": "7362c67f3d",
+      "additions": 1,
+      "deletions": 0,
+      "files": 1,
+      "message": "Add download button"
+     },
+     {
+      "sha": "7595a6fa2d",
+      "additions": 15,
+      "deletions": 0,
+      "files": 1,
+      "message": "Download links"
+     },
+     {
+      "sha": "d4963422b3",
+      "additions": 227,
+      "deletions": 5,
+      "files": 6,
+      "message": "Add Flatpak"
+     },
+     {
+      "sha": "47c6cc8584",
+      "additions": 12,
+      "deletions": 3,
+      "files": 2,
+      "message": "show gamepad debugging config"
+     },
+     {
+      "sha": "033230c50f",
+      "additions": 53,
+      "deletions": 18,
+      "files": 3,
+      "message": "make on screen gamepad configurable"
+     },
+     {
+      "sha": "61206e94a0",
+      "additions": 19,
+      "deletions": 2,
+      "files": 1,
+      "message": "show all options in config"
+     },
+     {
+      "sha": "4f759a8b8c",
+      "additions": 149,
+      "deletions": 45,
+      "files": 8,
+      "message": "Draw onscreen gamepad as overlay (also in letterbo"
+     },
+     {
+      "sha": "73db356693",
+      "additions": 60,
+      "deletions": 11,
+      "files": 5,
+      "message": "add special buttons"
+     },
+     {
+      "sha": "3d4cf8be5d",
+      "additions": 63,
+      "deletions": 15,
+      "files": 3,
+      "message": "pause button"
+     },
+     {
+      "sha": "863a81dd4f",
+      "additions": 29,
+      "deletions": 14,
+      "files": 2,
+      "message": "Add touch tolerance"
+     },
+     {
+      "sha": "f5d800ab93",
+      "additions": 46,
+      "deletions": 12,
+      "files": 8,
+      "message": "allow mutiple orientations"
+     },
+     {
+      "sha": "e2e2786c56",
+      "additions": 7,
+      "deletions": 9,
+      "files": 5,
+      "message": "Remove version number from appimage and deb artifa"
+     },
+     {
+      "sha": "5878e75a52",
+      "additions": 13,
+      "deletions": 0,
+      "files": 2,
+      "message": "Use same signing key"
+     },
+     {
+      "sha": "b9699eed71",
+      "additions": 329,
+      "deletions": 2,
+      "files": 7,
+      "message": "Portmaster build"
+     },
+     {
+      "sha": "d0ab08b632",
+      "additions": 13,
+      "deletions": 12,
+      "files": 1,
+      "message": "Fix linear filter"
+     },
+     {
+      "sha": "d391b643c5",
+      "additions": 1,
+      "deletions": 1,
+      "files": 1,
+      "message": "Linear filter as default"
+     },
+     {
+      "sha": "50063daca0",
+      "additions": 10,
+      "deletions": 2,
+      "files": 2,
+      "message": "add default controller setting"
+     },
+     {
+      "sha": "541eedff88",
+      "additions": 7,
+      "deletions": 37,
+      "files": 5,
+      "message": "Remove top alignment"
+     },
+     {
+      "sha": "5d1ac8a10e",
+      "additions": 46,
+      "deletions": 12,
+      "files": 3,
+      "message": "Digipad by default"
+     },
+     {
+      "sha": "4657879801",
+      "additions": 2,
+      "deletions": 2,
+      "files": 1,
+      "message": "Bigger digipad"
+     },
+     {
+      "sha": "56e4a47e41",
+      "additions": 28,
+      "deletions": 6,
+      "files": 6,
+      "message": "version bump"
+     }
+    ]
+   },
+   "loc": {
+    "measuredAt": "56e4a47e412673e6563dad95ceb5c0e5e800cb62 (shallow clone)",
+    "ownNonTestCode": 19660,
+    "byCategory": {
+     "excluded_generated": {
+      "code": 2220,
+      "files": 1,
+      "byLanguage": {
+       "C/C++ Header": 2220
+      }
+     },
+     "engine": {
+      "code": 18417,
+      "files": 106,
+      "byLanguage": {
+       "Lua": 11227,
+       "C++": 6229,
+       "C/C++ Header": 961
+      }
+     },
+     "tools": {
+      "code": 1189,
+      "files": 4,
+      "byLanguage": {
+       "Python": 1189
+      }
+     },
+     "excluded_build": {
+      "code": 175,
+      "files": 2,
+      "byLanguage": {
+       "Python": 175
+      }
+     },
+     "app_ui": {
+      "code": 54,
+      "files": 1,
+      "byLanguage": {
+       "Java": 54
+      }
+     },
+     "excluded_samples": {
+      "code": 84,
+      "files": 3,
+      "byLanguage": {
+       "Lua": 84
+      }
+     },
+     "other": {
+      "code": 33,
+      "files": 1,
+      "byLanguage": {
+       "JavaScript": 33
+      }
+     }
+    },
+    "notes": "engine = Lua gameplay/UI (scripts/) + C++ (src/, include/); generated include/openlf2/detail/sdl/xbrz_shader.hpp (2,220) excluded; example mods, build scripts excluded; rules in loc_followups.py."
+   },
+   "approach": {
+    "decompiledOrTranslated": "No decompiler output: no sub_/FUN_ names, no Ghidra/IDA references, only two original-EXE virtual addresses (recording key 0x44d7a0, version 0x44d03c) used to read data from the installer's EXE; architecture deliberately re-split into C++ mechanisms + Lua policy (README L90-92).",
+    "reverseEngineeringSignals": [
+     "Comments cite original internals: 'Not initialized by the original record constructor' (object_data.hpp), 'matching the original's fscanf loop' (scan_stream.hpp), 'The C runtime rand() the original game uses (214013/2531011 LCG, bits 16..30)' (compatibility_random.hpp), 'The original would read an uninitialized candidate here' (character_select.lua L69).",
+     "UI code keyed to the original's internal state numbers ('State 0xd2-0xdb', 'State 0x1a', championship.lua/battle_setup.lua) and key-state field offsets ('held keys (0xcd..0xd3)', ai.lua L5).",
+     "AI 'follows the original game's main, attack and special-move routines. Keep condition order for random-call compatibility' (ai.lua L3-4).",
+     "834 hex literals in the Lua scripts; 42 Lua and 36 C++ comment lines mention 'original'."
+    ],
+    "summary": "Reimplementation informed by detailed reverse engineering of LF2 v2.0a (not a decompilation or binary translation); the original EXE is used only as a data source (assets, PE bitmaps, recording key), never executed."
+   },
+   "claimsVsEvidence": [
+    {
+     "claim": "'pure 100% reverse-engineered version of original LF2' (Discord, attributed to the author)",
+     "evidence": "Project itself says 'reimplementation' (README L5, repo description, org bio); GitHub topics add 'decompiled' and 'reverse-engineering'; RE signals are strong, but README L15-16 states some behaviour is not yet verified against the original, and no comparison data is published."
+    },
+    {
+     "claim": "Versus, Stage, Battle, Championship, Team Championship, Demo (README L10)",
+     "evidence": "All six routed in scripts/base/ui/flow.lua L164-187 with dedicated modules (championship.lua 694 lines, battle_setup.lua 515, stage.lua 493); behaviour fidelity unverified."
+    },
+    {
+     "claim": "recordings and replays '(compatible)' (README L12)",
+     "evidence": "Original .rec container implemented (zlib + key from EXE VA 0x44d7a0; block size 0x630e18); compatibility of playback not demonstrated by any test."
+    },
+    {
+     "claim": "Network play",
+     "evidence": "Own TCP protocol; README: compatibility with original LF2 not supported (L84-85)."
+    },
+    {
+     "claim": "Runs on Windows/Linux/macOS/Android/iOS/Switch/Vita/Web",
+     "evidence": "10 CI workflows build and package these targets (25 successful manual runs, release assets for all); README: platform builds not all verified on real devices (L15-16). Not run in this review."
+    }
+   ],
+   "aiAssistanceSigns": {
+    "explicitMarkers": "None: no Co-Authored-By or similar trailers in any of the 22 commits, no AI tool files (CLAUDE.md/AGENTS.md/copilot) and no mentions of AI tools in the tree.",
+    "commitStyle": "Terse one-line, human-looking messages with typos ('allow mutiple orientations').",
+    "circumstantial": [
+     "Entire 27,268-line codebase arrived in one 'initial commit' (175 files) and v0.9.0 was released 18 minutes later; development history is not public.",
+     "CONTRIBUTING.md reads like operating rules for a coding agent: 'Inspect the working tree and recent commits before changing code', 'separate established facts from hypotheses', 'Existing-cache builds are authorized; interactive sessions and visual/audio comparisons are the owner's. Do not install dependencies.'"
+    ],
+    "assessment": "Inconclusive: no explicit evidence of AI assistance; the single-drop history and agent-style CONTRIBUTING are consistent with AI-agent-assisted development but do not prove it."
+   },
+   "status": "New and active: org created 2026-09-25, repo 2026-09-27, 22 commits 2026-09-28..2026-10-02, latest release v0.9.1 (2026-10-02); single author; README: 'The game is still being developed.'",
+   "statusShort": "New, active (v0.9.1, 2026-10-02)",
+   "runs": "Not run here. README and CI say: release builds exist for 10 platform families including macOS arm64/x64; a WebAssembly build runs at the project site with the user's own LF2_v2.0a.exe; all CI runs succeeded but they only build/package (no gameplay tests); README cautions behaviour and platform builds are not all verified.",
+   "matrixFollowup": {
+    "readsOriginalDat": {
+     "value": "yes",
+     "evidence": "Decodes encrypted .dat at runtime straight from the LF2 v2.0a installer: 'Reverses the original data-file encoding (123-byte prefix, rotating subtraction key)'.",
+     "sources": [
+      "https://github.com/OpenLF2/OpenLF2/blob/56e4a47e412673e6563dad95ceb5c0e5e800cb62/include/openlf2/resources/data_file.hpp#L11",
+      "https://github.com/OpenLF2/OpenLF2/blob/56e4a47e412673e6563dad95ceb5c0e5e800cb62/include/openlf2/resources/installer.hpp#L15-L18"
+     ]
+    },
+    "frameStateMachine": {
+     "value": "yes",
+     "evidence": "Frame rules and animation in Lua (scripts/base/game/frame_rules.lua, animation.lua); fidelity unverified.",
+     "sources": [
+      "https://github.com/OpenLF2/OpenLF2/blob/56e4a47e412673e6563dad95ceb5c0e5e800cb62/scripts/base/game/frame_rules.lua"
+     ]
+    },
+    "combatBoxes": {
+     "value": "yes",
+     "evidence": "'Collision and hit policy follows the original pair pass' (combat.lua L9); itr kinds 2/5/7/9/10/11/14/15/16 handled.",
+     "sources": [
+      "https://github.com/OpenLF2/OpenLF2/blob/56e4a47e412673e6563dad95ceb5c0e5e800cb62/scripts/base/game/combat.lua#L9"
+     ]
+    },
+    "physics": {
+     "value": "yes",
+     "evidence": "physics.lua with C truncation semantics ('C (int) conversion of a double truncates toward zero', L10) and landing/falling rules.",
+     "sources": [
+      "https://github.com/OpenLF2/OpenLF2/blob/56e4a47e412673e6563dad95ceb5c0e5e800cb62/scripts/base/game/physics.lua#L10"
+     ]
+    },
+    "computerAI": {
+     "value": "yes",
+     "evidence": "ai.lua (1,076 lines): 'Computer control follows the original game's main, attack and special-move routines. Keep condition order for random-call compatibility' (L3-4).",
+     "sources": [
+      "https://github.com/OpenLF2/OpenLF2/blob/56e4a47e412673e6563dad95ceb5c0e5e800cb62/scripts/base/game/ai.lua#L3-L4"
+     ]
+    },
+    "modesBeyondVS": {
+     "value": "yes",
+     "evidence": "versus, stage, battle, championship, team_championship and demo are routed in scripts/base/ui/flow.lua L164-187 (claimed in README L10); fidelity unverified.",
+     "sources": [
+      "https://github.com/OpenLF2/OpenLF2/blob/56e4a47e412673e6563dad95ceb5c0e5e800cb62/scripts/base/ui/flow.lua#L164-L187",
+      "https://github.com/OpenLF2/OpenLF2/blob/56e4a47e412673e6563dad95ceb5c0e5e800cb62/README.md#L10"
+     ]
+    },
+    "replays": {
+     "value": "yes",
+     "evidence": "Reads/writes the original recording format with the key read from the original EXE at VA 0x44d7a0 (recording.hpp L12-16); README: 'recordings, and replays (compatible)' (L12). Playback sync not verified.",
+     "sources": [
+      "https://github.com/OpenLF2/OpenLF2/blob/56e4a47e412673e6563dad95ceb5c0e5e800cb62/include/openlf2/resources/recording.hpp#L12-L16",
+      "https://github.com/OpenLF2/OpenLF2/blob/56e4a47e412673e6563dad95ceb5c0e5e800cb62/README.md#L12"
+     ]
+    },
+    "network": {
+     "value": "yes",
+     "evidence": "Own TCP protocol (port 12345); 'compatibility with original LF2 is not supported' (README L84-85).",
+     "sources": [
+      "https://github.com/OpenLF2/OpenLF2/blob/56e4a47e412673e6563dad95ceb5c0e5e800cb62/README.md#L84-L85"
+     ]
+    },
+    "automatedTests": {
+     "value": "no",
+     "evidence": "No test files; CI = 10 build/package workflows, manual workflow_dispatch only, checks only packaging (license files, zip integrity). A headless --input-trace/--replay mode exists (src/app/application.cpp L56-73) but no tests or expected outputs are published.",
+     "sources": [
+      "https://github.com/OpenLF2/OpenLF2/blob/56e4a47e412673e6563dad95ceb5c0e5e800cb62/src/app/application.cpp#L73",
+      "https://github.com/OpenLF2/OpenLF2/blob/56e4a47e412673e6563dad95ceb5c0e5e800cb62/.github/workflows/macos.yml#L3-L6"
+     ]
+    },
+    "comparesWithOriginal": {
+     "value": "no",
+     "evidence": "None published. README: 'Some behavior and platform builds have not yet been verified against the original game' (L15-16); CONTRIBUTING: 'visual/audio comparisons are the owner's' and 'Keep original assets, binaries, and private gameplay captures out of commits' (L15-19); background_preview.lua is a manual 'Developer preview for comparing background layout with the original' (L4).",
+     "sources": [
+      "https://github.com/OpenLF2/OpenLF2/blob/56e4a47e412673e6563dad95ceb5c0e5e800cb62/README.md#L15-L16",
+      "https://github.com/OpenLF2/OpenLF2/blob/56e4a47e412673e6563dad95ceb5c0e5e800cb62/CONTRIBUTING.md#L15-L19",
+      "https://github.com/OpenLF2/OpenLF2/blob/56e4a47e412673e6563dad95ceb5c0e5e800cb62/scripts/base/ui/background_preview.lua#L4"
+     ]
+    },
+    "nativeMacOS": {
+     "value": "yes",
+     "evidence": "CI builds macOS arm64 and x64 .app bundles (macos.yml), attached to releases v0.9.0/v0.9.1 (SDL3 + LuaJIT, no browser). Not run here; README says builds are not all verified on real devices.",
+     "sources": [
+      "https://github.com/OpenLF2/OpenLF2/blob/56e4a47e412673e6563dad95ceb5c0e5e800cb62/.github/workflows/macos.yml",
+      "https://github.com/OpenLF2/OpenLF2/releases/tag/v0.9.1"
+     ]
+    },
+    "loadsNTSD24Data": {
+     "value": "no",
+     "evidence": "As-is it accepts only the LF2 v2.0a installer, checked by size 29,586,263 and SHA-256 540c4855... (installer.hpp L15-18, installer.cpp L18); a --mod system can mount extra assets, but NTSD is untested.",
+     "sources": [
+      "https://github.com/OpenLF2/OpenLF2/blob/56e4a47e412673e6563dad95ceb5c0e5e800cb62/include/openlf2/resources/installer.hpp#L15-L18",
+      "https://github.com/OpenLF2/OpenLF2/blob/56e4a47e412673e6563dad95ceb5c0e5e800cb62/src/resources/installer.cpp#L18"
+     ]
+    }
+   },
+   "verdict": "A substantial (~18k lines) reverse-engineering-informed reimplementation of LF2 v2.0a, not a decompilation; '100% reverse-engineered' is not backed by public evidence — the author's own README calls it a reimplementation whose behaviour is not yet fully verified, and no tests or comparisons with the original are published."
+  }
+ ],
+ "followupsNote": "Repositories examined after the main 13; kept separate so the 13 entries, matrix and aggregates stay unchanged."
 }

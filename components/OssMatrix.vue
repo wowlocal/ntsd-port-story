@@ -3,8 +3,9 @@ import data from '../data/oss_matrix.json'
 
 // What each open-source LF2 engine implements, by reading its code (data/evidence/lf2-oss-engines.json).
 // Shape carries the value: filled — yes, half — partial, dot — no, "?" — unknown.
-interface Row { name: string, repo?: string, lang: string, loc: number, stars: number | null, last: string, cells: Record<string, string> }
+interface Row { name: string, repo?: string, lang: string, loc: number, stars: number | null, last: string, since?: string, cells: Record<string, string> }
 const rows = (data as any).rows as Row[]
+const newcomers = ((data as any).newcomers ?? []) as Row[]
 const port = (data as any).port as Row
 const cols = (data as any).columns as string[]
 const head: Record<string, [string, string?]> = {
@@ -23,6 +24,7 @@ const head: Record<string, [string, string?]> = {
 const word: Record<string, string> = { y: 'есть', p: 'частично', n: 'нет', u: 'неизвестно' }
 const months = ['янв', 'фев', 'мар', 'апр', 'мая', 'июн', 'июл', 'авг', 'сен', 'окт', 'ноя', 'дек']
 const when = (ym: string) => `${months[Number(ym.slice(5, 7)) - 1]} ${ym.slice(0, 4)}`
+const day = (ymd: string) => `${Number(ymd.slice(8, 10))} ${months[Number(ymd.slice(5, 7)) - 1]}`
 const kloc = (n: number) => n >= 1000 ? `${(n / 1000).toFixed(1).replace('.', ',')} тыс.` : `${n}`
 </script>
 
@@ -36,9 +38,9 @@ const kloc = (n: number) => n >= 1000 ? `${(n / 1000).toFixed(1).replace('.', ',
         {{ head[c][0] }}<br v-if="head[c][1]"><span v-if="head[c][1]">{{ head[c][1] }}</span>
       </div>
     </div>
-    <div v-for="r in [...rows, port]" :key="r.name" class="row" :class="{ port: r === port }">
+    <div v-for="r in [...rows, ...newcomers, port]" :key="r.name" class="row" :class="{ port: r === port, fresh: newcomers.includes(r) }">
       <div class="nm">
-        <b>{{ r.name }}</b><span class="sub">{{ r.lang }} · {{ kloc(r.loc) }} строк</span>
+        <b>{{ r.name }}</b><span v-if="r.since" class="tag">с {{ day(r.since) }}</span><span class="sub">{{ r.lang }} · {{ kloc(r.loc) }} строк</span>
       </div>
       <div class="meta num">{{ r.stars ?? '—' }}</div>
       <div class="meta">{{ when(r.last) }}</div>
@@ -137,6 +139,18 @@ const kloc = (n: number) => n >= 1000 ? `${(n / 1000).toFixed(1).replace('.', ',
 .q {
   color: var(--muted);
   font-weight: 600;
+}
+.fresh {
+  border-top: 1px dashed var(--muted);
+  background: rgba(108, 182, 255, 0.06);
+}
+.tag {
+  font-size: 0.5rem;
+  color: var(--chakra);
+  border: 1px solid rgba(108, 182, 255, 0.45);
+  border-radius: 999px;
+  padding: 0 0.35rem;
+  margin-right: 0.4rem;
 }
 .port {
   border-top: 1.5px solid var(--naruto);

@@ -1,0 +1,96 @@
+{
+ "collected_at": "2026-10-03T19:00Z",
+ "plan": {
+  "name": "Claude Max 20x",
+  "price_usd_month": 200,
+  "source": "https://support.claude.com/en/articles/11049741-what-is-the-max-plan",
+  "price_usd_week": 46.15,
+  "price_usd_day": 6.59
+ },
+ "prices_usd_per_mtok": {
+  "claude-opus-5-5": {
+   "input": 4.0,
+   "cache_write_5m": 5.0,
+   "cache_write_1h": 8.0,
+   "cache_read": 0.2,
+   "output": 20.0
+  },
+  "claude-haiku-4-5": {
+   "input": 1.0,
+   "cache_write_5m": 1.25,
+   "cache_write_1h": 2.0,
+   "cache_read": 0.1,
+   "output": 5.0
+  }
+ },
+ "price_source": "https://platform.claude.com/docs/en/about-claude/pricing",
+ "days": {
+  "2026-09-28": {
+   "port_usd": 135.54,
+   "deck_usd": 0.0,
+   "port_responses": 1024,
+   "active_hours": 11,
+   "x_subscription": 20.6
+  },
+  "2026-09-29": {
+   "port_usd": 237.32,
+   "deck_usd": 0.0,
+   "port_responses": 1769,
+   "active_hours": 24,
+   "x_subscription": 36.0
+  },
+  "2026-09-30": {
+   "port_usd": 139.65,
+   "deck_usd": 0.0,
+   "port_responses": 1301,
+   "active_hours": 24,
+   "x_subscription": 21.2
+  },
+  "2026-10-01": {
+   "port_usd": 93.48,
+   "deck_usd": 0.0,
+   "port_responses": 535,
+   "active_hours": 12,
+   "x_subscription": 14.2
+  },
+  "2026-10-02": {
+   "port_usd": 108.89,
+   "deck_usd": 0.0,
+   "port_responses": 752,
+   "active_hours": 10,
+   "x_subscription": 16.5
+  },
+  "2026-10-03": {
+   "port_usd": 82.07,
+   "deck_usd": 184.74,
+   "port_responses": 723,
+   "active_hours": 14,
+   "x_subscription": 12.4
+  }
+ },
+ "totals": {
+  "port_usd": 796.94,
+  "deck_usd": 184.74,
+  "days": 6,
+  "subscription_usd": 39.56,
+  "x_subscription": 20.1,
+  "weeks_of_subscription": 17.3,
+  "months_of_subscription": 4.0,
+  "port_responses": 6104,
+  "cost_share": {
+   "input": 0.0,
+   "cache_write": 0.171,
+   "cache_read": 0.695,
+   "output": 0.134
+  },
+  "input_from_cache": 0.994,
+  "output_tokens": 5349820
+ },
+ "limit_notices": [],
+ "checks": {
+  "unpriced_models": {},
+  "speed": {
+   "standard": 7856
+  }
+ }
+}

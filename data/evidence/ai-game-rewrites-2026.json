@@ -1,0 +1,1053 @@
+{
+  "as_of": "2026-10-03",
+  "source_legend": {
+    "screenshot": "user's screenshot (2026-10-03)",
+    "x_embed_api": "X embed API (cdn.syndication.twimg.com), fetched 2026-10-03",
+    "github_api": "GitHub API (gh api), fetched 2026-10-03",
+    "youtube": "YouTube page HTML, fetched 2026-10-03"
+  },
+  "projects": [
+    {
+      "id": "cydonix-skyrim-tarkov-spiderman",
+      "name": "Escape from Skyrim / Skyrim x Tarkov x Spider-Man",
+      "author": "Cydonyx_",
+      "handle": "@cydonix",
+      "date": "2026-09-30 (Escape from Skyrim); 2026-10-01T11:44:21Z (three-game clip)",
+      "category": "mashup",
+      "what_it_is": "Mashup mod shown in video clips; no public repo or download found.",
+      "approach": "Not disclosed. Kotaku: the Tarkov mod was 'turned around in just a few hours after its creator noticed the trend'.",
+      "decompilation_or_clean": "unknown",
+      "models": "Not stated by creator (unverified).",
+      "assets_required": "Presumably own copies of the games (unverified).",
+      "metrics": [
+        {
+          "metric": "Oct 1 post replies/reposts/likes/views",
+          "value": "278 / 1.3K / 21K / 2.5M",
+          "as_of": "2026-10-03",
+          "source": "user's screenshot (2026-10-03)",
+          "url": "https://x.com/cydonix/status/2105624857061081491"
+        },
+        {
+          "metric": "Oct 1 post likes / replies",
+          "value": "21,753 / 278",
+          "as_of": "2026-10-03",
+          "source": "X embed API (cdn.syndication.twimg.com), fetched 2026-10-03",
+          "url": "https://x.com/cydonix/status/2105624857061081491"
+        },
+        {
+          "metric": "Sep 30 'Escape from Skyrim' likes / replies",
+          "value": "14,924 / 162",
+          "as_of": "2026-10-03",
+          "source": "X embed API (cdn.syndication.twimg.com), fetched 2026-10-03",
+          "url": "https://x.com/cydonix/status/2105177318968955044"
+        },
+        {
+          "metric": "@bearbubb quote-post likes ('you will not be able to buy a new pc ever again')",
+          "value": "48,549",
+          "as_of": "2026-10-03",
+          "source": "X embed API (cdn.syndication.twimg.com), fetched 2026-10-03",
+          "url": "https://x.com/bearbubb/status/2106041853996892423"
+        }
+      ],
+      "links": [
+        "https://x.com/cydonix/status/2105624857061081491",
+        "https://x.com/cydonix/status/2105177318968955044"
+      ],
+      "press": [
+        {
+          "outlet": "iXBT.games (RU)",
+          "date": "2026-10-03",
+          "title": "Skyrim смешали с Escape from Tarkov и Spider-Man — моддеры научились объединять популярные игры с помощью ИИ",
+          "url": "https://ixbt.games/news/2026/10/03/skyrim-smesali-s-escape-from-tarkov-moddery-naucilis-obieediniat-populiarnye-igry-s-pomoshhiu-ii.html",
+          "note": "Credits 'mdaman010'; quote: 'Такие игровые кроссоверы с помощью ИИ создаются за считанные часы.'"
+        },
+        {
+          "outlet": "Kotaku",
+          "date": "2026-10-02",
+          "title": "I Don't Want To Play Your AI-Generated Mod That Puts Skate 3 Inside Of Modern Warfare 2 Inside Of Minecraft",
+          "url": "https://kotaku.com/i-dont-want-to-play-your-ai-generated-mod-that-puts-skate-3-inside-of-modern-warfare-2-inside-of-minecraft-2000738660"
+        },
+        {
+          "outlet": "PCMRace (ES)",
+          "date": "2026-10-02",
+          "title": "Mods creados con IA llevan Spider-Man a Batman Arkham Knight, Mario a Elden Ring, Tarkov a Skyrim, Minecraft en RDR2 y más",
+          "url": "https://www.pcmrace.com/2026/10/02/batman-arkham-knight-spider-man-mod-pc/",
+          "note": "headline only (HTTP 403)"
+        }
+      ],
+      "verification": "partially_verified",
+      "unverified": [
+        "technique",
+        "models",
+        "relation of 'mdaman010' (iXBT) to @cydonix",
+        "reposts and views (screenshot only)"
+      ]
+    },
+    {
+      "id": "tobynjacobs-minecraft-elden-ring",
+      "name": "Minecraft inside Elden Ring (runs on Mac)",
+      "author": "Tobyn Jacobs (Anime Girl Worshiper)",
+      "handle": "@TobynJacobs",
+      "date": "2026-09-29T10:43:48Z (clip); explainer 2026-09-29T23:28:30Z (Sep 30 local)",
+      "category": "mashup",
+      "what_it_is": "Mashup mod, unreleased, Mac-only for now; no repo or download.",
+      "approach": "Not disclosed. Press describes ~1,600 Minecraft items, HUD, redstone and Creative mode layered onto Elden Ring. Elden Ring has no native Mac version. An open-source re-creation (justbustin, Oct 1) runs Elden Ring in CrossOver/D3DMetal and Minecraft natively, bridged over shared memory; whether Tobyn did the same is unverified.",
+      "decompilation_or_clean": "unknown",
+      "models": "Not named by the creator (traictory). 'Opus 5.5' attribution comes from Reddit/aggregators (unverified). 'Waifu Agents' app visible in the explainer per user's screenshot (unverified).",
+      "assets_required": "Own Elden Ring and Minecraft (inferred).",
+      "metrics": [
+        {
+          "metric": "clip likes / replies",
+          "value": "307,651 / 1,709",
+          "as_of": "2026-10-03",
+          "source": "X embed API (cdn.syndication.twimg.com), fetched 2026-10-03",
+          "url": "https://x.com/TobynJacobs/status/2104884843297599594"
+        },
+        {
+          "metric": "clip views / likes / reposts",
+          "value": "20.7M / 304K / 23K",
+          "as_of": "2026-10-01",
+          "source": "heldgames (updated 2026-10-01)",
+          "url": "https://heldgames.com/guides/minecraft-inside-other-games-trend"
+        },
+        {
+          "metric": "explainer replies / reposts / likes / views",
+          "value": "77 / 276 / 5.4K / 183K",
+          "as_of": "2026-10-03",
+          "source": "user's screenshot (2026-10-03)",
+          "url": "https://x.com/TobynJacobs/status/2105077289218433072"
+        },
+        {
+          "metric": "explainer likes / replies",
+          "value": "5,473 / 77",
+          "as_of": "2026-10-03",
+          "source": "X embed API (cdn.syndication.twimg.com), fetched 2026-10-03",
+          "url": "https://x.com/TobynJacobs/status/2105077289218433072"
+        }
+      ],
+      "links": [
+        "https://x.com/TobynJacobs/status/2104884843297599594",
+        "https://x.com/TobynJacobs/status/2105077289218433072",
+        "https://x.com/TobynJacobs/status/2105132868934774840",
+        "https://x.com/TobynJacobs/status/2105126051676668125",
+        "https://github.com/justbustin/minecraft-crossover-bridge"
+      ],
+      "press": [
+        {
+          "outlet": "Dexerto",
+          "date": "2026-09-29",
+          "url": "https://www.dexerto.com/minecraft/modder-recreates-all-of-minecraft-inside-elden-ring-with-1600-items-and-working-redstone-3413457/"
+        },
+        {
+          "outlet": "happygamer",
+          "date": "2026-09-29",
+          "url": "https://happygamer.com/minecraft-inside-elden-ring-mod-mac-166197/",
+          "note": "'Elden Ring doesn't have a native Mac version. So the claim that this runs on Mac is its own small puzzle.'"
+        },
+        {
+          "outlet": "gurugamer",
+          "date": "2026-09-30",
+          "url": "https://gurugamer.com/pc-console/steve-walks-the-lands-between-modder-ported-minecraft-into-elden-ring-27372"
+        },
+        {
+          "outlet": "traictory",
+          "date": "2026-10-01",
+          "title": "Minecraft inside Elden Ring went viral, then the backlash landed",
+          "url": "https://traictory.com/news/2026-10-01-opus-5-5-minecraft-elden-ring-mod"
+        },
+        {
+          "outlet": "bisecthosting",
+          "date": "2026-10-01",
+          "url": "https://www.bisecthosting.com/blog/is-the-minecraft-elden-ring-mod-real"
+        },
+        {
+          "outlet": "TweakTown",
+          "title": "Minecraft runs inside Elden Ring as modders mash up entire games",
+          "url": "https://www.tweaktown.com/news/113855/minecraft-runs-inside-elden-ring-as-modders-mash-up-entire-games/index.html",
+          "note": "headline only (HTTP 403)"
+        }
+      ],
+      "reactions": [
+        "Copycat open-source re-creation within 2 days: 'og idea from @tobynjacobs. implementation vibecoded on my own' (https://github.com/justbustin/minecraft-crossover-bridge)",
+        "Backlash: 'it was too easy so its not impressive' (traictory)"
+      ],
+      "verification": "partially_verified",
+      "unverified": [
+        "models/agent tools incl. 'Waifu Agents'",
+        "technical method",
+        "Mac setup",
+        "release"
+      ]
+    },
+    {
+      "id": "benilla",
+      "name": "benilla: World of Warcraft 1.12.1 client",
+      "author": "Sam Sung",
+      "handle": "samwhosung (GitHub/X)",
+      "date": "Public 2026-07-24 (author: took 3 months)",
+      "category": "full_rewrite",
+      "what_it_is": "Complete from-scratch WoW 1.12.1 client; not a decompilation.",
+      "approach": "Rust + Bevy (WGSL). Original 1.12.1 binary used as the spec (commit messages cite byte addresses); no original client code, no third-party WoW crates, no bundled assets; original protocol to any 1.12.1 server.",
+      "language_engine": "Rust, Bevy",
+      "decompilation_or_clean": "clean reimplementation guided by reverse engineering of the original binary",
+      "models": "Claude Opus and Fable via multiple Claude Code sessions (author's post). Commit trailers: Claude Fable 5 x215, Claude Opus 5.5 (1M context) x210, Claude Fable 5.1 x121, Claude Sonnet 5.5 x4, Claude Opus 5 (1M context) x3 (553 of 559 commits).",
+      "assets_required": "Own English 1.12.1 client (build 5875) for data; a 1.12.1 server with Warden off (vmangos; cMaNGOS etc.).",
+      "metrics": [
+        {
+          "metric": "stars / forks",
+          "value": "525 / 107",
+          "as_of": "2026-10-03",
+          "source": "GitHub API (gh api), fetched 2026-10-03",
+          "url": "https://api.github.com/repos/samwhosung/benilla"
+        },
+        {
+          "metric": "commits on main",
+          "value": 559,
+          "as_of": "2026-10-03",
+          "source": "GitHub API (gh api), fetched 2026-10-03",
+          "url": "https://github.com/samwhosung/benilla/commits/main"
+        },
+        {
+          "metric": "contributors",
+          "value": "9 accounts + 1 anonymous (samwhosung 534 commits)",
+          "as_of": "2026-10-03",
+          "source": "GitHub API (gh api), fetched 2026-10-03",
+          "url": "https://api.github.com/repos/samwhosung/benilla/contributors"
+        },
+        {
+          "metric": "issues / PRs",
+          "value": "616 (432 open) / 175 (167 merged)",
+          "as_of": "2026-10-03",
+          "source": "GitHub API (gh api), fetched 2026-10-03"
+        },
+        {
+          "metric": "languages (bytes)",
+          "value": {
+            "Rust": 28307917,
+            "WGSL": 140111,
+            "Python": 69377,
+            "Shell": 56174
+          },
+          "as_of": "2026-10-03",
+          "source": "GitHub API (gh api), fetched 2026-10-03",
+          "url": "https://api.github.com/repos/samwhosung/benilla/languages"
+        },
+        {
+          "metric": "estimated Rust lines",
+          "value": "~0.73M (bytes / 38.7 bytes per line from a 25-file sample; estimate)",
+          "as_of": "2026-10-03",
+          "source": "own estimate from git tree API"
+        },
+        {
+          "metric": "forks created Oct 1-3 (after chasm post)",
+          "value": "50 (7 + 32 + 11)",
+          "as_of": "2026-10-03",
+          "source": "GitHub API (gh api), fetched 2026-10-03"
+        },
+        {
+          "metric": "author launch post likes / replies",
+          "value": "19 / 3",
+          "as_of": "2026-10-03",
+          "source": "X embed API (cdn.syndication.twimg.com), fetched 2026-10-03",
+          "url": "https://x.com/samwhosung/status/2080536884506435689"
+        }
+      ],
+      "links": [
+        "https://github.com/samwhosung/benilla",
+        "https://x.com/samwhosung/status/2080536884506435689",
+        "https://github.com/samwhosung/benilla/blob/main/docs/METHOD.md",
+        "https://github.com/samwhosung/benilla/blob/main/AGENTS.md",
+        "https://github.com/samwhosung/benilla/releases/tag/v0.2.0"
+      ],
+      "press": [
+        {
+          "outlet": "Indie Kings",
+          "date": "2026-08-05",
+          "title": "WoWee vs. Benilla: The Reality of Rebuilding a WoW Client in 2026",
+          "url": "https://www.indiekings.com/2026/08/wowee-vs-benilla-reality-of-rebuilding.html"
+        }
+      ],
+      "verification": "verified",
+      "unverified": [
+        "'3 months' is the author's claim",
+        "line count is an estimate",
+        "post text beyond the first ~280 characters (search snippet only)"
+      ]
+    },
+    {
+      "id": "chasm-wow-post",
+      "name": "chasm post: 'World of Warcraft 1.12.1 has been FULLY rewritten in Bevy/Rust'",
+      "author": "chasm",
+      "handle": "@chasmmmmmmmmmmm",
+      "date": "2026-10-01T21:49:43Z",
+      "category": "amplification",
+      "what_it_is": "Amplification of benilla, with a ~15 s video ('skate around in Goldshire'); X Community Note attached.",
+      "approach": "n/a",
+      "models": "n/a",
+      "assets_required": "n/a",
+      "metrics": [
+        {
+          "metric": "likes / replies",
+          "value": "7,303 / 261",
+          "as_of": "2026-10-03",
+          "source": "X embed API (cdn.syndication.twimg.com), fetched 2026-10-03",
+          "url": "https://x.com/chasmmmmmmmmmmm/status/2105777205875769640"
+        }
+      ],
+      "links": [
+        "https://x.com/chasmmmmmmmmmmm/status/2105777205875769640",
+        "https://twitter.com/i/birdwatch/n/2105872863097946369"
+      ],
+      "reactions": [
+        "Community Note: 'benilla is a from-scratch WoW 1.12.1 client reimplementation requiring data from a user's own legal install; it does not make private servers legal, which Blizzard has sued for copyright infringement.'"
+      ],
+      "context": [
+        {
+          "fact": "WoW: Forever is an official Blizzard 1-60 version launching Nov 4, 2026 (beta from Sep 17)",
+          "url": "https://www.techspot.com/news/113832-world-warcraft-forever-launches-november-4-new-race.html"
+        },
+        {
+          "fact": "Blizzard won vs Turtle WoW (shut by May 15, 2026) and sued Project Ascension (June 2026)",
+          "url": "https://aftermath.site/blizzard-project-ascension-lawsuit/"
+        }
+      ],
+      "verification": "verified",
+      "unverified": [
+        "Goldshire skating build (video only, unpublished)"
+      ]
+    },
+    {
+      "id": "chasm-2010-rust-rewrite-mashup",
+      "name": "2010 Rust Rewrite Mashup (MW2 x Skate 3 x Minecraft)",
+      "author": "chasm and contributors",
+      "handle": "chasmlol (GitHub)",
+      "date": "repo 2026-09-27; viral clip 2026-09-27T23:15:00Z; releases 2026-09-28..2026-10-02",
+      "category": "mashup_on_rewrites",
+      "what_it_is": "One Rust game combining an MW2 rewrite, Skate 3 skating and a Minecraft world.",
+      "approach": "Rust + Bevy + wgpu; IW4L (MW2 runtime) + Skate 3 Rust Engine physics + MinecraftOSS crates ('aims to match Minecraft Java Edition 26.3 exactly').",
+      "decompilation_or_clean": "built on clean rewrites",
+      "models": "'basically 100% vibe coded'; Opus 5.5 helped optimization (MakeUseOf). Claude Opus 5.5 trailers on 47 of chasm's commits (GitHub).",
+      "assets_required": "Own MW2 (Steam); optional Skate 3 Xbox 360 default.xex; Minecraft 26.3 files (~125 MB) downloaded from Mojang at first run.",
+      "metrics": [
+        {
+          "metric": "stars / forks / commits",
+          "value": "681 / 47 / 151",
+          "as_of": "2026-10-03",
+          "source": "GitHub API (gh api), fetched 2026-10-03",
+          "url": "https://github.com/chasmlol/2010-rust-rewrite-mashup"
+        },
+        {
+          "metric": "release downloads (5 releases)",
+          "value": 10159,
+          "as_of": "2026-10-03",
+          "source": "GitHub API (gh api), fetched 2026-10-03",
+          "url": "https://github.com/chasmlol/2010-rust-rewrite-mashup/releases"
+        },
+        {
+          "metric": "viral clip likes / replies",
+          "value": "29,746 / 399",
+          "as_of": "2026-10-03",
+          "source": "X embed API (cdn.syndication.twimg.com), fetched 2026-10-03",
+          "url": "https://x.com/chasmmmmmmmmmmm/status/2104349115521888748"
+        },
+        {
+          "metric": "viral clip views",
+          "value": "6.7M",
+          "as_of": "2026-10-01",
+          "source": "heldgames",
+          "url": "https://heldgames.com/guides/mw2-skate-minecraft-rust-rewrite"
+        }
+      ],
+      "links": [
+        "https://github.com/chasmlol/2010-rust-rewrite-mashup",
+        "https://x.com/chasmmmmmmmmmmm/status/2104349115521888748",
+        "https://www.youtube.com/watch?v=FyBL8atiZSE"
+      ],
+      "press": [
+        {
+          "outlet": "MakeUseOf",
+          "date": "2026-09-29",
+          "url": "https://www.makeuseof.com/rust-game-mashup-brings-mw2-gunplay-into-minecraft-while-doing-skate-3-tricks/",
+          "note": "'basically 100% vibe coded'; Minecraft part took weeks of manual effort because AI couldn't judge feel"
+        },
+        {
+          "outlet": "heldgames",
+          "date": "2026-09-30",
+          "title": "The Skate and Minecraft Modern Warfare 2 Videos Are Real. It Is Not a Mod, and You Can Download It.",
+          "url": "https://heldgames.com/guides/mw2-skate-minecraft-rust-rewrite"
+        },
+        {
+          "outlet": "GameSpot (via Yahoo)",
+          "date": "2026-09-30",
+          "url": "https://tech.yahoo.com/gaming/articles/call-duty-modders-add-skateboarding-113641028.html",
+          "note": "notes 'copyright issues involved'; no Activision statement"
+        },
+        {
+          "outlet": "Operation Sports",
+          "date": "2026-09-29",
+          "url": "https://www.operationsports.com/call-of-duty-modders-somehow-turned-modern-warfare-2-into-skate/"
+        },
+        {
+          "outlet": "Insider Gaming",
+          "date": "2026-09-29",
+          "url": "https://insider-gaming.com/modern-warfare-2-players-spot-skate-and-minecraft-mods/"
+        },
+        {
+          "outlet": "Kotaku",
+          "date": "2026-10-02",
+          "url": "https://kotaku.com/i-dont-want-to-play-your-ai-generated-mod-that-puts-skate-3-inside-of-modern-warfare-2-inside-of-minecraft-2000738660",
+          "note": "critical"
+        }
+      ],
+      "context": [
+        {
+          "fact": "Activision sent a cease-and-desist to the H2M MW2 mod on Aug 15, 2024",
+          "url": "https://www.purexbox.com/news/2024/08/activision-shuts-down-huge-call-of-duty-h2m-mod-on-the-eve-of-its-release"
+        }
+      ],
+      "verification": "verified"
+    },
+    {
+      "id": "iw4l",
+      "name": "IW4L: Call of Duty: Modern Warfare 2 (2009) runtime",
+      "author": "vladtrc ('vc') and contributors",
+      "handle": "vladtrc (GitHub)",
+      "date": "2026-09-13",
+      "category": "full_rewrite",
+      "what_it_is": "Open-source standalone MW2 engine/runtime that loads your own MW2 data.",
+      "approach": "Rust + Bevy + wgpu; D3D9 SM3 shader bytecode translated to WGSL; 'Ghidra was used to inspect the original binaries'; informed by OpenAssetTools, IW4x, KisakCOD.",
+      "decompilation_or_clean": "clean runtime informed by binary inspection",
+      "models": "'This whole project is written by an LLM.' Trailers: Claude Opus 5.5 x37, Claude Opus 5 x17, Cursor x2.",
+      "assets_required": "Own installed MW2 multiplayer data.",
+      "metrics": [
+        {
+          "metric": "stars / forks / commits",
+          "value": "650 / 69 / 120",
+          "as_of": "2026-10-03",
+          "source": "GitHub API (gh api), fetched 2026-10-03",
+          "url": "https://github.com/vladtrc/iw4L"
+        }
+      ],
+      "links": [
+        "https://github.com/vladtrc/iw4L",
+        "https://www.youtube.com/watch?v=9UbADrcEW5w"
+      ],
+      "verification": "verified"
+    },
+    {
+      "id": "skate-3-rust-engine",
+      "name": "Skate 3 Rust Engine",
+      "author": "SK8-ENGINE org (chasmlol 274 commits; Ethanw05 26)",
+      "handle": "SK8-ENGINE (GitHub)",
+      "date": "2026-09-08",
+      "category": "full_rewrite",
+      "what_it_is": "Rust/Bevy skating game built from Skate 3 reverse-engineering research.",
+      "approach": "Rust + Bevy; builds on dumbad's 'more than two years' of Skate 3 reverse engineering and tools; preceded by chasm's recompilation/custom renderer work.",
+      "models": "'AI coding tools were used to develop this rewrite'; 8 Cursor trailers.",
+      "assets_required": "Own Skate 3 Xbox 360 ISO or default.xex.",
+      "metrics": [
+        {
+          "metric": "stars / forks / commits",
+          "value": "548 / 52 / 303",
+          "as_of": "2026-10-03",
+          "source": "GitHub API (gh api), fetched 2026-10-03",
+          "url": "https://github.com/SK8-ENGINE/skate-3-rust-engine"
+        }
+      ],
+      "links": [
+        "https://github.com/SK8-ENGINE/skate-3-rust-engine",
+        "https://www.youtube.com/watch?v=osiMnevjhZM"
+      ],
+      "derivatives": [
+        "https://github.com/ryglizzy/GTA-San-AnSkateas",
+        "https://github.com/stronkbonk/sa-skate",
+        "https://github.com/andrewnakas/skate3-cleanroom",
+        "https://github.com/andrewnakas/skate3-quest-ar"
+      ],
+      "notable_quote": "Describing the project as simply 'AI rewriting Skate 3' leaves out the work that made it possible in the first place.",
+      "verification": "verified"
+    },
+    {
+      "id": "skycraft",
+      "name": "SkyCraft (play Skyrim as a Minecraft player)",
+      "author": "chasm",
+      "handle": "chasmlol (GitHub)",
+      "date": "2026-09-30",
+      "category": "mashup",
+      "what_it_is": "Mashup mod; 'Neither game is rewritten.'",
+      "approach": "SKSE plugin (C++) + Fabric mod (Java) linked over shared memory; Minecraft runs hidden, Skyrim draws everything.",
+      "models": "Claude Opus 5.5 trailers on all 7 commits; Kotaku calls it 'Claude-coded'.",
+      "assets_required": "Skyrim SE/AE runtime 1.6/1.7 + SKSE + Address Library; Minecraft Java.",
+      "metrics": [
+        {
+          "metric": "stars / forks",
+          "value": "704 / 39",
+          "as_of": "2026-10-03",
+          "source": "GitHub API (gh api), fetched 2026-10-03",
+          "url": "https://github.com/chasmlol/SkyCraft"
+        },
+        {
+          "metric": "release downloads",
+          "value": 14016,
+          "as_of": "2026-10-03",
+          "source": "GitHub API (gh api), fetched 2026-10-03",
+          "url": "https://github.com/chasmlol/SkyCraft/releases"
+        },
+        {
+          "metric": "video views",
+          "value": "1,595,095",
+          "as_of": "2026-10-03",
+          "source": "YouTube page HTML, fetched 2026-10-03",
+          "url": "https://www.youtube.com/watch?v=zRT3MyFwgu0"
+        }
+      ],
+      "links": [
+        "https://github.com/chasmlol/SkyCraft",
+        "https://www.youtube.com/watch?v=zRT3MyFwgu0"
+      ],
+      "verification": "verified"
+    },
+    {
+      "id": "chasm-youtube",
+      "name": "chasm YouTube channel",
+      "author": "chasm",
+      "handle": "@chasmmm (YouTube)",
+      "date": "2026-06..2026-10",
+      "category": "channel",
+      "what_it_is": "Videos on the Rust rewrites, mashups, a 'DLSS 5' Fallout NV mod and the agentic chasm NPC Engine.",
+      "metrics": [
+        {
+          "metric": "subscribers / videos",
+          "value": "21.1K / 16",
+          "as_of": "2026-10-03",
+          "source": "user's screenshot (2026-10-03)"
+        },
+        {
+          "metric": "subscribers",
+          "value": "21.2K",
+          "as_of": "2026-10-03",
+          "source": "YouTube page HTML, fetched 2026-10-03",
+          "url": "https://www.youtube.com/@chasmmm/videos"
+        }
+      ],
+      "videos": [
+        {
+          "title": "Stop buying new games - Start modding old ones",
+          "published": "2026-10-02",
+          "views_screenshot": "229K",
+          "views_fetched": 235316,
+          "url": "https://www.youtube.com/watch?v=8ryJytVIimI"
+        },
+        {
+          "title": "Modding has Change FOREVER...",
+          "published": "2026-09-30",
+          "views_screenshot": "1.5M",
+          "views_fetched": 1595095,
+          "url": "https://www.youtube.com/watch?v=zRT3MyFwgu0",
+          "subject": "SkyCraft"
+        },
+        {
+          "title": "Is this the Future of Gaming?",
+          "published": "2026-09-28",
+          "views_screenshot": "499K",
+          "views_fetched": 504656,
+          "url": "https://www.youtube.com/watch?v=FyBL8atiZSE",
+          "subject": "2010 Rust Rewrite Mashup"
+        },
+        {
+          "title": "The Modern Warfare 2 Rust Rewrite is Here...",
+          "published": "2026-09-25",
+          "views_screenshot": "142K",
+          "views_fetched": 143315,
+          "url": "https://www.youtube.com/watch?v=9UbADrcEW5w",
+          "subject": "IW4L"
+        },
+        {
+          "title": "The Skate 3 Rust Rewrite",
+          "published": "2026-09-19",
+          "views_screenshot": "201K",
+          "views_fetched": 202572,
+          "url": "https://www.youtube.com/watch?v=osiMnevjhZM",
+          "subject": "Skate 3 Rust Engine"
+        },
+        {
+          "title": "DLSS 5 in Fallout New Vegas",
+          "published": "2026-08-28",
+          "views_fetched": 16708,
+          "url": "https://www.youtube.com/watch?v=uyRID7qJq50"
+        },
+        {
+          "title": "Skate 3 DLSS 5 Mod",
+          "published": "2026-08-28",
+          "views_fetched": 38012,
+          "url": "https://www.youtube.com/watch?v=NebCMvWKOvs"
+        },
+        {
+          "title": "Fallout New Vegas - Agentic NPC Engine - Devlog #1",
+          "published": "2026-06-28",
+          "views_fetched": 2831,
+          "url": "https://www.youtube.com/watch?v=tzDYECcx6m8"
+        },
+        {
+          "title": "Skate 3 Recompiled Custom Renderer - Running natively on PC",
+          "published": "2026-06-24",
+          "views_fetched": 3306,
+          "url": "https://www.youtube.com/watch?v=mEKKPlpsma8"
+        }
+      ],
+      "links": [
+        "https://www.youtube.com/@chasmmm/videos",
+        "https://github.com/chasmlol/chasm",
+        "https://github.com/chasmlol/fnv-dlss5"
+      ],
+      "verification": "verified"
+    },
+    {
+      "id": "smallzero-cs",
+      "name": "CS 1.6 'in your web browser all vibe coded by AI' (probable match: Counter-Strike: Spawn)",
+      "author": "smallzero",
+      "handle": "@Smallzero (X) / @smallzero (Spawn)",
+      "date": "X post about 2026-10-02 (unverified); Spawn page datePublished 2026-09-30T05:10Z",
+      "category": "vibe_coded_remake",
+      "what_it_is": "Browser remake on the Spawn platform: 'CS 1.4 rebuilt in Spawn: GoldSrc movement, the classic guns, the eight soldiers.'",
+      "approach": "Built by conversation on Spawn ('make multiplayer games by talking').",
+      "models": "Spawn: 'Savi uses Claude Opus 5.5 by default.'",
+      "assets_required": "None for players (browser). Player reviews say sounds, models and voices 'are all CS 1.6' (possible original assets; unverified).",
+      "metrics": [
+        {
+          "metric": "X post replies / reposts / likes / views",
+          "value": "66 / 85 / 909 / 51K",
+          "as_of": "2026-10-03",
+          "source": "user's screenshot (2026-10-03); unverified"
+        },
+        {
+          "metric": "Spawn plays / likes",
+          "value": "2,824 / 47",
+          "as_of": "2026-10-03",
+          "source": "Spawn page data, fetched 2026-10-03",
+          "url": "https://www.spawn.co/@smallzero/counter-strike-spawn"
+        }
+      ],
+      "links": [
+        "https://www.spawn.co/@smallzero/counter-strike-spawn",
+        "https://www.spawn.co/"
+      ],
+      "verification": "unverified_link_between_post_and_page",
+      "unverified": [
+        "X post itself",
+        "'up to 16 players'",
+        "post metrics",
+        "asset provenance"
+      ]
+    },
+    {
+      "id": "melee-decomp",
+      "name": "Super Smash Bros. Melee matching decompilation (100%)",
+      "author": "doldecomp community",
+      "handle": "doldecomp (GitHub)",
+      "date": "100% on 2026-09-09 per heldgames; project since Jul 2020",
+      "category": "decompilation",
+      "what_it_is": "Matching decompilation, now 100.00% decompiled and linked.",
+      "approach": "C rebuilt byte-for-byte; AI closed the final stretch; some commits port matches from an 'orchestrator cycle' (automated pipeline, inference).",
+      "models": "heldgames: GPT-6 Astra closed the final stretch (unverified; not in commit trailers); Claude also credited. Repo commits Aug 20-Sep 20, 2026 carry >=45 Claude trailers (Opus 5, Fable 5/5.1).",
+      "assets_required": "Own disc image (standard for decomps).",
+      "metrics": [
+        {
+          "metric": "progress",
+          "value": "100.00% decompiled, 100.00% linked; 3.88 MB code",
+          "as_of": "2026-10-03",
+          "source": "decomp.dev",
+          "url": "https://decomp.dev/doldecomp/melee"
+        },
+        {
+          "metric": "stars",
+          "value": 2330,
+          "as_of": "2026-10-03",
+          "source": "GitHub API (gh api), fetched 2026-10-03",
+          "url": "https://github.com/doldecomp/melee"
+        }
+      ],
+      "links": [
+        "https://heldgames.com/guides/melee-decompiled-ai-astra",
+        "https://decomp.dev/doldecomp/melee",
+        "https://github.com/doldecomp/melee"
+      ],
+      "verification": "partially_verified",
+      "unverified": [
+        "exact 100% date",
+        "GPT-6 Astra role"
+      ]
+    },
+    {
+      "id": "th08",
+      "name": "Touhou 8 (Imperishable Night 1.00d) source reconstruction",
+      "author": "N0zoM1z0 (continuing GensokyoClub history)",
+      "handle": "N0zoM1z0 (GitHub)",
+      "date": "repo 2026-08-13",
+      "category": "decompilation",
+      "what_it_is": "Matching source reconstruction plus native ports.",
+      "approach": "'All new engineering... is carried out by AI coding agents.' 1,106 of 1,107 functions exact (99.92% of bytes); playable Linux and WebAssembly builds.",
+      "models": "Unnamed 'frontier coding agents'.",
+      "assets_required": "'the legally obtained target and game data'.",
+      "metrics": [
+        {
+          "metric": "stars / commits",
+          "value": "98 / 1,117",
+          "as_of": "2026-10-03",
+          "source": "GitHub API (gh api), fetched 2026-10-03",
+          "url": "https://github.com/N0zoM1z0/th08"
+        }
+      ],
+      "links": [
+        "https://github.com/N0zoM1z0/th08"
+      ],
+      "verification": "verified"
+    },
+    {
+      "id": "cbfd-recompiled",
+      "name": "Conker's Bad Fur Day Recompiled",
+      "author": "Sean Ciaschi",
+      "handle": "sciaschi (GitHub)",
+      "date": "2026-09-26",
+      "category": "recompilation",
+      "what_it_is": "Recompilation and byte-matching decompiled C, with a native port.",
+      "approach": "'heavy use of an AI coding assistant (Claude, through Claude Code)'; decompiled C kept only if byte-for-byte identical.",
+      "models": "Claude via Claude Code; Claude Opus 5.5 trailers on 66 of the last 100 commits.",
+      "assets_required": "Own US ROM.",
+      "metrics": [
+        {
+          "metric": "stars / commits",
+          "value": "217 / 620",
+          "as_of": "2026-10-03",
+          "source": "GitHub API (gh api), fetched 2026-10-03",
+          "url": "https://github.com/sciaschi/CBFD-Recompiled"
+        }
+      ],
+      "links": [
+        "https://github.com/sciaschi/CBFD-Recompiled"
+      ],
+      "verification": "verified"
+    },
+    {
+      "id": "ygo-fm-recompiled",
+      "name": "Yu-Gi-Oh! Forbidden Memories Recompiled",
+      "author": "Cody",
+      "handle": "Unchiga (GitHub)",
+      "date": "2026-09-21",
+      "category": "decompilation",
+      "what_it_is": "PS1 game rebuilt from decompiled source as a native PC/Linux game.",
+      "approach": "Decompilation + native recompilation; 4x resolution, mods, HD pack.",
+      "models": "Claude Opus 5.5 (1M context) trailers on 77 of the last 100 commits.",
+      "assets_required": "Own USA disc image.",
+      "metrics": [
+        {
+          "metric": "stars / commits",
+          "value": "116 / 8,396",
+          "as_of": "2026-10-03",
+          "source": "GitHub API (gh api), fetched 2026-10-03",
+          "url": "https://github.com/Unchiga/Yu-Gi-Oh-Forbidden-Memories-Recompiled"
+        }
+      ],
+      "links": [
+        "https://github.com/Unchiga/Yu-Gi-Oh-Forbidden-Memories-Recompiled"
+      ],
+      "verification": "verified"
+    },
+    {
+      "id": "universal-modder",
+      "name": "universal-modder",
+      "author": "rehan-remade",
+      "handle": "rehan-remade (GitHub)",
+      "date": "2026-09-30",
+      "category": "tooling",
+      "what_it_is": "Agent skills/tools to mod 'almost any PC game you own', incl. a 'mashup-mods' skill (game inside a game, decomps as libraries, reimplementations).",
+      "approach": "Reverse-engineering skills (ILSpy, Ghidra/IDA over MCP, Frida, RenderDoc); 'It never ships game files or decompiled code.'",
+      "models": "Claude Code, Codex, Cursor, Gemini CLI, GitHub Copilot, OpenCode.",
+      "assets_required": "Games you own.",
+      "metrics": [
+        {
+          "metric": "stars / forks",
+          "value": "2,524 / 209 (in ~3 days)",
+          "as_of": "2026-10-03",
+          "source": "GitHub API (gh api), fetched 2026-10-03",
+          "url": "https://github.com/rehan-remade/universal-modder"
+        }
+      ],
+      "links": [
+        "https://github.com/rehan-remade/universal-modder"
+      ],
+      "verification": "verified"
+    },
+    {
+      "id": "minecraft-crossover-bridge",
+      "name": "minecraft-crossover-bridge (re-creation of Tobyn's idea)",
+      "author": "justbustin",
+      "handle": "justbustin (GitHub)",
+      "date": "2026-10-01",
+      "category": "mashup",
+      "what_it_is": "Real Minecraft inside Monster Hunter: World and Elden Ring on Apple Silicon Macs.",
+      "approach": "Windows game in CrossOver (Elden Ring: D3D12 on D3DMetal), Minecraft native on macOS; shared-memory bridge.",
+      "models": "'implementation vibecoded'; README opens 'send this to your agent and say make me something like this'.",
+      "assets_required": "Own games + CrossOver.",
+      "metrics": [
+        {
+          "metric": "stars",
+          "value": 18,
+          "as_of": "2026-10-03",
+          "source": "GitHub API (gh api), fetched 2026-10-03",
+          "url": "https://github.com/justbustin/minecraft-crossover-bridge"
+        }
+      ],
+      "links": [
+        "https://github.com/justbustin/minecraft-crossover-bridge"
+      ],
+      "verification": "verified"
+    }
+  ],
+  "precedents_pre_ai": [
+    {
+      "name": "OpenTTD",
+      "date": "first release 2004-03-06",
+      "what": "Transport Tycoon Deluxe reverse-engineered and converted to C",
+      "assets": "today optional (free OpenGFX/OpenSFX/OpenMSX or original TTD files)",
+      "urls": [
+        "https://en.wikipedia.org/wiki/OpenTTD",
+        "https://github.com/OpenTTD/OpenTTD"
+      ]
+    },
+    {
+      "name": "OpenMW",
+      "date": "v0.1.0 June 2008",
+      "what": "open-source Morrowind engine",
+      "assets": "original game required",
+      "urls": [
+        "https://en.wikipedia.org/wiki/OpenMW"
+      ]
+    },
+    {
+      "name": "OpenRCT2",
+      "date": "started 2014-04-02",
+      "what": "RollerCoaster Tycoon 2 re-implementation in C++",
+      "assets": "original RCT2 or RCT Classic required",
+      "urls": [
+        "https://en.wikipedia.org/wiki/OpenRCT2"
+      ]
+    },
+    {
+      "name": "Devilution / DevilutionX",
+      "date": "repo 2018-04; DevilutionX 0.1.0 on 2019-02-27",
+      "what": "Diablo source reconstruction (debug symbols left on the Japanese PlayStation port)",
+      "assets": "DIABDAT.MPQ required",
+      "urls": [
+        "https://github.com/diasurgical/devilution",
+        "https://github.com/diasurgical/devilutionX"
+      ]
+    },
+    {
+      "name": "Super Mario 64 decompilation",
+      "date": "2019 (PC port 2020)",
+      "what": "matching decompilation",
+      "assets": "prior copy of the game required",
+      "urls": [
+        "https://en.wikipedia.org/wiki/Super_Mario_64",
+        "https://github.com/n64decomp/sm64"
+      ]
+    },
+    {
+      "name": "Zelda: Ocarina of Time decompilation",
+      "date": "Nov 2021 (Ship of Harkinian PC port Mar 2022)",
+      "what": "matching decompilation after 21 months",
+      "assets": "assets ripped from user's own ROM",
+      "urls": [
+        "https://en.wikipedia.org/wiki/Ship_of_Harkinian",
+        "https://github.com/zeldaret/oot"
+      ]
+    },
+    {
+      "name": "Zelda 64: Recompiled",
+      "date": "v1.0.0 2024-05-10",
+      "what": "static recompilation of Majora's Mask",
+      "assets": "original game required",
+      "urls": [
+        "https://github.com/Zelda64Recomp/Zelda64Recomp"
+      ]
+    },
+    {
+      "name": "Unleashed Recompiled",
+      "date": "v1.0.0 2025-03-01",
+      "what": "Xbox 360 static recompilation of Sonic Unleashed",
+      "assets": "own legally acquired copy required",
+      "urls": [
+        "https://github.com/hedge-dev/UnleashedRecomp"
+      ]
+    },
+    {
+      "name": "cMaNGOS / vmangos",
+      "date": "repos 2012 / 2018",
+      "what": "open WoW server emulators (benilla's server side)",
+      "assets": "server only",
+      "urls": [
+        "https://github.com/cmangos/mangos-classic",
+        "https://github.com/vmangos/core"
+      ]
+    }
+  ],
+  "timeline": [
+    {
+      "date": "2026-06-24/28",
+      "event": "chasm: Skate 3 recompiled renderer; agentic NPC engine devlog #1",
+      "url": "https://www.youtube.com/watch?v=mEKKPlpsma8"
+    },
+    {
+      "date": "2026-07-24",
+      "event": "benilla public ('Claude Opus and Fable... 3 months')",
+      "url": "https://github.com/samwhosung/benilla"
+    },
+    {
+      "date": "2026-08-13",
+      "event": "Touhou 8 AI-agent reconstruction repo",
+      "url": "https://github.com/N0zoM1z0/th08"
+    },
+    {
+      "date": "2026-09-08",
+      "event": "Skate 3 Rust Engine repo",
+      "url": "https://github.com/SK8-ENGINE/skate-3-rust-engine"
+    },
+    {
+      "date": "2026-09-09",
+      "event": "Melee decomp 100% (per heldgames)",
+      "url": "https://heldgames.com/guides/melee-decompiled-ai-astra"
+    },
+    {
+      "date": "2026-09-13",
+      "event": "IW4L (MW2 in Rust)",
+      "url": "https://github.com/vladtrc/iw4L"
+    },
+    {
+      "date": "2026-09-19",
+      "event": "chasm video: The Skate 3 Rust Rewrite",
+      "url": "https://www.youtube.com/watch?v=osiMnevjhZM"
+    },
+    {
+      "date": "2026-09-21",
+      "event": "Yu-Gi-Oh! FM Recompiled",
+      "url": "https://github.com/Unchiga/Yu-Gi-Oh-Forbidden-Memories-Recompiled"
+    },
+    {
+      "date": "2026-09-25",
+      "event": "chasm video: The Modern Warfare 2 Rust Rewrite is Here...",
+      "url": "https://www.youtube.com/watch?v=9UbADrcEW5w"
+    },
+    {
+      "date": "2026-09-26",
+      "event": "Conker's Bad Fur Day Recompiled",
+      "url": "https://github.com/sciaschi/CBFD-Recompiled"
+    },
+    {
+      "date": "2026-09-27",
+      "event": "Viral clip 'AI HACKERS HAVE PUT SKATEBOARDING IN... MW2'",
+      "url": "https://x.com/chasmmmmmmmmmmm/status/2104349115521888748"
+    },
+    {
+      "date": "2026-09-29",
+      "event": "Minecraft inside Elden Ring (Mac)",
+      "url": "https://x.com/TobynJacobs/status/2104884843297599594"
+    },
+    {
+      "date": "2026-09-30",
+      "event": "SkyCraft; Escape from Skyrim; universal-modder; Counter-Strike: Spawn",
+      "url": "https://github.com/chasmlol/SkyCraft"
+    },
+    {
+      "date": "2026-10-01",
+      "event": "Skyrim x Tarkov x Spider-Man; chasm WoW post + Community Note; Elden Ring clone repo",
+      "url": "https://x.com/cydonix/status/2105624857061081491"
+    },
+    {
+      "date": "2026-10-02",
+      "event": "Kotaku pushback piece",
+      "url": "https://kotaku.com/i-dont-want-to-play-your-ai-generated-mod-that-puts-skate-3-inside-of-modern-warfare-2-inside-of-minecraft-2000738660"
+    },
+    {
+      "date": "2026-10-03",
+      "event": "iXBT.games (RU) trend article",
+      "url": "https://ixbt.games/news/2026/10/03/skyrim-smesali-s-escape-from-tarkov-moddery-naucilis-obieediniat-populiarnye-igry-s-pomoshhiu-ii.html"
+    }
+  ],
+  "slide_facts_ru": [
+    {
+      "text": "WoW 1.12.1 переписан с нуля одним человеком за ~3 месяца: benilla — полный клиент на Rust + Bevy; автор: «I used Claude Opus and Fable to reverse engineer the WoW 1.12.1 client and rewrite it from scratch… Multiple Claude Code sessions and accounts running non-stop against the original binary». В 553 из 559 коммитов соавтор — Claude; около 28 МБ кода на Rust (≈0,7 млн строк, оценка); 525★ и 107 форков.",
+      "sources": [
+        "https://github.com/samwhosung/benilla",
+        "https://x.com/samwhosung/status/2080536884506435689"
+      ]
+    },
+    {
+      "text": "Тот же метод, что у нас: оригинальный бинарник и есть спецификация. В AGENTS.md benilla написано «The reference client is the spec», в METHOD.md — «Measure, never eyeball»; коммиты ссылаются на адреса в оригинальном клиенте; игровые данные берутся только из вашей копии.",
+      "sources": [
+        "https://github.com/samwhosung/benilla/blob/main/docs/METHOD.md",
+        "https://github.com/samwhosung/benilla/blob/main/AGENTS.md"
+      ]
+    },
+    {
+      "text": "Call of Duty: MW2 (2009) получил новый движок, написанный LLM: «This whole project is written by an LLM» (IW4L, Rust + Bevy + wgpu, оригинальные бинарники изучали в Ghidra). Репозиторий существует с 13 сентября 2026 и набрал 650★.",
+      "sources": [
+        "https://github.com/vladtrc/iw4L"
+      ]
+    },
+    {
+      "text": "Мэшапы стали жанром: chasm собрал MW2 × Skate 3 × Minecraft поверх трёх Rust-переписок и называет это «basically 100% vibe coded». У релизов больше 10 тысяч скачиваний, у шуточного ролика — 6,7 млн просмотров; три видео за 28 сентября — 2 октября набрали около 2,3 млн просмотров.",
+      "sources": [
+        "https://github.com/chasmlol/2010-rust-rewrite-mashup",
+        "https://www.makeuseof.com/rust-game-mashup-brings-mw2-gunplay-into-minecraft-while-doing-skate-3-tricks/",
+        "https://heldgames.com/guides/mw2-skate-minecraft-rust-rewrite",
+        "https://www.youtube.com/@chasmmm/videos"
+      ]
+    },
+    {
+      "text": "Вирусный масштаб: «Minecraft внутри Elden Ring… runs on Mac» собрал около 308 тысяч лайков и 20,7 млн просмотров; через два дня появился открытый клон для Mac + CrossOver («og idea from @tobynjacobs. implementation vibecoded»). Skyrim × Tarkov × Spider-Man от @cydonix — 21,7 тысячи лайков; по данным Kotaku, Tarkov-в-Skyrim сделали «за несколько часов».",
+      "sources": [
+        "https://x.com/TobynJacobs/status/2104884843297599594",
+        "https://heldgames.com/guides/minecraft-inside-other-games-trend",
+        "https://github.com/justbustin/minecraft-crossover-bridge",
+        "https://x.com/cydonix/status/2105624857061081491",
+        "https://kotaku.com/i-dont-want-to-play-your-ai-generated-mod-that-puts-skate-3-inside-of-modern-warfare-2-inside-of-minecraft-2000738660"
+      ]
+    },
+    {
+      "text": "Не только моды, но и побайтовая декомпиляция: Melee — 100% (9 сентября 2026), последний отрезок закрыли с помощью ИИ; в Touhou 8 точно совпадают 1106 из 1107 функций, и «all new engineering… is carried out by AI coding agents»; Conker's Bad Fur Day Recompiled сделан при «heavy use of… Claude, through Claude Code».",
+      "sources": [
+        "https://heldgames.com/guides/melee-decompiled-ai-astra",
+        "https://decomp.dev/doldecomp/melee",
+        "https://github.com/N0zoM1z0/th08",
+        "https://github.com/sciaschi/CBFD-Recompiled"
+      ]
+    },
+    {
+      "text": "Пресса заметила тренд и уже спорит о нём. iXBT.games (3 октября): «Такие игровые кроссоверы с помощью ИИ создаются за считанные часы»; Kotaku (2 октября): «I Don't Want To Play Your AI-Generated Mod…». Инструменты стали продуктом: universal-modder (навыки реверса и «mashup-mods» для Claude Code, Codex, Cursor и Gemini) — 2,5 тысячи★ за три дня.",
+      "sources": [
+        "https://ixbt.games/news/2026/10/03/skyrim-smesali-s-escape-from-tarkov-moddery-naucilis-obieediniat-populiarnye-igry-s-pomoshhiu-ii.html",
+        "https://kotaku.com/i-dont-want-to-play-your-ai-generated-mod-that-puts-skate-3-inside-of-modern-warfare-2-inside-of-minecraft-2000738660",
+        "https://github.com/rehan-remade/universal-modder"
+      ]
+    },
+    {
+      "text": "Оговорки: Community Note уточняет, что benilla требует данных из вашей легальной копии и «does not make private servers legal» (Blizzard выиграла дело против Turtle WoW, в июне 2026 подала иск к Project Ascension). README Skate 3 Rust Engine: «Describing the project as simply \"AI rewriting Skate 3\" leaves out the work that made it possible»; ИИ опирается на годы ручного реверса.",
+      "sources": [
+        "https://twitter.com/i/birdwatch/n/2105872863097946369",
+        "https://aftermath.site/blizzard-project-ascension-lawsuit/",
+        "https://github.com/SK8-ENGINE/skate-3-rust-engine"
+      ]
+    }
+  ],
+  "unverified": [
+    "@Smallzero X post not found; 'Counter-Strike: Spawn' is a probable match only (page says CS 1.4); '16 players' and post metrics from screenshot only; asset provenance unknown.",
+    "@TobynJacobs: models/agent tools (incl. 'Waifu Agents'), method and Mac setup not disclosed; 'Opus 5.5' attribution from Reddit/aggregators.",
+    "@cydonix: method and models not public; iXBT credits 'mdaman010' (relation unverified); reposts/views from screenshot.",
+    "Melee: 100% date and GPT-6 Astra role per heldgames only; commit trailers show Claude.",
+    "benilla: line count is an estimate; '3 months' is the author's claim; full text of the author's long post only via search snippet; stargazer history unavailable (API 404).",
+    "chasm's Goldshire skating (WoW) build: video only, unpublished.",
+    "Headline-only sources (pages not readable): VideoCardz, TweakTown, PCMRace, jeuxvideo.com.",
+    "No publisher statements found for these specific projects as of 2026-10-03."
+  ]
+}

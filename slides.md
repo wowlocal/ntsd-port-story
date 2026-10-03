@@ -93,5 +93,9 @@ src: ./pages/11-agents.md
 ---
 
 ---
-src: ./pages/12-lessons.md
+src: ./pages/12-community.md
+---
+
+---
+src: ./pages/13-lessons.md
 ---

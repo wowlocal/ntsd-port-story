@@ -1,7 +1,7 @@
 ---
 layout: chapter
 num: 4
-total: 12
+total: 13
 kicker: Глава четвёртая
 dates: 12–14 сентября
 image: /img/menu-back-red-purple.jpg
@@ -328,9 +328,9 @@ stats: AGENTS.md 4 954 → 153 строки · WORKFLOW.md · реестр от�
 
 <Kicker>12 сентября · обзор fbfc3c0, перепроверено 3 октября</Kicker>
 
-# 13 движков LF2 — ни одного полного
+# 14 движков LF2 — ни одного полного
 
-<div class="small ink2 -mt-1">Что на самом деле есть в коде. GitHub на 3 октября 2026; строка порта — для сравнения, доказательства в главах 7–8.</div>
+<div class="small ink2 -mt-1">13 проектов из обзора и OpenLF2, появившийся 27 сентября. Данные GitHub на 3 октября; строка порта — для сравнения.</div>
 
 <OssMatrix class="mt-1" />
 
@@ -352,16 +352,16 @@ stats: AGENTS.md 4 954 → 153 строки · WORKFLOW.md · реестр от�
 <p>Wemake — самый живой: 4 507 из 4 508 коммитов от одного автора. Его «дифференциальные тесты» сравнивают TypeScript-ядро с его же портом на C++. Нативный хост: <span class="mono">«尚未创建»</span> — ещё не создан.</p>
 </div>
 <div class="card-soft">
-<div class="pixel hl small">тесты у 4 из 13, CI — ни у кого</div>
-<p>Автотесты есть у L2DF, F.LF, Wemake и Punchy, но ни один CI их не запускает. Единственный тест Punchy разбирает строку URL-запроса.</p>
+<div class="pixel hl small">тесты у 4 из 14, CI их не запускает</div>
+<p>Автотесты есть у L2DF, F.LF, Wemake и Punchy, но ни один CI их не запускает. У OpenLF2 десять сборок в CI и ни одного теста. Единственный тест Punchy разбирает строку URL-запроса.</p>
 </div>
 <div class="card-soft">
-<div class="pixel hl small">Championship и Battle — ни у кого</div>
-<p>Battle — только кнопка без обработчика в L2DF и спрайт меню в Enchanted. У Wemake есть VS, Stage и режим выживания для Bilibili.</p>
+<div class="pixel hl small">все режимы — только у новичка</div>
+<p>Из 13 проектов обзора Battle есть лишь кнопкой без обработчика в L2DF и спрайтом меню в Enchanted. Все шесть режимов подключил только OpenLF2, а проверено ли их поведение, он не показывает.</p>
 </div>
 <div class="card-soft">
-<div class="pixel hl small">нативно на macOS — только Punchy</div>
-<p>И это не LF2: свои данные в YAML, «Inspired by … Little Fighter 2». Зашифрованный DAT на лету читает только Enchanted — под Windows и DirectX 11, с пустым блоком ИИ.</p>
+<div class="pixel hl small">DAT и macOS — редкость</div>
+<p>Из 13 нативно на macOS работает только Punchy, и это не LF2. Зашифрованный DAT на лету читал только Enchanted — под Windows и DirectX 11, с пустым блоком ИИ. Теперь оба умеет OpenLF2.</p>
 </div>
 <div class="card-soft">
 <div class="pixel hl small">надгробия</div>
@@ -369,7 +369,7 @@ stats: AGENTS.md 4 954 → 153 строки · WORKFLOW.md · реестр от�
 </div>
 </div>
 
-<div class="small ink2 mt-3">Общее у всех тринадцати: ни один не запускает оригинальный EXE как автоматический эталон. Именно такой эталон стал фундаментом порта.</div>
+<div class="small ink2 mt-3">Общее у всех четырнадцати: ни один не запускает оригинальный EXE как автоматический эталон. Именно такой эталон стал фундаментом порта.</div>
 
 <style>
 .facts p { font-size: 0.68rem; line-height: 1.4; color: var(--ink-2); margin: 0.35rem 0 0; }

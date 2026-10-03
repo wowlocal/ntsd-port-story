@@ -1,7 +1,7 @@
 ---
 layout: chapter
 num: 10
-total: 12
+total: 13
 kicker: В цифрах
 dates: 7 сентября — 3 октября
 image: /img/roster-25-faces-2x.png

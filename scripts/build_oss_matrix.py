@@ -7,7 +7,8 @@ Usage:
 Reads data/evidence/lf2-oss-engines.json (GitHub API data, shallow clones and source
 reading on 2026-10-03; every cell carries its evidence and source lines) and writes
 data/oss_matrix.json: one row per repository with short name, language, own code lines,
-stars, last commit and the capability cells, plus a row for this port.
+stars, last commit and the capability cells; projects that appeared after the 12 Sep
+survey ("followups", e.g. OpenLF2) as separate rows; and a row for this port.
 """
 import json
 import os
@@ -37,11 +38,20 @@ for r in d["repositories"]:
                  "loc": r["loc"].get("ownNonTestCode"), "stars": r["github"]["stars"], "last": max(dates)[:7],
                  "cells": cells, "score": score})
 rows.sort(key=lambda x: (-x["score"], -x["stars"]))
+# Projects found after the 12 Sep survey are kept apart, with the date they appeared.
+newcomers = []
+for r in d.get("followups", []):
+    cells = {c: CODE.get(r["matrixFollowup"][c]["value"], "u") for c in COLS}
+    newcomers.append({"name": r["repository"].split("/")[-1], "repo": r["repository"], "lang": "Lua/C++",
+                      "loc": r["loc"]["ownNonTestCode"], "stars": r["github"]["stars"],
+                      "last": r["defaultBranch"]["lastCommitDateUTC"][:7], "since": r["github"]["createdAt"][:10],
+                      "cells": cells})
 port = d["contextProjectPort"]
 out = {
     "as_of": d.get("asOfDate", "2026-10-03"),
     "columns": COLS,
     "rows": rows,
+    "newcomers": newcomers,
     "port": {"name": "этот порт", "lang": "Swift", "loc": port["runtimeSwift"]["total"], "stars": None, "last": "2026-10",
              "cells": {c: "y" for c in COLS}},
 }

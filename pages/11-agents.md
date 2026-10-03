@@ -1,7 +1,7 @@
 ---
 layout: chapter
 num: 11
-total: 12
+total: 13
 kicker: Глава одиннадцатая
 dates: журналы сессий
 image: /img/screens/12-all-17-backgrounds-grid.jpg
@@ -164,6 +164,24 @@ stats: 34 сессии · 31 095 ответов моделей · 1 101 ход �
 </div>
 
 <div class="source">~/.codex/sessions: рост максимума внутри недельного окна по дням (+03:00, с 28 сентября +02:00) · пересчёт по номиналу $200 в месяц · scripts/collect_limits.py</div>
+
+---
+
+<Kicker>лимиты · Claude Max 20x</Kicker>
+
+# Как сгорала подписка Anthropic
+
+<div class="small ink2 -mt-1">Тоже $200 в месяц, но процент лимита Claude Code локально не пишет. Поэтому считаем, во сколько те же токены обошлись бы по ценам API Opus 5.5.</div>
+
+<ClaudeBurn class="mt-1" />
+
+<div class="grid grid-cols-3 gap-3 mt-2">
+<StatTile :value="797" prefix="≈ $" label="по ценам API за 6 дней порта" sub="в 20 раз больше стоимости этих дней подписки ($40) — как 4 месячные подписки" size="sm" accent="var(--s2)" />
+<StatTile :value="237" prefix="$" label="за 29 сентября" sub="×36 к дню подписки; агент работал все 24 часа, и 30-го тоже" size="sm" />
+<StatTile :value="0" label="сообщений о лимите" sub="Codex трижды упирался в недельный потолок, Claude — ни разу. 99,4 % входных токенов пришло из кэша, чтение кэша — 70 % цены" size="sm" accent="var(--s1)" />
+</div>
+
+<div class="source">~/.claude/projects: usage каждого ответа, дедупликация как в collect_tokens.py · цены platform.claude.com/docs/en/about-claude/pricing · scripts/collect_claude_burn.py</div>
 
 ---
 
