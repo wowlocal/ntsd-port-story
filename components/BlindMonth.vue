@@ -6,7 +6,7 @@ import tokens from '../data/tokens.json'
 interface Day { date: string, codex: number, claude: number }
 const days = (tokens as any).daily as Day[]
 const W = 900
-const H = 300
+const H = 272
 const m = { l: 56, r: 12, t: 16, b: 96 }
 const plotW = W - m.l - m.r
 const plotH = H - m.t - m.b

@@ -89,20 +89,29 @@ stats: 15 коммитов · 13:31 → 23:56 · первый полный ма�
 
 # Три стопора первого матча
 
-<div class="grid grid-cols-3 gap-4 mt-3">
-<QuirkCard title="Погоня, которой не было" icon="🎯" addr="406ba0 · 4094b0" commit="455afeb → 2c02e5b">
-Бой остановился на непортированном вводе объекта: диагностика назвала объект 219 — <code>chars\jan_chaseh.dat</code>, тип 3, кадр 51, «догоняющий» снаряд. Порт AI 4094b0 с помощниками сверили с оригиналом на двух корпусах по <b>3 770 реальных вызовов</b>: вызовы ГСЧ, глобалы, World и все Actor.
-</QuirkCard>
-<QuirkCard title="Игра в 8 тиков в секунду" icon="🐢" commit="9d33d8d">
-Когда окно теряло фокус, macOS App Nap душил цикл тиков, а приложение ещё и строило никому не нужные снимки состояния на каждой стадии. Теперь приложение держит user-initiated activity — Windows ведь не тормозит <code>Sleep</code>-цикл фоновой игры. Итог — оригинальные 30,3 тика/с.
-</QuirkCard>
-<QuirkCard title="Воспроизводимый Mac" icon="⏱" commit="4943589 · 9d33d8d">
-У приложения появились <code>--script</code> (тайм-клики, клавиши, снимки, выход) и <code>--virtual-clock BASE STEP</code>: <code>timeGetTime</code> из номера итерации, фиксированная дата старта и курсор. Снимки кадров побайтно совпадают между прогонами — на этом потом построится вся сверка с оригиналом.
-</QuirkCard>
-</div>
+<IconCards class="mt-3 stoppers" :cols="3" :items="[
+  { icon: 'i-pixelarticons-bullseye-arrow', title: 'Погоня, которой не было', text: 'Бой встал на непортированном вводе объекта: «догоняющий» снаряд <code>jan_chaseh.dat</code>. Порт AI 4094b0 сверили с оригиналом на двух корпусах — <b>3 770 реальных вызовов</b>.', tag: '406ba0 · 4094b0 · 455afeb → 2c02e5b' },
+  { icon: 'i-pixelarticons-snail', title: 'Игра в 8 тиков в секунду', text: 'В фоне macOS App Nap душил цикл тиков. Теперь приложение держит user-initiated activity: Windows не тормозит цикл <code>Sleep</code> фоновой игры. Итог — <b>30,3 тика/с</b>.', tag: '9d33d8d' },
+  { icon: 'i-pixelarticons-repeat', title: 'Воспроизводимый Mac', text: '<code>--script</code> — клики, клавиши, снимки. <code>--virtual-clock</code> — время из номера итерации. Снимки кадров побайтно совпадают между прогонами.', tag: '4943589 · 9d33d8d' },
+]" />
 
-<div class="card-soft mt-4 small ink2">
-Таймер оригинала: тик идёт, когда прошло <b>строго больше 33 мс</b> (<code>0x43d160</code>); база сдвигается на 33, отставание режется до 100 мс. Отсюда 30,3 тика в секунду, а не ровно 30.
-</div>
+<TurnTimer class="mt-4" />
+
+<style>
+.stoppers :deep(.ic) { padding: 0.85rem 1rem 0.9rem; }
+.stoppers :deep(.ico) { width: 1.7rem; height: 1.7rem; }
+.stoppers :deep(.head b) { font-size: 0.88rem; }
+.stoppers :deep(.txt) { font-size: 0.76rem; line-height: 1.45; margin-top: 0.5rem; }
+.stoppers :deep(.txt b) { color: var(--ink); }
+.stoppers :deep(.txt code) { white-space: nowrap; }
+.stoppers :deep(.tg) { margin-top: 0.6rem; font-size: 0.6rem; }
+</style>
 
 <div class="source">455afeb · 855e206 · 2c02e5b · 9d33d8d · docs/ORIGINAL_ENGINE.md</div>
+
+<!--
+Погоня: диагностика назвала объект 219 — chars\jan_chaseh.dat, тип 3, кадр 51. Порт AI 4094b0 шёл с помощниками; сверка на двух корпусах по 3 770 реальных вызовов — вызовы ГСЧ, глобалы, World и все Actor.
+8 тиков: когда окно теряло фокус, App Nap душил цикл, а приложение ещё и строило никому не нужные снимки состояния на каждой стадии.
+Воспроизводимость: --script — тайм-клики, клавиши, снимки и выход; --virtual-clock BASE STEP — timeGetTime из номера итерации, фиксированная дата старта и курсор. На этом потом построится вся сверка с оригиналом.
+Таймер: база сдвигается ровно на 33 мс, а не до текущего времени, поэтому в среднем тик раз в 33 мс — 1000 / 33 ≈ 30,3 в секунду.
+-->

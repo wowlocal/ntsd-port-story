@@ -8,7 +8,7 @@ const series = [
   { key: 'RESEARCH_MAP.md', short: 'MAP', label: 'RESEARCH_MAP.md — карта исследований', color: 'var(--s3)' },
 ]
 const W = 900
-const H = 300
+const H = 285
 const m = { l: 50, r: 120, t: 18, b: 28 }
 const plotW = W - m.l - m.r
 const plotH = H - m.t - m.b
@@ -70,8 +70,9 @@ const dl = (d: string) => {
       <g>
         <circle :cx="x(parse(peak.date))" :cy="y(peak.lines)" r="4.5" fill="var(--s1)" stroke="var(--bg)" stroke-width="2" />
         <text :x="x(parse(peak.date)) - 8" :y="y(peak.lines) + 4" text-anchor="end" class="ann">4 954 строки · 364 КБ</text>
-        <text :x="x(parse(after.date)) + 8" :y="y(after.lines) - 30" class="ann">12 сен · сжатие до {{ after.lines }} строк,</text>
-        <text :x="x(parse(after.date)) + 8" :y="y(after.lines) - 16" class="ann2">старый файл → неизменяемый архив</text>
+        <!-- beside the drop, above the other two lines, so the note crosses no line -->
+        <text :x="x(parse(after.date)) + 8" :y="y(3350)" class="ann">12 сен · сжатие до {{ after.lines }} строк,</text>
+        <text :x="x(parse(after.date)) + 8" :y="y(3350) + 14" class="ann2">старый файл → неизменяемый архив</text>
       </g>
     </svg>
   </div>

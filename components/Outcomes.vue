@@ -1,89 +1,93 @@
 <script setup lang="ts">
+// The seven outcome types a run may record (AGENTS.md, WORKFLOW.md) plus the rollback rule.
+// One pixel icon and one line per tile; the longer wording lives in the slide notes.
+// Icon classes are written literally so the UnoCSS extractor generates them.
 const items = [
-  { en: 'returned source case', ru: 'оригинал отработал и вернул результат', icon: '✓', tone: 'good' },
-  { en: 'source memory fault', ru: 'оригинал упал по памяти — это тоже поведение', icon: '⚡', tone: 'serious' },
-  { en: 'unsupported boundary', ru: 'граница, за которую стенд не ходит', icon: '⊘', tone: 'neutral' },
-  { en: 'harness error', ru: 'сломался сам стенд, а не игра', icon: '⚙', tone: 'warning' },
-  { en: 'Native mismatch', ru: 'Swift разошёлся с оригиналом', icon: '≠', tone: 'critical' },
-  { en: 'missing evidence', ru: 'улик нет — значит, не известно', icon: '?', tone: 'neutral' },
-  { en: 'safety refusal', ru: 'отказ модели — фиксируется отдельно', icon: '■', tone: 'neutral' },
+  { en: 'returned source case', ru: 'оригинал вернул результат', icon: 'i-pixelarticons-check', tone: 'good' },
+  { en: 'source memory fault', ru: 'оригинал упал — это тоже поведение', icon: 'i-pixelarticons-zap', tone: 'serious' },
+  { en: 'unsupported boundary', ru: 'сюда стенд не ходит', icon: 'i-pixelarticons-wall', tone: 'neutral' },
+  { en: 'harness error', ru: 'сломался стенд, а не игра', icon: 'i-pixelarticons-tools', tone: 'warning' },
+  { en: 'Native mismatch', ru: 'Swift разошёлся с оригиналом', icon: 'i-pixelarticons-copy-x', tone: 'critical' },
+  { en: 'missing evidence', ru: 'улик нет — значит, неизвестно', icon: 'i-pixelarticons-circle-question', tone: 'neutral' },
+  { en: 'safety refusal', ru: 'отказ модели — отдельный исход', icon: 'i-pixelarticons-shield', tone: 'neutral' },
+  { en: 'rollback ≠ match', ru: 'откат при падении оригинала — <b>не</b> совпадение', icon: 'i-pixelarticons-undo', tone: 'rule' },
 ]
 </script>
 
 <template>
-  <div class="grid">
-    <div v-for="it in items" :key="it.en" class="cell" :class="it.tone">
-      <span class="icon">{{ it.icon }}</span>
-      <div>
-        <div class="en mono">
-          {{ it.en }}
-        </div>
-        <div class="ru">
-          {{ it.ru }}
-        </div>
+  <div class="outcomes">
+    <div v-for="it in items" :key="it.en" class="tile" :class="it.tone">
+      <div class="head">
+        <span class="ico" :class="it.icon" />
+        <span class="en mono">{{ it.en }}</span>
       </div>
-    </div>
-    <div class="cell rule">
-      <span class="icon">↺</span>
-      <div>
-        <div class="en mono">
-          rollback ≠ match
-        </div>
-        <div class="ru">
-          откат Native при падении оригинала — <b>не</b> совпадение
-        </div>
-      </div>
+      <div class="ru" v-html="it.ru" />
     </div>
   </div>
 </template>
 
 <style scoped>
-.grid {
+.outcomes {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0.55rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.6rem;
 }
-.cell {
-  display: flex;
-  gap: 0.55rem;
-  align-items: flex-start;
+.tile {
+  --tone: var(--ink-2);
+  position: relative;
   background: var(--surface);
   border: 1px solid var(--hair);
   border-radius: 12px;
-  padding: 0.6rem 0.65rem;
+  padding: 0.85rem 0.9rem 0.9rem;
+  overflow: hidden;
 }
-.icon {
-  flex: none;
-  width: 1.7rem;
-  height: 1.7rem;
-  display: grid;
-  place-items: center;
-  border-radius: 7px;
-  font-weight: 800;
-  font-size: 0.9rem;
-  background: rgba(255, 255, 255, 0.07);
-  color: var(--ink);
+.tile::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--tone);
+  opacity: 0.85;
 }
-.good .icon { background: rgba(12, 163, 12, 0.22); color: #7ee07e; }
-.serious .icon { background: rgba(236, 131, 90, 0.2); color: #f4a585; }
-.warning .icon { background: rgba(250, 178, 25, 0.18); color: #fcd06f; }
-.critical .icon { background: rgba(208, 59, 59, 0.24); color: #f19393; }
+.good { --tone: var(--good); }
+.serious { --tone: var(--serious); }
+.warning { --tone: var(--warning); }
+.critical { --tone: var(--critical); }
+.neutral { --tone: var(--muted); }
 .rule {
+  --tone: var(--naruto);
   border-color: rgba(255, 138, 61, 0.5);
+  background: rgba(255, 138, 61, 0.06);
 }
-.rule .icon {
-  background: rgba(255, 138, 61, 0.18);
-  color: var(--naruto);
+.head {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+.ico {
+  flex: none;
+  width: 2rem;
+  height: 2rem;
+  color: var(--tone);
+}
+.neutral .ico {
+  color: var(--ink-2);
 }
 .en {
-  font-size: 0.68rem;
+  font-size: 0.74rem;
   font-weight: 700;
+  line-height: 1.2;
   color: var(--ink);
 }
 .ru {
-  font-size: 0.66rem;
+  font-size: 0.68rem;
+  line-height: 1.35;
   color: var(--ink-2);
-  line-height: 1.3;
-  margin-top: 0.1rem;
+  margin-top: 0.5rem;
+}
+.ru :deep(b) {
+  color: var(--ink);
 }
 </style>

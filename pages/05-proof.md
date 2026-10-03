@@ -29,12 +29,14 @@ stats: 96 коммитов · 0 правок в native/Sources · +20 700 стр
 <div class="source">git log --name-only · data/daily.json · 866bf83</div>
 
 ---
+clicks: 6
+---
 
 <Kicker>жизненный цикл карточки</Kicker>
 
 # От плана до переноса — шесть стадий
 
-<Pipeline class="mt-4" :steps="[
+<Pipeline class="mt-4" stepwise :steps="[
   { name: 'PLAN', ru: 'замороженный план', desc: 'вопрос, входы с SHA, конечный список случаев, лимиты, критерии приёмки' },
   { name: 'PREFLIGHT', ru: 'предполётная', desc: 'только чтение: найти разрывы интеграции до запуска' },
   { name: 'CANDIDATE', ru: 'кандидат', desc: 'изолированная копия; синтаксис — ещё не доказательство' },
@@ -104,38 +106,56 @@ stats: 96 коммитов · 0 правок в native/Sources · +20 700 стр
 
 # Не ускорять видимый прогресс
 
-<div class="grid grid-cols-2 gap-x-6 gap-y-2 mt-2 blind">
-<div class="hdr">аудиторы Codex видели</div>
-<div class="hdr">решение</div>
+<div class="blind mt-1">
+<div class="hdr"><span class="i-pixelarticons-eye" />аудиторы Codex видели</div>
+<div></div>
+<div class="hdr"><span class="i-pixelarticons-flag" />решение</div>
 
 <div class="q"><span class="d">8 сен</span>«Но прироста подтверждённых игровых возможностей Practice за эти 12 часов нет».</div>
-<div class="a"><span class="d">8 сен</span>«<b>Не ускоряем видимый прогресс добавлением персонажей и техник на неполной основе.</b> Сейчас основной результат будет появляться в движке и проверках; тренировочное окно некоторое время может выглядеть прежним».</div>
+<div class="arr i-pixelarticons-arrow-right" />
+<div class="a"><span class="d">8 сен</span>«<b>Не ускоряем видимый прогресс добавлением персонажей и техник на неполной основе.</b> …тренировочное окно некоторое время может выглядеть прежним».</div>
 
 <div class="q"><span class="d">12 сен</span>«Сейчас основная проблема — разрыв между большим проверенным ядром и ограниченной Practice».</div>
-<div class="a"><span class="d">12 сен</span>Готовый движок L2DF дал работающее приложение через 16 минут после просьбы — и был остановлен: <i>«кароче не стоит полагаться на движок? лучше делать как в main-е, продолжить как шли?»</i> → <i>«ок, остановил. продолжаем на main»</i>.</div>
+<div class="arr i-pixelarticons-arrow-right" />
+<div class="a"><span class="d">12 сен</span>Готовый движок L2DF дал работающее приложение через 16 минут после просьбы — и был остановлен: <i>«ок, остановил. продолжаем на main»</i>.</div>
 
 <div class="q"><span class="d">14 сен</span>«Это полезно, но пользовательского результата пока не добавляет: MeleeScene всё ещё использует OriginalMelee».</div>
-<div class="a"><span class="d">13 сен</span>«Основную стратегию менять не стоит… Погоня за ростом диапазонов сейчас дала бы красивый процент, но не приблизила бы так сильно первый настоящий матч».</div>
+<div class="arr i-pixelarticons-arrow-right" />
+<div class="a"><span class="d">13 сен</span>«…Погоня за ростом диапазонов сейчас дала бы красивый процент, но не приблизила бы так сильно первый настоящий матч».</div>
 
 <div class="q"><span class="d">27 сен</span>«Ни одного коммита в <code>native/</code> за эти 9 часов. Приложение продолжает запускать Practice».</div>
+<div class="arr i-pixelarticons-arrow-right" />
 <div class="a"><span class="d">27 сен</span>Правила прогресса: проверенное — сразу переносить в <code>native/</code>. Но ни одна проверка не отменяется и ни один эталон не правится.</div>
 </div>
 
 <div class="card thesis mt-3">
+<span class="i-pixelarticons-quote-text-inline" />
+<div>
 <div class="mono small">«Методология валидации — это всё. Это самое важное. Это ровно то, что в самом конце привело нас к полному паритету в интеграционных тестах».</div>
 <div class="xsmall muted mt-1">автор проекта · <b class="hl">28 сентября</b> — первый матч в приложении, <b class="hl">3 октября</b> — 58 целых матчей без единого расхождения с оригиналом</div>
+</div>
 </div>
 
 <div class="source">~/.codex/sessions: сессии-аудиты 8, 12, 13, 14, 26 и 27 сентября · 007c007 · docs/research/PROGRESS_RULES.md</div>
 
 <style>
-.blind .hdr { font-family: var(--font-pixel); font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--naruto); }
-.blind .q, .blind .a { font-size: 0.68rem; line-height: 1.35; padding: 0.4rem 0.6rem; border-radius: 10px; }
+.blind { display: grid; grid-template-columns: 1fr 1.3rem 1.12fr; column-gap: 0.55rem; row-gap: 0.45rem; align-items: center; }
+.blind .hdr { display: flex; align-items: center; gap: 0.4rem; font-family: var(--font-pixel); font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--naruto); }
+.blind .hdr span { width: 1.05rem; height: 1.05rem; }
+.blind .q, .blind .a { align-self: stretch; font-size: 0.66rem; line-height: 1.36; padding: 0.38rem 0.6rem; border-radius: 10px; }
 .blind .q { background: var(--surface); border: 1px solid var(--hair); color: var(--ink-2); }
 .blind .a { background: rgba(57,135,229,0.12); border: 1px solid rgba(57,135,229,0.35); color: var(--ink); }
-.blind .d { display: inline-block; font-family: var(--font-mono); font-size: 0.58rem; color: var(--muted); margin-right: 0.4rem; }
-.thesis { border-color: rgba(255,138,61,0.55); }
+.blind .d { display: inline-block; font-family: var(--font-mono); font-size: 0.58rem; color: var(--muted); margin-right: 0.45rem; }
+.blind .arr { width: 1.1rem; height: 1.1rem; color: var(--naruto); justify-self: center; }
+.thesis { display: flex; gap: 0.75rem; align-items: flex-start; border-color: rgba(255,138,61,0.55); padding: 0.75rem 1rem; }
+.thesis > span { flex: none; width: 1.5rem; height: 1.5rem; color: var(--naruto); }
 </style>
+
+<!--
+Полностью, 8 сентября: «Не ускоряем видимый прогресс добавлением персонажей и техник на неполной основе. Сейчас основной результат будет появляться в движке и проверках; тренировочное окно некоторое время может выглядеть прежним».
+12 сентября пользователь спросил: «кароче не стоит полагаться на движок? лучше делать как в main-е, продолжить как шли?» — ответ: «ок, остановил. продолжаем на main».
+13 сентября целиком: «Основную стратегию менять не стоит… Погоня за ростом диапазонов сейчас дала бы красивый процент, но не приблизила бы так сильно первый настоящий матч».
+-->
 
 ---
 
@@ -148,33 +168,40 @@ stats: 96 коммитов · 0 правок в native/Sources · +20 700 стр
 
 <div class="xsmall muted">PROGRESS_RULES.md — «указание пользователя от 2026-09-27 после разбора 19 коммитов за девять часов»</div>
 
-<div class="small">
-
-- «После успешного сравнения кандидата следующая задача — **его перенос в `native/`** и подключение ближайшего готового потребителя».
-- «После двух последовательных этапов только подготовки/упаковки/проверок… разобрать причину отсутствия продвижения. **Переименование карточки счётчик не обнуляет**».
-- «Не добавлять новый prepare/finalize/publish-скрипт, отличающийся путями, счётчиками или названием задачи».
-- «Каждая отдельная gate проверяется и записывается **один раз** для закреплённых байтов».
-- «Число файлов, архивов, инструкций и тестов **не заменяет игровой или прикладной результат**».
-
+<div class="prules mt-2">
+<div class="pr"><span class="i-pixelarticons-git-merge" /><div><b>Проверено — переносим.</b> «После успешного сравнения кандидата следующая задача — его перенос в <code>native/</code> и подключение ближайшего готового потребителя».</div></div>
+<div class="pr"><span class="i-pixelarticons-repeat" /><div><b>Два шага без продвижения — разбор.</b> «После двух последовательных этапов только подготовки/упаковки/проверок… разобрать причину отсутствия продвижения. Переименование карточки счётчик не обнуляет».</div></div>
+<div class="pr"><span class="i-pixelarticons-script" /><div><b>Без новых обёрток.</b> «Не добавлять новый prepare/finalize/publish-скрипт, отличающийся путями, счётчиками или названием задачи».</div></div>
+<div class="pr"><span class="i-pixelarticons-pin" /><div><b>Гейт — один раз.</b> «Каждая отдельная gate проверяется и записывается один раз для закреплённых байтов».</div></div>
+<div class="pr"><span class="i-pixelarticons-gamepad" /><div><b>Счёт файлов — не результат.</b> «Число файлов, архивов, инструкций и тестов не заменяет игровой или прикладной результат».</div></div>
 </div>
 
 </div>
 <div>
 
 <div class="card">
-<div class="pixel hl small">в тот же день</div>
+<div class="ttl"><span class="i-pixelarticons-computer" /><span class="pixel hl small">в тот же день</span></div>
 <p class="small ink2">«Stop UTM work and prioritize native app integration» — виртуальную Windows-машину бросили: <i>«give up on UTM»</i>.</p>
 <div class="tag">52d4740</div> <div class="tag">007c007</div>
 </div>
 
 <div class="card mt-3">
-<div class="pixel hl small">прогноз · 27 сен, 09:49 МСК</div>
+<div class="ttl"><span class="i-pixelarticons-calendar" /><span class="pixel hl small">прогноз · 27 сен, 09:49 МСК</span></div>
 <p class="small ink2">«1–3 недели до первого проверенного Наруто/Саске матча в приложении; 6–12 недель до полного порта».</p>
 <div class="xsmall muted">Через 33 часа матч в приложении дошёл до KO, через 5 дней целые матчи сверялись с оригиналом →</div>
 </div>
 
 </div>
 </div>
+
+<style>
+.prules { display: flex; flex-direction: column; gap: 0.4rem; }
+.pr { display: flex; gap: 0.6rem; align-items: flex-start; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--hair); border-radius: 10px; padding: 0.42rem 0.65rem; font-size: 0.68rem; line-height: 1.38; color: var(--ink-2); }
+.pr > span { flex: none; width: 1.3rem; height: 1.3rem; color: var(--naruto); margin-top: 0.05rem; }
+.pr b { color: var(--ink); font-weight: 650; }
+.ttl { display: flex; align-items: center; gap: 0.45rem; }
+.ttl > span:first-child { flex: none; width: 1.2rem; height: 1.2rem; color: var(--naruto); }
+</style>
 
 <div class="source">docs/research/PROGRESS_RULES.md · 52d4740 · 007c007 · d1a930e</div>
 

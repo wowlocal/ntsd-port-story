@@ -4,8 +4,9 @@ import storage from '../data/storage.json'
 
 // Free space recorded by the agents, one line per volume. Readings are joined in time order;
 // a "before/after" pair at the same moment draws a vertical step.
+// A note with `at` sits at `v` and gets a thin vertical leader down/up to the reading `at` (GB).
 interface Pt { t: string, free: number }
-interface Note { t: string, v: number, text: string, dx?: number, dy?: number, anchor?: 'start' | 'end' | 'middle', sub?: string }
+interface Note { t: string, v: number, text: string, dx?: number, dy?: number, anchor?: 'start' | 'end' | 'middle', sub?: string, at?: number }
 const props = withDefaults(defineProps<{
   from: string
   to: string
@@ -59,7 +60,7 @@ const fmt = (b: number) => (b / 1e9).toFixed(1).replace('.', ',')
       <text v-for="v in yTicks" :key="`y${v}`" :x="m.l - 8" :y="y(v) + 3.5" text-anchor="end" class="tick">{{ v }} ГБ</text>
       <g v-for="g in guards" :key="g.label">
         <line :x1="m.l" :x2="W - m.r" :y1="y(g.v)" :y2="y(g.v)" stroke="var(--critical)" stroke-width="1" style="opacity: 0.7" />
-        <text :x="m.l + 6" :y="y(g.v) + 13" class="guard">{{ g.label }}</text>
+        <text :x="m.l + 6" :y="y(g.v) - 5" class="guard">{{ g.label }}</text>
       </g>
       <g v-for="mk in markers" :key="mk.t">
         <line :x1="x(mk.t)" :x2="x(mk.t)" :y1="m.t" :y2="y(0)" stroke="var(--s3)" stroke-width="1.5" />
@@ -73,6 +74,7 @@ const fmt = (b: number) => (b / 1e9).toFixed(1).replace('.', ',')
         </circle>
       </g>
       <g v-for="(n, i) in notes" :key="`n${i}`">
+        <line v-if="n.at !== undefined" :x1="x(n.t)" :x2="x(n.t)" :y1="y(n.at) + (n.at > n.v ? 6 : -6)" :y2="y(n.v) + (n.dy ?? 4) + (n.at > n.v ? -12 : 4)" stroke="var(--ink-2)" stroke-width="1" style="opacity: 0.6" />
         <text :x="x(n.t) + (n.dx ?? 8)" :y="y(n.v) + (n.dy ?? 4)" :text-anchor="n.anchor ?? 'start'" class="note">{{ n.text }}</text>
         <text v-if="n.sub" :x="x(n.t) + (n.dx ?? 8)" :y="y(n.v) + (n.dy ?? 4) + 13" :text-anchor="n.anchor ?? 'start'" class="note2">{{ n.sub }}</text>
       </g>

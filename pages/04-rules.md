@@ -42,44 +42,17 @@ stats: AGENTS.md 4 954 → 153 строки · WORKFLOW.md · реестр от�
 
 # Семь фраз, на которых держится порт
 
-<div class="grid grid-cols-2 gap-3 mt-3">
+<RulesPrinciples class="mt-1" />
 
-<div class="card-soft">
-<div class="mono small hl">Do not guess physics, combo timing, damage, AI, randomness or standard engine behavior.</div>
-<div class="xsmall muted mt-1">Не угадывать: числа, порядок операций, знаковость и переполнения — как в EXE. · AGENTS.md</div>
-</div>
+<div class="source">AGENTS.md — все семь английских цитат · docs/research/WORKFLOW.md — русские цитаты в карточках 05–07</div>
 
-<div class="card-soft">
-<div class="mono small hl">No unobserved storage becomes known zero.</div>
-<div class="xsmall muted mt-1">Неизвестный байт остаётся неизвестным, пока не доказано его происхождение. · AGENTS.md</div>
-</div>
+<!--
+Все семь английских фраз — дословно из AGENTS.md. В карточках 05–07 под ними те же правила из WORKFLOW.md, по-русски и тоже дословно.
+Коротко: 05 — зелёный exit code — не приёмка; 06 — модель — не компаратор; 07 — сумма проверенных функций ещё не даёт корректного матча.
+-->
 
-<div class="card-soft">
-<div class="mono small hl">Never change an old expected value or exclude a mismatch to accept a candidate.</div>
-<div class="xsmall muted mt-1">Эталоны неизменны; исправление получает собственное доказательство. · AGENTS.md</div>
-</div>
-
-<div class="card-soft">
-<div class="mono small hl">Native rejection with rollback is not a successful match to a source fault.</div>
-<div class="xsmall muted mt-1">Откат порта там, где оригинал падает, — это не совпадение. · AGENTS.md</div>
-</div>
-
-<div class="card-soft">
-<div class="small"><b>«Код выхода процесса 0 означает только завершение процесса».</b></div>
-<div class="xsmall muted mt-1">Зелёный exit code — не приёмка. · WORKFLOW.md</div>
-</div>
-
-<div class="card-soft">
-<div class="small"><b>«Мнение LLM и структурное сходство кода не заменяют сравнение поведения».</b></div>
-<div class="xsmall muted mt-1">Модель — не компаратор. · WORKFLOW.md</div>
-</div>
-
-</div>
-
-<div class="card mt-3 text-center">
-<span class="small"><b>«Нельзя выводить полную корректность матча из суммы успешно проверенных функций».</b></span> <span class="xsmall muted">· WORKFLOW.md</span>
-</div>
-
+---
+clicks: 4
 ---
 
 <Kicker>классы доказательств</Kicker>
@@ -87,14 +60,14 @@ stats: AGENTS.md 4 954 → 153 строки · WORKFLOW.md · реестр от�
 # Лестница доказательств
 
 <div class="grid grid-cols-[1.35fr_1fr] gap-6 mt-2">
-<EvidenceLadder />
+<EvidenceLadder stepwise />
 <div class="small ink2">
 
 У каждого утверждения в карточке есть класс. В карте исследований это сокращено до шкалы **S / D / W**:
 
-- **S** — статическое наблюдение в дизассемблере;
-- **D** — сравнение с выполнением оригинальных инструкций;
-- **W** — воспроизводимая проверка целой игры в Windows.
+<div class="sdw"><span class="k mono">S</span><span>статическое наблюдение в дизассемблере</span></div>
+<div class="sdw"><span class="k mono">D</span><span>сравнение с выполнением оригинальных инструкций</span></div>
+<div class="sdw"><span class="k mono">W</span><span>воспроизводимая проверка целой игры в Windows</span></div>
 
 <div class="card-soft mt-3">
 <div class="xsmall muted">из RESEARCH_MAP.md</div>
@@ -106,7 +79,16 @@ stats: AGENTS.md 4 954 → 153 строки · WORKFLOW.md · реестр от�
 </div>
 </div>
 
+<div class="source">AGENTS.md · docs/RESEARCH_MAP.md, раздел «Как читать прогресс»</div>
+
+<style>
+.sdw { display: flex; align-items: baseline; gap: 0.55rem; margin: 0.35rem 0; color: var(--ink-2); }
+.sdw .k { flex: none; width: 1.3rem; text-align: center; font-weight: 700; color: var(--chakra); border: 1px solid rgba(108, 182, 255, 0.45); border-radius: 5px; font-size: 0.72rem; line-height: 1.35; }
+</style>
+
 <!--
+Ступени открываются снизу вверх, по клику на каждую: статическая улика → вывод → дифференциальное сравнение → наблюдение на Windows. Буквы справа — та же шкала S / D / W из карты исследований; у вывода своей буквы нет.
+В RESEARCH_MAP.md сразу за шкалой: «D относится только к перечисленным входам, полям и границам стенда».
 Это важно для финала: история с контрольной суммой каталога (глава 8) — пример, когда D-уровень дал ложное совпадение, потому что оракул и порт разделяли одну модель CRT.
 -->
 
@@ -116,19 +98,16 @@ stats: AGENTS.md 4 954 → 153 строки · WORKFLOW.md · реестр от�
 
 # Семь исходов вместо «прошло / упало»
 
-<Outcomes />
+<Outcomes class="mt-1" />
 
-<div class="mt-5">
-<div class="xsmall muted mb-2">четыре отдельных гейта приёмки — каждый записывается один раз для закреплённых байтов</div>
-<div class="grid grid-cols-4 gap-3">
-<div class="card-soft"><span class="pixel hl">1</span> <b class="small">эталон и аудит опубликованы</b><div class="xsmall muted">source / audit publication</div></div>
-<div class="card-soft"><span class="pixel hl">2</span> <b class="small">тесты Native</b><div class="xsmall muted">сравнение с expected и масками</div></div>
-<div class="card-soft"><span class="pixel hl">3</span> <b class="small">байты пакета</b><div class="xsmall muted">package byte verification</div></div>
-<div class="card-soft"><span class="pixel hl">4</span> <b class="small">архив проверен</b><div class="xsmall muted">archive verification</div></div>
-</div>
-</div>
+<RulesGates class="mt-6" />
 
 <div class="source">AGENTS.md · docs/research/WORKFLOW.md · docs/research/PROGRESS_RULES.md</div>
+
+<!--
+Исходы подробнее: returned source case — оригинал отработал и вернул результат; source memory fault — оригинал упал по памяти, и это тоже поведение; unsupported boundary — граница, за которую стенд не ходит; harness error — сломался сам стенд, а не игра; Native mismatch — Swift разошёлся с оригиналом; missing evidence — улик нет, значит, не известно; safety refusal — отказ модели фиксируется отдельно. Откат Native при падении оригинала — не совпадение.
+Гейты не идут цепочкой: каждый проверяется отдельно. AGENTS.md: «Process exit 0 alone is not acceptance».
+-->
 
 ---
 
@@ -136,38 +115,44 @@ stats: AGENTS.md 4 954 → 153 строки · WORKFLOW.md · реестр от�
 
 # Кто имеет право сказать «готово»
 
-<div class="grid grid-cols-3 gap-4 mt-3">
-<div class="card">
-<div class="pixel hl">исполнитель</div>
-<p class="small ink2">Пишет кандидат и запускает проверки. Не правит expected «под свой код» и не называет своё ревью независимым.</p>
-<div class="mono xsmall muted">"do not label author self-review independent"</div>
+<RulesRoles class="mt-2" />
+
+<div class="grid grid-cols-[1fr_1.12fr] gap-4 mt-4">
+<div class="card-soft">
+<div class="pixel hl small mb-1">политика моделей</div>
+<div class="pol"><span class="i-pixelarticons-compass" /><div><b>сильная</b> — неизвестные контракты</div></div>
+<div class="pol"><span class="i-pixelarticons-checklist" /><div><b>меньшая</b> — уже определённые задачи, но «не вправе ослаблять маски, изменять expected или расширять область принятия»</div></div>
 </div>
-<div class="card">
-<div class="pixel hl">независимый ревьюер</div>
-<p class="small ink2">Read-only. Смотрит исходные доказательства, «не только объяснение автора». Если ревьюера нет — это записывается как открытый гейт.</p>
-<div class="mono xsmall muted">449 упоминаний «independent review» в 226 карточках</div>
-</div>
-<div class="card">
-<div class="pixel hl">компаратор</div>
-<p class="small ink2">Детерминированная программа: неизменяемые ожидаемые результаты и маски определённости. Последнее слово — за ним.</p>
-<div class="mono xsmall muted">байты + маски, а не мнение модели</div>
+<div class="card-soft">
+<div class="pixel hl small mb-1">реальные ревью</div>
+<div class="rv"><span class="i-pixelarticons-alert warn" /><span class="d">30 сен</span><span class="w">кадры за пределами Object: <i>"three errors, all confirmed"</i></span><code>7bf3624</code></div>
+<div class="rv"><span class="i-pixelarticons-alert warn" /><span class="d">30 сен</span><span class="w">CONTROL SETTINGS и джойстики: 4 проблемы</span><code>9a45779</code></div>
+<div class="rv"><span class="i-pixelarticons-check ok" /><span class="d">30 сен</span><span class="w">Tournament: дефектов нет</span><code>cf50bf4</code></div>
+<div class="rv"><span class="i-pixelarticons-alert warn" /><span class="d">2 окт</span><span class="w">сеть: одно замечание P2, исправлено</span><code>network-review</code></div>
 </div>
 </div>
 
-<div class="grid grid-cols-2 gap-4 mt-4 small ink2">
-<div>
-
-**Политика моделей.** Сильная модель — для неизвестных контрактов. Меньшая может исполнять уже определённые задачи, но «не вправе ослаблять маски, изменять expected или расширять область принятия».
-
-</div>
-<div>
-
-**Реальные ревью.** 30 сентября три независимые проверки: кадры за пределами Object (*"three errors, all confirmed"*), CONTROL SETTINGS и джойстики (4 проблемы), Tournament (дефектов нет). 2 октября — ревью сети: одно замечание P2, исправлено.
-
-</div>
-</div>
+<style>
+.pol { display: flex; gap: 0.5rem; align-items: flex-start; font-size: 0.66rem; line-height: 1.38; color: var(--ink-2); margin-top: 0.4rem; }
+.pol > span { flex: none; width: 1.15rem; height: 1.15rem; color: var(--naruto); }
+.pol b { color: var(--ink); }
+.rv { display: grid; grid-template-columns: 1rem 2.6rem 1fr auto; gap: 0.45rem; align-items: center; font-size: 0.64rem; line-height: 1.3; color: var(--ink-2); margin-top: 0.32rem; }
+.rv > span:first-child { width: 0.95rem; height: 0.95rem; }
+.rv .warn { color: var(--warning); }
+.rv .ok { color: var(--good); }
+.rv .d { font-family: var(--font-mono); font-size: 0.58rem; color: var(--muted); }
+.rv code { font-size: 0.56rem !important; color: var(--muted) !important; }
+</style>
 
 <div class="source">docs/research/WORKFLOW.md · 7bf3624 · 9a45779 · cf50bf4 · docs/evidence/network-review-20261002.json</div>
+
+<!--
+Исполнитель пишет кандидат и запускает проверки. Он не правит expected «под свой код» и не называет своё ревью независимым.
+Ревьюер работает только на чтение и смотрит исходные доказательства, «не только объяснение автора». Если ревьюера нет, это записывается как открытый гейт.
+Компаратор — детерминированная программа: неизменяемые ожидаемые результаты и маски определённости. Последнее слово — за ним: по WORKFLOW.md ревьюер не получает права объявить совпадение, если компаратор показал расхождение.
+Политика моделей: сильную модель сохраняют для неизвестных контрактов и полноты исследования.
+Ревью 30 сентября нашли проблемы в двух областях: три ошибки в правилах кадров за пределами Object, четыре проблемы в CONTROL SETTINGS и джойстиках. В Tournament дефектов кода не нашли. Ревью сети 2 октября дало одно замечание P2; его исправили.
+-->
 
 ---
 
@@ -257,22 +242,33 @@ stats: AGENTS.md 4 954 → 153 строки · WORKFLOW.md · реестр от�
 <StatTile :value="40" suffix="ГиБ" label="неприкосновенный резерв на каждом томе" sub="X5 (APFS, клоны кандидатов) и T7 (ExFAT, архивы)" accent="var(--s3)" />
 </div>
 
-<div class="grid grid-cols-2 gap-4 mt-5">
-<div class="card-soft">
+<div class="grid grid-cols-2 gap-4 mt-4">
+<div class="card-soft live-q">
+<span class="i-pixelarticons-search" />
+<div>
 <div class="mono small hl">Revalidate PID, process start time, command, cwd and job record before acting.</div>
 <div class="xsmall muted mt-1">Перед любым действием — убедиться, что это тот самый процесс.</div>
 </div>
-<div class="card-soft">
+</div>
+<div class="card-soft live-q">
+<span class="i-pixelarticons-hourglass" />
+<div>
 <div class="mono small hl">Never restart a completed capture or a live job for silence.</div>
 <div class="xsmall muted mt-1">Тихий лог, компакция контекста или отказ модели не значат, что процесс умер.</div>
 </div>
 </div>
-
-<div class="grid grid-cols-3 gap-4 mt-3 small ink2">
-<div><b>Один оригинал за раз.</b> Драйвер держит блокировку и закрывает чужие экземпляры клона; процесс драйвера не убивают сигналом в обход.</div>
-<div><b>Только свои процессы.</b> SIGTERM — после перепроверки PID и времени старта; «reaped −15» записывается отдельным исходом.</div>
-<div><b>Случай 2 октября.</b> Хелпер отправил два нажатия J и два клика в сетевой матч параллельного агента. Записано в инцидент, фильтр окон ужесточён.</div>
 </div>
+
+<IconCards class="mt-3" :cols="3" compact :items="[
+  { icon: 'i-pixelarticons-lock', title: 'Один оригинал за раз', text: 'Драйвер держит блокировку и закрывает чужие экземпляры клона; процесс драйвера не убивают сигналом в обход.' },
+  { icon: 'i-pixelarticons-user', title: 'Только свои процессы', text: 'SIGTERM — после перепроверки PID и времени старта; «reaped −15» записывается отдельным исходом.' },
+  { icon: 'i-pixelarticons-siren', title: 'Случай 2 октября', text: 'Хелпер отправил два нажатия J и два клика в сетевой матч параллельного агента. Записано в инцидент, фильтр окон ужесточён.', tone: 'warning' },
+]" />
+
+<style>
+.live-q { display: flex; gap: 0.7rem; align-items: flex-start; }
+.live-q > span { flex: none; width: 1.5rem; height: 1.5rem; color: var(--naruto); margin-top: 0.1rem; }
+</style>
 
 <div class="source">AGENTS.md · docs/research/WORKFLOW.md · docs/CROSSPLAY_LOOP.md · 90f6b7b</div>
 
@@ -283,7 +279,7 @@ stats: AGENTS.md 4 954 → 153 строки · WORKFLOW.md · реестр от�
 # Когда закончился диск
 
 <div class="xsmall ink2 mt-1"><b>Ночь на 11 сентября</b> · свободное место на внутреннем SSD Mac mini (время московское)</div>
-<DiskTimeline from="2026-09-10T18:00Z" to="2026-09-11T12:30Z" :y-max="70" :volumes="['internal']" :height="165" hour-ticks
+<DiskTimeline from="2026-09-10T18:00Z" to="2026-09-11T12:30Z" :y-max="70" :volumes="['internal']" :height="152" hour-ticks
   :ticks="['2026-09-10T21:00Z', '2026-09-11T00:00Z', '2026-09-11T03:00Z', '2026-09-11T06:00Z', '2026-09-11T09:00Z', '2026-09-11T12:00Z']"
   :guards="[{ v: 6.44, label: 'гард 6 GiB: здесь захват останавливается' }]"
   :notes="[
@@ -294,13 +290,13 @@ stats: AGENTS.md 4 954 → 153 строки · WORKFLOW.md · реестр от�
   ]" />
 
 <div class="xsmall ink2 mt-1"><b>Дальше</b> · внутренний SSD и внешний X5 до 3 октября</div>
-<DiskTimeline from="2026-09-11T00:00Z" to="2026-10-04T00:00Z" :y-max="260" :height="165"
+<DiskTimeline from="2026-09-11T00:00Z" to="2026-10-04T00:00Z" :y-max="260" :height="152"
   :ticks="['2026-09-14T09:00Z', '2026-09-21T09:00Z', '2026-09-28T09:00Z', '2026-10-03T09:00Z']"
   :markers="[{ t: '2026-09-26T07:21Z', label: '+ T7: 2 ТБ ExFAT для трасс и архивов' }]"
   :notes="[
-    { t: '2026-09-11T10:46Z', v: 244.8, text: 'X5: 244,8 ГБ свободно', dx: 8, dy: 4 },
+    { t: '2026-09-11T10:46Z', v: 244.8, text: 'X5: 244,8 ГБ свободно', dx: 8, dy: -7 },
     { t: '2026-09-22T17:48Z', v: 66.6, text: 'удалены старые сборки Codex', dx: -8, dy: -8, anchor: 'end' },
-    { t: '2026-10-03T16:00Z', v: 48.6, text: 'X5: 48,6 ГБ — занято 98 %', dx: -10, dy: -20, anchor: 'end' },
+    { t: '2026-10-03T16:00Z', v: 190, at: 48.6, text: 'X5: 48,6 ГБ — занято 98 %', dx: -6, dy: 4, anchor: 'end' },
   ]" />
 
 <div class="source">APPLICATION_CATALOG_PLAN.md · APPLICATION_CATALOG_TRACE_STORAGE.md · LIB_SELECTION_COMMANDS.md · карточки валидаций 22–27 сентября · df/diskutil 3 октября · data/storage.json</div>
@@ -379,40 +375,28 @@ stats: AGENTS.md 4 954 → 153 строки · WORKFLOW.md · реестр от�
 
 # Почему ни один не подошёл
 
-<div class="facts grid grid-cols-3 gap-3 mt-2">
-<div class="card-soft">
-<div class="pixel hl small">эталон — 33 ручных замера</div>
-<p>С оригиналом сверяется только F.LF: 33 случая, записанных вручную в LF2 1.9/2.0, — кадр и dx/dy за тик, допуск 10. L2DF в 2026-м взял те же 33. HP, урон, случайность, ИИ и целый матч не проверяет никто.</p>
-</div>
-<div class="card-soft">
-<div class="pixel hl small">сверка сама с собой</div>
-<p>Wemake — самый живой: 4 507 из 4 508 коммитов от одного автора. Его «дифференциальные тесты» сравнивают TypeScript-ядро с его же портом на C++. Нативный хост: <span class="mono">«尚未创建»</span> — ещё не создан.</p>
-</div>
-<div class="card-soft">
-<div class="pixel hl small">тесты у 4 из 14, CI их не запускает</div>
-<p>Автотесты есть у L2DF, F.LF, Wemake и Punchy, но ни один CI их не запускает. У OpenLF2 десять сборок в CI и ни одного теста. Единственный тест Punchy разбирает строку URL-запроса.</p>
-</div>
-<div class="card-soft">
-<div class="pixel hl small">все режимы — только у новичка</div>
-<p>Из 13 проектов обзора Battle есть лишь кнопкой без обработчика в L2DF и спрайтом меню в Enchanted. Все шесть режимов подключил только OpenLF2, а проверено ли их поведение, он не показывает.</p>
-</div>
-<div class="card-soft">
-<div class="pixel hl small">DAT и macOS — редкость</div>
-<p>Из 13 нативно на macOS работает только Punchy, и это не LF2. Зашифрованный DAT на лету читал только Enchanted — под Windows и DirectX 11, с пустым блоком ИИ. Теперь оба умеет OpenLF2.</p>
-</div>
-<div class="card-soft">
-<div class="pixel hl small">надгробия</div>
-<p>lf2net лежит в организации <span class="mono">Razenpok-Graveyard</span>. Последний коммит Neora — «Нерабочая версия dll.». openlf2 обещает «decompiling the original game one bit at a time», а внутри 11 коммитов.</p>
-</div>
-</div>
+<IconCards class="mt-2" :cols="3" :items="[
+  { icon: 'i-pixelarticons-hand', title: 'Эталон — 33 ручных замера', text: 'С оригиналом сверяется только F.LF: 33 случая, записанных вручную в LF2 1.9/2.0. L2DF в 2026-м взял те же 33. HP, урон, случайность, ИИ и целый матч не проверяет никто.' },
+  { icon: 'i-pixelarticons-duplicate', title: 'Сверка сама с собой', text: 'Wemake — самый живой: 4 507 из 4 508 коммитов от одного автора. Его «дифференциальные тесты» сравнивают TypeScript-ядро с его же портом на C++. Нативный хост: «尚未创建» — ещё не создан.' },
+  { icon: 'i-pixelarticons-test-tube', title: 'Тесты у 4 из 14, CI их не запускает', text: 'Автотесты есть у L2DF, F.LF, Wemake и Punchy, но ни один CI их не запускает. У OpenLF2 десять сборок в CI и ни одного теста. Единственный тест Punchy разбирает строку URL-запроса.' },
+  { icon: 'i-pixelarticons-gamepad', title: 'Все режимы — только у новичка', text: 'Из 13 проектов обзора Battle есть лишь кнопкой без обработчика в L2DF и спрайтом меню в Enchanted. Все шесть режимов подключил только OpenLF2, а проверено ли их поведение, он не показывает.' },
+  { icon: 'i-pixelarticons-apple', title: 'DAT и macOS — редкость', text: 'Из 13 нативно на macOS работает только Punchy, и это не LF2. Зашифрованный DAT на лету читал только Enchanted — под Windows и DirectX 11, с пустым блоком ИИ. Теперь оба умеет OpenLF2.' },
+  { icon: 'i-pixelarticons-skull', title: 'Надгробия', text: 'lf2net лежит в организации <code>Razenpok-Graveyard</code>. Последний коммит Neora — «Нерабочая версия dll.». openlf2 обещает «decompiling the original game one bit at a time», а внутри 11 коммитов.' },
+]" />
 
-<div class="small ink2 mt-3">Общее у всех четырнадцати: ни один не запускает оригинальный EXE как автоматический эталон. Именно такой эталон стал фундаментом порта.</div>
+<div class="card-soft verdict mt-3"><span class="i-pixelarticons-target" /><div>Общее у всех четырнадцати: ни один не запускает оригинальный EXE как автоматический эталон. <b>Именно такой эталон стал фундаментом порта.</b></div></div>
 
 <style>
-.facts p { font-size: 0.68rem; line-height: 1.4; color: var(--ink-2); margin: 0.35rem 0 0; }
+.verdict { display: flex; gap: 0.65rem; align-items: center; font-size: 0.78rem; color: var(--ink-2); border-color: rgba(255, 138, 61, 0.45); }
+.verdict > span { flex: none; width: 1.5rem; height: 1.5rem; color: var(--naruto); }
+.verdict b { color: var(--ink); }
 </style>
 
 <div class="source">data/evidence/lf2-oss-engines.json: PROTOCOL.md L3 (Wemake), native/README.md L8–11, docs/unit_test_suite.html L15–44 (F.LF), src/config.rs L124 (Punchy), engine.h L1470–1541 (Enchanted)</div>
+
+<!--
+33 случая F.LF — это кадр и dx/dy за тик, с допуском 10. «尚未创建» в native/README.md у Wemake значит «ещё не создан».
+-->
 
 ---
 
