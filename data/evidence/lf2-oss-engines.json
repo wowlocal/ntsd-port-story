@@ -1,0 +1,2935 @@
+{
+ "generatedAtUTC": "2026-10-03T18:07:21.920460+00:00",
+ "asOfDate": "2026-10-03",
+ "purpose": "Facts for a slide on open-source LF2 engines considered before the native NTSD 2.4 port.",
+ "surveyReference": {
+  "report": "ntsd-2.4/docs/research/LF2_OPEN_SOURCE_ENGINES.md",
+  "appendix": "ntsd-2.4/docs/evidence/lf2-open-source-engines.json",
+  "surveyDate": "2026-09-12",
+  "scopeNote": "The survey ran only importer probes (F.LF converter in Node; L2DF decrypt/convert/LFFS2 parse in Lua 5.1). No candidate game was started, no original EXE executed, no whole-match comparison."
+ },
+ "method": {
+  "github": "gh api (authenticated): repos/{o}/{r}, /languages, /commits?sha=X&per_page=1 (commit count = last page in Link header), /contributors?per_page=1&anon=true (count incl. unlinked emails) and per_page=100 (GitHub accounts), /releases, /branches, search/issues (open issues vs PRs); raw responses in oss/api/.",
+  "clones": "git clone --depth 1 --single-branch --branch <pinned branch> over HTTPS into oss/src/; Wemake's pinned commit was additionally fetched at depth 1 (oss/src/gimhol__Little-Fighter-Wemake@pinned) because main moved on. Clones were not modified.",
+  "loc": "cloc 'code' lines (non-blank, non-comment) of programming languages only; excluded: vendored libraries, docs, data/assets, build output, legacy dirs, IDE files; tests counted separately. Neora MASM recounted by hand (cloc misclassifies .inc). Rules in oss/loc_rules.py, results in oss/loc_classified.json.",
+  "matrix": "Values yes/partial/no/unknown decided by reading README and the cited source lines at the pinned commit (Wemake current-head facts cite commit f7487c4). 'partial' means only part of the capability exists or it exists in a non-LF2 form."
+ },
+ "columns": [
+  {
+   "key": "readsOriginalDat",
+   "meaning": "Reads original LF2 .dat (encrypted) directly, or only converted data"
+  },
+  {
+   "key": "frameStateMachine",
+   "meaning": "Frame state machine (frames, wait/next, states)"
+  },
+  {
+   "key": "combatBoxes",
+   "meaning": "Combat boxes (itr/bdy) and hit resolution"
+  },
+  {
+   "key": "physics",
+   "meaning": "Physics (gravity, jumping, z-depth)"
+  },
+  {
+   "key": "computerAI",
+   "meaning": "Computer AI"
+  },
+  {
+   "key": "modesBeyondVS",
+   "meaning": "Game modes beyond VS (Stage, Championship/Tournament, Battle/War)"
+  },
+  {
+   "key": "replays",
+   "meaning": "Replays / recordings"
+  },
+  {
+   "key": "network",
+   "meaning": "Network play"
+  },
+  {
+   "key": "automatedTests",
+   "meaning": "Automated tests of any kind"
+  },
+  {
+   "key": "comparesWithOriginal",
+   "meaning": "Comparison against the original LF2 executable's behaviour (reference/differential testing)"
+  },
+  {
+   "key": "nativeMacOS",
+   "meaning": "Runs natively on macOS without a browser/Wine"
+  },
+  {
+   "key": "loadsNTSD24Data",
+   "meaning": "Can load NTSD 2.4 data (survey evidence where available)"
+  }
+ ],
+ "repositories": [
+  {
+   "id": 1,
+   "repository": "atom-tm/l2df-engine",
+   "url": "https://github.com/atom-tm/l2df-engine",
+   "category": "Engine reimplementation (Lua, LÖVE backend) with LF2 preset",
+   "description_api": "2D Engine for fighting games",
+   "pinned": {
+    "branch": "wip-test",
+    "commit": "a20a16f2e8c9e889e33b3d762c94dc49498d0f83",
+    "commitDateUTC": "2026-07-24T19:26:31Z",
+    "commitMessage": "WIP3",
+    "commitsReachable": 383,
+    "isCurrentBranchHead": true
+   },
+   "defaultBranch": {
+    "name": "master",
+    "headCommit": "0f471f6d194f3ce73eac4f1270fc27a437100520",
+    "lastCommitDateUTC": "2023-04-19T18:41:44Z",
+    "lastCommitMessage": "Add parallax background",
+    "commitCount": 366
+   },
+   "pinnedBranchHead": {
+    "commit": "a20a16f2e8c9e889e33b3d762c94dc49498d0f83",
+    "lastCommitDateUTC": "2026-07-24T19:26:31Z",
+    "commitCount": 383
+   },
+   "branches": {
+    "dev/docs": "f0764901a74858b04c49e3b975b27224e5c5c31e",
+    "develop": "8a893dd4dbbe77474f429fd98edebe4f30169d14",
+    "master": "0f471f6d194f3ce73eac4f1270fc27a437100520",
+    "wip-test": "a20a16f2e8c9e889e33b3d762c94dc49498d0f83"
+   },
+   "github": {
+    "stars": 38,
+    "forks": 7,
+    "watchers_subscribers": 0,
+    "primaryLanguage": "Lua",
+    "languagesBytes": {
+     "Lua": 498263,
+     "Batchfile": 56,
+     "Shell": 49
+    },
+    "licenseAPI": "NOASSERTION",
+    "createdAt": "2018-09-16T01:04:32Z",
+    "pushedAt": "2026-07-24T19:27:30Z",
+    "archived": false,
+    "openIssuesCountField": 11,
+    "openIssues": 11,
+    "openPullRequests": 0,
+    "issuesAllStates": 16,
+    "contributorsGitHubAccounts": 2,
+    "contributorsInclAnonymous": 2,
+    "contributors": [
+     {
+      "login": "abelidze",
+      "contributions": 216
+     },
+     {
+      "login": "RusFeniks",
+      "contributions": 150
+     }
+    ],
+    "releases": 6,
+    "latestRelease": {
+     "tag": "v0.6.2",
+     "published_at": "2021-07-09T08:32:02Z",
+     "name": "0.6.2 Sounds, UI, syntax and networking update"
+    },
+    "topics": [
+     "fighting-game",
+     "lf2",
+     "little-fighter-2",
+     "love2d",
+     "lua",
+     "luajit"
+    ],
+    "retrievedAtUTC": "2026-10-03T17:44:16.461652+00:00",
+    "licenseNote": "LICENSE file is MIT (Copyright (c) 2020 Atom-TM); API reports NOASSERTION"
+   },
+   "loc": {
+    "measuredAt": "a20a16f2e8c9e889e33b3d762c94dc49498d0f83 (shallow clone)",
+    "ownNonTestCode": 16330,
+    "byCategory": {
+     "tests": {
+      "code": 2828,
+      "files": 20,
+      "byLanguage": {
+       "Lua": 2828
+      }
+     },
+     "tools": {
+      "code": 917,
+      "files": 1,
+      "byLanguage": {
+       "Lua": 917
+      }
+     },
+     "engine": {
+      "code": 15413,
+      "files": 138,
+      "byLanguage": {
+       "Lua": 15413
+      }
+     },
+     "vendored": {
+      "code": 1288,
+      "files": 4,
+      "byLanguage": {
+       "Lua": 1288
+      }
+     },
+     "excluded_legacy": {
+      "code": 2001,
+      "files": 52,
+      "byLanguage": {
+       "Lua": 2001
+      }
+     },
+     "excluded_docs": {
+      "code": 101,
+      "files": 3,
+      "byLanguage": {
+       "JavaScript": 101
+      }
+     }
+    }
+   },
+   "status": "WIP branch active (wip-test last commit 2026-07-24 'WIP3'); default branch master last commit 2023-04-19; last release v0.6.2 (2021-07-09)",
+   "statusShort": "WIP (wip-test 2026-07); master idle since 2023",
+   "readmeStatements": [
+    {
+     "quote": "Right now `L2DF` uses [LÖVE](https://github.com/love2d/love) as \"backend\" for rendering, input and other stuff",
+     "source": "https://github.com/atom-tm/l2df-engine/blob/a20a16f2e8c9e889e33b3d762c94dc49498d0f83/README.md#L23"
+    },
+    {
+     "quote": "It's still in-progress but already covers some basics of development with our engine.",
+     "source": "https://github.com/atom-tm/l2df-engine/blob/a20a16f2e8c9e889e33b3d762c94dc49498d0f83/README.md#L43",
+     "context": "about the documentation"
+    },
+    {
+     "quote": "\"GGPO like\" rollback networking instead of lockstep",
+     "source": "https://github.com/atom-tm/l2df-engine/blob/a20a16f2e8c9e889e33b3d762c94dc49498d0f83/README.md#L36"
+    }
+   ],
+   "surveyFindings": [
+    "Kunai (chars/weapon4.dat): 59 frame markers -> 43 top-level records instead of the 58 definitions the original loader produces; frames 49-55, 60-64, 70-72 and 399 nested inside frame 48 (LF2_OPEN_SOURCE_ENGINES.md, compatibilityFindings[1]).",
+    "Naruto/Sasuke parsed into 318/268 top-level records; parse only, no field/gameplay compatibility established.",
+    "Duplicate frame definitions become two independent records; Frames:add stores storage.list[frame.id] = frame (static inference: second replaces first, wait/next not inherited)."
+   ]
+  },
+  {
+   "id": 2,
+   "repository": "gimhol/Little-Fighter-Wemake",
+   "url": "https://github.com/gimhol/Little-Fighter-Wemake",
+   "category": "LF2 remake (TypeScript web app; C++ core port in progress at head)",
+   "description_api": "play at https://gimhol.github.io/Little-Fighter-Wemake/",
+   "pinned": {
+    "branch": "main",
+    "commit": "7e720019bf6029d73d1547a0da640e2dbb0bab26",
+    "commitDateUTC": "2026-09-11T10:16:23Z",
+    "commitMessage": "chore: v0.1.49",
+    "commitsReachable": 4081,
+    "isCurrentBranchHead": false
+   },
+   "defaultBranch": {
+    "name": "main",
+    "headCommit": "f7487c48482cb3b045b3d42af22ff27cd38ae8bd",
+    "lastCommitDateUTC": "2026-10-03T08:07:04Z",
+    "lastCommitMessage": "head to native",
+    "commitCount": 4508
+   },
+   "pinnedBranchHead": {
+    "commit": "f7487c48482cb3b045b3d42af22ff27cd38ae8bd",
+    "lastCommitDateUTC": "2026-10-03T08:07:04Z",
+    "commitCount": 4508
+   },
+   "branches": {
+    "dev": "a4808430524b20d641740c06aa8b369f5634ca23",
+    "main": "f7487c48482cb3b045b3d42af22ff27cd38ae8bd",
+    "release": "c08b6c94ae2b7a6c2c10806071919db7f2a74c84"
+   },
+   "github": {
+    "stars": 2,
+    "forks": 1,
+    "watchers_subscribers": 2,
+    "primaryLanguage": "TypeScript",
+    "languagesBytes": {
+     "TypeScript": 3357080,
+     "C++": 1519720,
+     "JavaScript": 1207710,
+     "SCSS": 63397,
+     "HTML": 25683,
+     "GLSL": 10997,
+     "CMake": 5154,
+     "NSIS": 258
+    },
+    "licenseAPI": "AGPL-3.0",
+    "createdAt": "2025-06-25T04:40:13Z",
+    "pushedAt": "2026-10-03T08:07:25Z",
+    "archived": false,
+    "openIssuesCountField": 0,
+    "openIssues": 0,
+    "openPullRequests": 0,
+    "issuesAllStates": 2,
+    "contributorsGitHubAccounts": 2,
+    "contributorsInclAnonymous": 2,
+    "contributors": [
+     {
+      "login": "gimhol",
+      "contributions": 4507
+     },
+     {
+      "login": "duanyu5871",
+      "contributions": 1
+     }
+    ],
+    "releases": 11,
+    "latestRelease": {
+     "tag": "v0.1.61-preview-1",
+     "published_at": "2026-09-30T18:45:53Z",
+     "name": "v0.1.61-preview-1"
+    },
+    "topics": [
+     "classic",
+     "classic-game",
+     "indie-game",
+     "indie-game-dev",
+     "indiegame",
+     "lf2",
+     "littlefighter2",
+     "old-school-game",
+     "remake-games"
+    ],
+    "retrievedAtUTC": "2026-10-03T17:44:32.511596+00:00"
+   },
+   "loc": {
+    "measuredAt": "7e720019bf6029d73d1547a0da640e2dbb0bab26 (shallow clone)",
+    "ownNonTestCode": 66194,
+    "byCategory": {
+     "engine": {
+      "code": 42729,
+      "files": 879,
+      "byLanguage": {
+       "TypeScript": 42687,
+       "JavaScript": 42
+      }
+     },
+     "app_ui": {
+      "code": 19678,
+      "files": 267,
+      "byLanguage": {
+       "TypeScript": 19409,
+       "GLSL": 269
+      }
+     },
+     "tools": {
+      "code": 2976,
+      "files": 48,
+      "byLanguage": {
+       "TypeScript": 2119,
+       "JavaScript": 857
+      }
+     },
+     "server": {
+      "code": 811,
+      "files": 19,
+      "byLanguage": {
+       "TypeScript": 749,
+       "JavaScript": 62
+      }
+     },
+     "other": {
+      "code": 174,
+      "files": 5,
+      "byLanguage": {
+       "TypeScript": 103,
+       "JavaScript": 71
+      }
+     },
+     "tests": {
+      "code": 517,
+      "files": 11,
+      "byLanguage": {
+       "TypeScript": 517
+      }
+     }
+    }
+   },
+   "status": "Active: head 2026-10-03, 427 commits after the survey pin (compare API: ahead_by 427, behind_by 0); 4,507 of 4,508 commits by one author",
+   "statusShort": "Active (2026-10-03)",
+   "readmeStatements": [
+    {
+     "quote": "What's next? ... Continuing to implement other game modes of LF2? / Video recording and playback?",
+     "source": "https://github.com/gimhol/Little-Fighter-Wemake/blob/7e720019bf6029d73d1547a0da640e2dbb0bab26/README.EN.MD#L32-L37"
+    },
+    {
+     "quote": "LFW is designed to be a web game that can run on modern browsers.",
+     "source": "https://github.com/gimhol/Little-Fighter-Wemake/blob/7e720019bf6029d73d1547a0da640e2dbb0bab26/docs/Custom%20Game/README.EN.MD#L5"
+    },
+    {
+     "quote": "TS（现状，唯一可运行实现） | C++（本目录）  [TS = current, the only runnable implementation]",
+     "source": "https://github.com/gimhol/Little-Fighter-Wemake/blob/f7487c48482cb3b045b3d42af22ff27cd38ae8bd/native/README.md#L8"
+    },
+    {
+     "quote": "宿主实现 ... `native/host/`（**尚未创建**）  [host implementation: not yet created]",
+     "source": "https://github.com/gimhol/Little-Fighter-Wemake/blob/f7487c48482cb3b045b3d42af22ff27cd38ae8bd/native/README.md#L11"
+    },
+    {
+     "quote": "目标：**同一份用例，TS 侧与 C++ 侧输出一致。**  [goal: same case, TS side and C++ side output identical]",
+     "source": "https://github.com/gimhol/Little-Fighter-Wemake/blob/f7487c48482cb3b045b3d42af22ff27cd38ae8bd/native/tests/differential/PROTOCOL.md#L3"
+    }
+   ],
+   "surveyFindings": [
+    "Core uses MersenneTwister(Date.now()) (src/LFW/LFW.ts L205) - RNG seeding differs from a deterministic original replay model; noted by the survey as a check point, not proof of mismatch.",
+    "Not probed with NTSD data in the survey."
+   ],
+   "currentHead": {
+    "commit": "f7487c48482cb3b045b3d42af22ff27cd38ae8bd",
+    "commitDateUTC": "2026-10-03T08:07:04Z",
+    "commitsAheadOfPinned": 427,
+    "loc": {
+     "ownNonTestCode": 105528,
+     "byCategory": {
+      "engine": {
+       "code": 45697,
+       "files": 895,
+       "byLanguage": {
+        "TypeScript": 45655,
+        "JavaScript": 42
+       }
+      },
+      "tests": {
+       "code": 40809,
+       "files": 219,
+       "byLanguage": {
+        "JavaScript": 20276,
+        "C++": 10164,
+        "TypeScript": 10130,
+        "C/C++ Header": 239
+       }
+      },
+      "app_ui": {
+       "code": 26153,
+       "files": 314,
+       "byLanguage": {
+        "TypeScript": 25881,
+        "GLSL": 272
+       }
+      },
+      "native_cpp_port": {
+       "code": 22207,
+       "files": 304,
+       "byLanguage": {
+        "C++": 15626,
+        "C/C++ Header": 6581
+       }
+      },
+      "desktop_electron": {
+       "code": 1996,
+       "files": 7,
+       "byLanguage": {
+        "JavaScript": 1996
+       }
+      },
+      "server": {
+       "code": 2772,
+       "files": 40,
+       "byLanguage": {
+        "TypeScript": 2667,
+        "JavaScript": 105
+       }
+      },
+      "tools": {
+       "code": 6703,
+       "files": 77,
+       "byLanguage": {
+        "JavaScript": 4312,
+        "TypeScript": 2391
+       }
+      },
+      "other": {
+       "code": 288,
+       "files": 5,
+       "byLanguage": {
+        "TypeScript": 156,
+        "JavaScript": 132
+       }
+      }
+     }
+    },
+    "note": "Head adds native/lfw (C++ port of the TS core, no host yet), desktop/ (Electron shell), native/tests/differential (TS vs C++)."
+   }
+  },
+  {
+   "id": 3,
+   "repository": "Project-F/F.LF",
+   "url": "https://github.com/Project-F/F.LF",
+   "category": "LF2 reimplementation (JavaScript/HTML5, browser)",
+   "description_api": "Open Source LF2 Implementation",
+   "pinned": {
+    "branch": "master",
+    "commit": "21341737e4154d06d9784e9a629c9dd4db9148d6",
+    "commitDateUTC": "2021-08-31T13:38:47Z",
+    "commitMessage": "Fix firing direction after role",
+    "commitsReachable": 281,
+    "isCurrentBranchHead": true
+   },
+   "defaultBranch": {
+    "name": "master",
+    "headCommit": "21341737e4154d06d9784e9a629c9dd4db9148d6",
+    "lastCommitDateUTC": "2021-08-31T13:38:47Z",
+    "lastCommitMessage": "Fix firing direction after role",
+    "commitCount": 281
+   },
+   "pinnedBranchHead": {
+    "commit": "21341737e4154d06d9784e9a629c9dd4db9148d6",
+    "lastCommitDateUTC": "2021-08-31T13:38:47Z",
+    "commitCount": 281
+   },
+   "branches": {
+    "gh-pages": "661b1bc1debe7c09d411ebe11ca96a8f59fd1bf2",
+    "master": "21341737e4154d06d9784e9a629c9dd4db9148d6",
+    "standard-fix": "d3ed87ab6fc8f5fdcea7900fe0575c14f296e98c"
+   },
+   "github": {
+    "stars": 336,
+    "forks": 56,
+    "watchers_subscribers": 19,
+    "primaryLanguage": "JavaScript",
+    "languagesBytes": {
+     "JavaScript": 501066,
+     "HTML": 368611,
+     "Python": 8796,
+     "CSS": 7360,
+     "Shell": 232
+    },
+    "licenseAPI": "GPL-3.0",
+    "createdAt": "2015-06-21T20:59:56Z",
+    "pushedAt": "2023-12-20T14:00:03Z",
+    "archived": false,
+    "openIssuesCountField": 5,
+    "openIssues": 4,
+    "openPullRequests": 1,
+    "issuesAllStates": 22,
+    "contributorsGitHubAccounts": 5,
+    "contributorsInclAnonymous": 6,
+    "contributors": [
+     {
+      "login": "tyt2y3",
+      "contributions": 260
+     },
+     {
+      "login": "bobbyng626",
+      "contributions": 8
+     },
+     {
+      "login": "mcwissink",
+      "contributions": 6
+     },
+     {
+      "login": "oliver-cool-beans",
+      "contributions": 4
+     },
+     {
+      "login": "carsonip",
+      "contributions": 1
+     }
+    ],
+    "releases": 3,
+    "latestRelease": {
+     "tag": "v0.9.9",
+     "published_at": "2021-07-02T14:00:05Z",
+     "name": "v0.9.9"
+    },
+    "topics": [],
+    "retrievedAtUTC": "2026-10-03T17:44:48.620826+00:00"
+   },
+   "loc": {
+    "measuredAt": "21341737e4154d06d9784e9a629c9dd4db9148d6 (shallow clone)",
+    "ownNonTestCode": 10664,
+    "byCategory": {
+     "excluded_samples": {
+      "code": 2176,
+      "files": 3,
+      "byLanguage": {
+       "JavaScript": 2176
+      }
+     },
+     "engine": {
+      "code": 10143,
+      "files": 41,
+      "byLanguage": {
+       "JavaScript": 10143
+      }
+     },
+     "tests": {
+      "code": 597,
+      "files": 1,
+      "byLanguage": {
+       "JavaScript": 597
+      }
+     },
+     "vendored": {
+      "code": 433,
+      "files": 3,
+      "byLanguage": {
+       "JavaScript": 433
+      }
+     },
+     "tools": {
+      "code": 521,
+      "files": 3,
+      "byLanguage": {
+       "JavaScript": 335,
+       "Python": 186
+      }
+     },
+     "excluded_docs": {
+      "code": 26,
+      "files": 1,
+      "byLanguage": {
+       "JavaScript": 26
+      }
+     },
+     "tests_case_data_html": {
+      "code": 1197,
+      "files": 4,
+      "byLanguage": {
+       "HTML (test-case definitions in <script>)": 1197
+      }
+     }
+    }
+   },
+   "status": "Inactive since 2021-08-31 (v0.9.9, released 2021-07-02)",
+   "statusShort": "Inactive since 2021",
+   "readmeStatements": [
+    {
+     "quote": "F.LF is an open source implementation of LF2 engineered from the ground up (aka clean room implementation) for the modern web.",
+     "source": "https://github.com/Project-F/F.LF/blob/21341737e4154d06d9784e9a629c9dd4db9148d6/readme.md#L22"
+    },
+    {
+     "quote": "Supported characters: Bandit, Deep, John, Henry, Rudolf, Louis, Firen, Freeze, Dennis, Woody, Davis",
+     "source": "https://github.com/Project-F/F.LF/blob/21341737e4154d06d9784e9a629c9dd4db9148d6/readme.md#L28"
+    },
+    {
+     "quote": "VS mode",
+     "source": "https://github.com/Project-F/F.LF/blob/21341737e4154d06d9784e9a629c9dd4db9148d6/readme.md#L30"
+    },
+    {
+     "quote": "data files are converted from original dat to json in a similar format",
+     "source": "https://github.com/Project-F/F.LF/blob/21341737e4154d06d9784e9a629c9dd4db9148d6/readme.md#L35"
+    },
+    {
+     "quote": "Then simply open `game/game.html` in your favourite browser.",
+     "source": "https://github.com/Project-F/F.LF/blob/21341737e4154d06d9784e9a629c9dd4db9148d6/readme.md#L47"
+    },
+    {
+     "quote": "provides an objective and precise measurement of compatibility of F.LF to LF2",
+     "source": "https://github.com/Project-F/F.LF/blob/21341737e4154d06d9784e9a629c9dd4db9148d6/docs/unit_test_suite.html#L15"
+    }
+   ],
+   "surveyFindings": [
+    "Repeated frame definition: the real converter returns only name 'second', pic 2; wait=3 and next=0 from the first definition are lost (O.frame[I] = {}), whereas the NTSD contract keeps omitted numeric fields (tools/data_file_converter.js L137; compatibilityFindings[0]).",
+    "NTSD naruto.dat defines frame 123 twice (318 markers, 317 unique IDs), so repeated definitions occur in real NTSD content."
+   ]
+  },
+  {
+   "id": 4,
+   "repository": "Mesujin/LF2-Enchanted-4th",
+   "url": "https://github.com/Mesujin/LF2-Enchanted-4th",
+   "category": "LF2 rework engine (C++ / DirectX 11, Windows)",
+   "description_api": "A non-profit project, \"Little Fighter 2 : Enchanted (4th)\", a modification or rework of \"Little Fighter 2\", originally made by Marti Wong and Starsky Wong.",
+   "pinned": {
+    "branch": "Official_Release",
+    "commit": "ea86d0ff90cebe5ce914a25b5cc347c4ff5b4fb1",
+    "commitDateUTC": "2025-08-28T04:03:39Z",
+    "commitMessage": "Fixed Minor Issue.",
+    "commitsReachable": 59,
+    "isCurrentBranchHead": true
+   },
+   "defaultBranch": {
+    "name": "Official_Release",
+    "headCommit": "ea86d0ff90cebe5ce914a25b5cc347c4ff5b4fb1",
+    "lastCommitDateUTC": "2025-08-28T04:03:39Z",
+    "lastCommitMessage": "Fixed Minor Issue.",
+    "commitCount": 59
+   },
+   "pinnedBranchHead": {
+    "commit": "ea86d0ff90cebe5ce914a25b5cc347c4ff5b4fb1",
+    "lastCommitDateUTC": "2025-08-28T04:03:39Z",
+    "commitCount": 59
+   },
+   "branches": {
+    "Official_Release": "ea86d0ff90cebe5ce914a25b5cc347c4ff5b4fb1",
+    "master": "567c20c6067bb1ffbeeb7f92905423e706446976"
+   },
+   "github": {
+    "stars": 13,
+    "forks": 1,
+    "watchers_subscribers": 2,
+    "primaryLanguage": "C++",
+    "languagesBytes": {
+     "C++": 1144649,
+     "HLSL": 11140,
+     "C": 2212
+    },
+    "licenseAPI": "GPL-3.0",
+    "createdAt": "2022-07-02T04:55:29Z",
+    "pushedAt": "2025-08-28T04:03:57Z",
+    "archived": false,
+    "openIssuesCountField": 0,
+    "openIssues": 0,
+    "openPullRequests": 0,
+    "issuesAllStates": 0,
+    "contributorsGitHubAccounts": 1,
+    "contributorsInclAnonymous": 2,
+    "contributors": [
+     {
+      "login": "Mesujin",
+      "contributions": 57
+     }
+    ],
+    "releases": 2,
+    "latestRelease": {
+     "tag": "PRE-BETA_v0.8.230703",
+     "published_at": "2023-07-03T06:44:06Z",
+     "name": "Pre-beta (v0.8.230703)"
+    },
+    "topics": [
+     "angelscript",
+     "directx",
+     "directx-11",
+     "game",
+     "lf2"
+    ],
+    "retrievedAtUTC": "2026-10-03T17:45:03.274337+00:00"
+   },
+   "loc": {
+    "measuredAt": "ea86d0ff90cebe5ce914a25b5cc347c4ff5b4fb1 (shallow clone)",
+    "ownNonTestCode": 11982,
+    "byCategory": {
+     "engine": {
+      "code": 11982,
+      "files": 4,
+      "byLanguage": {
+       "C/C++ Header": 10716,
+       "C++": 969,
+       "HLSL": 297
+      }
+     },
+     "vendored": {
+      "code": 6303,
+      "files": 14,
+      "byLanguage": {
+       "C++": 4440,
+       "C/C++ Header": 1863
+      }
+     }
+    }
+   },
+   "status": "Last commit 2025-08-28; releases labelled 'Pre-beta' (latest 2023-07-03)",
+   "statusShort": "Idle since 2025-08",
+   "readmeStatements": [
+    {
+     "quote": "This is the source of `LF2 Enchanted 4th (LF2EF)`'s Platform and Engine, \"Enchanted Engine\".",
+     "source": "https://github.com/Mesujin/LF2-Enchanted-4th/blob/ea86d0ff90cebe5ce914a25b5cc347c4ff5b4fb1/README.MD#L12"
+    },
+    {
+     "quote": "A program that based on DirectXTK, written in a very basic C++ programming, but could work fair enough to create a simple nice game.",
+     "source": "https://github.com/Mesujin/LF2-Enchanted-4th/blob/ea86d0ff90cebe5ce914a25b5cc347c4ff5b4fb1/README.MD#L20"
+    },
+    {
+     "quote": "A non-profit project, \"Little Fighter 2 : Enchanted (4th)\", a modification or rework of \"Little Fighter 2\"",
+     "source": "GitHub API repos/Mesujin/LF2-Enchanted-4th .description"
+    }
+   ],
+   "surveyFindings": [
+    "Own C++ Platform/Engine with DAT decoder; platform code depends on Windows/DirectX; NTSD compatibility not confirmed (not probed)."
+   ]
+  },
+  {
+   "id": 5,
+   "repository": "xsoameix/openlf2",
+   "url": "https://github.com/xsoameix/openlf2",
+   "category": "Partial decompilation: Windows DLL patched into the original LF2.exe",
+   "description_api": "An open source clone of Little Fighter 2 built by decompiling the original game one bit at a time.",
+   "pinned": {
+    "branch": "master",
+    "commit": "76a26c548c7ff0164ef53a688ede37209efcc574",
+    "commitDateUTC": "2014-08-30T15:18:31Z",
+    "commitMessage": "Added coding style.",
+    "commitsReachable": 11,
+    "isCurrentBranchHead": true
+   },
+   "defaultBranch": {
+    "name": "master",
+    "headCommit": "76a26c548c7ff0164ef53a688ede37209efcc574",
+    "lastCommitDateUTC": "2014-08-30T15:18:31Z",
+    "lastCommitMessage": "Added coding style.",
+    "commitCount": 11
+   },
+   "pinnedBranchHead": {
+    "commit": "76a26c548c7ff0164ef53a688ede37209efcc574",
+    "lastCommitDateUTC": "2014-08-30T15:18:31Z",
+    "commitCount": 11
+   },
+   "branches": {
+    "feature/test": "483e5445ae341e236714f6e0edbb6fa8811a6eb3",
+    "master": "76a26c548c7ff0164ef53a688ede37209efcc574"
+   },
+   "github": {
+    "stars": 29,
+    "forks": 6,
+    "watchers_subscribers": 3,
+    "primaryLanguage": "C",
+    "languagesBytes": {
+     "C": 32814,
+     "C++": 11981,
+     "Objective-C": 2853
+    },
+    "licenseAPI": null,
+    "createdAt": "2014-08-14T02:59:08Z",
+    "pushedAt": "2014-10-31T20:14:59Z",
+    "archived": false,
+    "openIssuesCountField": 0,
+    "openIssues": 0,
+    "openPullRequests": 0,
+    "issuesAllStates": 2,
+    "contributorsGitHubAccounts": 1,
+    "contributorsInclAnonymous": 1,
+    "contributors": [
+     {
+      "login": "xsoameix",
+      "contributions": 11
+     }
+    ],
+    "releases": 0,
+    "latestRelease": null,
+    "topics": [],
+    "retrievedAtUTC": "2026-10-03T17:45:18.785755+00:00",
+    "licenseNote": "No license file in tree; reuse permission not established"
+   },
+   "loc": {
+    "measuredAt": "76a26c548c7ff0164ef53a688ede37209efcc574 (shallow clone)",
+    "ownNonTestCode": 1070,
+    "byCategory": {
+     "engine": {
+      "code": 1070,
+      "files": 16,
+      "byLanguage": {
+       "C": 565,
+       "C/C++ Header": 505
+      }
+     }
+    }
+   },
+   "status": "Inactive since 2014-08-30 (11 commits)",
+   "statusShort": "Inactive since 2014",
+   "readmeStatements": [
+    {
+     "quote": "An open source clone of Little Fighter 2 built by decompiling the original game one bit at a time.",
+     "source": "GitHub API repos/xsoameix/openlf2 .description"
+    },
+    {
+     "quote": "# [Recommended C coding style](http://www.vim.org/scripts/script.php?script_id=2636)  (the entire README)",
+     "source": "https://github.com/xsoameix/openlf2/blob/76a26c548c7ff0164ef53a688ede37209efcc574/README.md#L1"
+    }
+   ],
+   "surveyFindings": [
+    "Builds a DLL that replaces several functions inside the original process; not a standalone game."
+   ]
+  },
+  {
+   "id": 6,
+   "repository": "Archer-Dante/Neora",
+   "url": "https://github.com/Archer-Dante/Neora",
+   "category": "Mod toolkit: x86 MASM DLL patching the original LF2.exe",
+   "description_api": "Neora Engine Mod Toolkit",
+   "pinned": {
+    "branch": "main",
+    "commit": "1565198f7d2509238c9f995ec2f27f8611b758ae",
+    "commitDateUTC": "2024-05-17T12:14:52Z",
+    "commitMessage": "Нерабочая версия dll.  Добавлен таск для интеграции с VS Code и билда dll также, как это делалось в VS2022.",
+    "commitsReachable": 45,
+    "isCurrentBranchHead": true
+   },
+   "defaultBranch": {
+    "name": "main",
+    "headCommit": "1565198f7d2509238c9f995ec2f27f8611b758ae",
+    "lastCommitDateUTC": "2024-05-17T12:14:52Z",
+    "lastCommitMessage": "Нерабочая версия dll.  Добавлен таск для интеграции с VS Code и билда dll также, как это делалось в VS2022.",
+    "commitCount": 45
+   },
+   "pinnedBranchHead": {
+    "commit": "1565198f7d2509238c9f995ec2f27f8611b758ae",
+    "lastCommitDateUTC": "2024-05-17T12:14:52Z",
+    "commitCount": 45
+   },
+   "branches": {
+    "dev": "248a38dd0a14bac9ef71fb135f1a21f19d314b39",
+    "main": "1565198f7d2509238c9f995ec2f27f8611b758ae",
+    "neoradm": "013d6e9e8e7c25a32d15d44bd045d79f4b9fc745",
+    "neoradm-local": "5c27af28c21a191a95b6597115e6ed895b4996e5",
+    "web": "6ea37b98bec8bc4288691f5d6eea8753a273c168"
+   },
+   "github": {
+    "stars": 2,
+    "forks": 0,
+    "watchers_subscribers": 1,
+    "primaryLanguage": "Assembly",
+    "languagesBytes": {
+     "Assembly": 145551,
+     "Pascal": 12641
+    },
+    "licenseAPI": "NOASSERTION",
+    "createdAt": "2024-03-11T08:51:14Z",
+    "pushedAt": "2024-10-08T19:05:00Z",
+    "archived": false,
+    "openIssuesCountField": 10,
+    "openIssues": 10,
+    "openPullRequests": 0,
+    "issuesAllStates": 41,
+    "contributorsGitHubAccounts": 1,
+    "contributorsInclAnonymous": 1,
+    "contributors": [
+     {
+      "login": "Archer-Dante",
+      "contributions": 45
+     }
+    ],
+    "releases": 18,
+    "latestRelease": {
+     "tag": "v2.09",
+     "published_at": "2024-03-11T13:53:15Z",
+     "name": "Neora v2.0.9"
+    },
+    "topics": [
+     "assembly",
+     "cc-by-nc-sa",
+     "cc-by-nc-sa-4",
+     "lf2",
+     "littlefighter2",
+     "neora",
+     "radasm",
+     "reverse-engineering"
+    ],
+    "retrievedAtUTC": "2026-10-03T17:45:33.887359+00:00",
+    "licenseNote": "LICENSE / README: CC BY-NC-SA 4.0 (NonCommercial)"
+   },
+   "loc": {
+    "measuredAt": "1565198f7d2509238c9f995ec2f27f8611b758ae (shallow clone)",
+    "ownNonTestCode": 4720,
+    "byCategory": {
+     "engine": {
+      "code": 4720,
+      "files": 21,
+      "byLanguage": {
+       "Assembly (MASM .asm/.inc, hand count)": 4720
+      },
+      "note": "cloc misclassifies MASM .inc as BitBake/PHP; recounted as non-blank lines not starting with ';'"
+     }
+    }
+   },
+   "status": "Last commit 2024-05-17 with message 'Нерабочая версия dll.' (non-working dll version); 10 open issues",
+   "statusShort": "Idle since 2024-05 ('non-working dll')",
+   "readmeStatements": [
+    {
+     "quote": "Advanced LF2 engine modification as toolset and helper for modmakers.",
+     "source": "https://github.com/Archer-Dante/Neora/blob/1565198f7d2509238c9f995ec2f27f8611b758ae/README.md#L5"
+    },
+    {
+     "quote": "Нерабочая версия dll.  Добавлен таск для интеграции с VS Code ...",
+     "source": "https://github.com/Archer-Dante/Neora/commit/1565198f7d2509238c9f995ec2f27f8611b758ae",
+     "context": "last commit message on main"
+    }
+   ],
+   "surveyFindings": [
+    "LF2 modification toolkit with Windows components; does not replace the Windows runtime; CC BY-NC-SA 4.0 (NonCommercial)."
+   ]
+  },
+  {
+   "id": 7,
+   "repository": "s911415/html5-lf2",
+   "url": "https://github.com/s911415/html5-lf2",
+   "category": "Partial LF2 port to the browser (student OOP-lab project, 2017)",
+   "description_api": "A web-based Little Fighter 2 (LF2, 小朋友齊打交2 網頁版)",
+   "pinned": {
+    "branch": "master",
+    "commit": "6685993b4e50bd559e381de5586e8d2111a0d510",
+    "commitDateUTC": "2020-02-01T05:10:45Z",
+    "commitMessage": "remove apache header",
+    "commitsReachable": 974,
+    "isCurrentBranchHead": true
+   },
+   "defaultBranch": {
+    "name": "master",
+    "headCommit": "6685993b4e50bd559e381de5586e8d2111a0d510",
+    "lastCommitDateUTC": "2020-02-01T05:10:45Z",
+    "lastCommitMessage": "remove apache header",
+    "commitCount": 974
+   },
+   "pinnedBranchHead": {
+    "commit": "6685993b4e50bd559e381de5586e8d2111a0d510",
+    "lastCommitDateUTC": "2020-02-01T05:10:45Z",
+    "commitCount": 974
+   },
+   "branches": {
+    "cf-pages": "9d5004bdefec1876024695183263c3e5e698ea61",
+    "develop": "eb9afb226caafdd3d69d536d0a682c4c3543da9d",
+    "feature/17010/add_comment/weichun": "c510dc581a40dd8768b2b27b6acca23b8a1603ab",
+    "feature/170226/add_hold_key_detected/weichun": "901a54fdadd3e1b68a322d4fd3e00d630964b8d0",
+    "feature/170227/add_audio/weichun": "cb8da221edc4574967d80848c77a63ae554a933b",
+    "feature/170227/add_setting_level/weichun": "5d1ac0087d9c56477e92a696a9b3d5553fdd4c5d",
+    "feature/170302/add_loading_screen/weichun": "8099b929ce33e85ab210b42e202ba183e816ab48",
+    "feature/170303/change_image_format/weichun": "6cf6f452890797458aa9b28f006da7f8fdf73adc",
+    "feature/170304/game_object_parser/weichun": "c29b25ff82a307925683e1b4cb9f4478f58246cc",
+    "feature/170304/make_map_camera/pinyi": "d52ae8443e0d8a2daa0372d136823d519b4a0bfe",
+    "feature/170307/add_frame_pos/weichun": "a2a94ae7e38c1483007a634881678fb6142154a8",
+    "feature/170307/add_game_map_obj/weichun": "f8934c4c49e299549b30d6881c4e2895d5df66d5",
+    "feature/170307/add_map_data/weichun": "4f7758f99bccf7adbd1471bee6254fa4f6771667",
+    "feature/170308/add_demo_map/weichun": "e239a7844b48473a1ca4254963f65ec237d50159",
+    "feature/170308/add_world_scene/weichun": "a97fd7a4fc0e46256813a4213d089eaa1978ceef",
+    "feature/170310/add_frame_stage_const/weichun": "7d12f4a42ce98db42721de881c085940c26946be",
+    "feature/170310/add_key_dected/weichun": "0b0c7ebcde5250bea6326627e5d26b135223c254",
+    "feature/170310/add_sel_compress_pic_opt/weichun": "9ea8a61d7257d45d2563f9176211fc9ecf14f40c",
+    "feature/170312/add_key_move/weichun": "569be54c9d7cdddacff6dbb2c1a22f4829fce8f8",
+    "feature/170312/add_player_status/weichun": "e22eb14aa05b04a62159e8b33615b6246b6a9b44",
+    "feature/170313/add_ft+gw+qi_map/pinyi": "be84e96ef5b0c196844661fb0c972b95c25fff8a",
+    "feature/170316/add_map_list/weichun": "38bda4b61768dfdc90de703db3c39dc0c571af2a",
+    "feature/170316/add_mp_cost/weichun": "effcc326e6bdb24bfc762ce8067305f2654b26f8",
+    "feature/170316/add_thv+hkc_map/pinyi": "025a41e94fd84409eae6ad9c1579224af296669c",
+    "feature/170317/add_frame_sound/weichun": "e8e1062409ff4d7bb85f79fa1a09475ddd487bb2",
+    "feature/170317/add_inf_mp/weichun": "8b098d5abcc5efb2f9ed9cf4899c81fa63235e03",
+    "feature/170318/add_object_point/weichun": "809b9f8e402fc10fc63e5cf578bd477454638666",
+    "feature/170318/add_run_key_dected/weichun": "9681b83bdac0657c05895515a89de8af744eae65",
+    "feature/170318/add_web_svr/weichun": "23653442ef1d9b6ca810c41cc06cf589a3cf3cde",
+    "feature/170319/add_ball_timeout/weichun": "6cb9fd68ebb970453ecabb4e9773fb2c92deada5",
+    "feature/170319/add_change_character/weichun": "2093dd150938d81cc5695b4160ff3250699be042",
+    "feature/170324/add_player_name/weichun": "dd88e4a0c928859bda40ea2d1445239857908c15",
+    "feature/170324/add_selection_panel/weichun": "a9a33e6081b09b8ed0db64dab4f5e0483a174e2f",
+    "feature/170325/add_fight_func_key/weichun": "17468d4844f8a7b2e931b15250e67436710cc468",
+    "feature/170325/add_loading_file/weichun": "fe6c7e8f860e4437236f1cffadb59a7b396c6997",
+    "feature/170326/add_func_key/weichun": "40e49a0214fea4cfe77b657d5fb922f85401df86",
+    "feature/170329/add_parallel_same_audio/weichun": "11fe96fde2eaf47edbda7035a8c17ac58548d7e0",
+    "feature/170331/change_fight_to_html/weichun": "f2c108d8c72a63d1fc6b640036eb3d2ea98bbebf",
+    "feature/170331/change_key_detect_method/weichun": "2e1cfdd8a5b573548eeefb61a346d3f4cb63d5dd",
+    "feature/170401/add_character_hide/weichun": "4a39135a1cd72287d5076327709de715fbacbbe9",
+    "feature/170401/add_friction/weichun": "43cd7ac77c804511f39d990d77033e98d75aec1b",
+    "feature/170401/add_jump/weichun": "837da20839f0ba18afc8b6dadbb230e55185ed7b",
+    "feature/170401/add_throwable_weapon/weichun": "dadef850276cec2416c503ed8c296f21cf104a03",
+    "feature/170401/change_use_layout/weichun": "f3e31fc877f3efa53df28149d10485ab85979467",
+    "feature/170402/add_cube/weichun": "5b23c8edb383056d1442dd604badf701c6470573",
+    "feature/170402/add_dead_judge/weichun": "44ecbdd2484152b357dc70dd4ad4f82803b2ef4c",
+    "feature/170402/add_some_feature/weichun": "65fd3f564cd3088b37c3d6fd64b386132c764750",
+    "feature/170404/add_damage_process/weichun": "c7ebcb8eb71cd0930f52e688088c05adea5ce773",
+    "feature/170405/add_itr_kind/weichun": "a593503dbd7ce98ab2a0870f16031eb6bca67456",
+    "feature/170408/add_ball_rebound/weichun": "8ecd1fc22804f6b7312a2e67b98de908613ca48c",
+    "feature/170413/add_attack_effect/weichun": "4c01f96dcbb50718095cabdc6e939acb28819dcd",
+    "feature/170413/add_effect_sound/weichun": "0538d32412acc9c1704a7e4faf72ce5e8be10a79",
+    "feature/170413/add_fall/weichun": "8afd92e335b1cbbeb29bde4f49aaecffc6945e7f",
+    "feature/170414/add_ms_decoder/weichun": "702ca85a8890818b9dab3bb6972e0d63e1ac2615",
+    "feature/170414/add_template_god_attack/weichun": "9a7929a2ff5b436a4f7bd9a5d1821f6f7166cd30",
+    "feature/170414/fix_ball_vel_z/weichun": "5cffd317cb10cabf7cb87ee594b977e1bbe37ae7",
+    "feature/170416/add_wind/weichun": "aab18b822884a4dc6e2e6cae2173c31cb9567dd8",
+    "feature/170416/god_attack_real/weichun": "14747ff0f2009606a1340a2759432b62f9ddad76",
+    "feature/170420/getRad": "d27ecd9206842d0e64b2554437a27c1796aefa4d",
+    "feature/170421/add_fire_ice_attack/weichun": "dc14382e002b181d8b374ee95867ed54bf6ba015",
+    "feature/170421/add_mahoro/weichun": "fd12334caebc23f5102c370c3cb11e1ce5cc2f96",
+    "feature/170421/add_object_center_tracker/weichun": "7a8ed25e1da39d850cd7adf75516e20775a32ca5",
+    "feature/170422/add_cheat_character/weichun": "fd17e969b61d28abba3a4dfd7f348933447caab0",
+    "feature/170423/add_frizen_tracker/weichun": "794f6bc5a85417bb7bc33773c378db369c7cb47c",
+    "feature/170429/add_egg/weichun": "bde0aad6cf9deaa2d133f1a4e94be956eb79691f",
+    "feature/170429/add_fall_down_ball/weichun": "1bb494a516ea5c0f3221a42c50d21626a6aa70bb",
+    "feature/170429/add_heal_ball/weichun": "c8be1d9ed28510b7da3b6b770e6237407ec637a0",
+    "feature/170430/add_friends_bgm/weichun": "4f345bb76dbd97060c4cd03b82306f0341f6f35b",
+    "feature/170430/add_load_speed/weichun": "0a48ddc873bbbf429b670c271f04f3f703b6cb78",
+    "feature/170501/add_god_mode/weichun": "0aee7c7436a9db8d51a9e74e9dad69d84fdfed90",
+    "feature/170502/add_blob_loader/weichun": "b0360663df0c1c4be1d6c94ac63a5681be60d59c",
+    "feature/170503/add_blood_point/weichun": "5cb20a13ab9d1d394577dbc95a7695c7a7a4948a",
+    "feature/170503/add_teleport/weichun": "c196b5d3fa5531d8d25e0033c6b051b8d21cc3e7",
+    "feature/170505/fucking_buffer/weichun": "3ed24c6f897af9435c24eaaca54f47901fc63137",
+    "feature/170509/fix_firzen_ball_trace_route/weichun": "8939aefd03431ff4e669a3f7e40d96574e57ebb5",
+    "feature/170511/add_kate/weichun": "f40b65f508f0bd5432e952855995aaaebe99c4b4",
+    "feature/170514/add_smooth_camera/weichun": "718b40fc1fd1c9ed8f7d7d9a620f90bba618e69f",
+    "feature/170514/add_sound_3d/weichun": "9b23f91c461e8629432cb968a264d02520fd661f",
+    "feature/170519/add_gulp_task/weichun": "9ed79cd908fc38b50d84f9dd04a1187bd0db2d27",
+    "feature/170525/add_friends/weichun": "f8f6cc54e9c06a772c14e6401048949e81b260d9",
+    "feature/170525/add_team_judge/weichun": "3fdd52cb1de7d2cf64b9f9fab6175876846b65e0",
+    "feature/170525/add_team/weichun": "23090d84bb1c172398c76b5032a1317d704dc8b2",
+    "feature/170526/prepare_rlf2/weichun": "6a0c4e53a16f53fa6b307621c57618bef10f6e70",
+    "feature/170527/renew_cert/weichun": "e69afc7aea9d363bde9d73b3d68b410fdee8b7bc",
+    "feature/170529/add_map_ani/weichun": "4eb467df48da8a4b026131b664eb9cba7c59ca24",
+    "feature/170602/add_comment/weichun": "fe5025f06f2c70b1facacbfb1d5d0b39f0a40a04",
+    "feature/170602/add_prefetch/weichun": "492dea394b6b41371ff8c682cb5de44126e3d302",
+    "feature/170602/add_prerender_name/weichun": "6e1e5eefad4d4cc866c505130cb630364576e52d",
+    "feature/170603/add_help/weichun": "18498065e44065f9cb4d879d671a41d53f61ba50",
+    "feature/170603/add_mut_itr/weichun": "538fa474a680ea658e37728889289b9a1ef760b0",
+    "feature/170607/upgrade_babel/weichun": "c422359494420cbbf90fdb92bf2ec8447d663212",
+    "feature/170613/add_keyconf_shortcut/weichun": "95a988d1112c509372b8f0aaba4a9643a33bed49",
+    "fix/170304/fix_white_screen_loading/weichun": "6565473132f4f274cee8f37b6831869df3a15f4b",
+    "fix/170304/remove_dup_conf": "0e9b9d52b5897c9db3e56e4df72b57a6dbc8cf49",
+    "fix/170306/fix_img_err/weichun": "a161b1f912c1097966b47d5b852518db458ae157",
+    "fix/170306/fix_keyboard_not_init/weichun": "7be4f541b7fd2b022bd3634e06bc770aa2305000",
+    "fix/170306/remove_mirror_img/weichun": "d0049d50fe2f5a60573e5b15ea31e82e3393158f",
+    "fix/170307/change_class_rel/weichun": "a8c90f5a10c64dcbb793d740c05027f632fba436",
+    "fix/170307/fix_obj_not_remove/weichun": "fe32f7c2159ffce2722a39fe66f8ef77ce5f8a38",
+    "fix/170308/convert_img_to_canvas/weichun": "3831988867b096c23aa04ed00eb2fb2c945f2a2a"
+   },
+   "github": {
+    "stars": 75,
+    "forks": 15,
+    "watchers_subscribers": 1,
+    "primaryLanguage": "JavaScript",
+    "languagesBytes": {
+     "JavaScript": 1590149,
+     "HTML": 51317,
+     "CSS": 27819,
+     "Perl": 12272,
+     "Batchfile": 719
+    },
+    "licenseAPI": "GPL-3.0",
+    "createdAt": "2017-02-25T15:25:43Z",
+    "pushedAt": "2024-01-14T06:03:12Z",
+    "archived": false,
+    "openIssuesCountField": 1,
+    "openIssues": 1,
+    "openPullRequests": 0,
+    "issuesAllStates": 2,
+    "contributorsGitHubAccounts": 1,
+    "contributorsInclAnonymous": 3,
+    "contributors": [
+     {
+      "login": "s911415",
+      "contributions": 940
+     }
+    ],
+    "releases": 0,
+    "latestRelease": null,
+    "topics": [
+     "game",
+     "lab",
+     "lf2",
+     "oop"
+    ],
+    "retrievedAtUTC": "2026-10-03T17:45:48.333213+00:00"
+   },
+   "loc": {
+    "measuredAt": "6685993b4e50bd559e381de5586e8d2111a0d510 (shallow clone)",
+    "ownNonTestCode": 10665,
+    "byCategory": {
+     "vendored": {
+      "code": 36873,
+      "files": 10,
+      "byLanguage": {
+       "JavaScript": 36873
+      }
+     },
+     "excluded_build_output": {
+      "code": 1740,
+      "files": 10,
+      "byLanguage": {
+       "JavaScript": 1740
+      }
+     },
+     "course_framework": {
+      "code": 4286,
+      "files": 35,
+      "byLanguage": {
+       "JavaScript": 4286
+      }
+     },
+     "engine": {
+      "code": 6149,
+      "files": 57,
+      "byLanguage": {
+       "JavaScript": 6149
+      }
+     },
+     "tools": {
+      "code": 230,
+      "files": 3,
+      "byLanguage": {
+       "JavaScript": 230
+      }
+     }
+    }
+   },
+   "status": "Inactive since 2020-02-01",
+   "statusShort": "Inactive since 2020",
+   "readmeStatements": [
+    {
+     "quote": "本專案是要將Windows平台移植部分功能到Web上，使其他平台也可以玩LF2  [this project ports part of the functionality of the Windows version to the Web]",
+     "source": "https://github.com/s911415/html5-lf2/blob/6685993b4e50bd559e381de5586e8d2111a0d510/README.md#L4"
+    },
+    {
+     "quote": "瀏覽器: Google Chrome 59.0 或以上  [browser: Google Chrome 59.0 or later]",
+     "source": "https://github.com/s911415/html5-lf2/blob/6685993b4e50bd559e381de5586e8d2111a0d510/README.md#L15"
+    },
+    {
+     "quote": "本遊戲需要一個網頁伺服器才能執行，執行檔內已經含有Apache HTTP Server  [needs a web server; the installer bundles Apache]",
+     "source": "https://github.com/s911415/html5-lf2/blob/6685993b4e50bd559e381de5586e8d2111a0d510/README.md#L21"
+    }
+   ],
+   "surveyFindings": [
+    "Windows installer with a web server does not make it a native macOS engine."
+   ]
+  },
+  {
+   "id": 8,
+   "repository": "Razenpok-Graveyard/lf2net",
+   "url": "https://github.com/Razenpok-Graveyard/lf2net",
+   "category": "Early LF2 reimplementation attempt (C#/MonoGame, Windows)",
+   "description_api": "An attempt to re-create Little Fighter 2 on .NET",
+   "pinned": {
+    "branch": "master",
+    "commit": "79ce11f0890b3d82279129c3660def6a6e9bed43",
+    "commitDateUTC": "2018-03-11T20:13:34Z",
+    "commitMessage": "Update README.md",
+    "commitsReachable": 40,
+    "isCurrentBranchHead": true
+   },
+   "defaultBranch": {
+    "name": "master",
+    "headCommit": "79ce11f0890b3d82279129c3660def6a6e9bed43",
+    "lastCommitDateUTC": "2018-03-11T20:13:34Z",
+    "lastCommitMessage": "Update README.md",
+    "commitCount": 40
+   },
+   "pinnedBranchHead": {
+    "commit": "79ce11f0890b3d82279129c3660def6a6e9bed43",
+    "lastCommitDateUTC": "2018-03-11T20:13:34Z",
+    "commitCount": 40
+   },
+   "branches": {
+    "master": "79ce11f0890b3d82279129c3660def6a6e9bed43"
+   },
+   "github": {
+    "stars": 1,
+    "forks": 1,
+    "watchers_subscribers": 1,
+    "primaryLanguage": "C#",
+    "languagesBytes": {
+     "C#": 91119
+    },
+    "licenseAPI": null,
+    "createdAt": "2015-06-17T08:40:28Z",
+    "pushedAt": "2018-03-11T20:13:35Z",
+    "archived": true,
+    "openIssuesCountField": 0,
+    "openIssues": 0,
+    "openPullRequests": 0,
+    "issuesAllStates": 7,
+    "contributorsGitHubAccounts": 1,
+    "contributorsInclAnonymous": 1,
+    "contributors": [
+     {
+      "login": "razenpok",
+      "contributions": 40
+     }
+    ],
+    "releases": 0,
+    "latestRelease": null,
+    "topics": [],
+    "retrievedAtUTC": "2026-10-03T17:46:05.259106+00:00",
+    "licenseNote": "No license file in tree; reuse permission not established"
+   },
+   "loc": {
+    "measuredAt": "79ce11f0890b3d82279129c3660def6a6e9bed43 (shallow clone)",
+    "ownNonTestCode": 2434,
+    "byCategory": {
+     "tools": {
+      "code": 1940,
+      "files": 69,
+      "byLanguage": {
+       "C#": 1940
+      }
+     },
+     "engine": {
+      "code": 494,
+      "files": 15,
+      "byLanguage": {
+       "C#": 494
+      }
+     },
+     "excluded_boilerplate": {
+      "code": 42,
+      "files": 3,
+      "byLanguage": {
+       "C#": 42
+      }
+     }
+    }
+   },
+   "status": "Archived (GitHub archived=true), owner org 'Razenpok-Graveyard'; last commit 2018-03-11",
+   "statusShort": "Archived (last 2018)",
+   "readmeStatements": [
+    {
+     "quote": "An attempt to re-create Little Fighter 2 on .NET",
+     "source": "https://github.com/Razenpok-Graveyard/lf2net/blob/79ce11f0890b3d82279129c3660def6a6e9bed43/README.md#L3"
+    }
+   ],
+   "surveyFindings": [
+    "Technology could be ported, but a finished compatible game is not confirmed; no license found; archived."
+   ]
+  },
+  {
+   "id": 9,
+   "repository": "Tomius/LittleFighter",
+   "url": "https://github.com/Tomius/LittleFighter",
+   "category": "Own game inspired by LF2 (C/SDL 1.2), different combat rules",
+   "description_api": "My first bigger 2D game.",
+   "pinned": {
+    "branch": "master",
+    "commit": "6b3651cdf19211c6849de97d1874af6400f6524b",
+    "commitDateUTC": "2020-10-06T14:34:30Z",
+    "commitMessage": "Update README.md",
+    "commitsReachable": 9,
+    "isCurrentBranchHead": true
+   },
+   "defaultBranch": {
+    "name": "master",
+    "headCommit": "6b3651cdf19211c6849de97d1874af6400f6524b",
+    "lastCommitDateUTC": "2020-10-06T14:34:30Z",
+    "lastCommitMessage": "Update README.md",
+    "commitCount": 9
+   },
+   "pinnedBranchHead": {
+    "commit": "6b3651cdf19211c6849de97d1874af6400f6524b",
+    "lastCommitDateUTC": "2020-10-06T14:34:30Z",
+    "commitCount": 9
+   },
+   "branches": {
+    "HorizontalOnly": "0082bb91e3e7e046278b8dc1b91ef5d3acae2d59",
+    "master": "6b3651cdf19211c6849de97d1874af6400f6524b"
+   },
+   "github": {
+    "stars": 21,
+    "forks": 3,
+    "watchers_subscribers": 4,
+    "primaryLanguage": "C",
+    "languagesBytes": {
+     "C": 319908,
+     "Makefile": 112
+    },
+    "licenseAPI": null,
+    "createdAt": "2014-05-01T12:36:33Z",
+    "pushedAt": "2020-10-06T14:34:31Z",
+    "archived": false,
+    "openIssuesCountField": 0,
+    "openIssues": 0,
+    "openPullRequests": 0,
+    "issuesAllStates": 1,
+    "contributorsGitHubAccounts": 1,
+    "contributorsInclAnonymous": 1,
+    "contributors": [
+     {
+      "login": "Tomius",
+      "contributions": 9
+     }
+    ],
+    "releases": 0,
+    "latestRelease": null,
+    "topics": [],
+    "retrievedAtUTC": "2026-10-03T17:46:20.572606+00:00",
+    "licenseNote": "No license file in tree; reuse permission not established"
+   },
+   "loc": {
+    "measuredAt": "6b3651cdf19211c6849de97d1874af6400f6524b (shallow clone)",
+    "ownNonTestCode": 6403,
+    "byCategory": {
+     "engine": {
+      "code": 6403,
+      "files": 50,
+      "byLanguage": {
+       "C": 6029,
+       "C/C++ Header": 374
+      }
+     }
+    }
+   },
+   "status": "Code from 2012; last commit 2020-10-06 (README update)",
+   "statusShort": "Inactive (2012 code)",
+   "readmeStatements": [
+    {
+     "quote": "It was originally supposed to be a clone of LittleFighter 2, just as a programming practice, but I made an entirely different combat system, so it actually offers something new. I wrote this at the fall of 2012",
+     "source": "https://github.com/Tomius/LittleFighter/blob/6b3651cdf19211c6849de97d1874af6400f6524b/README.md#L4"
+    }
+   ],
+   "surveyFindings": [
+    "Author explicitly describes a different combat system; not an LF2 rules implementation."
+   ]
+  },
+  {
+   "id": 10,
+   "repository": "shivamshekhar/LittleFighter",
+   "url": "https://github.com/shivamshekhar/LittleFighter",
+   "category": "Unfinished pygame recreation",
+   "description_api": "The classic Little Fighter game recreated using pygame - Still under development",
+   "pinned": {
+    "branch": "master",
+    "commit": "ab018c9041872bdcf84c45b0b03c6d3589fe47de",
+    "commitDateUTC": "2021-04-07T09:05:48Z",
+    "commitMessage": "Update README.md",
+    "commitsReachable": 14,
+    "isCurrentBranchHead": true
+   },
+   "defaultBranch": {
+    "name": "master",
+    "headCommit": "ab018c9041872bdcf84c45b0b03c6d3589fe47de",
+    "lastCommitDateUTC": "2021-04-07T09:05:48Z",
+    "lastCommitMessage": "Update README.md",
+    "commitCount": 14
+   },
+   "pinnedBranchHead": {
+    "commit": "ab018c9041872bdcf84c45b0b03c6d3589fe47de",
+    "lastCommitDateUTC": "2021-04-07T09:05:48Z",
+    "commitCount": 14
+   },
+   "branches": {
+    "master": "ab018c9041872bdcf84c45b0b03c6d3589fe47de"
+   },
+   "github": {
+    "stars": 11,
+    "forks": 1,
+    "watchers_subscribers": 2,
+    "primaryLanguage": "Python",
+    "languagesBytes": {
+     "Python": 24807
+    },
+    "licenseAPI": null,
+    "createdAt": "2017-01-25T17:12:07Z",
+    "pushedAt": "2021-04-07T09:05:48Z",
+    "archived": false,
+    "openIssuesCountField": 0,
+    "openIssues": 0,
+    "openPullRequests": 0,
+    "issuesAllStates": 0,
+    "contributorsGitHubAccounts": 1,
+    "contributorsInclAnonymous": 2,
+    "contributors": [
+     {
+      "login": "shivamshekhar",
+      "contributions": 1
+     }
+    ],
+    "releases": 0,
+    "latestRelease": null,
+    "topics": [
+     "game",
+     "game-2d",
+     "game-development",
+     "game-engine",
+     "games",
+     "pygame",
+     "pygame-application",
+     "python",
+     "python-2",
+     "python-3-5",
+     "python-3-6",
+     "python-library",
+     "python2",
+     "python3"
+    ],
+    "retrievedAtUTC": "2026-10-03T17:46:35.770105+00:00",
+    "licenseNote": "No license file in tree; reuse permission not established"
+   },
+   "loc": {
+    "measuredAt": "ab018c9041872bdcf84c45b0b03c6d3589fe47de (shallow clone)",
+    "ownNonTestCode": 531,
+    "byCategory": {
+     "engine": {
+      "code": 424,
+      "files": 10,
+      "byLanguage": {
+       "Python": 424
+      }
+     },
+     "tools": {
+      "code": 107,
+      "files": 1,
+      "byLanguage": {
+       "Python": 107
+      }
+     }
+    }
+   },
+   "status": "Inactive since 2021-04-07; 14 commits",
+   "statusShort": "Inactive since 2021",
+   "readmeStatements": [
+    {
+     "quote": "Recreating the original Little fighter game using pygame",
+     "source": "https://github.com/shivamshekhar/LittleFighter/blob/ab018c9041872bdcf84c45b0b03c6d3589fe47de/README.md#L1"
+    },
+    {
+     "quote": "The classic Little Fighter game recreated using pygame - Still under development",
+     "source": "GitHub API repos/shivamshekhar/LittleFighter .description"
+    }
+   ],
+   "surveyFindings": [
+    "No engine able to load and reproduce NTSD confirmed."
+   ]
+  },
+  {
+   "id": 11,
+   "repository": "GDur/jLF2",
+   "url": "https://github.com/GDur/jLF2",
+   "category": "Tiny Java/Processing prototype (animation only)",
+   "description_api": "Little Fighter Java Processing NETWORK",
+   "pinned": {
+    "branch": "master",
+    "commit": "e63bdbef30c29655652e889f6935bcc700a391f0",
+    "commitDateUTC": "2012-03-02T22:15:57Z",
+    "commitMessage": "Animationen bestehen nun aus Frames",
+    "commitsReachable": 17,
+    "isCurrentBranchHead": true
+   },
+   "defaultBranch": {
+    "name": "master",
+    "headCommit": "e63bdbef30c29655652e889f6935bcc700a391f0",
+    "lastCommitDateUTC": "2012-03-02T22:15:57Z",
+    "lastCommitMessage": "Animationen bestehen nun aus Frames",
+    "commitCount": 17
+   },
+   "pinnedBranchHead": {
+    "commit": "e63bdbef30c29655652e889f6935bcc700a391f0",
+    "lastCommitDateUTC": "2012-03-02T22:15:57Z",
+    "commitCount": 17
+   },
+   "branches": {
+    "master": "e63bdbef30c29655652e889f6935bcc700a391f0"
+   },
+   "github": {
+    "stars": 4,
+    "forks": 2,
+    "watchers_subscribers": 3,
+    "primaryLanguage": "Java",
+    "languagesBytes": {
+     "Java": 7315
+    },
+    "licenseAPI": null,
+    "createdAt": "2012-01-29T13:44:34Z",
+    "pushedAt": "2012-03-02T22:16:23Z",
+    "archived": false,
+    "openIssuesCountField": 0,
+    "openIssues": 0,
+    "openPullRequests": 0,
+    "issuesAllStates": 0,
+    "contributorsGitHubAccounts": 2,
+    "contributorsInclAnonymous": 4,
+    "contributors": [
+     {
+      "login": "LtTralala",
+      "contributions": 5
+     },
+     {
+      "login": "Gurkenglas",
+      "contributions": 2
+     }
+    ],
+    "releases": 0,
+    "latestRelease": null,
+    "topics": [],
+    "retrievedAtUTC": "2026-10-03T17:46:53.149220+00:00",
+    "licenseNote": "No license file in tree; reuse permission not established"
+   },
+   "loc": {
+    "measuredAt": "e63bdbef30c29655652e889f6935bcc700a391f0 (shallow clone)",
+    "ownNonTestCode": 267,
+    "byCategory": {
+     "engine": {
+      "code": 267,
+      "files": 8,
+      "byLanguage": {
+       "Java": 267
+      }
+     }
+    }
+   },
+   "status": "Inactive since 2012-03-02; 17 commits; no README",
+   "statusShort": "Inactive since 2012",
+   "readmeStatements": [
+    {
+     "quote": "(no README) description: 'Little Fighter Java Processing NETWORK'",
+     "source": "GitHub API repos/GDur/jLF2 .description"
+    },
+    {
+     "quote": "Animationen bestehen nun aus Frames  [last commit: 'animations now consist of frames']",
+     "source": "https://github.com/GDur/jLF2/commit/e63bdbef30c29655652e889f6935bcc700a391f0"
+    }
+   ],
+   "surveyFindings": [
+    "Assessed from metadata and tree only."
+   ]
+  },
+  {
+   "id": 12,
+   "repository": "fishfolk/punchy",
+   "url": "https://github.com/fishfolk/punchy",
+   "category": "Independent beat 'em up inspired by LF2 (Rust/Bevy); not LF2-compatible",
+   "description_api": "A 2.5D side-scroller beatemup, made in Bevy",
+   "pinned": {
+    "branch": "master",
+    "commit": "ab48fe1545bba2c9bc8d0c971d8d7fc4efd7f74e",
+    "commitDateUTC": "2023-03-08T04:13:09Z",
+    "commitMessage": "Merge #302",
+    "commitsReachable": 673,
+    "isCurrentBranchHead": true
+   },
+   "defaultBranch": {
+    "name": "master",
+    "headCommit": "ab48fe1545bba2c9bc8d0c971d8d7fc4efd7f74e",
+    "lastCommitDateUTC": "2023-03-08T04:13:09Z",
+    "lastCommitMessage": "Merge #302",
+    "commitCount": 673
+   },
+   "pinnedBranchHead": {
+    "commit": "ab48fe1545bba2c9bc8d0c971d8d7fc4efd7f74e",
+    "lastCommitDateUTC": "2023-03-08T04:13:09Z",
+    "commitCount": 673
+   },
+   "branches": {
+    "erlend-sh-archmd": "0a18e009cf31dfe0ea4c58ed6d90cb545064a923",
+    "gh-pages": "793bfb2f3e434bd4cd9ab90e5f2c7ea2fe19b4eb",
+    "master": "ab48fe1545bba2c9bc8d0c971d8d7fc4efd7f74e",
+    "staging": "ab48fe1545bba2c9bc8d0c971d8d7fc4efd7f74e"
+   },
+   "github": {
+    "stars": 312,
+    "forks": 35,
+    "watchers_subscribers": 7,
+    "primaryLanguage": "Rust",
+    "languagesBytes": {
+     "Rust": 325637,
+     "TypeScript": 25933,
+     "HTML": 4112,
+     "Fluent": 850,
+     "Shell": 647
+    },
+    "licenseAPI": "NOASSERTION",
+    "createdAt": "2022-01-12T15:01:21Z",
+    "pushedAt": "2024-06-06T04:42:40Z",
+    "archived": false,
+    "openIssuesCountField": 29,
+    "openIssues": 28,
+    "openPullRequests": 1,
+    "issuesAllStates": 109,
+    "contributorsGitHubAccounts": 11,
+    "contributorsInclAnonymous": 12,
+    "contributors": [
+     {
+      "login": "zicklag",
+      "contributions": 163
+     },
+     {
+      "login": "odecay",
+      "contributions": 148
+     },
+     {
+      "login": "64kramsystem",
+      "contributions": 105
+     },
+     {
+      "login": "bors[bot]",
+      "contributions": 89
+     },
+     {
+      "login": "Zac8668",
+      "contributions": 86
+     },
+     {
+      "login": "edgarssilva",
+      "contributions": 51
+     },
+     {
+      "login": "DRuppFv",
+      "contributions": 10
+     },
+     {
+      "login": "orhun",
+      "contributions": 7
+     },
+     {
+      "login": "erlend-sh",
+      "contributions": 5
+     },
+     {
+      "login": "Byteron",
+      "contributions": 4
+     },
+     {
+      "login": "HexSleeves",
+      "contributions": 3
+     }
+    ],
+    "releases": 8,
+    "latestRelease": {
+     "tag": "v0.3.0",
+     "published_at": "2023-01-31T00:06:35Z",
+     "name": "v0.3.0"
+    },
+    "topics": [
+     "bevy",
+     "fish-game",
+     "game",
+     "game-engine",
+     "multiplayer",
+     "rust",
+     "wasm",
+     "web"
+    ],
+    "retrievedAtUTC": "2026-10-03T17:47:07.748056+00:00",
+    "licenseNote": "LICENSE.md: code MIT or Apache-2.0; media CC BY-NC"
+   },
+   "loc": {
+    "measuredAt": "ab48fe1545bba2c9bc8d0c971d8d7fc4efd7f74e (shallow clone)",
+    "ownNonTestCode": 7617,
+    "byCategory": {
+     "engine": {
+      "code": 7492,
+      "files": 41,
+      "byLanguage": {
+       "Rust": 7492
+      }
+     },
+     "excluded_scripting_types": {
+      "code": 641,
+      "files": 3,
+      "byLanguage": {
+       "TypeScript": 641
+      }
+     },
+     "game_scripts": {
+      "code": 125,
+      "files": 5,
+      "byLanguage": {
+       "TypeScript": 125
+      }
+     }
+    }
+   },
+   "status": "Inactive since 2023-03-08 (v0.3.0, 2023-01-31); 28 open issues",
+   "statusShort": "Inactive since 2023",
+   "readmeStatements": [
+    {
+     "quote": "A 2.5D side-scroller beat-'em-up, made in Bevy. Inspired by games like Little Fighter 2, River City Ransom and many more.",
+     "source": "https://github.com/fishfolk/punchy/blob/ab48fe1545bba2c9bc8d0c971d8d7fc4efd7f74e/README.md#L8"
+    },
+    {
+     "quote": "Punchy is currently at an early stage of development",
+     "source": "https://github.com/fishfolk/punchy/blob/ab48fe1545bba2c9bc8d0c971d8d7fc4efd7f74e/README.md#L33"
+    }
+   ],
+   "surveyFindings": [
+    "Suitable for a new genre game; LF2 DAT and NTSD rules compatibility not established."
+   ]
+  },
+  {
+   "id": 13,
+   "repository": "Mesujin/LF2-AI-ScriptEngine",
+   "url": "https://github.com/Mesujin/LF2-AI-ScriptEngine",
+   "category": "AI scripting add-on: ddraw.dll proxy loaded by the original LF2.exe",
+   "description_api": "Rewritten AI-Script Engine.",
+   "pinned": {
+    "branch": "Official_Release",
+    "commit": "01dd1e8bf7e6706219f0e8008e40acd2853679f2",
+    "commitDateUTC": "2023-12-03T03:33:30Z",
+    "commitMessage": "Version 2.5 update.",
+    "commitsReachable": 13,
+    "isCurrentBranchHead": true
+   },
+   "defaultBranch": {
+    "name": "Official_Release",
+    "headCommit": "01dd1e8bf7e6706219f0e8008e40acd2853679f2",
+    "lastCommitDateUTC": "2023-12-03T03:33:30Z",
+    "lastCommitMessage": "Version 2.5 update.",
+    "commitCount": 13
+   },
+   "pinnedBranchHead": {
+    "commit": "01dd1e8bf7e6706219f0e8008e40acd2853679f2",
+    "lastCommitDateUTC": "2023-12-03T03:33:30Z",
+    "commitCount": 13
+   },
+   "branches": {
+    "Official_Release": "01dd1e8bf7e6706219f0e8008e40acd2853679f2"
+   },
+   "github": {
+    "stars": 1,
+    "forks": 0,
+    "watchers_subscribers": 1,
+    "primaryLanguage": "C++",
+    "languagesBytes": {
+     "C++": 557235,
+     "C": 241702
+    },
+    "licenseAPI": "GPL-3.0",
+    "createdAt": "2023-11-24T18:35:13Z",
+    "pushedAt": "2023-12-03T03:40:52Z",
+    "archived": false,
+    "openIssuesCountField": 0,
+    "openIssues": 0,
+    "openPullRequests": 0,
+    "issuesAllStates": 0,
+    "contributorsGitHubAccounts": 1,
+    "contributorsInclAnonymous": 1,
+    "contributors": [
+     {
+      "login": "Mesujin",
+      "contributions": 13
+     }
+    ],
+    "releases": 2,
+    "latestRelease": {
+     "tag": "v2.5.20231203",
+     "published_at": "2023-12-03T03:40:52Z",
+     "name": "Version 2.5.20231203"
+    },
+    "topics": [
+     "angelscript",
+     "directdraw",
+     "lf2",
+     "little-fighter-2"
+    ],
+    "retrievedAtUTC": "2026-10-03T17:47:24.565930+00:00"
+   },
+   "loc": {
+    "measuredAt": "01dd1e8bf7e6706219f0e8008e40acd2853679f2 (shallow clone)",
+    "ownNonTestCode": 3863,
+    "byCategory": {
+     "vendored": {
+      "code": 9243,
+      "files": 16,
+      "byLanguage": {
+       "C/C++ Header": 4803,
+       "C++": 4440
+      }
+     },
+     "engine": {
+      "code": 3863,
+      "files": 9,
+      "byLanguage": {
+       "C++": 2680,
+       "C/C++ Header": 1180,
+       "Windows Module Definition": 3
+      }
+     }
+    }
+   },
+   "status": "Inactive since 2023-12-03 (v2.5)",
+   "statusShort": "Inactive since 2023",
+   "readmeStatements": [
+    {
+     "quote": "# AI-Scripting DDraw  (the entire README)",
+     "source": "https://github.com/Mesujin/LF2-AI-ScriptEngine/blob/01dd1e8bf7e6706219f0e8008e40acd2853679f2/README.md#L1"
+    },
+    {
+     "quote": "\"engine.cpp\", main processor of the AI-Scripting. Originally written by Doix and Som1Lse. With enhancement by zort.",
+     "source": "https://github.com/Mesujin/LF2-AI-ScriptEngine/blob/01dd1e8bf7e6706219f0e8008e40acd2853679f2/Resources/Includes/engine.cpp#L2-L5"
+    }
+   ],
+   "surveyFindings": [
+    "Separate Windows AI/DDraw component, not a full game base."
+   ]
+  }
+ ],
+ "matrix": {
+  "atom-tm/l2df-engine": {
+   "readsOriginalDat": {
+    "value": "partial",
+    "evidence": "Offline converter decrypts LF2 DAT to text: tools/lf2dat.lua (KEY at L11; 'converted output is unencrypted L2DF/LFFS2-style text', L4). Runtime preset loads converted plain text (presets/lf2/data/*.dat are ASCII LFFS2).",
+    "sources": [
+     "https://github.com/atom-tm/l2df-engine/blob/a20a16f2e8c9e889e33b3d762c94dc49498d0f83/tools/lf2dat.lua#L11",
+     "https://github.com/atom-tm/l2df-engine/blob/a20a16f2e8c9e889e33b3d762c94dc49498d0f83/tools/lf2dat.lua#L4"
+    ]
+   },
+   "frameStateMachine": {
+    "value": "yes",
+    "evidence": "Frames component with next/wait (src/class/component/frames.lua L53-54) and 50 state handlers in presets/lf2/data/states/.",
+    "sources": [
+     "https://github.com/atom-tm/l2df-engine/blob/a20a16f2e8c9e889e33b3d762c94dc49498d0f83/src/class/component/frames.lua#L53-L54"
+    ]
+   },
+   "combatBoxes": {
+    "value": "yes",
+    "evidence": "itrs/bodies registered as colliders (src/class/component/collision.lua L31, L98-100); hit kinds in presets/lf2/data/kinds/ (normal_hit.lua, catch.lua, 0-16.lua).",
+    "sources": [
+     "https://github.com/atom-tm/l2df-engine/blob/a20a16f2e8c9e889e33b3d762c94dc49498d0f83/src/class/component/collision.lua#L98-L100"
+    ]
+   },
+   "physics": {
+    "value": "yes",
+    "evidence": "3D physics world with gravity (src/class/component/physix/world.lua L182; adapted from bump-3dpd per README).",
+    "sources": [
+     "https://github.com/atom-tm/l2df-engine/blob/a20a16f2e8c9e889e33b3d762c94dc49498d0f83/src/class/component/physix/world.lua#L182"
+    ]
+   },
+   "computerAI": {
+    "value": "yes",
+    "evidence": "Simple bot controller (src/class/component/ai/simple.lua, 210 LOC).",
+    "sources": [
+     "https://github.com/atom-tm/l2df-engine/blob/a20a16f2e8c9e889e33b3d762c94dc49498d0f83/src/class/component/ai/simple.lua"
+    ]
+   },
+   "modesBeyondVS": {
+    "value": "no",
+    "evidence": "menu.lua wires only BTN_VS_MODE -> lobby (L68); BTN_STAGE_MODE / BTN_BATTLE_MODE exist only in the layout file (layout/menu/game.dat L19, L49).",
+    "sources": [
+     "https://github.com/atom-tm/l2df-engine/blob/a20a16f2e8c9e889e33b3d762c94dc49498d0f83/presets/lf2/data/scenes/menu.lua#L68",
+     "https://github.com/atom-tm/l2df-engine/blob/a20a16f2e8c9e889e33b3d762c94dc49498d0f83/presets/lf2/data/scenes/layout/menu/game.dat#L19"
+    ]
+   },
+   "replays": {
+    "value": "yes",
+    "evidence": "Recorder manager ('Recorder manager (replays)', src/manager/recorder.lua L1) + replay scene; opens *.replay files (presets/lf2/main.lua L81-83).",
+    "sources": [
+     "https://github.com/atom-tm/l2df-engine/blob/a20a16f2e8c9e889e33b3d762c94dc49498d0f83/src/manager/recorder.lua#L1",
+     "https://github.com/atom-tm/l2df-engine/blob/a20a16f2e8c9e889e33b3d762c94dc49498d0f83/presets/lf2/main.lua#L81-L83"
+    ]
+   },
+   "network": {
+    "value": "yes",
+    "evidence": "P2P over enet (src/manager/network.lua L10) with rollback sync (src/manager/sync.lua); README: GGPO-like rollback.",
+    "sources": [
+     "https://github.com/atom-tm/l2df-engine/blob/a20a16f2e8c9e889e33b3d762c94dc49498d0f83/src/manager/network.lua#L10",
+     "https://github.com/atom-tm/l2df-engine/blob/a20a16f2e8c9e889e33b3d762c94dc49498d0f83/README.md#L36"
+    ]
+   },
+   "automatedTests": {
+    "value": "yes",
+    "evidence": "busted: 85 it() cases in 16 spec files (tests/), incl. DAT converter ('decrypts original LF2 DAT text') and LF2 helper; no CI.",
+    "sources": [
+     "https://github.com/atom-tm/l2df-engine/blob/a20a16f2e8c9e889e33b3d762c94dc49498d0f83/tests/tools/lf2dat_spec.lua#L39"
+    ]
+   },
+   "comparesWithOriginal": {
+    "value": "partial",
+    "evidence": "flf_unit scene (--test-flf) replays the 33 F.LF cases, generated from F.LF's unit_test_suite_*.html (frame id + dx/dy per tick observed in original LF2 1.9/2.0), pass if delta <= passing_delta 10; added 2026-06-21 (commit cca471bad7); manual, not part of busted/CI; no EXE-driven differential run.",
+    "sources": [
+     "https://github.com/atom-tm/l2df-engine/blob/a20a16f2e8c9e889e33b3d762c94dc49498d0f83/presets/lf2/data/tests/flf_unit_cases.lua#L1-L5",
+     "https://github.com/atom-tm/l2df-engine/blob/a20a16f2e8c9e889e33b3d762c94dc49498d0f83/presets/lf2/data/scenes/flf_unit.lua#L457",
+     "https://github.com/atom-tm/l2df-engine/blob/a20a16f2e8c9e889e33b3d762c94dc49498d0f83/presets/lf2/main.lua#L111"
+    ]
+   },
+   "nativeMacOS": {
+    "value": "unknown",
+    "evidence": "LÖVE backend supports macOS, but the repo has no macOS build/package and none was verified; releases ship Windows demo-*.exe (+ .zip, l2df.lua).",
+    "sources": [
+     "https://github.com/atom-tm/l2df-engine/releases"
+    ]
+   },
+   "loadsNTSD24Data": {
+    "value": "partial",
+    "evidence": "Survey: decrypt+convert+parse of naruto/sasuke gives 318/268 top-level records; weapon4.dat (Kunai) gives 43 instead of 58; no match was run.",
+    "sources": [
+     "docs/research/LF2_OPEN_SOURCE_ENGINES.md#l2df-и-три-настоящих-файла"
+    ]
+   }
+  },
+  "gimhol/Little-Fighter-Wemake": {
+   "readsOriginalDat": {
+    "value": "partial",
+    "evidence": "Game runs on its own converted JSON5 data (lf2s/origin); LF2 DAT decryption only in an offline tool (tool/src/utils/read_lf2_dat_file.ts L3) and a DAT-viewer page (src/pages/dat_viewer/DatViewer.tsx L51 -> src/LFW/dat_translator/decode_lf2_dat.ts).",
+    "sources": [
+     "https://github.com/gimhol/Little-Fighter-Wemake/blob/7e720019bf6029d73d1547a0da640e2dbb0bab26/tool/src/utils/read_lf2_dat_file.ts#L3",
+     "https://github.com/gimhol/Little-Fighter-Wemake/blob/7e720019bf6029d73d1547a0da640e2dbb0bab26/src/pages/dat_viewer/DatViewer.tsx#L51"
+    ]
+   },
+   "frameStateMachine": {
+    "value": "yes",
+    "evidence": "Frame wait/next (src/LFW/defines/IFrameInfo.ts L93-100), state handlers in src/LFW/state.",
+    "sources": [
+     "https://github.com/gimhol/Little-Fighter-Wemake/blob/7e720019bf6029d73d1547a0da640e2dbb0bab26/src/LFW/defines/IFrameInfo.ts#L93-L100"
+    ]
+   },
+   "combatBoxes": {
+    "value": "yes",
+    "evidence": "src/LFW/collision/ (Collision.ts, handle_* handlers, calc_itr_velocity.ts).",
+    "sources": [
+     "https://github.com/gimhol/Little-Fighter-Wemake/blob/7e720019bf6029d73d1547a0da640e2dbb0bab26/src/LFW/collision/Collision.ts"
+    ]
+   },
+   "physics": {
+    "value": "yes",
+    "evidence": "gravity 0.4375 (src/LFW/WorldDataset.ts L73; earlier 0.5 commented out), z/dvz movement in src/LFW/entity/Entity.ts.",
+    "sources": [
+     "https://github.com/gimhol/Little-Fighter-Wemake/blob/7e720019bf6029d73d1547a0da640e2dbb0bab26/src/LFW/WorldDataset.ts#L73"
+    ]
+   },
+   "computerAI": {
+    "value": "yes",
+    "evidence": "src/LFW/bot (BotController.ts etc., ~1.6k TS LOC).",
+    "sources": [
+     "https://github.com/gimhol/Little-Fighter-Wemake/blob/7e720019bf6029d73d1547a0da640e2dbb0bab26/src/LFW/bot/BotController.ts"
+    ]
+   },
+   "modesBeyondVS": {
+    "value": "partial",
+    "evidence": "vs_mode, stage_mode, bilibili_survival (src/LFW/ui/component/GamePrepareLogic.ts L22-24); no Championship/Battle; README: 'Continuing to implement other game modes of LF2?'.",
+    "sources": [
+     "https://github.com/gimhol/Little-Fighter-Wemake/blob/7e720019bf6029d73d1547a0da640e2dbb0bab26/src/LFW/ui/component/GamePrepareLogic.ts#L22-L24",
+     "https://github.com/gimhol/Little-Fighter-Wemake/blob/7e720019bf6029d73d1547a0da640e2dbb0bab26/README.EN.MD#L36"
+    ]
+   },
+   "replays": {
+    "value": "no",
+    "evidence": "Listed as future work: 'Video recording and playback?' (README.EN.MD L37); 'replay()' hits in code are UI animation methods.",
+    "sources": [
+     "https://github.com/gimhol/Little-Fighter-Wemake/blob/7e720019bf6029d73d1547a0da640e2dbb0bab26/README.EN.MD#L37"
+    ]
+   },
+   "network": {
+    "value": "yes",
+    "evidence": "Online multiplayer (docs/Multiplayer Online Game, server/, src/Net); entity snapshots 'rollback 用' (src/LFW/entity/EntitySnapshot.ts L2).",
+    "sources": [
+     "https://github.com/gimhol/Little-Fighter-Wemake/blob/7e720019bf6029d73d1547a0da640e2dbb0bab26/src/LFW/entity/EntitySnapshot.ts#L2"
+    ]
+   },
+   "automatedTests": {
+    "value": "yes",
+    "evidence": "Jest: 10 files / 28 cases at the pin (utilities: MersenneTwister, Easing, Expression, I18N...); head adds 15 files / 54 cases and a TS<->C++ differential harness (65 subjects, 93 case files, 65 mutation files). CI workflows do not run tests.",
+    "sources": [
+     "https://github.com/gimhol/Little-Fighter-Wemake/blob/7e720019bf6029d73d1547a0da640e2dbb0bab26/src/Tests/MersenneTwister.test.ts",
+     "https://github.com/gimhol/Little-Fighter-Wemake/blob/f7487c48482cb3b045b3d42af22ff27cd38ae8bd/native/tests/differential/PROTOCOL.md#L3"
+    ]
+   },
+   "comparesWithOriginal": {
+    "value": "no",
+    "evidence": "Differential tests compare Wemake's own TS core with its own C++ port (PROTOCOL.md L3); no test uses the original LF2 as reference.",
+    "sources": [
+     "https://github.com/gimhol/Little-Fighter-Wemake/blob/f7487c48482cb3b045b3d42af22ff27cd38ae8bd/native/tests/differential/PROTOCOL.md#L3"
+    ]
+   },
+   "nativeMacOS": {
+    "value": "no",
+    "evidence": "Web app ('designed to be a web game that can run on modern browsers'); desktop build is an Electron shell (desktop/package.json L6); C++ core has no host yet (native/README.md L11); releases: Windows Setup.exe/zip + Web 7z only.",
+    "sources": [
+     "https://github.com/gimhol/Little-Fighter-Wemake/blob/7e720019bf6029d73d1547a0da640e2dbb0bab26/docs/Custom%20Game/README.EN.MD#L5",
+     "https://github.com/gimhol/Little-Fighter-Wemake/blob/f7487c48482cb3b045b3d42af22ff27cd38ae8bd/desktop/package.json#L6",
+     "https://github.com/gimhol/Little-Fighter-Wemake/blob/f7487c48482cb3b045b3d42af22ff27cd38ae8bd/native/README.md#L11"
+    ]
+   },
+   "loadsNTSD24Data": {
+    "value": "unknown",
+    "evidence": "Not tested by the survey.",
+    "sources": []
+   }
+  },
+  "Project-F/F.LF": {
+   "readsOriginalDat": {
+    "value": "partial",
+    "evidence": "Offline Node tools decrypt/convert DAT -> JSON (tools/data_file_decrypt.js L6 key; tools/data_file_converter.js); game loads JSON from the separate LF2_19 repo ('converted from original dat to json', readme L35).",
+    "sources": [
+     "https://github.com/Project-F/F.LF/blob/21341737e4154d06d9784e9a629c9dd4db9148d6/tools/data_file_decrypt.js#L6",
+     "https://github.com/Project-F/F.LF/blob/21341737e4154d06d9784e9a629c9dd4db9148d6/readme.md#L35"
+    ]
+   },
+   "frameStateMachine": {
+    "value": "yes",
+    "evidence": "Frame/wait/next handling in LF/livingobject.js (e.g. L124 '// wait for next frame').",
+    "sources": [
+     "https://github.com/Project-F/F.LF/blob/21341737e4154d06d9784e9a629c9dd4db9148d6/LF/livingobject.js#L124"
+    ]
+   },
+   "combatBoxes": {
+    "value": "yes",
+    "evidence": "itr/bdy handling (LF/livingobject.js L69, core/collision.js).",
+    "sources": [
+     "https://github.com/Project-F/F.LF/blob/21341737e4154d06d9784e9a629c9dd4db9148d6/LF/livingobject.js#L69"
+    ]
+   },
+   "physics": {
+    "value": "yes",
+    "evidence": "Gravity 'ps.vy += this.mass * GC.gravity' (LF/mechanics.js L375); vz from dvz (LF/livingobject.js L148).",
+    "sources": [
+     "https://github.com/Project-F/F.LF/blob/21341737e4154d06d9784e9a629c9dd4db9148d6/LF/mechanics.js#L375"
+    ]
+   },
+   "computerAI": {
+    "value": "yes",
+    "evidence": "'Scriptable and selectable AI' (readme L32); LF/AI.js adaptor for old-school AI scripts (scripts in LF2_19 package).",
+    "sources": [
+     "https://github.com/Project-F/F.LF/blob/21341737e4154d06d9784e9a629c9dd4db9148d6/LF/AI.js"
+    ]
+   },
+   "modesBeyondVS": {
+    "value": "no",
+    "evidence": "Features list names only 'VS mode' (readme L30); demo mode in LF/match.js L98.",
+    "sources": [
+     "https://github.com/Project-F/F.LF/blob/21341737e4154d06d9784e9a629c9dd4db9148d6/readme.md#L30"
+    ]
+   },
+   "replays": {
+    "value": "no",
+    "evidence": "F.core input recorder/player exists (core/controller-recorder.js) but the LF game never requires it; no replay UI.",
+    "sources": [
+     "https://github.com/Project-F/F.LF/blob/21341737e4154d06d9784e9a629c9dd4db9148d6/core/controller-recorder.js#L1"
+    ]
+   },
+   "network": {
+    "value": "yes",
+    "evidence": "'PvP networking via WebSocket' (readme L31); transport library loaded from the lobby server (core/network.js L220).",
+    "sources": [
+     "https://github.com/Project-F/F.LF/blob/21341737e4154d06d9784e9a629c9dd4db9148d6/readme.md#L31",
+     "https://github.com/Project-F/F.LF/blob/21341737e4154d06d9784e9a629c9dd4db9148d6/core/network.js#L220"
+    ]
+   },
+   "automatedTests": {
+    "value": "yes",
+    "evidence": "Browser 'unit test suite' tools/unit_test_suite.js + 33 cases in 4 scenarios (tools/unit_test_suite_1..3.html); run manually in a browser; no CI.",
+    "sources": [
+     "https://github.com/Project-F/F.LF/blob/21341737e4154d06d9784e9a629c9dd4db9148d6/tools/unit_test_suite.js#L59",
+     "https://github.com/Project-F/F.LF/blob/21341737e4154d06d9784e9a629c9dd4db9148d6/tools/unit_test_suite_1.html"
+    ]
+   },
+   "comparesWithOriginal": {
+    "value": "partial",
+    "evidence": "Expected frame id and dx/dy per tick were gathered from original LF2 1.9/2.0 with 'frame encoded' characters (docs/unit_test_suite.html L15, L44); pass if error <= passing_delta = 10 (tools/unit_test_suite.js L59). Covers movement/attack/catch only (no HP, damage, RNG, AI); the EXE is not driven automatically.",
+    "sources": [
+     "https://github.com/Project-F/F.LF/blob/21341737e4154d06d9784e9a629c9dd4db9148d6/docs/unit_test_suite.html#L44",
+     "https://github.com/Project-F/F.LF/blob/21341737e4154d06d9784e9a629c9dd4db9148d6/tools/unit_test_suite.js#L59"
+    ]
+   },
+   "nativeMacOS": {
+    "value": "no",
+    "evidence": "Browser only: 'open game/game.html in your favourite browser' (readme L47).",
+    "sources": [
+     "https://github.com/Project-F/F.LF/blob/21341737e4154d06d9784e9a629c9dd4db9148d6/readme.md#L47"
+    ]
+   },
+   "loadsNTSD24Data": {
+    "value": "unknown",
+    "evidence": "Not run on NTSD files; survey's synthetic repeated-frame probe loses wait/next, and NTSD naruto.dat defines frame 123 twice.",
+    "sources": [
+     "https://github.com/Project-F/F.LF/blob/21341737e4154d06d9784e9a629c9dd4db9148d6/tools/data_file_converter.js#L137"
+    ]
+   }
+  },
+  "Mesujin/LF2-Enchanted-4th": {
+   "readsOriginalDat": {
+    "value": "yes",
+    "evidence": "Decode() decrypts *.dat at load with the LF2 key (Resource/Includes/engine.h L1470-1481); parses data.txt, object/background/stage .dat (engine.h L6975-7469).",
+    "sources": [
+     "https://github.com/Mesujin/LF2-Enchanted-4th/blob/ea86d0ff90cebe5ce914a25b5cc347c4ff5b4fb1/Resource/Includes/engine.h#L1470-L1481"
+    ]
+   },
+   "frameStateMachine": {
+    "value": "yes",
+    "evidence": "wait/next stepping (engine.h L2119-2121) - but next is stored as a vector and picked at random (next[L_Random(next.size()-1)]), an Enchanted extension.",
+    "sources": [
+     "https://github.com/Mesujin/LF2-Enchanted-4th/blob/ea86d0ff90cebe5ce914a25b5cc347c4ff5b4fb1/Resource/Includes/engine.h#L2119-L2121"
+    ]
+   },
+   "combatBoxes": {
+    "value": "yes",
+    "evidence": "itr/bdy vectors per frame (engine.h L588-589); collision check, hit, hitlag (engine.h L4999, L5928, L5535).",
+    "sources": [
+     "https://github.com/Mesujin/LF2-Enchanted-4th/blob/ea86d0ff90cebe5ce914a25b5cc347c4ff5b4fb1/Resource/Includes/engine.h#L588-L589",
+     "https://github.com/Mesujin/LF2-Enchanted-4th/blob/ea86d0ff90cebe5ce914a25b5cc347c4ff5b4fb1/Resource/Includes/engine.h#L4999"
+    ]
+   },
+   "physics": {
+    "value": "yes",
+    "evidence": "Gravity section (engine.h L3716), dvz fields.",
+    "sources": [
+     "https://github.com/Mesujin/LF2-Enchanted-4th/blob/ea86d0ff90cebe5ce914a25b5cc347c4ff5b4fb1/Resource/Includes/engine.h#L3716"
+    ]
+   },
+   "computerAI": {
+    "value": "no",
+    "evidence": "The '// AI' block is empty (engine.h L1538-1541); 'Computer Player' appears only as menu sprites.",
+    "sources": [
+     "https://github.com/Mesujin/LF2-Enchanted-4th/blob/ea86d0ff90cebe5ce914a25b5cc347c4ff5b4fb1/Resource/Includes/engine.h#L1538-L1541"
+    ]
+   },
+   "modesBeyondVS": {
+    "value": "no",
+    "evidence": "Single auto-started match: only call Start(0, 1, 0, 1500, ...) under '// Auto Start' (engine.h L11056-11062); Section.Mode is never compared; Stage/Championship/Battle are only menu sprites (engine.h L10809-10811).",
+    "sources": [
+     "https://github.com/Mesujin/LF2-Enchanted-4th/blob/ea86d0ff90cebe5ce914a25b5cc347c4ff5b4fb1/Resource/Includes/engine.h#L11056-L11062",
+     "https://github.com/Mesujin/LF2-Enchanted-4th/blob/ea86d0ff90cebe5ce914a25b5cc347c4ff5b4fb1/Resource/Includes/engine.h#L10809-L10811"
+    ]
+   },
+   "replays": {
+    "value": "no",
+    "evidence": "Only a settings path Address_Recording (engine.h L8868) and a 'Recording Playback' menu sprite (L10812).",
+    "sources": [
+     "https://github.com/Mesujin/LF2-Enchanted-4th/blob/ea86d0ff90cebe5ce914a25b5cc347c4ff5b4fb1/Resource/Includes/engine.h#L8868"
+    ]
+   },
+   "network": {
+    "value": "no",
+    "evidence": "'Network Game' only as a menu sprite (engine.h L10792); no socket code.",
+    "sources": [
+     "https://github.com/Mesujin/LF2-Enchanted-4th/blob/ea86d0ff90cebe5ce914a25b5cc347c4ff5b4fb1/Resource/Includes/engine.h#L10792"
+    ]
+   },
+   "automatedTests": {
+    "value": "no",
+    "evidence": "No test files in the tree.",
+    "sources": []
+   },
+   "comparesWithOriginal": {
+    "value": "no",
+    "evidence": "No tests.",
+    "sources": []
+   },
+   "nativeMacOS": {
+    "value": "no",
+    "evidence": "Windows.h + Direct3D 11 / DirectXTK (Resource/Includes/platform.h L28-47); Visual Studio 2022 solution.",
+    "sources": [
+     "https://github.com/Mesujin/LF2-Enchanted-4th/blob/ea86d0ff90cebe5ce914a25b5cc347c4ff5b4fb1/Resource/Includes/platform.h#L28-L47"
+    ]
+   },
+   "loadsNTSD24Data": {
+    "value": "unknown",
+    "evidence": "Not tested by the survey.",
+    "sources": []
+   }
+  },
+  "xsoameix/openlf2": {
+   "readsOriginalDat": {
+    "value": "no",
+    "evidence": "No loader of its own; runs inside the original LF2.exe.",
+    "sources": [
+     "https://github.com/xsoameix/openlf2/blob/76a26c548c7ff0164ef53a688ede37209efcc574/src/openlf2.c#L9-L13"
+    ]
+   },
+   "frameStateMachine": {
+    "value": "no",
+    "evidence": "Only recovered struct layouts with offsets (include/frame.h).",
+    "sources": [
+     "https://github.com/xsoameix/openlf2/blob/76a26c548c7ff0164ef53a688ede37209efcc574/include/frame.h"
+    ]
+   },
+   "combatBoxes": {
+    "value": "partial",
+    "evidence": "Re-implements one function, does_attack_success (itr x bdy loop, src/class_global.c L7), patched at 0x417400.",
+    "sources": [
+     "https://github.com/xsoameix/openlf2/blob/76a26c548c7ff0164ef53a688ede37209efcc574/src/class_global.c#L7"
+    ]
+   },
+   "physics": {
+    "value": "no",
+    "evidence": "Not implemented (original EXE).",
+    "sources": []
+   },
+   "computerAI": {
+    "value": "no",
+    "evidence": "Not implemented (original EXE).",
+    "sources": []
+   },
+   "modesBeyondVS": {
+    "value": "no",
+    "evidence": "Only mode constants copied from the EXE (src/const.c L172-179).",
+    "sources": [
+     "https://github.com/xsoameix/openlf2/blob/76a26c548c7ff0164ef53a688ede37209efcc574/src/const.c#L172-L179"
+    ]
+   },
+   "replays": {
+    "value": "no",
+    "evidence": "Only a constant playback_recoding_mode (src/const.c L178).",
+    "sources": [
+     "https://github.com/xsoameix/openlf2/blob/76a26c548c7ff0164ef53a688ede37209efcc574/src/const.c#L178"
+    ]
+   },
+   "network": {
+    "value": "no",
+    "evidence": "None.",
+    "sources": []
+   },
+   "automatedTests": {
+    "value": "no",
+    "evidence": "No tests.",
+    "sources": []
+   },
+   "comparesWithOriginal": {
+    "value": "no",
+    "evidence": "No tests; the approach is decompilation, three functions jmp-patched (0x403270, 0x417170, 0x417400).",
+    "sources": [
+     "https://github.com/xsoameix/openlf2/blob/76a26c548c7ff0164ef53a688ede37209efcc574/src/openlf2.c#L9-L13"
+    ]
+   },
+   "nativeMacOS": {
+    "value": "no",
+    "evidence": "Cross-compiled Windows DLL (CMakeLists.txt L5-6 Windows/i686-w64-mingw32, L21 add_library SHARED) for the original EXE.",
+    "sources": [
+     "https://github.com/xsoameix/openlf2/blob/76a26c548c7ff0164ef53a688ede37209efcc574/CMakeLists.txt#L5-L21"
+    ]
+   },
+   "loadsNTSD24Data": {
+    "value": "unknown",
+    "evidence": "Patches hard-coded LF2.exe addresses; NTSD's EXE untested.",
+    "sources": []
+   }
+  },
+  "Archer-Dante/Neora": {
+   "readsOriginalDat": {
+    "value": "no",
+    "evidence": "Not a reimplementation: hooks/patches the original LF2.exe (e.g. JmpPatch at 0042D3E1h, DLL/Main.asm L380).",
+    "sources": [
+     "https://github.com/Archer-Dante/Neora/blob/1565198f7d2509238c9f995ec2f27f8611b758ae/DLL/Main.asm#L380"
+    ]
+   },
+   "frameStateMachine": {
+    "value": "no",
+    "evidence": "Not a reimplementation: hooks/patches the original LF2.exe (e.g. JmpPatch at 0042D3E1h, DLL/Main.asm L380).",
+    "sources": [
+     "https://github.com/Archer-Dante/Neora/blob/1565198f7d2509238c9f995ec2f27f8611b758ae/DLL/Main.asm#L380"
+    ]
+   },
+   "combatBoxes": {
+    "value": "no",
+    "evidence": "No engine of its own; adds/patches itr kinds and effects of the original EXE (DLL/itrkind.inc, DLL/itreff.inc).",
+    "sources": [
+     "https://github.com/Archer-Dante/Neora/blob/1565198f7d2509238c9f995ec2f27f8611b758ae/DLL/itrkind.inc"
+    ]
+   },
+   "physics": {
+    "value": "no",
+    "evidence": "Not a reimplementation: hooks/patches the original LF2.exe (e.g. JmpPatch at 0042D3E1h, DLL/Main.asm L380).",
+    "sources": [
+     "https://github.com/Archer-Dante/Neora/blob/1565198f7d2509238c9f995ec2f27f8611b758ae/DLL/Main.asm#L380"
+    ]
+   },
+   "computerAI": {
+    "value": "no",
+    "evidence": "Not a reimplementation: hooks/patches the original LF2.exe (e.g. JmpPatch at 0042D3E1h, DLL/Main.asm L380).",
+    "sources": [
+     "https://github.com/Archer-Dante/Neora/blob/1565198f7d2509238c9f995ec2f27f8611b758ae/DLL/Main.asm#L380"
+    ]
+   },
+   "modesBeyondVS": {
+    "value": "no",
+    "evidence": "Uses the original EXE's modes; e.g. tweaks Battle Mode defence limit (DLL/Main.asm L65).",
+    "sources": [
+     "https://github.com/Archer-Dante/Neora/blob/1565198f7d2509238c9f995ec2f27f8611b758ae/DLL/Main.asm#L65"
+    ]
+   },
+   "replays": {
+    "value": "no",
+    "evidence": "Uses the original replay system (switch in DLL/replay.inc L11).",
+    "sources": [
+     "https://github.com/Archer-Dante/Neora/blob/1565198f7d2509238c9f995ec2f27f8611b758ae/DLL/replay.inc#L11"
+    ]
+   },
+   "network": {
+    "value": "no",
+    "evidence": "Not a reimplementation: hooks/patches the original LF2.exe (e.g. JmpPatch at 0042D3E1h, DLL/Main.asm L380).",
+    "sources": [
+     "https://github.com/Archer-Dante/Neora/blob/1565198f7d2509238c9f995ec2f27f8611b758ae/DLL/Main.asm#L380"
+    ]
+   },
+   "automatedTests": {
+    "value": "no",
+    "evidence": "No tests.",
+    "sources": []
+   },
+   "comparesWithOriginal": {
+    "value": "no",
+    "evidence": "No tests.",
+    "sources": []
+   },
+   "nativeMacOS": {
+    "value": "no",
+    "evidence": "x86 MASM DLL for the Windows EXE; repo also ships PDK.exe and neora.dll binaries.",
+    "sources": [
+     "https://github.com/Archer-Dante/Neora/blob/1565198f7d2509238c9f995ec2f27f8611b758ae/DLL/Main.asm#L1-L20"
+    ]
+   },
+   "loadsNTSD24Data": {
+    "value": "unknown",
+    "evidence": "Not tested; tied to LF2.exe addresses.",
+    "sources": []
+   }
+  },
+  "s911415/html5-lf2": {
+   "readsOriginalDat": {
+    "value": "no",
+    "evidence": "Ships pre-converted plain-text data with .png/.m4a references (src/data/**, 136 .txt files); no decryption code.",
+    "sources": [
+     "https://github.com/s911415/html5-lf2/blob/6685993b4e50bd559e381de5586e8d2111a0d510/src/data"
+    ]
+   },
+   "frameStateMachine": {
+    "value": "yes",
+    "evidence": "wait-based frame stepping (src/js/lf2/items/GameItem.js L237, L281; frame/Frame.js).",
+    "sources": [
+     "https://github.com/s911415/html5-lf2/blob/6685993b4e50bd559e381de5586e8d2111a0d510/src/js/lf2/items/GameItem.js#L237"
+    ]
+   },
+   "combatBoxes": {
+    "value": "yes",
+    "evidence": "itr -> damage (src/js/lf2/items/Character.js L699-711), Interaction.js/Body.js.",
+    "sources": [
+     "https://github.com/s911415/html5-lf2/blob/6685993b4e50bd559e381de5586e8d2111a0d510/src/js/lf2/items/Character.js#L699-L711"
+    ]
+   },
+   "physics": {
+    "value": "yes",
+    "evidence": "GRAVITY = 1.7 (src/js/lf2/items/GameItem.js L24); 3D Cube.js.",
+    "sources": [
+     "https://github.com/s911415/html5-lf2/blob/6685993b4e50bd559e381de5586e8d2111a0d510/src/js/lf2/items/GameItem.js#L24"
+    ]
+   },
+   "computerAI": {
+    "value": "no",
+    "evidence": "No AI code in src/js/lf2.",
+    "sources": []
+   },
+   "modesBeyondVS": {
+    "value": "no",
+    "evidence": "Levels: launch, selection, fight, help, settings (src/js/lf2/level/).",
+    "sources": [
+     "https://github.com/s911415/html5-lf2/blob/6685993b4e50bd559e381de5586e8d2111a0d510/src/js/lf2/level/FightLevel.js"
+    ]
+   },
+   "replays": {
+    "value": "no",
+    "evidence": "Course framework's Replay.js is an automated-test replay system ('自動測試重播系統', L8), unused by the LF2 code.",
+    "sources": [
+     "https://github.com/s911415/html5-lf2/blob/6685993b4e50bd559e381de5586e8d2111a0d510/src/js/Framework/Replay.js#L8"
+    ]
+   },
+   "network": {
+    "value": "no",
+    "evidence": "Framework has FancyWebSocket.js, unused in src/js/lf2.",
+    "sources": []
+   },
+   "automatedTests": {
+    "value": "no",
+    "evidence": "package.json 'test' is the placeholder string 'QQP LF2 version.html5' (L10); no test scripts.",
+    "sources": [
+     "https://github.com/s911415/html5-lf2/blob/6685993b4e50bd559e381de5586e8d2111a0d510/package.json#L10"
+    ]
+   },
+   "comparesWithOriginal": {
+    "value": "no",
+    "evidence": "No tests.",
+    "sources": []
+   },
+   "nativeMacOS": {
+    "value": "no",
+    "evidence": "Browser app (Chrome 59+, bundled Apache in a Windows installer).",
+    "sources": [
+     "https://github.com/s911415/html5-lf2/blob/6685993b4e50bd559e381de5586e8d2111a0d510/README.md#L15-L21"
+    ]
+   },
+   "loadsNTSD24Data": {
+    "value": "unknown",
+    "evidence": "Not tested; no runtime DAT decryption.",
+    "sources": []
+   }
+  },
+  "Razenpok-Graveyard/lf2net": {
+   "readsOriginalDat": {
+    "value": "partial",
+    "evidence": "Offline converter Lf2datConverter decrypts (Decryptor.cs L9 key) and converts to JSON; game loads Content/Characters/Davis/Davis.json (one character).",
+    "sources": [
+     "https://github.com/Razenpok-Graveyard/lf2net/blob/79ce11f0890b3d82279129c3660def6a6e9bed43/Lf2datConverter/Decryptor.cs#L9"
+    ]
+   },
+   "frameStateMachine": {
+    "value": "partial",
+    "evidence": "wait countdown -> NextFrame and key-triggered actions (Lf2net/Character.cs L29-52).",
+    "sources": [
+     "https://github.com/Razenpok-Graveyard/lf2net/blob/79ce11f0890b3d82279129c3660def6a6e9bed43/Lf2net/Character.cs#L29-L52"
+    ]
+   },
+   "combatBoxes": {
+    "value": "no",
+    "evidence": "bdy only parsed by the converter (Lf2datConverter/dat/BaseParser.cs L311); no hit logic in the game.",
+    "sources": [
+     "https://github.com/Razenpok-Graveyard/lf2net/blob/79ce11f0890b3d82279129c3660def6a6e9bed43/Lf2datConverter/dat/BaseParser.cs#L311"
+    ]
+   },
+   "physics": {
+    "value": "no",
+    "evidence": "2D walking clamped to floor bounds; no gravity/jump (Lf2net/Character.cs L62-63).",
+    "sources": [
+     "https://github.com/Razenpok-Graveyard/lf2net/blob/79ce11f0890b3d82279129c3660def6a6e9bed43/Lf2net/Character.cs#L62-L63"
+    ]
+   },
+   "computerAI": {
+    "value": "no",
+    "evidence": "None.",
+    "sources": []
+   },
+   "modesBeyondVS": {
+    "value": "no",
+    "evidence": "None.",
+    "sources": []
+   },
+   "replays": {
+    "value": "no",
+    "evidence": "None.",
+    "sources": []
+   },
+   "network": {
+    "value": "no",
+    "evidence": "None ('net' = .NET).",
+    "sources": []
+   },
+   "automatedTests": {
+    "value": "no",
+    "evidence": "No tests.",
+    "sources": []
+   },
+   "comparesWithOriginal": {
+    "value": "no",
+    "evidence": "No tests.",
+    "sources": []
+   },
+   "nativeMacOS": {
+    "value": "no",
+    "evidence": "MonoGamePlatform Windows, WinExe, .NET Framework 4.5 (Lf2net/Lf2net.csproj L9-17).",
+    "sources": [
+     "https://github.com/Razenpok-Graveyard/lf2net/blob/79ce11f0890b3d82279129c3660def6a6e9bed43/Lf2net/Lf2net.csproj#L9-L17"
+    ]
+   },
+   "loadsNTSD24Data": {
+    "value": "unknown",
+    "evidence": "Not tested.",
+    "sources": []
+   }
+  },
+  "Tomius/LittleFighter": {
+   "readsOriginalDat": {
+    "value": "no",
+    "evidence": "Own sprites/levels; no DAT parser.",
+    "sources": []
+   },
+   "frameStateMachine": {
+    "value": "partial",
+    "evidence": "Own animation/action system (animate.c), not LF2 frames/wait/next.",
+    "sources": [
+     "https://github.com/Tomius/LittleFighter/blob/6b3651cdf19211c6849de97d1874af6400f6524b/animate.c"
+    ]
+   },
+   "combatBoxes": {
+    "value": "partial",
+    "evidence": "Own hit/collision code (hit.c, collision.c); README: 'entirely different combat system'.",
+    "sources": [
+     "https://github.com/Tomius/LittleFighter/blob/6b3651cdf19211c6849de97d1874af6400f6524b/README.md#L4"
+    ]
+   },
+   "physics": {
+    "value": "yes",
+    "evidence": "Own 2.5D movement with vz and jumps (controls.c L131-175).",
+    "sources": [
+     "https://github.com/Tomius/LittleFighter/blob/6b3651cdf19211c6849de97d1874af6400f6524b/controls.c#L131-L175"
+    ]
+   },
+   "computerAI": {
+    "value": "yes",
+    "evidence": "AI.c (Melee_AI etc., 510 LOC).",
+    "sources": [
+     "https://github.com/Tomius/LittleFighter/blob/6b3651cdf19211c6849de97d1874af6400f6524b/AI.c"
+    ]
+   },
+   "modesBeyondVS": {
+    "value": "no",
+    "evidence": "No LF2 modes; own Story/Survival/Practice menu (menu.c L42-51).",
+    "sources": [
+     "https://github.com/Tomius/LittleFighter/blob/6b3651cdf19211c6849de97d1874af6400f6524b/menu.c#L42-L51"
+    ]
+   },
+   "replays": {
+    "value": "no",
+    "evidence": "None.",
+    "sources": []
+   },
+   "network": {
+    "value": "no",
+    "evidence": "None.",
+    "sources": []
+   },
+   "automatedTests": {
+    "value": "no",
+    "evidence": "No tests.",
+    "sources": []
+   },
+   "comparesWithOriginal": {
+    "value": "no",
+    "evidence": "No tests; different rules by design.",
+    "sources": []
+   },
+   "nativeMacOS": {
+    "value": "unknown",
+    "evidence": "C + SDL 1.2 Makefile via sdl-config (Linux package names in README); not verified on macOS.",
+    "sources": [
+     "https://github.com/Tomius/LittleFighter/blob/6b3651cdf19211c6849de97d1874af6400f6524b/Makefile#L2"
+    ]
+   },
+   "loadsNTSD24Data": {
+    "value": "no",
+    "evidence": "No LF2 data loader.",
+    "sources": []
+   }
+  },
+  "shivamshekhar/LittleFighter": {
+   "readsOriginalDat": {
+    "value": "no",
+    "evidence": "Characters hard-coded in Python (data/characters/davis.py, bandit.py) with BMP sheets.",
+    "sources": [
+     "https://github.com/shivamshekhar/LittleFighter/blob/ab018c9041872bdcf84c45b0b03c6d3589fe47de/data/characters/davis.py"
+    ]
+   },
+   "frameStateMachine": {
+    "value": "no",
+    "evidence": "Sprite-sheet animation in Python classes; no LF2 frames.",
+    "sources": []
+   },
+   "combatBoxes": {
+    "value": "no",
+    "evidence": "No itr/bdy model.",
+    "sources": []
+   },
+   "physics": {
+    "value": "partial",
+    "evidence": "gravity = 1 (data/constants.py L6) and jumping; no LF2 z-depth model.",
+    "sources": [
+     "https://github.com/shivamshekhar/LittleFighter/blob/ab018c9041872bdcf84c45b0b03c6d3589fe47de/data/constants.py#L6"
+    ]
+   },
+   "computerAI": {
+    "value": "partial",
+    "evidence": "11-line chase logic (data/ai_movement.py).",
+    "sources": [
+     "https://github.com/shivamshekhar/LittleFighter/blob/ab018c9041872bdcf84c45b0b03c6d3589fe47de/data/ai_movement.py"
+    ]
+   },
+   "modesBeyondVS": {
+    "value": "no",
+    "evidence": "None.",
+    "sources": []
+   },
+   "replays": {
+    "value": "no",
+    "evidence": "None.",
+    "sources": []
+   },
+   "network": {
+    "value": "no",
+    "evidence": "None.",
+    "sources": []
+   },
+   "automatedTests": {
+    "value": "no",
+    "evidence": "No tests.",
+    "sources": []
+   },
+   "comparesWithOriginal": {
+    "value": "no",
+    "evidence": "No tests.",
+    "sources": []
+   },
+   "nativeMacOS": {
+    "value": "no",
+    "evidence": "Python 2-only as-is (data/main.py L119 'print davis.isJumping' is a SyntaxError under Python 3); ships a py2exe Windows build (dist/lf.exe).",
+    "sources": [
+     "https://github.com/shivamshekhar/LittleFighter/blob/ab018c9041872bdcf84c45b0b03c6d3589fe47de/data/main.py#L119"
+    ]
+   },
+   "loadsNTSD24Data": {
+    "value": "no",
+    "evidence": "No LF2 data loader.",
+    "sources": []
+   }
+  },
+  "GDur/jLF2": {
+   "readsOriginalDat": {
+    "value": "no",
+    "evidence": "Loads PNG sprites only (src/sprite/woody.png).",
+    "sources": []
+   },
+   "frameStateMachine": {
+    "value": "no",
+    "evidence": "Sprite animation only (src/Client/Animation.java, AnimationTree.java).",
+    "sources": [
+     "https://github.com/GDur/jLF2/blob/e63bdbef30c29655652e889f6935bcc700a391f0/src/Client/Animation.java"
+    ]
+   },
+   "combatBoxes": {
+    "value": "no",
+    "evidence": "None.",
+    "sources": []
+   },
+   "physics": {
+    "value": "no",
+    "evidence": "None.",
+    "sources": []
+   },
+   "computerAI": {
+    "value": "no",
+    "evidence": "None.",
+    "sources": []
+   },
+   "modesBeyondVS": {
+    "value": "no",
+    "evidence": "None.",
+    "sources": []
+   },
+   "replays": {
+    "value": "no",
+    "evidence": "None.",
+    "sources": []
+   },
+   "network": {
+    "value": "no",
+    "evidence": "Package names Client/Server only; no socket code (267 Java LOC total).",
+    "sources": [
+     "https://github.com/GDur/jLF2/blob/e63bdbef30c29655652e889f6935bcc700a391f0/src/Server/Main.java"
+    ]
+   },
+   "automatedTests": {
+    "value": "no",
+    "evidence": "No tests.",
+    "sources": []
+   },
+   "comparesWithOriginal": {
+    "value": "no",
+    "evidence": "No tests.",
+    "sources": []
+   },
+   "nativeMacOS": {
+    "value": "unknown",
+    "evidence": "Java + bundled Processing core.jar (JVM is cross-platform); not verified.",
+    "sources": []
+   },
+   "loadsNTSD24Data": {
+    "value": "no",
+    "evidence": "No LF2 data loader.",
+    "sources": []
+   }
+  },
+  "fishfolk/punchy": {
+   "readsOriginalDat": {
+    "value": "no",
+    "evidence": "Own YAML assets (assets/fighters/, assets/levels/).",
+    "sources": []
+   },
+   "frameStateMachine": {
+    "value": "partial",
+    "evidence": "Own fighter state machine (src/fighter_state.rs, 1.8k LOC), not LF2 frames/wait/next.",
+    "sources": [
+     "https://github.com/fishfolk/punchy/blob/ab48fe1545bba2c9bc8d0c971d8d7fc4efd7f74e/src/fighter_state.rs"
+    ]
+   },
+   "combatBoxes": {
+    "value": "partial",
+    "evidence": "Own hitboxes (src/attack.rs, src/collision.rs), not LF2 itr/bdy.",
+    "sources": [
+     "https://github.com/fishfolk/punchy/blob/ab48fe1545bba2c9bc8d0c971d8d7fc4efd7f74e/src/attack.rs"
+    ]
+   },
+   "physics": {
+    "value": "yes",
+    "evidence": "gravity in fighter metadata (src/metadata.rs L149), 2.5D movement.",
+    "sources": [
+     "https://github.com/fishfolk/punchy/blob/ab48fe1545bba2c9bc8d0c971d8d7fc4efd7f74e/src/metadata.rs#L149"
+    ]
+   },
+   "computerAI": {
+    "value": "yes",
+    "evidence": "'Enemy fighter AI' (src/enemy_ai.rs L1).",
+    "sources": [
+     "https://github.com/fishfolk/punchy/blob/ab48fe1545bba2c9bc8d0c971d8d7fc4efd7f74e/src/enemy_ai.rs#L1"
+    ]
+   },
+   "modesBeyondVS": {
+    "value": "no",
+    "evidence": "No LF2 modes; own level progression.",
+    "sources": []
+   },
+   "replays": {
+    "value": "no",
+    "evidence": "None.",
+    "sources": []
+   },
+   "network": {
+    "value": "no",
+    "evidence": "No network code found.",
+    "sources": []
+   },
+   "automatedTests": {
+    "value": "yes",
+    "evidence": "Minimal: 1 #[test] (URL query parsing, src/config.rs L124); CI runs only cargo fmt + clippy.",
+    "sources": [
+     "https://github.com/fishfolk/punchy/blob/ab48fe1545bba2c9bc8d0c971d8d7fc4efd7f74e/src/config.rs#L124",
+     "https://github.com/fishfolk/punchy/blob/ab48fe1545bba2c9bc8d0c971d8d7fc4efd7f74e/.github/workflows/ci.yml"
+    ]
+   },
+   "comparesWithOriginal": {
+    "value": "no",
+    "evidence": "Not an LF2 implementation.",
+    "sources": []
+   },
+   "nativeMacOS": {
+    "value": "yes",
+    "evidence": "CD builds x86_64- and aarch64-apple-darwin binaries (.github/workflows/cd.yml L18-19); v0.3.0 release has both tarballs.",
+    "sources": [
+     "https://github.com/fishfolk/punchy/blob/ab48fe1545bba2c9bc8d0c971d8d7fc4efd7f74e/.github/workflows/cd.yml#L18-L19",
+     "https://github.com/fishfolk/punchy/releases/tag/v0.3.0"
+    ]
+   },
+   "loadsNTSD24Data": {
+    "value": "no",
+    "evidence": "No LF2 DAT support.",
+    "sources": []
+   }
+  },
+  "Mesujin/LF2-AI-ScriptEngine": {
+   "readsOriginalDat": {
+    "value": "no",
+    "evidence": "Not an engine: AI add-on running inside the original LF2.exe (reads its memory via Resources/Includes/game.h).",
+    "sources": [
+     "https://github.com/Mesujin/LF2-AI-ScriptEngine/blob/01dd1e8bf7e6706219f0e8008e40acd2853679f2/Resources/Includes/game.h"
+    ]
+   },
+   "frameStateMachine": {
+    "value": "no",
+    "evidence": "Not an engine: AI add-on running inside the original LF2.exe (reads its memory via Resources/Includes/game.h).",
+    "sources": [
+     "https://github.com/Mesujin/LF2-AI-ScriptEngine/blob/01dd1e8bf7e6706219f0e8008e40acd2853679f2/Resources/Includes/game.h"
+    ]
+   },
+   "combatBoxes": {
+    "value": "no",
+    "evidence": "Not an engine: AI add-on running inside the original LF2.exe (reads its memory via Resources/Includes/game.h).",
+    "sources": [
+     "https://github.com/Mesujin/LF2-AI-ScriptEngine/blob/01dd1e8bf7e6706219f0e8008e40acd2853679f2/Resources/Includes/game.h"
+    ]
+   },
+   "physics": {
+    "value": "no",
+    "evidence": "Not an engine: AI add-on running inside the original LF2.exe (reads its memory via Resources/Includes/game.h).",
+    "sources": [
+     "https://github.com/Mesujin/LF2-AI-ScriptEngine/blob/01dd1e8bf7e6706219f0e8008e40acd2853679f2/Resources/Includes/game.h"
+    ]
+   },
+   "modesBeyondVS": {
+    "value": "no",
+    "evidence": "Not an engine: AI add-on running inside the original LF2.exe (reads its memory via Resources/Includes/game.h).",
+    "sources": [
+     "https://github.com/Mesujin/LF2-AI-ScriptEngine/blob/01dd1e8bf7e6706219f0e8008e40acd2853679f2/Resources/Includes/game.h"
+    ]
+   },
+   "network": {
+    "value": "no",
+    "evidence": "Not an engine: AI add-on running inside the original LF2.exe (reads its memory via Resources/Includes/game.h).",
+    "sources": [
+     "https://github.com/Mesujin/LF2-AI-ScriptEngine/blob/01dd1e8bf7e6706219f0e8008e40acd2853679f2/Resources/Includes/game.h"
+    ]
+   },
+   "computerAI": {
+    "value": "yes",
+    "evidence": "AngelScript AI scripting for the original game ('main processor of the AI-Scripting', engine.cpp L2).",
+    "sources": [
+     "https://github.com/Mesujin/LF2-AI-ScriptEngine/blob/01dd1e8bf7e6706219f0e8008e40acd2853679f2/Resources/Includes/engine.cpp#L2"
+    ]
+   },
+   "replays": {
+    "value": "no",
+    "evidence": "Only keeps the original's replay determinism ('random function that works with replays', engine.cpp L543).",
+    "sources": [
+     "https://github.com/Mesujin/LF2-AI-ScriptEngine/blob/01dd1e8bf7e6706219f0e8008e40acd2853679f2/Resources/Includes/engine.cpp#L543"
+    ]
+   },
+   "automatedTests": {
+    "value": "no",
+    "evidence": "No tests.",
+    "sources": []
+   },
+   "comparesWithOriginal": {
+    "value": "no",
+    "evidence": "No tests.",
+    "sources": []
+   },
+   "nativeMacOS": {
+    "value": "no",
+    "evidence": "Windows ddraw.dll proxy (Resources/Includes/platform.def exports DirectDrawCreate) + Detours.",
+    "sources": [
+     "https://github.com/Mesujin/LF2-AI-ScriptEngine/blob/01dd1e8bf7e6706219f0e8008e40acd2853679f2/Resources/Includes/platform.def"
+    ]
+   },
+   "loadsNTSD24Data": {
+    "value": "unknown",
+    "evidence": "Not tested.",
+    "sources": []
+   }
+  }
+ },
+ "aggregates": {
+  "repositories": 13,
+  "withAnyAutomatedTests": [
+   "atom-tm/l2df-engine",
+   "gimhol/Little-Fighter-Wemake",
+   "Project-F/F.LF",
+   "fishfolk/punchy"
+  ],
+  "comparingWithOriginalPartially": [
+   "atom-tm/l2df-engine",
+   "Project-F/F.LF"
+  ],
+  "comparingWithOriginalFully": [],
+  "nativeMacOSYes": [
+   "fishfolk/punchy"
+  ],
+  "readsEncryptedDatAtRuntime": [
+   "Mesujin/LF2-Enchanted-4th"
+  ],
+  "modesBeyondVSYesOrPartial": [
+   "gimhol/Little-Fighter-Wemake"
+  ],
+  "replaysYes": [
+   "atom-tm/l2df-engine"
+  ],
+  "testsRunInCI": [],
+  "testsRunInCINote": "No CI workflow in any of the 13 repos runs tests (Wemake builds/deploys only; Punchy CI runs cargo fmt + clippy; L2DF/F.LF have no CI).",
+  "starsTotal": 845,
+  "reposWithAtMost2GitHubAccountContributors": [
+   "atom-tm/l2df-engine",
+   "gimhol/Little-Fighter-Wemake",
+   "Mesujin/LF2-Enchanted-4th",
+   "xsoameix/openlf2",
+   "Archer-Dante/Neora",
+   "s911415/html5-lf2",
+   "Razenpok-Graveyard/lf2net",
+   "Tomius/LittleFighter",
+   "shivamshekhar/LittleFighter",
+   "GDur/jLF2",
+   "Mesujin/LF2-AI-ScriptEngine"
+  ]
+ },
+ "knownIncompatibilitiesFromSurvey": [
+  {
+   "candidate": "Project-F/F.LF",
+   "case": "repeated frame definition",
+   "finding": "Converter keeps only the second definition (name 'second', pic 2); wait=3/next=0 from the first are lost. NTSD contract keeps omitted numeric fields. NTSD naruto.dat defines frame 123 twice.",
+   "source": "docs/research/LF2_OPEN_SOURCE_ENGINES.md#повторное-определение-кадра; https://github.com/Project-F/F.LF/blob/21341737e4154d06d9784e9a629c9dd4db9148d6/tools/data_file_converter.js#L137"
+  },
+  {
+   "candidate": "atom-tm/l2df-engine",
+   "case": "chars/weapon4.dat (Kunai)",
+   "finding": "59 frame markers -> 43 top-level records (frames 49-55, 60-64, 70-72, 399 nested in 48) vs 58 definitions in the original loader (frame 49 swallowed by unclosed itr).",
+   "source": "docs/research/LF2_OPEN_SOURCE_ENGINES.md#l2df-и-три-настоящих-файла; https://github.com/atom-tm/l2df-engine/blob/a20a16f2e8c9e889e33b3d762c94dc49498d0f83/tools/lf2dat.lua#L536"
+  },
+  {
+   "candidate": "atom-tm/l2df-engine",
+   "case": "repeated frame definition",
+   "finding": "Two independent records; Frames:add stores storage.list[frame.id] = frame (static inference that the second replaces the first).",
+   "source": "https://github.com/atom-tm/l2df-engine/blob/a20a16f2e8c9e889e33b3d762c94dc49498d0f83/src/class/component/frames.lua#L111"
+  }
+ ],
+ "contextProjectPort": {
+  "note": "For comparison only; cloc of git-tracked Swift at ntsd-2.4 HEAD fc959db (read-only). Parity claims about the port were not verified in this task.",
+  "runtimeSwift": {
+   "NTSDCore": 27431,
+   "NTSDMacPlatform": 3924,
+   "NTSDApp": 1356,
+   "total": 32711
+  },
+  "referenceCheckToolingSwift": {
+   "NTSDReferenceChecks": 10932,
+   "smallCheckCLIs": 502
+  },
+  "testsSwift": 45074
+ }
+}
