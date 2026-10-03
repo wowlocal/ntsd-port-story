@@ -3,14 +3,76 @@ layout: chapter
 num: 12
 total: 13
 kicker: Сообщество
-dates: Discord · 2024 → 3 октября 2026
+dates: 2007 → 3 октября 2026
 image: /img/screens/10-team-tournament-bracket-winner.png
 stats: Discord · лента · что дальше
 ---
 
 # Игру не бросали
 
-В самом конце нашлось сообщество, которое годами развивает NTSD без единой строчки исходников. Ему и отдали переписанную игру.
+В самом конце нашлось сообщество, которое с 2007 года развивает NTSD без единой строчки исходников. Ему и отдали переписанную игру.
+
+---
+
+<Kicker>история · 2007–2026</Kicker>
+
+# Девятнадцать лет без исходников
+
+<HistoryTimeline class="mt-1" from="2007-07-01" to="2026-12-31" :ticks="['2008-01-01', '2010-01-01', '2012-01-01', '2014-01-01', '2016-01-01', '2018-01-01', '2020-01-01', '2022-01-01', '2024-01-01', '2026-01-01']" :height="142" :axis="80"
+  :kinds="{ ntsd: { color: '#c3c2b7', name: 'версии NTSD' }, base: { color: 'var(--s1)', name: 'основа порта' }, community: { color: 'var(--s3)', name: 'сообщество' }, port: { color: 'var(--naruto)', name: 'этот порт' } }"
+  :events="[
+    { t: '2007-11-15', label: '2007 · тема на форуме LF-Empire', row: 3, kind: 'community' },
+    { t: '2008-01-23', label: 'Beta 1.8', row: -1, kind: 'ntsd' },
+    { t: '2008-09-01', label: '2.1–2.3', row: 2, kind: 'ntsd' },
+    { t: '2009-06-14', label: '14.06.2009 · NTSD 2.4', row: 1, kind: 'ntsd' },
+    { t: '2010-11-01', label: '2010–2011 · 2.4_2.0a + lib.dll', sub: 'основа порта', row: -2, kind: 'base' },
+    { t: '2014-12-26', label: 'Neora · 2014', row: 1, end: true, kind: 'ntsd' },
+    { t: '2015-07-01', label: 'турнир 2015 · .lfr', row: -1, end: true, kind: 'community' },
+    { t: '2016-12-01', label: 'Discord · 2016', row: 1, kind: 'community' },
+    { t: '2018-07-07', label: 'Community Edition · 2018', row: -1, end: true, kind: 'ntsd' },
+    { t: '2019-02-19', label: 'NTSD 2.5 · 2019', sub: '«after 10 years of inactivity»', row: 2, kind: 'ntsd' },
+    { t: '2019-09-19', label: 'NTSD 2.6', sub: 'Конан, высокое разрешение', row: -2, kind: 'ntsd' },
+    { t: '2021-06-07', label: '2021 · «…I would have to move to a new engine»', row: 1, kind: 'community' },
+    { t: '2026-10-02', label: '2 окт 2026 · «Not anymore 🙂»', row: -1, end: true, kind: 'port' },
+  ]" />
+
+<div class="grid grid-cols-3 gap-4 mt-2 xsmall ink2">
+<div><b class="ink">«2.4_2.0a» — не новая версия, а пересадка.</b> Кредиты и <code>data.txt</code> совпадают побайтно; EXE заменён на LF2 2.0a ради фикса зеркальных спрайтов — 326 файлов <code>*_mirror.bmp</code>.</div>
+<div><b class="ink">Сообщество живо.</b> В Discord около 3 842 участников, на форуме с 2008 года — 6 390 пользователей и 273 666 сообщений; NTSD 2.6 на ModDB скачали около 49,8 тыс. раз.</div>
+<div><b class="ink">Исходники закрыты официально.</b> FAQ LF2: «Will LF2 be open source? No, we are not planning to do that.» Новые сборки после 2.6 раздают только через Discord.</div>
+</div>
+
+<div class="source">форумы LF-Empire и NTSD (снимки Wayback) · ModDB · lf2.net FAQ · локальный дистрибутив 2.4_2.0a · data/evidence/ntsd-history.json</div>
+
+---
+
+<Kicker>авторы и моддеры</Kicker>
+
+# Тысяча hex-правок и одна DLL
+
+<div class="grid grid-cols-[1fr_1.25fr] gap-5 mt-2">
+<div>
+<div class="card-soft">
+<div class="pixel hl small">Little Fighter 2</div>
+<p class="xsmall ink2 mb-0" style="line-height: 1.45">Марти Вонг и Старски Вонг, 1999. «Are Marti and Starsky brothers? — No, but we are very good friends». Visual C++ и DirectX; исходники не открывали. Старски — PhD в UCLA, IBM Research, теперь Tech Lead в Meta. Марти 18 июля 2025 года выпустил Little Fighter 2 Remastered в Steam — для Windows и macOS.</p>
+</div>
+<div class="card-soft mt-3">
+<div class="pixel hl small">NTSD</div>
+<p class="xsmall ink2 mb-0" style="line-height: 1.45">Основатель — zxcv11791: «leader, coder, sprites, stages», команда около десяти человек. В 2018 году он вернулся с NTSD Z. Высказываний авторов об исходниках, разрешениях или порте не нашлось.</p>
+</div>
+</div>
+<div class="small ink2">
+
+- **2009:** «the mods for LF2 include more than 1000 hex edits, thus the creators are not willing to redo their whole work».
+- **`lib.dll`** повторяет туториал 2009 года «Patching exe to load DLL»: точка входа уводится в пустое место кода и вызывает `LoadLibraryA`. DLL переписывает 62 байта в 13 местах EXE — ровно это нашёл порт.
+- **2016:** форумчанин угадал «a new 4xxx transformation state». Порт нашёл хук трансформаций с ветвью 4000-диапазона.
+- **Neora** собрали три сообщества: EXE от Alkarter (китайское), DLL-каркас Silva (LF-Empire), сборка Archer-Dante с русского lfforever.ru, 2014. Имя — «Neo» + «Ra» от `rarara.dll`.
+- **Предел:** «DC has a set, defined limit of impossibility, whereas Hex really does not» (2009) — и «no way to fix it… I would have to move to a new engine» (Tyci, 2021).
+
+</div>
+</div>
+
+<div class="source">lf2.net FAQ и страница Starsky Wong · Steam · LF-Empire: «Patching exe to load DLL», LF2 DLL Framework, Neora · форум NTSD · ntsd-2.4: LIB_RUNTIME.md</div>
 
 ---
 
@@ -27,7 +89,7 @@ stats: Discord · лента · что дальше
 ]" />
 <div class="small ink2">
 
-Так NTSD живёт годами. Персонажей, объекты и фоны меняют в DAT-файлах и картинках. Всё, что касается самого движка, правят патчами EXE и DLL на ассемблере.
+Так NTSD живёт с 2007 года. Персонажей, объекты и фоны меняют в DAT-файлах и картинках. Всё, что касается самого движка, правят патчами EXE и DLL на ассемблере.
 
 В нашем baseline тоже лежит такая библиотека: `lib.dll` на старте патчит код игры (глава 3).
 

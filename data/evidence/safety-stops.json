@@ -1,0 +1,238 @@
+{
+  "schemaVersion": 1,
+  "generatedUTC": "2026-10-03T19:00:00Z",
+  "scope": "Retrospective inventory of model-safety stops that affected the NTSD 2.4 native-port project (repo ntsd-2.4). Built from the project's own refusal register and study docs, from Codex rollout logs (~/.codex/sessions) and Claude Code transcripts (~/.claude/projects). Records only product error/notice text and the project's own operation-category labels. No rejected output, prompt or triggering tool call is reconstructed. The register itself states the exact trigger of each event is unknown and that a saved error proves neither a user violation nor that the decision was wrong.",
+  "method_notes": [
+    "Codex: only top-level event_msg/task_complete records whose structured payload carried codex_error_info were counted as real events; occurrences inside custom_tool_call / custom_tool_call_output / compaction records are agents reading logs and were excluded.",
+    "Codex tool refusals (Computer Use, web) were read from the tool-output record and attributed to the issuing call; app id and cwd preserved, no tool input text kept.",
+    "Claude Code: only assistant records with message.stop_reason == 'refusal' and client-inserted system/user-meta notices were counted; tool_result echoes were excluded.",
+    "Timestamps are UTC. blocked_hours is the span a dependent path was held, not a claim the incident itself was 'resolved' — the project keeps every incident open."
+  ],
+  "incidents": [
+    {
+      "id": "codex-cyber-1-result-recording",
+      "cluster": "headline",
+      "ts_first": "2026-09-09T15:34:43.170Z",
+      "ts_last": "2026-09-09T15:34:43.170Z",
+      "agent": "Codex (codex-tui)",
+      "model": "gpt-6-astra",
+      "source": "both (register + log)",
+      "error_code": "cyber_policy",
+      "notice": "This content was flagged for possible cybersecurity risk. ... To get authorized for security work, join the Trusted Access for Cyber program.",
+      "operation_category": "Round-result / replay-recording research: native result writer plus original-instruction reference harness with memory read/write observations",
+      "blocked_dependency": "Transfer of the whole result-recording caller into native/ (OriginalResultRecording) and the tick-output helpers",
+      "project_response": "Register preserved error, session/turn ids and preceding public tool calls; automated retry disallowed; dependency left open; independent permitted work continued. The 95-case controlled source suite was still running at the refusal and completed afterward (terminal job records, not the model turn, determine capture status).",
+      "resolution": "Dependent study completed from already-saved / terminal controlled-suite data (not by retrying the blocked operation): 'accept result recording and native tick output helpers' committed same day. The incident itself is kept open per project rules.",
+      "resolution_ts": "2026-09-09T18:04:32Z",
+      "blocked_hours": 2.5,
+      "incident_status_per_project": "open",
+      "followed_no_reroute_rule": "yes",
+      "characterization": "Register: exactBlockedOutputAvailable=false, exactTriggerKnown=false; the last completed command is not treated as a proven trigger. Not called a false positive by the records.",
+      "sources": [
+        "docs/evidence/codex-safety-incidents-2026-09-12.json:6-78 (id cyber-20260909T153443)",
+        "~/.codex/sessions/2026/09/07/rollout-2026-09-07T13-21-40-01a07b63-4c10-7961-b6ca-c40ba84878b5.jsonl:35763",
+        "docs/research/RESULT_RECORDING.md (whole result-recording caller; 'initial source process was terminal before continuation from its checkpoint')",
+        "commit 4678f1d 2026-09-09T18:04:32Z 'feat: accept result recording and native tick output helpers'"
+      ]
+    },
+    {
+      "id": "codex-cyber-2-library-transforms",
+      "cluster": "headline",
+      "ts_first": "2026-09-09T23:10:02.623Z",
+      "ts_last": "2026-09-09T23:10:02.623Z",
+      "agent": "Codex (codex-tui)",
+      "model": "gpt-6-astra",
+      "source": "both (register + log)",
+      "error_code": "cyber_policy",
+      "notice": "This content was flagged for possible cybersecurity risk. ... join the Trusted Access for Cyber program.",
+      "operation_category": "Installed-library transformations: Actor+0x7b4 write beyond the recovered 0x420 allocation, controlled aliases and unmapped-write failure boundaries",
+      "blocked_dependency": "Native library-transform ownership / slot-prefix comparison contract (OriginalLibTransformBacking)",
+      "project_response": "Register preserved error and identifiers; retry disallowed; dependency kept open; independent work continued. (A usage_limit_exceeded notice also hit the same session on 2026-09-10, a separate non-safety stop.)",
+      "resolution": "Dependent Native contract completed from already-published / immutable saved results (no EXE/DLL or source producer rerun): LIB_TRANSFORMS study and native catalog/transform files committed 2026-09-12. The incident itself is kept open.",
+      "resolution_ts": "2026-09-12T06:53:48Z",
+      "blocked_hours": 55.7,
+      "incident_status_per_project": "open",
+      "followed_no_reroute_rule": "yes",
+      "characterization": "Register: exactBlockedOutputAvailable=false, exactTriggerKnown=false. LIB_TRANSFORMS.md: 'no ... previous safety incident is cleared by this independent work.' Not called a false positive by the records.",
+      "sources": [
+        "docs/evidence/codex-safety-incidents-2026-09-12.json:80-151 (id cyber-20260909T231002)",
+        "~/.codex/sessions/2026/09/09/rollout-2026-09-09T18-56-42-01a086e2-c001-7d50-ba6e-7fd76a1f342d.jsonl:5738",
+        "docs/research/LIB_TRANSFORMS.md:16-17,110",
+        "commit ab0db06 2026-09-12T06:53:48Z 'Complete native catalog files and library transform contracts'"
+      ]
+    },
+    {
+      "id": "codex-cyber-3-war-preparation",
+      "cluster": "headline",
+      "ts_first": "2026-09-12T00:30:32.397Z",
+      "ts_last": "2026-09-12T00:30:32.397Z",
+      "agent": "Codex (codex-tui)",
+      "model": "gpt-6-astra",
+      "source": "both (register + log)",
+      "error_code": "cyber_policy",
+      "notice": "This content was flagged for possible cybersecurity risk. ... join the Trusted Access for Cyber program.",
+      "operation_category": "War preparation: ordinary resource/allocation failures, retained bitmap ownership, release ordering and actual NULL memory faults in the Unicorn reference harness",
+      "blocked_dependency": "War-preparation resource-error evidence audit and its downstream native war handlers",
+      "project_response": "Register preserved error and identifiers; retry disallowed; dependency kept open. Some already-running capture jobs completed after the refusal; their terminal records, not the model response, determine execution status. The bounded-research WORKFLOW (including the 5-step refusal protocol) was formalized right after.",
+      "resolution": "War-preparation evidence preserved and audited from terminal captures (LIB_WAR_PREPARATION_ERRORS) committed 2026-09-12; WORKFLOW committed the same morning. Incident kept open.",
+      "resolution_ts": "2026-09-12T06:12:07Z",
+      "blocked_hours": 5.7,
+      "incident_status_per_project": "open",
+      "followed_no_reroute_rule": "yes",
+      "characterization": "Register: exactBlockedOutputAvailable=false, exactTriggerKnown=false. CURRENT_WORK: 'exact filter cause and withheld output unknown; the last completed command alone is not a proven trigger.' Not called a false positive by the records.",
+      "sources": [
+        "docs/evidence/codex-safety-incidents-2026-09-12.json:153-224 (id cyber-20260912T003032)",
+        "~/.codex/sessions/2026/09/09/rollout-2026-09-09T21-20-31-01a08766-6cdc-7b33-bb58-04076f1ec261.jsonl:40441",
+        "docs/research/LIB_WAR_PREPARATION_ERRORS.md:109-118",
+        "commit 9662e09 2026-09-12T06:12:07Z and commit ffe16f4 2026-09-12T05:49:16Z (WORKFLOW)"
+      ]
+    },
+    {
+      "id": "codex-computeruse-ghostty",
+      "cluster": "headline",
+      "ts_first": "2026-09-26T19:02:26Z",
+      "ts_last": "2026-09-26T19:02:56Z",
+      "ts_observed_tool_output": "2026-09-26T19:02:42.391Z",
+      "agent": "Codex Computer Use (CUA)",
+      "model": "gpt-6-astra",
+      "source": "both (register + log)",
+      "error_code": "Computer Use tool safety refusal",
+      "notice": "Computer Use is not allowed to use the app 'com.mitchellh.ghostty' for safety reasons.",
+      "operation_category": "Terminal-window (Ghostty) application access via Computer Use, while checking whether a macOS automation-permission prompt had appeared during Windows-reference environment setup",
+      "blocked_dependency": "Driving the Ghostty terminal UI through Computer Use for the reference-environment preparation",
+      "project_response": "New refusal record written (operation, exact response, timestamp uncertainty); Ghostty UI access stopped and not retried through AppleScript or any other technology. Record notes it is distinct from the separately-scoped macOS assistive-access error (-1728/-1712) on the authorized Wine query.",
+      "resolution": "Not retried. The reference-environment goal advanced the same day by other separately-authorized means (user-authorized AppleScript scoped to the Wine/NTSD window, GUI/Screenshot observation, CrossOver + UTM). The Ghostty-automation operation itself remains open/unused.",
+      "resolution_ts": null,
+      "blocked_hours": null,
+      "incident_status_per_project": "open",
+      "followed_no_reroute_rule": "yes",
+      "characterization": "Record: classification 'tool safety refusal specific to Ghostty app access; not AppleScript timeout and not cyber_policy output'; exact event timestamp unavailable in tool response. Not called a false positive by the records.",
+      "sources": [
+        "docs/evidence/codex-cua-ghostty-refusal-2026-09-26.json (whole file)",
+        "~/.codex/sessions/2026/09/26/rollout-2026-09-26T08-56-36-01a0dc49-738f-7972-8fb0-e98fb2f34408.jsonl:11812",
+        "docs/research/REFERENCE_ENVIRONMENT_ACCESS.md:14-32",
+        "commit 3cea373 2026-09-26T19:09:06Z 'Record macOS assistive-access boundary and preserve CUA refusal'"
+      ]
+    },
+    {
+      "id": "claude-network-integration",
+      "cluster": "headline",
+      "ts_first": "2026-10-01T18:06:07.306Z",
+      "ts_last": "2026-10-01T18:06:07.306Z",
+      "agent": "Claude Code",
+      "model": "claude-opus-5-5",
+      "source": "both (register + log)",
+      "error_code": "stop_reason: refusal (category in log: reasoning_extraction)",
+      "notice": "Claude: 'Opus 5.5's safeguards stopped the response above'. Client: 'Your response above was stopped by a safety classifier — this is not a tool or API error. ... Do not produce that content again, even reworded.' Log stop_details explanation cites Anthropic Terms of Service restrictions on reverse engineering or duplicating model outputs.",
+      "operation_category": "Network-play integration (N2): routing the window 0x401 notification into OriginalNetworkNotification during two-app LAN match work",
+      "blocked_dependency": "N2 host-greeting / notification route, and by an over-broad reading, N2-N5 network integration",
+      "project_response": "Refusal preserved in a dedicated record (public messages, request/message ids, line); affected operation not retried or rerouted; the active /loop was stopped; last visible progress noted with causalityEstablished=false. User deferred networking the same day; N1 kept committed, partial N2 preserved uncommitted.",
+      "resolution": "Deferred by user 2026-10-01 (committed 19:30Z). On 2026-10-02 the user lifted the deferral and removed the blanket N2-N5 hold as 'an unsupported interpretation of the saved incident'; networking N1-N5 was then implemented and independently reviewed to a full localhost Naruto/Sasuke match (commits 2026-10-02). The refusal record itself is kept open (exact withheld operation unknown).",
+      "resolution_ts": "2026-10-02T16:25:33Z",
+      "blocked_hours": 22.3,
+      "incident_status_per_project": "open",
+      "followed_no_reroute_rule": "unclear",
+      "no_reroute_note": "The immediate documented handling followed the rule strictly: deferred, preserved, loop stopped, no retry/reroute of the refused operation. The later completion is where the records are ambiguous: after the user lifted the hold, a different agent/model (Codex gpt-6-astra, session 01a0f597) implemented N2-N5 — the same broad task Claude had refused to continue. The project frames this as user-directed re-scoping (only the unknown specific operation stays blocked, not all networking), not as rerouting; but because the exact refused operation is unknown, the records cannot establish the new work did not re-execute it.",
+      "characterization": "Record: exactBlockedOutputAvailable=false, exactTriggerKnown=false; 'nearby file reads do not establish the cause.' NETWORK_PLAY.md: incident 'preserved without treating it as evidence that all network integration is prohibited.' Not called a false positive by the records.",
+      "sources": [
+        "docs/evidence/claude-code-network-safety-2026-10-01.json (whole file)",
+        "~/.claude/projects/-Users-michael-Developer-ntsd-2-4/7ea5b99f-68d1-4a00-8aa2-0da4bd065e97.jsonl:26926-26928",
+        "docs/research/NETWORK_PLAY.md:636-656 (deferred) and :6-19,601-634 (resumed/corrected)",
+        "commit 0efae95 2026-10-01T19:30:12Z (defer), commit a4fb48c 2026-10-02T16:25:33Z (hold removed), commits 1e600db..93e3989 2026-10-02 (N2-N5)"
+      ]
+    },
+    {
+      "id": "web-url-rejection-windows-iso",
+      "cluster": "supplementary",
+      "ts_first": "2026-09-10T02:57:13.134Z",
+      "ts_last": "2026-09-26T19:36:21.742Z",
+      "agent": "Codex web tool",
+      "model": "gpt-6-astra",
+      "source": "log + repo note (not in the 3-file register)",
+      "error_code": "web tool URL rejection (non-retryable)",
+      "notice": "URL https://go.microsoft.com/fwlink/?linkid=2276103 is not safe to open (non-retryable error)",
+      "operation_category": "Fetching an official Microsoft Windows 11 ARM evaluation download (Windows reference ISO) for the reference environment",
+      "blocked_dependency": "Obtaining a Windows reference ISO for first-menu GDI/cursor/NLS observation",
+      "project_response": "Preserved in build/research/windows-reference/download-refusal-20260910.json; the project explicitly classifies it as a web-tool URL rejection, 'not a cyber_policy or automatic approval-review response'; the rejected link was not retried through another tool; an available authorized reference was requested from the user.",
+      "resolution": "Obtained from a different official Microsoft endpoint (the windows11arm64 retail page the user pointed to) after the user authorized Windows setup; ISO SHA-verified and reached the installer 2026-09-26. A different legitimate source was used, not a retry of the rejected URL.",
+      "resolution_ts": "2026-09-26T19:39:44Z",
+      "blocked_hours": null,
+      "blocked_note": "Not a continuous block: independent native work proceeded for ~16 days; the ISO was re-prioritized only when the user authorized Windows setup on 2026-09-26.",
+      "incident_status_per_project": "the underlying rejected link stays recorded/open; the ISO dependency was satisfied from another source",
+      "followed_no_reroute_rule": "yes",
+      "characterization": "Project classifies this as a web URL rejection, explicitly not cyber_policy/approval-review; gameOrBuildStopped=false. Related but distinct generic web-tool 'not safe to open' rejections also occurred for ordinary documentation URLs (wiki.libsdl.org, project-f.github.io, api.github.com) and were not registered.",
+      "sources": [
+        "build/research/windows-reference/download-refusal-20260910.json (untracked working file)",
+        "docs/research/WINDOWS_REFERENCE_PLAN.md:43-50 and WINDOWS_REFERENCE_PREPARATION.md:53-59",
+        "~/.codex/sessions/2026/09/09/rollout-2026-09-09T21-20-31-01a08766-6cdc-7b33-bb58-04076f1ec261.jsonl:6369; ~/.codex/sessions/2026/09/26/rollout-2026-09-26T08-56-36-01a0dc49-738f-7972-8fb0-e98fb2f34408.jsonl:10511,10518,12479",
+        "docs/research/WINDOWS_UTM_REFERENCE_SETUP.md:23-33 (retail endpoint); WINDOWS_UTM_INSTALLER_START.md:9 (ISO complete); commit ab504f5 2026-09-26T19:47:39Z"
+      ]
+    },
+    {
+      "id": "claude-retrospective-classifier-stops",
+      "cluster": "meta",
+      "ts_first": "2026-10-03T18:57:50.008Z",
+      "ts_last": "2026-10-03T19:13:23.391Z",
+      "agent": "Claude Code (this retrospective session 4f2b8068 and its documentation subagent)",
+      "model": "claude-opus-5-5",
+      "source": "log only",
+      "error_code": "stop_reason: refusal (category: cyber)",
+      "notice": "'Opus 5.5's safeguards stopped the response above' / client: 'Your response above was stopped by a safety classifier — this is not a tool or API error.'",
+      "operation_category": "Writing this safety retrospective itself (handling the incident evidence and the recovered low-level reverse-engineering text)",
+      "blocked_dependency": "None in the port; the documentation turn was interrupted and continued",
+      "project_response": "Per the client contract the response was withheld and the session continued once with the stop noted; the subagent (this task) continued without reproducing the withheld content.",
+      "resolution": "Continued; both were transient single-response stops during documentation, not a port-development dependency. Recorded here for completeness because the task anticipated the 2026-10-03 classifier stop on session 4f2b8068.",
+      "resolution_ts": "2026-10-03T19:13:23.391Z",
+      "blocked_hours": 0,
+      "incident_status_per_project": "n/a (occurred while producing this deck)",
+      "followed_no_reroute_rule": "yes",
+      "characterization": "Meta-events: the retrospective about classifier stops itself triggered classifier stops (category cyber). Exact trigger not established; no content reproduced.",
+      "sources": [
+        "~/.claude/projects/-Users-michael-Developer-ntsd-2-4/4f2b8068-785d-4bf1-89e2-9748dfa5a3eb.jsonl:3712-3714 (req_011CffpDe3XGPTFKvHSWi2tG)",
+        "~/.claude/projects/-Users-michael-Developer-ntsd-2-4/4f2b8068-785d-4bf1-89e2-9748dfa5a3eb/subagents/agent-a53c549404d59f43b.jsonl:303 (req_011CffqRw6QWNJgePmvXf9fY)"
+      ]
+    }
+  ],
+  "aggregates": {
+    "headline_incident_count": 5,
+    "headline_matches_existing_deck_slide": true,
+    "supplementary_and_meta_count": 2,
+    "by_agent": {
+      "Codex gpt-6-astra (cyber_policy, port)": 3,
+      "Codex Computer Use (Ghostty, port)": 1,
+      "Codex web-tool URL rejection (Windows ISO, port)": 1,
+      "Claude Code (network integration, port)": 1,
+      "Claude Code (retrospective-writing meta stops, port)": 2
+    },
+    "by_day_port_headline": {
+      "2026-09-09": 2,
+      "2026-09-12": 1,
+      "2026-09-26": 1,
+      "2026-10-01": 1
+    },
+    "total_blocked_hours_where_known": {
+      "sum_hours": 91.9,
+      "components": {
+        "result_recording": 2.5,
+        "library_transforms": 55.7,
+        "war_preparation": 5.7,
+        "claude_network_until_hold_lifted": 22.3,
+        "ghostty": "open (not counted)",
+        "windows_iso": "deprioritized, not continuous (not counted)"
+      },
+      "caveat": "Hours measure how long each DEPENDENT path was held, not 'incident resolved'. Every registered incident is kept open by the project; library_transforms includes an unrelated usage-limit gap."
+    },
+    "events_found_in_logs_but_missing_from_register": [
+      "Claude Code refusal 2026-10-01T05:39:11.850Z (category cyber), port session 7ea5b99f, during app-launch/GDI text work; session continued normally the same minute; never registered.",
+      "Codex Computer Use refusal 2026-09-09T17:07:37.182Z on app 'com.openai.codex', port session 01a081f2; not registered (generic CUA guardrail on the Codex app itself).",
+      "Codex web-tool 'not safe to open' URL rejections in the port cwd for ordinary documentation URLs: wiki.libsdl.org and project-f.github.io (2026-09-07, session 01a07b63) and api.github.com (2026-09-12, session 01a09424); not registered.",
+      "The Windows-ISO web URL rejection (go.microsoft.com linkid=2276103) is preserved in a working file but not in the 3-file register.",
+      "The 2 Claude retrospective-writing classifier stops on 2026-10-03 (this session) are log-only by nature.",
+      "Out-of-project context (NOT NTSD): additional Codex Computer Use refusals on com.openai.codex / com.apple.SecurityAgent in other repos (crew, busy-codex, snippets, @oss/codex) on 2026-09-05/06/14/16, and many web URL rejections in other repos; excluded from NTSD incident counts."
+    ],
+    "register_entries_missing_from_logs": [
+      "None. All three codex-safety-incidents-2026-09-12.json entries were matched to their top-level event_msg/task_complete codex_error_info records at the exact session/line stated. The Ghostty record was matched to its CUA tool-output record. The Claude network record was matched to its assistant refusal + client notices. No registered event lacked a corresponding log event."
+    ],
+    "characterization_summary": "No record calls any incident a false positive. Every register entry states exactBlockedOutputAvailable=false and exactTriggerKnown=false; the project treats a saved error as proof of neither a violation nor a wrong decision. The author's belief that these were false positives blocking legitimate development is separate from this evidence."
+  }
+}

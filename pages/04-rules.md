@@ -189,15 +189,19 @@ stats: AGENTS.md 4 954 → 153 строки · WORKFLOW.md · реестр от�
 </div>
 <div>
 
-| дата | агент | что делалось | реакция |
-| --- | --- | --- | --- |
-| 9 сен | Codex | оракул записи результата раунда | раздел о целях проверок и протокол |
-| 9 сен | Codex | запись Actor за пределы 0x420 | инцидент открыт, повторы запрещены |
-| 12 сен | Codex | ошибки ресурсов War, NULL в Unicorn | доделано по уже сохранённым данным |
-| 26 сен | Codex, Computer Use | доступ к окну терминала | не повторять через другой инструмент |
-| 1 окт | Claude Code | сетевая интеграция | сеть отложена; 2 окт — запрет сужен |
+<div class="xsmall muted mb-1">как выглядело «нет» — тексты самих продуктов</div>
 
-<div class="xsmall muted mt-1">Во всех пяти записях <span class="mono">exactTriggerKnown: false</span>: связь с конкретным действием не установлена. «Сохранённые ошибки не доказывают ни нарушение пользователя, ни ложность решения».</div>
+<div class="notice"><span class="who">Codex · 9 и 12 сентября, трижды</span><span class="mono">cyber_policy</span> — «flagged for possible cybersecurity risk»</div>
+<div class="notice"><span class="who">Codex Computer Use · 26 сентября</span>«Computer Use is not allowed to use the app 'com.mitchellh.ghostty' for safety reasons.»</div>
+<div class="notice"><span class="who">веб-инструмент Codex · 10–26 сентября</span>«URL … is not safe to open (non-retryable error)»</div>
+<div class="notice"><span class="who">Claude Code · 1 октября</span><span class="mono">stop_reason: refusal</span> — «safeguards stopped the response»</div>
+
+<div class="xsmall muted mt-2">Во всех записях реестра <span class="mono">exactTriggerKnown: false</span>: связь с конкретным действием не установлена. «Сохранённые ошибки не доказывают ни нарушение пользователя, ни ложность решения».</div>
+
+<style>
+.notice { font-size: 0.66rem; line-height: 1.35; color: var(--ink); background: rgba(208, 59, 59, 0.08); border-left: 3px solid var(--critical); border-radius: 0 8px 8px 0; padding: 0.35rem 0.6rem; margin-bottom: 0.35rem; }
+.notice .who { display: block; font-size: 0.55rem; color: var(--muted); margin-bottom: 0.1rem; }
+</style>
 
 </div>
 </div>
@@ -207,6 +211,39 @@ stats: AGENTS.md 4 954 → 153 строки · WORKFLOW.md · реестр от�
 <!--
 Урок 2 октября: агент распространил отказ на всю сеть, хотя предмет отказа неизвестен. Коммит a4fb48c «Correct overstated networking hold» вернул сеть в работу — и в тот же день два приложения сыграли сетевой матч.
 -->
+
+---
+
+<Kicker>все остановки · 9 сентября — 3 октября</Kicker>
+
+# Семь остановок — и как шли дальше
+
+<SafetyTimeline class="mt-1" />
+
+<table class="tight stops mt-2">
+<thead><tr><th>№</th><th>когда</th><th>кто</th><th>что остановлено</th><th>как работа пошла дальше</th><th>ждали</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>9 сен</td><td>Codex</td><td>оракул записи результата раунда</td><td>по уже сохранённым данным работавшего стенда; принято в тот же день</td><td>2,5 ч</td></tr>
+<tr><td>2</td><td>9 сен</td><td>Codex</td><td>library transforms за 0x420</td><td>по опубликованным неизменяемым результатам, 12 сентября</td><td>55,7 ч*</td></tr>
+<tr><td>3</td><td>12 сен</td><td>Codex</td><td>War: ресурсы и NULL</td><td>аудит терминальных захватов; тем же утром — протокол из пяти шагов</td><td>5,7 ч</td></tr>
+<tr><td>S</td><td>10–26 сен</td><td>веб</td><td>ссылка на ISO Windows 11</td><td>ISO с другой официальной страницы Microsoft, с разрешения пользователя</td><td>—</td></tr>
+<tr><td>4</td><td>26 сен</td><td>Computer Use</td><td>окно терминала Ghostty</td><td>не повторяли; среду наблюдали иначе: AppleScript по окну Wine, CrossOver и UTM</td><td>—</td></tr>
+<tr><td>5</td><td>1 окт</td><td>Claude Code</td><td>сетевая интеграция</td><td>сеть отложили; 2 окт пользователь снял общий запрет, N1–N5 довёл Codex — «пересмотр области, не обход»</td><td>22,3 ч</td></tr>
+<tr><td>M</td><td>3 окт</td><td>Claude Code</td><td>эта ретроспектива, дважды</td><td>продолжили, не воспроизводя прерванный ответ</td><td>≈ 0</td></tr>
+</tbody>
+</table>
+
+<div class="muted mt-1" style="font-size: 0.58rem">* в интервал попали и несвязанные паузы. Точный триггер неизвестен везде. Автор считает срабатывания ложными; записи этого не утверждают и не опровергают. Инциденты в реестре остаются открытыми.</div>
+
+<style>
+.stops { table-layout: fixed; }
+.stops td, .stops th { padding: 0.14rem 0.4rem !important; font-size: 0.58rem !important; line-height: 1.28; }
+.stops th:nth-child(1) { width: 3%; } .stops th:nth-child(2) { width: 8%; } .stops th:nth-child(3) { width: 11%; } .stops th:nth-child(4) { width: 21%; } .stops th:nth-child(6) { width: 6%; }
+.stops td:first-child { font-weight: 700; color: var(--ink); }
+.stops td:last-child { white-space: nowrap; color: var(--ink); font-variant-numeric: tabular-nums; }
+</style>
+
+<div class="source">реестр отказов (3 файла docs/evidence) · ~/.codex/sessions · ~/.claude/projects · 4678f1d · ab0db06 · 9662e09 · ffe16f4 · 0efae95 · a4fb48c · data/evidence/safety-stops.json</div>
 
 ---
 

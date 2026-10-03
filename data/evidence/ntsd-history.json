@@ -1,0 +1,1816 @@
+{
+  "meta": {
+    "title": "NTSD history, authors, community and modding",
+    "generated": "2026-10-03",
+    "companion": "ntsd_history.md",
+    "baseline": "ntsd-2.4/downloads/NTSD_2.4_2.0a_clean/NTSD 2.4_2.0a",
+    "mechanism_codes": {
+      "assets": "DAT/BMP/WAV/backgrounds/data.txt only",
+      "exe_patch": "hex/assembly edit of the EXE",
+      "exe_swap": "game moved onto a different base EXE",
+      "dll_patch": "DLL loaded by the EXE that patches game code in memory",
+      "packaging_molebox": "MoleBox packing (no gameplay change)",
+      "tool": "external tool",
+      "unknown": "mechanism not confirmed",
+      "none": "not a game change"
+    },
+    "privacy": "Public handles from credits/posts and public professional bios only; no ages, real names, locations or private accounts."
+  },
+  "timeline": [
+    {
+      "date": "2007 (late)",
+      "precision": "season",
+      "event": "'Naruto: The Setting Dawn' topic on LF-Empire forums",
+      "who": [
+        "zxcv11791"
+      ],
+      "what": "Project starts as an LFE forum topic, then moves through Naruto Mugen and Burke-Works forums before its own forum.",
+      "mechanism": [
+        "none"
+      ],
+      "status": "verified-secondary",
+      "sources": [
+        "W15"
+      ]
+    },
+    {
+      "date": "2008-01",
+      "precision": "month",
+      "event": "NTSD Beta 1.8",
+      "who": [
+        "zxcv11791"
+      ],
+      "what": "16 characters (18 movelist entries incl. forms), stages 1-2; credits already include 'Silva for the transformation exe'. EXE inside archive dated 2008-01-23; archive metadata date 2008-01-30.",
+      "mechanism": [
+        "assets",
+        "exe_patch"
+      ],
+      "status": "verified",
+      "sources": [
+        "A1",
+        "A2"
+      ]
+    },
+    {
+      "date": "2008-06",
+      "precision": "month",
+      "event": "Official NTSD forum ntsd.open-board.com",
+      "who": [
+        "NTSD Team"
+      ],
+      "what": "Earliest Wayback snapshots 2008-06-27..30; later language sub-forums (Russian, Polish, German, Chinese, Turkish, Hebrew).",
+      "mechanism": [
+        "none"
+      ],
+      "status": "verified",
+      "sources": [
+        "W1",
+        "W20"
+      ]
+    },
+    {
+      "date": "2008-06-23",
+      "precision": "day",
+      "event": "NTSD 2.1",
+      "who": [
+        "zxcv11791",
+        "konkisuke",
+        "nick65",
+        "nave",
+        "zebas1"
+      ],
+      "what": "Shino added; heavy walking for many characters; limited transformations for Naruto/Sasuke; chakra drain; balance.",
+      "mechanism": [
+        "assets"
+      ],
+      "status": "verified",
+      "sources": [
+        "W2"
+      ]
+    },
+    {
+      "date": "2008-10-10",
+      "precision": "day",
+      "event": "NTSD 2.2",
+      "who": [
+        "zxcv11791",
+        "NTSD Team"
+      ],
+      "what": "Balance pass (Itachi nerfed; Temari/Gaara/Chiyo/Kiba upgrades), new replacement jutsus, bug fixes.",
+      "mechanism": [
+        "assets"
+      ],
+      "status": "verified",
+      "sources": [
+        "W3"
+      ]
+    },
+    {
+      "date": "2008-11-01",
+      "precision": "day",
+      "event": "NTSD 2.25 (fixed 2.2) update list",
+      "who": [
+        "zxcv11791"
+      ],
+      "what": "Chakra-cost fixes and WIP list (Kabuto, secret characters). Separate file release not confirmed.",
+      "mechanism": [
+        "assets"
+      ],
+      "status": "partially-verified",
+      "sources": [
+        "W4"
+      ]
+    },
+    {
+      "date": "2008-12-22",
+      "precision": "day",
+      "event": "NTSD 2.3",
+      "who": [
+        "zxcv11791",
+        "NTSD Team",
+        "Silva (transformation exe)",
+        "Kaitsu (MoleBox)"
+      ],
+      "what": "4-Tails control, new secret character, Itachi/Kabuto changes; credits 'Silva for the transformation exe', 'Kaitsu for moleboxing the game'.",
+      "mechanism": [
+        "assets",
+        "exe_patch",
+        "packaging_molebox"
+      ],
+      "status": "verified",
+      "sources": [
+        "W5"
+      ]
+    },
+    {
+      "date": "2009-01-23",
+      "precision": "day",
+      "event": "NTSD 2.4 Test Version 1",
+      "who": [
+        "zxcv11791"
+      ],
+      "what": "Hidan added, Mountain Path stage, Itachi sharingan timer, fixes.",
+      "mechanism": [
+        "assets"
+      ],
+      "status": "verified",
+      "sources": [
+        "W6"
+      ]
+    },
+    {
+      "date": "2009-02-13",
+      "precision": "day",
+      "event": "NTSD 2.4 Test Version 2",
+      "who": [
+        "zxcv11791"
+      ],
+      "what": "Orochimaru's Manda, Pein god realm, Shikamaru flash bomb, Sakon/Jiroubou updates.",
+      "mechanism": [
+        "assets"
+      ],
+      "status": "verified",
+      "sources": [
+        "W7"
+      ]
+    },
+    {
+      "date": "2009-03-15",
+      "precision": "day",
+      "event": "NTSD 2.4 Test Version 3",
+      "who": [
+        "zxcv11791",
+        "krele (code tool)"
+      ],
+      "what": "Beta Kakuzu (cloaked/uncloaked), sand ninja, Stage 1-1; 'A Big Thanks to krele for creating the code tool'.",
+      "mechanism": [
+        "assets",
+        "tool"
+      ],
+      "status": "verified",
+      "sources": [
+        "W8"
+      ]
+    },
+    {
+      "date": "2009-04-19",
+      "precision": "day",
+      "event": "NTSD 2.4 Test Version 4",
+      "who": [
+        "zxcv11791",
+        "krele",
+        "Zazz",
+        "pimpen itachi",
+        "kentaru-chou"
+      ],
+      "what": "Itachi Tsukuyomi/crows, Sasori new jutsus + hell move, Temari, stages 1-2 and 1-3.",
+      "mechanism": [
+        "assets"
+      ],
+      "status": "verified",
+      "sources": [
+        "W9"
+      ]
+    },
+    {
+      "date": "2009-06-14",
+      "precision": "day",
+      "event": "NTSD 2.4 FULL",
+      "who": [
+        "zxcv11791",
+        "The NTSD Team"
+      ],
+      "what": "Hidan's Jashin's Torture, 'Finished coding Stage 1', another secret character, AI upgrades for nine characters. Runs on LF2 v1.9c EXE, MoleBoxed. AI-upgrade mechanism unverified.",
+      "mechanism": [
+        "assets",
+        "exe_patch",
+        "packaging_molebox"
+      ],
+      "status": "verified",
+      "sources": [
+        "W10",
+        "E1",
+        "L7"
+      ]
+    },
+    {
+      "date": "2009-07-02",
+      "precision": "day",
+      "event": "Leader asks about an unmoleboxed release",
+      "who": [
+        "zxcv11791"
+      ],
+      "what": "'we were fine with you taking our codes and sprites to make it your own as long as you give credit' (hypothetical; no such release).",
+      "mechanism": [
+        "none"
+      ],
+      "status": "verified",
+      "sources": [
+        "W11"
+      ]
+    },
+    {
+      "date": "2009-08-06",
+      "precision": "day",
+      "event": "Request to rebase NTSD on LF2 2.0a",
+      "who": [
+        "forum players"
+      ],
+      "what": "Sprite-mirroring bug on new GPUs; a player's bug report to NVIDIA quoted in the thread: 'the mods for LF2 include more than 1000 hex edits, thus the creators are not willing to redo their whole work'.",
+      "mechanism": [
+        "exe_patch"
+      ],
+      "status": "verified",
+      "sources": [
+        "W12"
+      ]
+    },
+    {
+      "date": "2009-08-25",
+      "precision": "day",
+      "event": "NTSD 2.4 published on LF-Empire Fileplanet",
+      "who": [
+        "LF-Empire"
+      ],
+      "what": "'Published: 25 August 2009', 'Created: 14 June 2009'; 204,376 hits, rating 4.31 (654 votes) as of 2026-10-03.",
+      "mechanism": [
+        "none"
+      ],
+      "status": "verified",
+      "sources": [
+        "E1",
+        "L7"
+      ]
+    },
+    {
+      "date": "2009-09-07",
+      "precision": "day",
+      "event": "NTSD II Demo",
+      "who": [
+        "zxcv11791"
+      ],
+      "what": "Sequel demo; post links a Microsoft runtime download.",
+      "mechanism": [
+        "unknown"
+      ],
+      "status": "verified",
+      "sources": [
+        "W13"
+      ]
+    },
+    {
+      "date": "2009-10-05",
+      "precision": "day",
+      "event": "NTSD II progress put on hiatus",
+      "who": [
+        "zxcv11791"
+      ],
+      "what": "'NTSDII progress put on hiatus'.",
+      "mechanism": [
+        "none"
+      ],
+      "status": "verified",
+      "sources": [
+        "W14"
+      ]
+    },
+    {
+      "date": "2010-08/2011-02",
+      "precision": "range",
+      "event": "NTSD 2.4_2.0a (baseline of the native port)",
+      "who": [
+        "attributed to Smouk (forum post 2012-11-30)",
+        "Smouk distributed a '2.0a engine' build (LFE 2012-02-12)"
+      ],
+      "what": "Same 2.4 content (credits and data.txt byte-identical) moved onto the LF2 v2.0a EXE; loose files (1,639 zip entries), 326 *_mirror.bmp; lib.dll (built 2011-02-21) patches the EXE in memory; known mission-mode stage-1 crash.",
+      "mechanism": [
+        "exe_swap",
+        "dll_patch",
+        "assets"
+      ],
+      "status": "partially-verified (author attribution)",
+      "sources": [
+        "L6",
+        "L1",
+        "L5",
+        "L4",
+        "L8",
+        "E3",
+        "E4",
+        "W16",
+        "W19"
+      ]
+    },
+    {
+      "date": "2012/2013",
+      "precision": "range",
+      "event": "NTSD II official threads v1/v2",
+      "who": [
+        "K E N T A R U (NTSDII Leader)"
+      ],
+      "what": "New Naruto forms, Gaara, player polls on mechanics. Identity with credits' 'kentaru-chou' unverified.",
+      "mechanism": [
+        "unknown"
+      ],
+      "status": "verified (event)",
+      "sources": [
+        "F7"
+      ]
+    },
+    {
+      "date": "2013-01-01",
+      "precision": "day",
+      "event": "NTSD II Christmas Release",
+      "who": [
+        "Smouk"
+      ],
+      "what": "New backgrounds (SnowLand, Forest of the Death), Fire-Ground System, Gaara and CHRISTMAS-GIFT, AI Temari; link 'updated with ALL dll working' (DLL role unclear).",
+      "mechanism": [
+        "assets",
+        "unknown"
+      ],
+      "status": "verified (event)",
+      "sources": [
+        "F3"
+      ]
+    },
+    {
+      "date": "2013-02-01",
+      "precision": "day",
+      "event": "List of circulating NTSD editions",
+      "who": [
+        "T.O.R.N.A.D.O (third-party forum)"
+      ],
+      "what": "2.4, II (Original), 2.4_2.0a, Final Edition, Extreme Edition, Lightning Edition, II Christmas Release, 1.0, RP Edition, 2.4+, NTSW 0.8.",
+      "mechanism": [
+        "unknown"
+      ],
+      "status": "editions listed; authors/dates unverified",
+      "sources": [
+        "T1"
+      ]
+    },
+    {
+      "date": "2014-03-01",
+      "precision": "day",
+      "event": "NTSD 1.0 '1st March Release' (NTSD II line)",
+      "who": [
+        "-samael-"
+      ],
+      "what": "New backgrounds, AI difficulty levels (up to CRAZY!), directional double jump, Raikage and Obito.",
+      "mechanism": [
+        "unknown"
+      ],
+      "status": "verified (event)",
+      "sources": [
+        "F4"
+      ]
+    },
+    {
+      "date": "2014-12-26/2015-02-08",
+      "precision": "range",
+      "event": "NTSD 2015 0.1 (restart)",
+      "who": [
+        "-samael-"
+      ],
+      "what": "5 characters; new clash system with levels, control-confusing sharingan, special defense.",
+      "mechanism": [
+        "unknown"
+      ],
+      "status": "verified (event)",
+      "sources": [
+        "F6",
+        "F5"
+      ]
+    },
+    {
+      "date": "2015-07-01",
+      "precision": "day",
+      "event": "NTSD 2.4 Official Tournament 2015",
+      "who": [
+        "Rhino.Freak",
+        "Smouk"
+      ],
+      "what": "Mandatory version 'NTSD 2.4 v2.0a'; all battles recorded as .lfr and posted.",
+      "mechanism": [
+        "none"
+      ],
+      "status": "verified",
+      "sources": [
+        "F12"
+      ]
+    },
+    {
+      "date": "2016-01-18",
+      "precision": "day",
+      "event": "LF-Empire repack of 2.4_2.0a",
+      "who": [
+        "LF-Empire"
+      ],
+      "what": "'Downloaded from lf-empire.de.txt' and folder entries dated 2016-01-18 in the zip.",
+      "mechanism": [
+        "none"
+      ],
+      "status": "verified",
+      "sources": [
+        "L2",
+        "L6",
+        "E2"
+      ]
+    },
+    {
+      "date": "2016-12-01",
+      "precision": "day",
+      "event": "Discord server 'Naruto: The Setting Dawn' created",
+      "who": [],
+      "what": "Creation date derived from the guild ID (snowflake).",
+      "mechanism": [
+        "none"
+      ],
+      "status": "derived",
+      "sources": [
+        "D1"
+      ]
+    },
+    {
+      "date": "2018-01-02",
+      "precision": "day",
+      "event": "NTSD 2.5 announced",
+      "who": [
+        "Remilia Scarlet",
+        "Little Jiraiya, Nakato, Smouk (balancing)"
+      ],
+      "what": "'After 10 years of inactivity...'; bug fixes; 'smooth transition from the old lf2 1.9x engine to 2.0a engine'; extra attack for every character; codestool characters built in; taunts; survival mode.",
+      "mechanism": [
+        "assets",
+        "exe_patch",
+        "dll_patch"
+      ],
+      "status": "verified",
+      "sources": [
+        "F8",
+        "Y5"
+      ]
+    },
+    {
+      "date": "2018-02-26",
+      "precision": "day",
+      "event": "NTSD II / 2015 discontinued",
+      "who": [
+        "Remilia Scarlet"
+      ],
+      "what": "'NTSD II/2015 is discontinued until further notice'.",
+      "mechanism": [
+        "none"
+      ],
+      "status": "verified",
+      "sources": [
+        "F2"
+      ]
+    },
+    {
+      "date": "2018-05-17/20",
+      "precision": "range",
+      "event": "NTSD Z",
+      "who": [
+        "zxcv11791 (returned)"
+      ],
+      "what": "'The original creator zxcv has returned and began a new version called NTSD Z' (Itachi/Susanoo preview). Release status unverified.",
+      "mechanism": [
+        "unknown"
+      ],
+      "status": "verified (announcement)",
+      "sources": [
+        "F9",
+        "Y4"
+      ]
+    },
+    {
+      "date": "2018-07-07/2019-08-17",
+      "precision": "range",
+      "event": "NTSD Community Edition Season 1-5, Final Season, Last Version",
+      "who": [
+        "Tyci"
+      ],
+      "what": "S1 Zabuza/Haku/Great Naruto Bridge; S2 Sound Four; S3 Obito/Minato; S4 (2018-11-25) 'new engine' (in-game 'Neora Engine 2.07 Prototype'), Killer Bee; S5 Madara; Final (2019-03-27) young Naruto/Sasuke, Rasengan/Chidori clash, armor breaks; Last Version (2019-08-17) Zetsu, Sage Naruto, Mangekyou Sasuke, 40+ characters.",
+      "mechanism": [
+        "assets",
+        "exe_patch (S4+ Neora)",
+        "dll_patch (S4+ Neora)"
+      ],
+      "status": "verified",
+      "sources": [
+        "M6",
+        "M7",
+        "M8",
+        "M9",
+        "M10",
+        "M11",
+        "M12",
+        "M13"
+      ]
+    },
+    {
+      "date": "2019-01-27",
+      "precision": "day",
+      "event": "Move to Neora engine stated",
+      "who": [
+        "Remilia Scarlet"
+      ],
+      "what": "'NTSD is a Little Fighter 2 mod which has now recently gone over to the slightly more open Neora engine'.",
+      "mechanism": [
+        "exe_patch",
+        "dll_patch"
+      ],
+      "status": "verified",
+      "sources": [
+        "F9"
+      ]
+    },
+    {
+      "date": "2019-02-17/19",
+      "precision": "range",
+      "event": "NTSD 2.5",
+      "who": [
+        "NTSDCentral (ModDB/YouTube)",
+        "Remilia Scarlet (forum)"
+      ],
+      "what": "'taunts, and a full moveset for everyone, along with brand new characters'; NTSD_2.5.rar added 2019-02-19.",
+      "mechanism": [
+        "assets",
+        "exe_patch",
+        "dll_patch"
+      ],
+      "status": "verified (Neora per 2019-01-27 statement)",
+      "sources": [
+        "M2",
+        "M4",
+        "F10",
+        "Y2"
+      ]
+    },
+    {
+      "date": "2019-09-19",
+      "precision": "day",
+      "event": "NTSD 2.6 (file updated 2019-10-18 as NTSD_2.6.2.rar)",
+      "who": [
+        "NTSDCentral",
+        "Remilia Scarlet"
+      ],
+      "what": "'upgrading 2.5 into 2.6 with a high resolution, brand new playable character Konan, and more!'. Technical meaning of 'high resolution' unverified.",
+      "mechanism": [
+        "assets",
+        "engine (unverified detail)"
+      ],
+      "status": "verified",
+      "sources": [
+        "M3",
+        "M5",
+        "F11",
+        "Y3"
+      ]
+    },
+    {
+      "date": "2019/2022",
+      "precision": "range",
+      "event": "Official tournaments / championships",
+      "who": [
+        "NTSD Central"
+      ],
+      "what": "Videos for 2019, 2020 tournaments and 2021, 2022 championships (uploaded 2021-09-30..2023-11-30).",
+      "mechanism": [
+        "none"
+      ],
+      "status": "verified",
+      "sources": [
+        "Y6",
+        "Y7",
+        "Y8",
+        "Y9"
+      ]
+    },
+    {
+      "date": "2020-07-08",
+      "precision": "day",
+      "event": "CE Season 6",
+      "who": [
+        "Tyci"
+      ],
+      "what": "Danzo, working story mode, Zetsu reworked as 2-player character; 'finally made a discord channel'.",
+      "mechanism": [
+        "assets"
+      ],
+      "status": "verified",
+      "sources": [
+        "M14"
+      ]
+    },
+    {
+      "date": "2020-08-21",
+      "precision": "day",
+      "event": "CE Season 6.5",
+      "who": [
+        "Tyci"
+      ],
+      "what": "Susanoos for Sasuke, Itachi, Madara; build contains neora.dll and 'NTSD Community Edition.exe'.",
+      "mechanism": [
+        "assets",
+        "exe_patch",
+        "dll_patch"
+      ],
+      "status": "verified",
+      "sources": [
+        "M15"
+      ]
+    },
+    {
+      "date": "2021-06-07",
+      "precision": "day",
+      "event": "CE Season 7",
+      "who": [
+        "Tyci"
+      ],
+      "what": "Madara, Obito, Pain, Tsunade reworks; Gamabunta and Katsuyu; installer adds VC++ 2005 SP1 MFC.",
+      "mechanism": [
+        "assets"
+      ],
+      "status": "verified",
+      "sources": [
+        "M16",
+        "M17"
+      ]
+    },
+    {
+      "date": "2021-07-08",
+      "precision": "day",
+      "event": "Limit without sources",
+      "who": [
+        "Tyci"
+      ],
+      "what": "'Unfortunately no way to fix it :( It's because the game is 20 years old. I would have to move to a new engine'.",
+      "mechanism": [
+        "none"
+      ],
+      "status": "verified",
+      "sources": [
+        "M16"
+      ]
+    },
+    {
+      "date": "2023/now",
+      "precision": "range",
+      "event": "Newer versions distributed via Discord",
+      "who": [
+        "forum"
+      ],
+      "what": "Forum banner: 'Join the Discord NTSD Channel to download the newest version!'. No public release pages after 2.6 / CE S7 found.",
+      "mechanism": [
+        "unknown"
+      ],
+      "status": "unverified (content)",
+      "sources": [
+        "F1"
+      ]
+    },
+    {
+      "date": "2024-02-10",
+      "precision": "day",
+      "event": "Discord quotes (user-provided)",
+      "who": [
+        "server members"
+      ],
+      "what": "'The engine itself has always been closed...', 'all exe changes are made in exe or through dll on assembler...', '...from the Remiemastered bundle'.",
+      "mechanism": [
+        "unknown"
+      ],
+      "status": "not publicly verifiable",
+      "sources": [
+        "U1"
+      ]
+    }
+  ],
+  "lf2_engine_timeline": [
+    {
+      "date": "1999",
+      "event": "LF2 created by Marti Wong and Starsky Wong (official site)",
+      "sources": [
+        "O2"
+      ]
+    },
+    {
+      "date": "2000-01-25",
+      "event": "LF2 v0.1 released (Wikipedia)",
+      "sources": [
+        "O6"
+      ]
+    },
+    {
+      "date": "2002-09-27",
+      "event": "LF2 v1.9 (readme date)",
+      "sources": [
+        "E12"
+      ]
+    },
+    {
+      "date": "2004-10-22",
+      "event": "Little Fighter Online servers start (U1 Technology; directed by Oscar Chu and Marti Wong)",
+      "sources": [
+        "O6"
+      ]
+    },
+    {
+      "date": "2005-09-13",
+      "event": "LF2 v1.9c (readme date); NTSD 2.1-2.4 ran on this EXE (1.9 NTSD.exe PE stamp 2005-07-29)",
+      "sources": [
+        "E11",
+        "L12"
+      ]
+    },
+    {
+      "date": "2008-09-12",
+      "event": "LF2 v2.0 (readme date): recording, Survival, loading ads; needs VC++ 2005 SP1",
+      "sources": [
+        "E10",
+        "O6"
+      ]
+    },
+    {
+      "date": "<=2009-08-01",
+      "event": "LF2 v2.0a: NumLock fix + pre-rendered *_mirror.bmp fix (LFE published 2009-08-01; Wikipedia 'late 2009'; baseline EXE PE stamp 2009-07-10)",
+      "sources": [
+        "E9",
+        "O6",
+        "L3"
+      ]
+    },
+    {
+      "date": "2009-07 (end)",
+      "event": "Hero Fighter alpha (Marti Wong)",
+      "sources": [
+        "O6"
+      ]
+    },
+    {
+      "date": "2025-07-18",
+      "event": "Little Fighter 2 Remastered on Steam (Windows + macOS; Little Fighter Co Pty Ltd, Marti Wong)",
+      "sources": [
+        "O5",
+        "O3"
+      ]
+    }
+  ],
+  "community_hubs": [
+    {
+      "name": "Discord 'Naruto: The Setting Dawn'",
+      "facts": {
+        "approximate_member_count": 3842,
+        "approximate_presence_count_range": [
+          827,
+          848
+        ],
+        "queried_utc": "2026-10-03T18:37Z",
+        "public_description": null,
+        "created_derived": "2016-12-01",
+        "invites": [
+          "A5wCu6m (ModDB)",
+          "gejWevY (forum/YouTube)",
+          "G3Kfkzk (2018 videos)"
+        ]
+      },
+      "sources": [
+        "D1",
+        "D2",
+        "D3"
+      ]
+    },
+    {
+      "name": "The Official NTSD Forum (ntsd.open-board.com -> ntsd.forumotion.com)",
+      "facts": {
+        "since": "2008-06",
+        "registered_users": 6390,
+        "messages": 273666,
+        "most_online": "1648 on 2025-09-09",
+        "moderator": "Rhino.Freak"
+      },
+      "sources": [
+        "F1",
+        "W1"
+      ]
+    },
+    {
+      "name": "ModDB: NTSD: Naruto The Setting Dawn (NTSDCentral)",
+      "facts": {
+        "visits": 172723,
+        "rank": "1,705 of 64,114",
+        "downloads_2_6": "~49.8K",
+        "downloads_2_5": "~19.1K",
+        "snapshot": "2026-01-02"
+      },
+      "sources": [
+        "M1"
+      ]
+    },
+    {
+      "name": "ModDB: Naruto The Setting Dawn: Community Edition (Tyci)",
+      "facts": {
+        "visits": 185355,
+        "rank": "1,632 of 63,503",
+        "releases": 10,
+        "snapshot": "2025-11-15"
+      },
+      "sources": [
+        "M6"
+      ]
+    },
+    {
+      "name": "YouTube: NTSD Central (@NTSDCentral)",
+      "facts": {
+        "joined": "2012-10-20",
+        "subscribers": 852,
+        "videos": 15,
+        "views": 153346
+      },
+      "sources": [
+        "Y1"
+      ]
+    },
+    {
+      "name": "LF-Empire (official LF2 fansite)",
+      "facts": {
+        "ntsd_fileplanet_hits": 204376,
+        "rating": "4.31 (654 votes)",
+        "mirrors": [
+          "NTSD_2.4.zip (1.9 engine)",
+          "NTSD_2.4_2.0a.zip (2.0 engine)"
+        ]
+      },
+      "sources": [
+        "E1",
+        "E2"
+      ]
+    },
+    {
+      "name": "Other",
+      "facts": {
+        "little_fighter_extreme_video_views": 48728,
+        "ntsd_wikidot": "http://ntsd.wikidot.com/ found via search, returned HTTP 403, content unverified",
+        "it_still_works_article": "hell moves guide for 2.4 (2017)"
+      },
+      "sources": [
+        "Y10",
+        "I1"
+      ]
+    }
+  ],
+  "people": [
+    {
+      "handle": "zxcv11791",
+      "role": "Founder and leader; released 2.1-2.4 and NTSD II Demo; returned 2018 (NTSD Z)",
+      "sources": [
+        "E1",
+        "W2",
+        "W10",
+        "W13",
+        "F9",
+        "Y4",
+        "Y11"
+      ]
+    },
+    {
+      "handle": "Zazz",
+      "role": "Coder/spriter (team Jan-Oct 2009); interview is the main origin source",
+      "sources": [
+        "W15"
+      ]
+    },
+    {
+      "handle": "krele",
+      "role": "'program coder'; author of the code tool",
+      "sources": [
+        "W8",
+        "L1",
+        "L7"
+      ]
+    },
+    {
+      "handle": "Silva (aka Boop / Doix)",
+      "role": "'Transformation exe' (since Beta 1.8); 'the main hexer'; DLL tutorial and LF2 DLL framework",
+      "sources": [
+        "A2",
+        "W12",
+        "E6",
+        "E7",
+        "G1"
+      ]
+    },
+    {
+      "handle": "Kaitsu",
+      "role": "MoleBox packaging (2.3)",
+      "sources": [
+        "W5"
+      ]
+    },
+    {
+      "handle": "K E N T A R U / kentaru-chou",
+      "role": "NTSD II leader (2012); identity link unverified",
+      "sources": [
+        "F7",
+        "L1"
+      ]
+    },
+    {
+      "handle": "Smouk",
+      "role": "2.4_2.0a (per forum), NTSD II Christmas Release, 2015 tournament co-host, 2.5 balancing",
+      "sources": [
+        "W16",
+        "E3",
+        "F3",
+        "F12",
+        "F8",
+        "Y7"
+      ]
+    },
+    {
+      "handle": "-samael-",
+      "role": "NTSD II coder; 1.0 (2014) and 2015 0.1 releases",
+      "sources": [
+        "F4",
+        "F5",
+        "F6"
+      ]
+    },
+    {
+      "handle": "Remilia Scarlet",
+      "role": "Posted 2.5/2.6, NTSD Z and Neora news on the forum (2018-2023)",
+      "sources": [
+        "F8",
+        "F9",
+        "F10",
+        "F11"
+      ]
+    },
+    {
+      "handle": "NTSDCentral",
+      "role": "ModDB/YouTube account for 2.5/2.6; identity vs Remilia Scarlet unverified",
+      "sources": [
+        "M1",
+        "Y1"
+      ]
+    },
+    {
+      "handle": "Tyci",
+      "role": "Community Edition author (2018-2021)",
+      "sources": [
+        "M6"
+      ]
+    },
+    {
+      "handle": "Rhino.Freak",
+      "role": "Forum moderator; 2015 tournament host",
+      "sources": [
+        "F1",
+        "F12"
+      ]
+    },
+    {
+      "handle": "Marti Wong",
+      "role": "LF2 co-creator (art/code); LFO, Hero Fighter, LF2 Remastered (2025); LF2 source never opened",
+      "sources": [
+        "O1",
+        "O2",
+        "O3",
+        "O5",
+        "O6",
+        "O7",
+        "L10"
+      ]
+    },
+    {
+      "handle": "Starsky Wong",
+      "role": "LF2 co-creator (networking); CUHK BSc+MSc, UCLA PhD, IBM T.J. Watson, now Software Engineer/Tech Lead at Meta",
+      "sources": [
+        "O1",
+        "O2",
+        "O4",
+        "O7"
+      ]
+    }
+  ],
+  "modding": [
+    {
+      "topic": "DAT encryption",
+      "fact": "Skip 123 bytes, subtract rotating key 'SiuHungIsAGoodBearBecauseHeIsVeryGood' starting at index 123 mod 37; verified byte-for-byte by executing EXE routine 0x4148a0; independently documented by lf2_codec. NTSD uses the stock key.",
+      "sources": [
+        "L9",
+        "G2"
+      ]
+    },
+    {
+      "topic": "Data changers",
+      "fact": "Jiquera, RaMMicHaeL (reads key from LF2.EXE), Celebix encrypt/decrypt, Som1Lse real-time DC, Nightmarex1337 LF2 IDE, YinYin VDC, MangaD online DC.",
+      "sources": [
+        "E13"
+      ]
+    },
+    {
+      "topic": "Code tool / codestool",
+      "fact": "krele's tool (ntsd codetool.exe, 2009-03-14) used to add hidden characters; 2.5 built them in so 'no changes to the data are needed'. 'how to add characters.txt' (2008) explains adding a character via the 'other' folder and a data.txt line.",
+      "sources": [
+        "W8",
+        "L7",
+        "F8",
+        "L11"
+      ]
+    },
+    {
+      "topic": "Assets in baseline",
+      "fact": "184 DAT (164 in chars/), 982 BMP (326 *_mirror.bmp), 409 WAV, 8 WMA.",
+      "sources": [
+        "L6"
+      ]
+    },
+    {
+      "topic": "MoleBox",
+      "fact": "2.3/2.4 (1.9 engine) hid all data inside a 44 MB EXE; broke on Windows 8 and Wine; the 2.0a build ships loose files.",
+      "sources": [
+        "W5",
+        "L7",
+        "L12",
+        "E5",
+        "W17",
+        "L6"
+      ]
+    },
+    {
+      "topic": "EXE hex edits",
+      "fact": "'Transformation exe - Silva' since Beta 1.8; 'more than 1000 hex edits' blocked moving to a new EXE; LFE: data changing 'does have its limits'.",
+      "sources": [
+        "A2",
+        "L1",
+        "W12",
+        "E14"
+      ]
+    },
+    {
+      "topic": "DLL loading technique",
+      "fact": "2009 LFE tutorial: redirect the entry-point call to slack space, PUSH dll name, CALL LoadLibraryA, call original, RETN. NTSD 2.0a EXE: entry 0x445560 -> 0x4464c4 -> LoadLibraryA('lib.dll').",
+      "sources": [
+        "E6",
+        "L8"
+      ]
+    },
+    {
+      "topic": "lib.dll",
+      "fact": "6,144 bytes, built 2011-02-21; installs 12 jumps + one 2-byte NOP patch (62 bytes in 13 places): states 85/86, 4000-range transform routing, hit/contact changes (state 20 reverses team gate), replacement text routine, 'Loading files' screen, stage-preparation hooks. Author unknown.",
+      "sources": [
+        "L4",
+        "L8"
+      ]
+    },
+    {
+      "topic": "Community inference of the DLL",
+      "fact": "2016: 'The game uses some sort of DLL that modifies the exe... involves a new 4xxx transformation state'; port found hook 41f5fc -> 1000109d with 4000-range transform routing.",
+      "sources": [
+        "W18",
+        "L8"
+      ]
+    },
+    {
+      "topic": "LF2 DLL Framework",
+      "fact": "Silva's DLL as updated by 1477 (2009-2010; builds for original, no-num, 2.0a): states 21-25 and prototype itr kind 824/825; mentions 'Zxcv's Wall-Running sticky' (named after the NTSD creator's handle); 'DC has a set, defined limit of impossibility, whereas Hex really does not'.",
+      "sources": [
+        "E7"
+      ]
+    },
+    {
+      "topic": "Neora",
+      "fact": "Archer-Dante (2014, translated from the Russian lfforever.ru topic): merges Alkarter's PDK EXE (link to ztage.com; credited as 艾爾卡特) + Silva's and folks' DLL framework; name 'Neo' + 'Ra' from rarara.dll; credits Alkarter, Drakken, Lord Silva, 1477, Surik, Archer-Dante; GitLab: 'an edited EXE edition of Little Fighter 2'. Used by NTSD 2.5+ and CE S4+.",
+      "sources": [
+        "E8",
+        "G1",
+        "F9",
+        "M10",
+        "M15"
+      ]
+    },
+    {
+      "topic": "Runtime dependencies and breakage",
+      "fact": "VC80 CRT/MFC 8.0.50727.762 manifest ('side-by-side configuration is incorrect' errors; forum guide recommends VC++ 2005/2008/2010 runtimes); DirectDraw mirroring on new GPUs; antivirus false positives on DLLs; LF2 2.0 ad URL still in EXE (data/adinfo.txt likely related, inference).",
+      "sources": [
+        "L3",
+        "M5",
+        "E10",
+        "O1",
+        "M16",
+        "W12",
+        "E9",
+        "M15",
+        "O6",
+        "F13"
+      ]
+    },
+    {
+      "topic": "Limits without sources",
+      "fact": "Tyci 2021: 'no way to fix it... I would have to move to a new engine'; DBZ LF2 author (2025): custom-EXE features cannot move to LF2 Remastered.",
+      "sources": [
+        "M16",
+        "I2"
+      ]
+    }
+  ],
+  "slide_facts": [
+    {
+      "ru": "NTSD появился как тема на форуме LF-Empire в конце 2007 года. Самая ранняя сохранившаяся сборка — Beta 1.8 (EXE от 23.01.2008, 16 персонажей).",
+      "sources": [
+        "W15",
+        "A1",
+        "A2"
+      ]
+    },
+    {
+      "ru": "Выпуски шли так: 2.1 (июнь 2008), 2.2 (октябрь 2008), 2.3 (декабрь 2008), четыре тестовые версии, полная 2.4 — 14.06.2009. Команда — около 10 человек плюс бета-тестеры.",
+      "sources": [
+        "W2",
+        "W3",
+        "W5",
+        "W6",
+        "W7",
+        "W8",
+        "W9",
+        "W10",
+        "E1"
+      ]
+    },
+    {
+      "ru": "«2.4_2.0a» — не новая версия, а пересадка: тот же контент (кредиты и data.txt совпадают побайтно) перенесён с EXE LF2 1.9c на EXE LF2 2.0a ради фикса зеркальных спрайтов. Сборка 2010–2011 годов, приписывается Smouk.",
+      "sources": [
+        "L1",
+        "L5",
+        "L6",
+        "E9",
+        "E3",
+        "W16"
+      ]
+    },
+    {
+      "ru": "«More than 1000 hex edits» — так в 2009 году объясняли, почему мод нельзя просто перенести на новый EXE.",
+      "sources": [
+        "W12"
+      ]
+    },
+    {
+      "ru": "Исходники LF2 закрыты официально: «Will LF2 be open source? No, we are not planning to do that.» Движок написан на Visual C++ и DirectX.",
+      "sources": [
+        "O1"
+      ]
+    },
+    {
+      "ru": "Авторы LF2 — не братья. Starsky Wong защитил PhD в UCLA, работал в IBM Research, сейчас Tech Lead в Meta. Marti Wong в 2025 году выпустил LF2 Remastered в Steam для Windows и macOS.",
+      "sources": [
+        "O1",
+        "O4",
+        "O5"
+      ]
+    },
+    {
+      "ru": "lib.dll — приём из туториала 2009 года: точка входа EXE уводится в пустое место кода, там LoadLibraryA(\"lib.dll\"). DLL переписывает 62 байта в 13 местах EXE: 12 переходов и два NOP.",
+      "sources": [
+        "L8",
+        "E6"
+      ]
+    },
+    {
+      "ru": "Сообщество угадало назначение DLL вслепую: в 2016 году Mr-A предположил «new 4xxx transformation state». Анализ порта нашёл хук трансформаций с ветвью 4000-диапазона.",
+      "sources": [
+        "W18",
+        "L8"
+      ]
+    },
+    {
+      "ru": "NTSD 2.5 (февраль 2019) и 2.6 (сентябрь 2019, Конан, высокое разрешение) вышли «after 10 years of inactivity», уже на «slightly more open Neora engine».",
+      "sources": [
+        "F8",
+        "M2",
+        "M3",
+        "F9"
+      ]
+    },
+    {
+      "ru": "Neora собрали три сообщества: EXE PDK от Alkarter (китайское LF2-сообщество), DLL-фреймворк Silva и других (LF-Empire), сборка Archer-Dante с русского lfforever.ru, 2014. Имя — «Neo» + «Ra» от rarara.dll.",
+      "sources": [
+        "E8",
+        "E6"
+      ]
+    },
+    {
+      "ru": "Discord «Naruto: The Setting Dawn» — около 3 842 участников (октябрь 2026), создан в 2016 году. На форуме с 2008 года 6 390 пользователей и 273 666 сообщений. NTSD 2.6 скачали на ModDB около 49,8 тыс. раз.",
+      "sources": [
+        "D1",
+        "F1",
+        "M1"
+      ]
+    },
+    {
+      "ru": "Предел без исходников, словами моддеров: «DC has a set, defined limit of impossibility, whereas Hex really does not» (2009) и «no way to fix it… I would have to move to a new engine» (Tyci, 2021).",
+      "sources": [
+        "E7",
+        "M16"
+      ]
+    }
+  ],
+  "unverified": [
+    "Releases before Beta 1.8 (1.x/2.0) and their dates; Beta 1.8 exact public release date (archive metadata 2008-01-30, EXE file date 2008-01-23).",
+    "Whether '2.25' was released as a file.",
+    "Author of 2.4_2.0a: attributed to Smouk by one forum post (2012) and Smouk shared the build (2012); no first-person confirmation found.",
+    "Author of lib.dll (technique matches Silva's tutorial/framework; authorship not established).",
+    "Exact changes made by Silva's 'transformation exe'.",
+    "How 'AI upgrades' in 2.4 were implemented.",
+    "NTSD II / 1.0 / 2015 technical mechanisms; meaning of 'ALL dll working'.",
+    "Authors/dates of Final, Extreme, Lightning, RP, 2.4+ editions.",
+    "Exact Neora version used by NTSD 2.5/2.6 and what 'high resolution' means technically.",
+    "Whether NTSD Z was ever released.",
+    "Any version after 2.6 / CE Season 7, incl. the 'Remiemastered bundle' and 'Genma in custom folder' (likely Discord-only).",
+    "Identity links between 'remie' (Discord invite creator), 'Remie' (tournament player), 'Remilia Scarlet' (forum) and 'NTSDCentral' (ModDB/YouTube); 'Remiemastered' = Remie + remastered is an inference.",
+    "The 2024-02-10 Discord quotes (user-provided; members-only server).",
+    "LF2 dates: creation 1999 (official) vs v0.1 2000-01-25 (Wikipedia); v2.0a: LFE 2009-08-01 vs Wikipedia 'late 2009' vs PE stamp 2009-07-10.",
+    "Public statements by original NTSD authors about the native port, sources or permissions (none found); current activities of zxcv11791 and others beyond the listed items.",
+    "'Копия data.txt' implying a Russian-locale Windows XP packer (inference).",
+    "CE release before Season 1 (Season 2 says 'Our third release').",
+    "Discord member counts are approximate API values and fluctuate."
+  ],
+  "sources": {
+    "L1": {
+      "kind": "local",
+      "location": "ntsd-2.4/downloads/NTSD_2.4_2.0a_clean/NTSD 2.4_2.0a/movelist @ credits.txt",
+      "title": "Baseline credits/movelist (UTF-16LE)",
+      "note": "SHA-256 1b6dd3e9c64429ff43767c43c23e05b64bde2a41baa7ada43e8e661e5d941f1b; byte-identical to the 1.9-engine copy"
+    },
+    "L2": {
+      "kind": "local",
+      "location": "ntsd-2.4/downloads/NTSD_2.4_2.0a_clean/NTSD 2.4_2.0a/Downloaded from lf-empire.de.txt",
+      "title": "LF-Empire repack note"
+    },
+    "L3": {
+      "kind": "local",
+      "location": "ntsd-2.4/downloads/NTSD_2.4_2.0a_clean/NTSD 2.4_2.0a/NTSD 2.4.exe",
+      "title": "Baseline EXE (PE header + strings)",
+      "note": "PE TimeDateStamp 2009-07-10T17:15:35Z; strings 'Little Fighter 2', martiwong.com, lf2.net/starsky, ad URLs; manifest Microsoft.VC80.CRT/MFC 8.0.50727.762"
+    },
+    "L4": {
+      "kind": "local",
+      "location": "ntsd-2.4/downloads/NTSD_2.4_2.0a_clean/NTSD 2.4_2.0a/lib.dll",
+      "title": "Bundled lib.dll (PE header, imports, strings)",
+      "note": "6,144 bytes; PE TimeDateStamp 2011-02-21T08:50:18Z; imports RtlMoveMemory, VirtualAlloc, VirtualProtect, lstrlenA, SetBkMode, SetTextColor, TextOutA; 'Loading files' x3"
+    },
+    "L5": {
+      "kind": "local",
+      "location": "ntsd-2.4/downloads/NTSD_2.4_2.0a_clean/NTSD 2.4_2.0a/data/data.txt ; ntsd-2.4/downloads/NTSD_2.4_2.0a_clean/NTSD 2.4_2.0a/data/#U041a#U043e#U043f#U0438#U044f data.txt",
+      "title": "data.txt and its byte-identical 'Копия data.txt' copy"
+    },
+    "L6": {
+      "kind": "local",
+      "location": "ntsd-2.4/.git/lfs/objects/9c/a2/9ca26ee8f00adf043ce466c8e160399d9c6777a941d34c63c263564ea9d9c661",
+      "title": "LFS object of downloads/NTSD_2.4_2.0a.zip (+ extracted NTSD_2.4_2.0a_clean)",
+      "note": "zip entry dates: NTSD 2.4.exe 2011-01-26, lib.dll 2011-02-21, bulk assets 2010-08..2010-10, LFE note 2016-01-18; 1,639 entries; extracted tree has 982 BMP (326 *_mirror.bmp), 184 DAT, 409 WAV, 8 WMA"
+    },
+    "L7": {
+      "kind": "local",
+      "location": "ntsd-2.4/.git/lfs/objects/ee/ee/eeee0945856daa2cb89ebdd8bf89a89a645c350cd365c7dcbc87666b5548e52c",
+      "title": "LFS object of downloads/NTSD_2.4.zip (1.9-engine build)",
+      "note": "zip entry dates: NTSD.exe 2009-06-13, credits 2009-06-13, ntsd codetool.exe 2009-03-14, how to add characters.txt 2008-07-26, LFE v8.0 readme 2009-08-25"
+    },
+    "L8": {
+      "kind": "local",
+      "location": "ntsd-2.4/docs/research/LIB_RUNTIME.md",
+      "title": "Port study: bundled lib.dll runtime changes",
+      "note": "entry 0x445560 -> detour 0x4464c4 -> LoadLibraryA('lib.dll'); 12 jumps + one 2-byte patch; 62 bytes in 13 places; hook roles"
+    },
+    "L9": {
+      "kind": "local",
+      "location": "ntsd-2.4/docs/ORIGINAL_ENGINE.md",
+      "title": "Port evidence ledger: DAT decoding",
+      "note": "key SiuHungIsAGoodBearBecauseHeIsVeryGood at VA 0x44892c; 123-byte skip; routine 0x4148a0"
+    },
+    "L10": {
+      "kind": "local",
+      "location": "ntsd-2.4/docs/research/LF2_OPEN_SOURCE_ENGINES.md",
+      "title": "Port note citing the official LF2 FAQ (no plans to open source)"
+    },
+    "L11": {
+      "kind": "local",
+      "location": "ntsd-2.4/.git/lfs/objects/e9/64/e96485750e522a1b658cc69edd69c08f9e9d969193d23c4708a60e32c38e95fd",
+      "title": "'how to add characters.txt' (1.9-engine build)"
+    },
+    "L12": {
+      "kind": "local",
+      "location": "ntsd-2.4/.git/lfs/objects/ca/5c/ca5ceccd82aeee8b39b53a526a292b61a43f6f811e64c1df69536843cdfce196",
+      "title": "1.9-engine NTSD.exe (MoleBoxed, 44,173,484 bytes)",
+      "note": "PE TimeDateStamp 2005-07-29T14:32:28Z"
+    },
+    "W1": {
+      "kind": "web-archive",
+      "location": "http://web.archive.org/web/20080630060618/http://ntsd.open-board.com:80/",
+      "title": "Official NTSD forum, June 2008"
+    },
+    "W2": {
+      "kind": "web-archive",
+      "location": "http://web.archive.org/web/20081013183849/http://ntsd.open-board.com:80/trash-bin-f2/download-ntsd-21-t6.htm",
+      "title": "DOWNLOAD NTSD 2.1 (2008-06-23)"
+    },
+    "W3": {
+      "kind": "web-archive",
+      "location": "http://web.archive.org/web/20081108015334/http://ntsd.open-board.com:80/download-f20/ntsd-ver22-t1018.htm",
+      "title": "NTSD ver2.2 (2008-10-10)"
+    },
+    "W4": {
+      "kind": "web-archive",
+      "location": "http://web.archive.org/web/20081106071133/http://ntsd.open-board.com:80/progress-f3/ntsd-225-t1539.htm",
+      "title": "NTSD 2.25 (2008-11-01)"
+    },
+    "W5": {
+      "kind": "web-archive",
+      "location": "http://web.archive.org/web/20090326033900/http://ntsd.open-board.com:80/download-f20/ntsd-23-download-t2660.htm",
+      "title": "NTSD 2.3 DOWNLOAD (2008-12-22)"
+    },
+    "W6": {
+      "kind": "web-archive",
+      "location": "http://web.archive.org/web/20090318144613/http://ntsd.open-board.com:80/download-f20/ntsd-24-test-version-1-t3547.htm",
+      "title": "NTSD 2.4 TEST VERSION 1 (2009-01-23)"
+    },
+    "W7": {
+      "kind": "web-archive",
+      "location": "http://web.archive.org/web/20090321061935/http://ntsd.open-board.com:80/download-f20/ntsd-24-test-version-2-t4214.htm",
+      "title": "NTSD 2.4 TEST VERSION 2 (2009-02-13)"
+    },
+    "W8": {
+      "kind": "web-archive",
+      "location": "http://web.archive.org/web/20090320120515/http://ntsd.open-board.com:80/download-f20/ntsd-24-test-version-3-t4980.htm",
+      "title": "NTSD 2.4 TEST VERSION 3 (2009-03-15)"
+    },
+    "W9": {
+      "kind": "web-archive",
+      "location": "http://web.archive.org/web/20090422035040/http://ntsd.open-board.com:80/download-f20/ntsd-24-test-version-4-t6061.htm",
+      "title": "NTSD 2.4 TEST VERSION 4 (2009-04-19)"
+    },
+    "W10": {
+      "kind": "web-archive",
+      "location": "http://web.archive.org/web/20090617172243/http://ntsd.open-board.com:80/download-f20/ntsd24-full-t7710.htm",
+      "title": "NTSD2.4 FULL (2009-06-14)"
+    },
+    "W11": {
+      "kind": "web-archive",
+      "location": "http://web.archive.org/web/20090713055715/http://ntsd.open-board.com:80/offtopic-f13/if-we-released-an-unmoleboxed-version-of-ntsd-what-would-yo-t8469.htm",
+      "title": "zxcv11791: unmoleboxed version question (2009-07-02)"
+    },
+    "W12": {
+      "kind": "web-archive",
+      "location": "http://web.archive.org/web/20090812065053/http://ntsd.open-board.com:80/ideas-suggestions-f4/base-ntsd-on-lf2-20a-to-fix-sprite-mirroring-bug-t9887-20.htm",
+      "title": "Base NTSD on LF2 2.0a to fix sprite mirroring bug (2009-08-06/07)"
+    },
+    "W13": {
+      "kind": "web-archive",
+      "location": "http://web.archive.org/web/20090909073946/http://ntsd.open-board.com:80/download-f20/ntsdii-demo-download-t11051.htm",
+      "title": "NTSDII DEMO DOWNLOAD (2009-09-07)"
+    },
+    "W14": {
+      "kind": "web-archive",
+      "location": "http://web.archive.org/web/20091010140021/http://ntsd.open-board.com:80/progress-f3/ntsdii-progress-put-on-hiatus-t12181.htm",
+      "title": "NTSDII progress put on hiatus (2009-10-05)"
+    },
+    "W15": {
+      "kind": "web-archive",
+      "location": "http://web.archive.org/web/20091109032203/http://ntsd.open-board.com:80/the-news-f46/an-interview-with-zazz-t12960.htm",
+      "title": "An Interview with Zazz (2009-10-26)"
+    },
+    "W16": {
+      "kind": "web-archive",
+      "location": "http://web.archive.org/web/20140528033600/http://ntsd.open-board.com:80/t25273-ntsd-24_20a-mission-mode-does-not-work-need-help",
+      "title": "NTSD 2.4_2.0a mission mode does not work (2012-11-30)"
+    },
+    "W17": {
+      "kind": "web-archive",
+      "location": "http://web.archive.org/web/20160815101550/http://ntsd.open-board.com/t26175-releasing-full-game-not-moleboxed-for-posterity",
+      "title": "Releasing full game (not moleboxed) for posterity (2014-08-24)"
+    },
+    "W18": {
+      "kind": "web-archive",
+      "location": "http://web.archive.org/web/20161216114720/http://ntsd.open-board.com:80/t26440-ntsd-2-4-2-0a-character-problems",
+      "title": "NTSD 2.4 (2.0a) character problems: DLL / 4xxx state hunch (2016-12-05)"
+    },
+    "W19": {
+      "kind": "web-archive",
+      "location": "http://web.archive.org/web/20160815093342/http://ntsd.open-board.com/t26147-ntsd-2-4-on-windows-7",
+      "title": "NTSD 2.4 on windows 7 (2014-07)"
+    },
+    "W20": {
+      "kind": "web-archive",
+      "location": "http://web.archive.org/web/20090326001554/http://ntsd.open-board.com:80/russian-f35/",
+      "title": "Russian sub-forum (also polish-f30, chinese-f34, turkce-turkish-f40, hebrew-f57)"
+    },
+    "F1": {
+      "kind": "web",
+      "location": "https://ntsd.forumotion.com/",
+      "title": "The Official NTSD Forum (stats, Discord banner)"
+    },
+    "F2": {
+      "kind": "web",
+      "location": "https://ntsd.forumotion.com/t24009-ntsd-and-ntsd-2",
+      "title": "NTSD and NTSD 2 (Z, 2012-01-21; edited 2018-02-26)"
+    },
+    "F3": {
+      "kind": "web",
+      "location": "https://ntsd.forumotion.com/t25424-old-ntsd-ii-christmas-release",
+      "title": "[OLD] NTSD II Christmas Release (Smouk, 2013-01-01)"
+    },
+    "F4": {
+      "kind": "web",
+      "location": "https://ntsd.forumotion.com/t26061-old-ntsd-1-0-1st-march-release",
+      "title": "[OLD] NTSD 1.0 1st March Release (-samael-, 2014-03-01)"
+    },
+    "F5": {
+      "kind": "web",
+      "location": "https://ntsd.forumotion.com/t26244-old-ntsd-2015-1-release",
+      "title": "[OLD] NTSD 2015/1 RELEASE (-samael-, 2015-02-08)"
+    },
+    "F6": {
+      "kind": "web",
+      "location": "https://ntsd.forumotion.com/t26222-old-news-news-and-progress",
+      "title": "[OLD] News news and progress (-samael-, 2014-12-26)"
+    },
+    "F7": {
+      "kind": "web",
+      "location": "https://ntsd.forumotion.com/t24884-old-n-t-s-d-ii-o-o-f-f-i-c-i-a-l-o-t-h-r-e-a-d-v1-o-10-7-2012",
+      "title": "NTSD II official thread v1 (K E N T A R U, 2012)"
+    },
+    "F8": {
+      "kind": "web",
+      "location": "https://ntsd.forumotion.com/t26681-ntsd-2-5-progress-old",
+      "title": "NTSD 2.5 Progress (Remilia Scarlet, 2018-01-02)"
+    },
+    "F9": {
+      "kind": "web",
+      "location": "https://ntsd.forumotion.com/t26684-ntsd-z-progress",
+      "title": "NTSD Z Progress (2018-05-20); Neora statement (2019-01-27)"
+    },
+    "F10": {
+      "kind": "web",
+      "location": "https://ntsd.forumotion.com/t26687-ntsd-2-5",
+      "title": "NTSD 2.5 (Remilia Scarlet, 2019-02-17/19)"
+    },
+    "F11": {
+      "kind": "web",
+      "location": "https://ntsd.forumotion.com/t26690-ntsd-2-6",
+      "title": "NTSD 2.6 (Remilia Scarlet, 2019-09-19)"
+    },
+    "F12": {
+      "kind": "web",
+      "location": "https://ntsd.forumotion.com/t26293-complete-ntsd-2-4-official-tournament-2015",
+      "title": "NTSD 2.4 Official Tournament 2015 (2015-07-01)"
+    },
+    "F13": {
+      "kind": "web",
+      "location": "https://ntsd.forumotion.com/t25181-guide-fix-all-possible-errors-in-ntsd",
+      "title": "Guide: Fix All Possible Errors in NTSD (2012-11-07)"
+    },
+    "M1": {
+      "kind": "web-archive",
+      "location": "http://web.archive.org/web/20260102211752/https://www.moddb.com/mods/ntsd-naruto-the-setting-dawn",
+      "title": "ModDB: NTSD: Naruto The Setting Dawn (NTSDCentral)"
+    },
+    "M2": {
+      "kind": "web-archive",
+      "location": "http://web.archive.org/web/20240810093355/https://www.moddb.com/mods/ntsd-naruto-the-setting-dawn/news/ntsd-25",
+      "title": "ModDB article NTSD 2.5 (2019-02-18)"
+    },
+    "M3": {
+      "kind": "web-archive",
+      "location": "http://web.archive.org/web/20240810093426/https://www.moddb.com/mods/ntsd-naruto-the-setting-dawn/news/ntsd-26",
+      "title": "ModDB article NTSD 2.6 (2019-09-20)"
+    },
+    "M4": {
+      "kind": "web-archive",
+      "location": "http://web.archive.org/web/20240810093449/https://www.moddb.com/mods/ntsd-naruto-the-setting-dawn/downloads/ntsd-2-5",
+      "title": "ModDB file NTSD_2.5.rar (2019-02-19)"
+    },
+    "M5": {
+      "kind": "web-archive",
+      "location": "http://web.archive.org/web/20250721222617/https://www.moddb.com/mods/ntsd-naruto-the-setting-dawn/downloads/ntsd-26",
+      "title": "ModDB file NTSD_2.6.2.rar (added 2019-09-19, updated 2019-10-18) + comments"
+    },
+    "M6": {
+      "kind": "web-archive",
+      "location": "http://web.archive.org/web/20251115153613/https://www.moddb.com/mods/naruto-the-setting-dawn-community-edition",
+      "title": "ModDB: Naruto The Setting Dawn: Community Edition (Tyci)"
+    },
+    "M7": {
+      "kind": "web-archive",
+      "location": "http://web.archive.org/web/20240810080344/https://www.moddb.com/mods/naruto-the-setting-dawn-community-edition/downloads/ntsd-community-season-1",
+      "title": "CE Season 1 (2018-07-07)"
+    },
+    "M8": {
+      "kind": "web-archive",
+      "location": "http://web.archive.org/web/20240810080206/https://www.moddb.com/mods/naruto-the-setting-dawn-community-edition/downloads/ntsd-community-season-2",
+      "title": "CE Season 2 (2018-07-24)"
+    },
+    "M9": {
+      "kind": "web-archive",
+      "location": "http://web.archive.org/web/20240810080042/https://www.moddb.com/mods/naruto-the-setting-dawn-community-edition/downloads/ntsd-community-season-3",
+      "title": "CE Season 3 (2018-08-22)"
+    },
+    "M10": {
+      "kind": "web-archive",
+      "location": "http://web.archive.org/web/20240810080118/https://www.moddb.com/mods/naruto-the-setting-dawn-community-edition/downloads/ntsd-community-season-4",
+      "title": "CE Season 4 (2018-11-25); comments mention 'Neora Engine 2.07 Prototype'"
+    },
+    "M11": {
+      "kind": "web-archive",
+      "location": "http://web.archive.org/web/20240810080358/https://www.moddb.com/mods/naruto-the-setting-dawn-community-edition/downloads/ntsd-community-season-5",
+      "title": "CE Season 5 (2019-02-07)"
+    },
+    "M12": {
+      "kind": "web-archive",
+      "location": "http://web.archive.org/web/20240810080128/https://www.moddb.com/mods/naruto-the-setting-dawn-community-edition/downloads/ntsd-community-final-season",
+      "title": "CE Final Season (2019-03-27)"
+    },
+    "M13": {
+      "kind": "web-archive",
+      "location": "http://web.archive.org/web/20240810080507/https://www.moddb.com/mods/naruto-the-setting-dawn-community-edition/downloads/ntsd-community-last-version",
+      "title": "CE Last Version (2019-08-17)"
+    },
+    "M14": {
+      "kind": "web-archive",
+      "location": "http://web.archive.org/web/20240810080211/https://www.moddb.com/mods/naruto-the-setting-dawn-community-edition/news/ntsd-season-6",
+      "title": "CE Season 6 article (2020-07-08)"
+    },
+    "M15": {
+      "kind": "web-archive",
+      "location": "http://web.archive.org/web/20240810080055/https://www.moddb.com/mods/naruto-the-setting-dawn-community-edition/downloads/ntsd-season-6-5",
+      "title": "CE Season 6.5 (2020-08-21); comment lists neora.dll"
+    },
+    "M16": {
+      "kind": "web-archive",
+      "location": "http://web.archive.org/web/20240810080015/https://www.moddb.com/mods/naruto-the-setting-dawn-community-edition/downloads/ntsd-community-season-7",
+      "title": "CE Season 7 (2021-06-07); Tyci reply 2021-07-08"
+    },
+    "M17": {
+      "kind": "web-archive",
+      "location": "http://web.archive.org/web/20240810080314/https://www.moddb.com/mods/naruto-the-setting-dawn-community-edition/news/ntsd-season-7-released",
+      "title": "CE Season 7 article"
+    },
+    "E1": {
+      "kind": "web",
+      "location": "https://lf-empire.de/lfe-fileplanet/versions/721-naruto-the-setting-dawn-ntsd",
+      "title": "LFE Fileplanet: Naruto: The Setting Dawn (NTSD)"
+    },
+    "E2": {
+      "kind": "web",
+      "location": "https://www.lf-empire.de/html/versions/NTSD.html",
+      "title": "LFE download mirrors (1.9-engine and 2.0-engine builds)"
+    },
+    "E3": {
+      "kind": "web",
+      "location": "https://lf-empire.de/forum/printthread.php?tid=7493",
+      "title": "LFE: Problem With NTSD 2.4 (Smouk '2.0a engine', 2012-02-12)"
+    },
+    "E4": {
+      "kind": "web",
+      "location": "https://lf-empire.de/forum/printthread.php?tid=9919",
+      "title": "LFE: Ntsd 2.4 (MangaD, 2015-06-01)"
+    },
+    "E5": {
+      "kind": "web",
+      "location": "https://lf-empire.de/forum/printthread.php?tid=9612",
+      "title": "LFE: NTSD on Windows 8 (MoleBox, 2015-02-15)"
+    },
+    "E6": {
+      "kind": "web",
+      "location": "https://lf-empire.de/forum/printthread.php?tid=2521",
+      "title": "LFE tutorial: Patching exe to load DLL (2009-04-05)"
+    },
+    "E7": {
+      "kind": "web",
+      "location": "https://lf-empire.de/forum/printthread.php?tid=4271",
+      "title": "LFE: LF2 DLL Framework Update (2009-12-31 / 2010-03-20)"
+    },
+    "E8": {
+      "kind": "web",
+      "location": "https://lf-empire.de/forum/printthread.php?tid=9499",
+      "title": "LFE: Neora 2.07 (PDK + DLL) by Archer-Dante (2014-12-26)"
+    },
+    "E9": {
+      "kind": "web",
+      "location": "https://lf-empire.de/lf2-empire/introduction/downloads/lf2-v2-0-latest",
+      "title": "LFE: LF2 v2.0a (changelog: NumLock + mirror sprites)"
+    },
+    "E10": {
+      "kind": "web",
+      "location": "https://lf-empire.de/lf2-empire/introduction/downloads/lf2-v20",
+      "title": "LFE: LF2 v2.0 (readme 12 Sep 2008)"
+    },
+    "E11": {
+      "kind": "web",
+      "location": "https://lf-empire.de/lf2-empire/introduction/downloads/lf2-v19c",
+      "title": "LFE: LF2 v1.9c (readme 13 Sep 2005)"
+    },
+    "E12": {
+      "kind": "web",
+      "location": "https://lf-empire.de/lf2-empire/introduction/downloads/lf2v19",
+      "title": "LFE: LF2 v1.9 (readme 27 Sep 2002)"
+    },
+    "E13": {
+      "kind": "web",
+      "location": "https://lf-empire.de/lf2-empire/data-changing/data-changer",
+      "title": "LFE: Data Changer list"
+    },
+    "E14": {
+      "kind": "web",
+      "location": "https://lf-empire.de/lf2-empire/exe-editing",
+      "title": "LFE: EXE Editing"
+    },
+    "O1": {
+      "kind": "web",
+      "location": "https://www.lf2.net/faq_en.html",
+      "title": "LF2 official FAQ"
+    },
+    "O2": {
+      "kind": "web",
+      "location": "https://www.lf2.net/en/intro.html",
+      "title": "LF2 official introduction / creators"
+    },
+    "O3": {
+      "kind": "web",
+      "location": "https://www.lf2.net/index.html",
+      "title": "lf2.net home: LF2 Remastered, collaborations"
+    },
+    "O4": {
+      "kind": "web",
+      "location": "https://lf2.net/starsky/",
+      "title": "Starsky Wong professional page (Background updated 2024-04-23)"
+    },
+    "O5": {
+      "kind": "web",
+      "location": "https://store.steampowered.com/app/3249650/",
+      "title": "Steam: Little Fighter 2 Remastered (appdetails API)"
+    },
+    "O6": {
+      "kind": "web",
+      "location": "https://en.wikipedia.org/wiki/Little_Fighter_2",
+      "title": "Wikipedia: Little Fighter 2"
+    },
+    "O7": {
+      "kind": "web",
+      "location": "https://global.hk01.com/艺文/60275447/无限复活策展团队-lf2作者marti-wong专访-从打机解读时代文化",
+      "title": "HK01 interview with Marti Wong (2025-09-11)"
+    },
+    "D1": {
+      "kind": "api",
+      "location": "https://discord.com/api/v10/invites/A5wCu6m?with_counts=true",
+      "title": "Discord invite (ModDB link) -> guild 'Naruto: The Setting Dawn'"
+    },
+    "D2": {
+      "kind": "api",
+      "location": "https://discord.com/api/v10/invites/gejWevY?with_counts=true",
+      "title": "Discord invite (forum/YouTube link) -> same guild"
+    },
+    "D3": {
+      "kind": "api",
+      "location": "https://discord.com/api/v10/invites/G3Kfkzk?with_counts=true",
+      "title": "Discord invite (2018 video descriptions) -> same guild"
+    },
+    "Y1": {
+      "kind": "web",
+      "location": "https://www.youtube.com/@NTSDCentral/about",
+      "title": "YouTube: NTSD Central"
+    },
+    "Y2": {
+      "kind": "web",
+      "location": "https://www.youtube.com/watch?v=CL_G2BRgp04",
+      "title": "NTSD 2.5 Official Release Trailer (2019-02-17)"
+    },
+    "Y3": {
+      "kind": "web",
+      "location": "https://www.youtube.com/watch?v=4gjqvE15HPU",
+      "title": "NTSD 2.6 Official Release Trailer (2019-09-19)"
+    },
+    "Y4": {
+      "kind": "web",
+      "location": "https://www.youtube.com/watch?v=3zVC2c29-7U",
+      "title": "NTSD Z Diary #1 - Itachi (2018-05-17)"
+    },
+    "Y5": {
+      "kind": "web",
+      "location": "https://www.youtube.com/watch?v=tpafcRnwB-E",
+      "title": "NTSD 2.5 Beta Gameplay (2018-01-02)"
+    },
+    "Y6": {
+      "kind": "web",
+      "location": "https://www.youtube.com/watch?v=kM3aX-OZz1k",
+      "title": "NTSD OFFICIAL TOURNAMENT 2019 (uploaded 2021-09-30)"
+    },
+    "Y7": {
+      "kind": "web",
+      "location": "https://www.youtube.com/watch?v=dHMBvM0T520",
+      "title": "NTSD OFFICIAL TOURNAMENT 2020 (uploaded 2022-04-20)"
+    },
+    "Y8": {
+      "kind": "web",
+      "location": "https://www.youtube.com/watch?v=xWL-Oel12UA",
+      "title": "NTSD Championships 2021 Part 1 (uploaded 2023-07-10)"
+    },
+    "Y9": {
+      "kind": "web",
+      "location": "https://www.youtube.com/watch?v=LwonegtAY40 ; https://www.youtube.com/watch?v=0EH20lmeMBg",
+      "title": "NTSD Championships 2022 (uploaded 2023-10-30..2023-11-30)"
+    },
+    "Y10": {
+      "kind": "web",
+      "location": "https://www.youtube.com/watch?v=LMeQ3uS3kdk",
+      "title": "Little Fighter Extreme: Naruto The Setting Dawn 2.4 + download link (2020-05-07)"
+    },
+    "Y11": {
+      "kind": "web",
+      "location": "https://www.youtube.com/user/zxcv11791 ; https://www.youtube.com/feeds/videos.xml?channel_id=UCxqh6tql4ki0fOMzrQZee_Q",
+      "title": "YouTube channel of zxcv11791 (titled 'Z-Studios')"
+    },
+    "A1": {
+      "kind": "web",
+      "location": "https://archive.org/details/2362-naruto-the-setting-dawn-beta-1.8",
+      "title": "Internet Archive: Naruto The Setting Dawn Beta 1.8 (creator zxcv11791; RAR listing)"
+    },
+    "A2": {
+      "kind": "web",
+      "location": "https://archive.org/download/2362-naruto-the-setting-dawn-beta-1.8/2362%20-%20Naruto%20-%20The%20Setting%20Dawn%20Beta%201.8.rar/NTSD_beta1.8%2Fmovelist%20%40%20credits.txt",
+      "title": "Beta 1.8 movelist @ credits.txt"
+    },
+    "G1": {
+      "kind": "web",
+      "location": "https://gitlab.com/Luigi600/little-fighter-2-scriptengine-neora",
+      "title": "GitLab: Little Fighter 2 ScriptEngine Neora (README: Neora = edited EXE edition; Silva/Boop/Doix fork tree)"
+    },
+    "G2": {
+      "kind": "web",
+      "location": "https://github.com/azriel91/lf2_codec",
+      "title": "lf2_codec (src/lib.rs: 123-byte skip, caesar cipher key)"
+    },
+    "T1": {
+      "kind": "web",
+      "location": "https://theultimatefighters.forumotion.com/t26p15-lf2-mods-all",
+      "title": "LF2 MODS ALL (T.O.R.N.A.D.O, 2013-02-01): NTSD editions list"
+    },
+    "I1": {
+      "kind": "web",
+      "location": "https://itstillworks.com/12573592/how-to-do-hell-moves-on-naruto-the-setting-dawn",
+      "title": "It Still Works: hell moves in NTSD 2.4 (updated 2017-09-22)"
+    },
+    "I2": {
+      "kind": "web",
+      "location": "https://itch.io/post/13711405",
+      "title": "itch.io: dbzlf2 on porting mods to LF2R (~2025, relative date)"
+    },
+    "U1": {
+      "kind": "user-provided",
+      "location": "Task brief: Discord quotes dated 2024-02-10",
+      "title": "Discord quotes (not publicly verifiable)"
+    }
+  }
+}
