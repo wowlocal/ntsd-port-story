@@ -1,0 +1,253 @@
+{
+ "title": "App memory during long VS sessions before/after the 2026-09-30 fix, and the long soak runs",
+ "source": "docs/research/APPLICATION_SOAKS.md (commits e0d1b64, 873e039, 36528c9, f38ecb9)",
+ "caveat": "The repository keeps only these summary figures (start/end values and per-minute rates), not the per-minute sample series. Any line chart must be drawn from these endpoints/rates and labelled as such.",
+ "rssGrowthMBPerMinute": [
+  {
+   "stage": "before fix (20 matches, sampled every minute)",
+   "value": 72,
+   "note": "commit message: ~65 MB/min over a 66-match session"
+  },
+  {
+   "stage": "after fix 1: live display keeps counts instead of draw logs",
+   "value": 12
+  },
+  {
+   "stage": "after fix 2: only resource-holding iteration cursors kept",
+   "valueRange": [
+    4,
+    7
+   ],
+   "value": 5.5,
+   "note": "likely mapped-file pages being read in"
+  },
+  {
+   "stage": "Demo, 27 min after both fixes",
+   "value": 4
+  }
+ ],
+ "footprintGB": [
+  {
+   "run": "VS, 20 matches, before fix",
+   "start": 2.0,
+   "end": 3.2,
+   "minutes": 20,
+   "note": "~1 match per minute; ~40 KB per gameplay body"
+  },
+  {
+   "run": "VS, 10 matches, after both fixes",
+   "start": 2.0,
+   "end": 2.0,
+   "note": "2.0 GB at every sample (to 0.1 GB)"
+  },
+  {
+   "run": "Demo, 23 matches / 50,000 bodies, 27 min, after fixes",
+   "start": 2.0,
+   "end": 2.0,
+   "rssStartGB": 4.2,
+   "rssEndGB": 4.31
+  }
+ ],
+ "growthCauses": [
+  {
+   "cause": "display operation logs",
+   "detail": "~130 front draws logged per gameplay body; 714,587 after three matches"
+  },
+  {
+   "cause": "retained iteration cursors",
+   "detail": "~9,000 kept per match although they held no resources"
+  }
+ ],
+ "logicalHeap": {
+  "VS 66 matches": "174.6 MB, +120,272 bytes per match after the first",
+  "War 150,000 bodies": "171.1 MB at the last return",
+  "Demo": "+~120 KB per match"
+ },
+ "soakRunsColumns": [
+  "mode",
+  "run",
+  "bodies",
+  "matchesOrBattles",
+  "characterAICalls",
+  "result"
+ ],
+ "soakRuns": [
+  [
+   "Demo",
+   "60,000 bodies (discovery)",
+   12620,
+   7,
+   null,
+   "stop: cpoint frame 1000 of chars\\ironsand.dat (fixed)"
+  ],
+  [
+   "Demo",
+   "after fix",
+   25590,
+   13,
+   null,
+   "stop: held drink at frame 1000 (fixed)"
+  ],
+  [
+   "Demo",
+   "after fix",
+   32500,
+   17,
+   null,
+   "stop: undefined header bytes, wind.dat frame-212 jump (fixed)"
+  ],
+  [
+   "Demo",
+   "after fixes",
+   60000,
+   27,
+   null,
+   "no stop"
+  ],
+  [
+   "Demo",
+   "seed 123456789",
+   200000,
+   95,
+   1282772,
+   "no stop"
+  ],
+  [
+   "Demo",
+   "seed 555555555",
+   100000,
+   43,
+   null,
+   "no stop"
+  ],
+  [
+   "Demo",
+   "seed 987654321",
+   100000,
+   43,
+   null,
+   "no stop"
+  ],
+  [
+   "Demo",
+   "seed 271828182",
+   100000,
+   44,
+   699768,
+   "no stop"
+  ],
+  [
+   "War",
+   "default seed",
+   60000,
+   14,
+   1285766,
+   "no stop"
+  ],
+  [
+   "War",
+   "after memory fixes",
+   50000,
+   14,
+   null,
+   "no stop (an earlier run stopped at a full-pool item drop, now declared policy)"
+  ],
+  [
+   "War",
+   "seed 987654321 (\"150,000-body War soak\")",
+   150000,
+   41,
+   2230739,
+   "no stop; logical heap 171.1 MB"
+  ],
+  [
+   "War",
+   "seed 314159265",
+   150000,
+   44,
+   null,
+   "no stop"
+  ],
+  [
+   "War",
+   "after hit-item change",
+   60000,
+   8,
+   1652679,
+   "no stop"
+  ],
+  [
+   "Mission",
+   "Survival, seed 987654321",
+   150000,
+   null,
+   null,
+   "no stop"
+  ],
+  [
+   "Mission",
+   "Stage 4-1 (after chakra.dat frame fix)",
+   150000,
+   8,
+   null,
+   "no stop"
+  ],
+  [
+   "Mission",
+   "Stage 2-1",
+   150000,
+   10,
+   null,
+   "no stop"
+  ],
+  [
+   "Mission",
+   "Stage 3-1",
+   150000,
+   13,
+   null,
+   "no stop"
+  ],
+  [
+   "Mission",
+   "Stage 5-1",
+   150000,
+   16,
+   null,
+   "no stop"
+  ],
+  [
+   "Mission",
+   "Stage 4-1, seed 271828182",
+   100000,
+   2,
+   844087,
+   "no stop"
+  ],
+  [
+   "VS",
+   "66 recorded matches",
+   113425,
+   66,
+   null,
+   "no stop, no failed replay write"
+  ],
+  [
+   "VS",
+   "seed 222333444",
+   200000,
+   87,
+   null,
+   "no stop"
+  ],
+  [
+   "VS",
+   "seed 555666777",
+   200000,
+   89,
+   null,
+   "no stop"
+  ]
+ ],
+ "bodiesNote": "a \"body\" is one call of the gameplay body = one game tick (30 ticks per second in the original); 150,000 bodies ~ 83 min of game time"
+}

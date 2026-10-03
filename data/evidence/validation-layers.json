@@ -1,0 +1,50 @@
+{
+ "title": "How the port is checked: from single functions to whole matches",
+ "layers": [
+  {
+   "layer": "Unicorn oracle scripts (run single EXE functions)",
+   "count": 215,
+   "unit": "tools/oracle_*.py"
+  },
+  {
+   "layer": "reference fixtures compared by Native tests",
+   "count": 408,
+   "unit": "files (4.3 GiB)"
+  },
+  {
+   "layer": "raw oracle corpora (local, read by the coverage tool)",
+   "count": 23092,
+   "unit": "JSON files, 8.5 GB (build/original, untracked)"
+  },
+  {
+   "layer": "Swift test functions",
+   "count": 692,
+   "unit": "func test* in 317 files"
+  },
+  {
+   "layer": "evidence records",
+   "count": 698,
+   "unit": "docs/evidence/*.json"
+  },
+  {
+   "layer": "app end-to-end scenarios",
+   "count": 10,
+   "unit": "tools/app_e2e.py: vs, mission, demo, war, playback, tournament, tournament-win, team-tournament, altenter, joystick"
+  },
+  {
+   "layer": "long soak runs",
+   "count": 22,
+   "unit": "runs (memory-soak.json), up to 200,000 bodies each"
+  },
+  {
+   "layer": "whole matches vs the original under CrossOver",
+   "count": 58,
+   "unit": "42 Mac->original random + 5 original->Mac + 11 earlier replays, all equal"
+  },
+  {
+   "layer": "Demo frames compared tick by tick",
+   "count": 244,
+   "unit": "every 3rd tick 150..879"
+  }
+ ]
+}

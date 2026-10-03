@@ -1,0 +1,34 @@
+{
+ "other": {
+  "files": 99,
+  "bytes": 22740638
+ },
+ "evidence": {
+  "files": 789,
+  "bytes": 35854583
+ },
+ "research": {
+  "files": 568,
+  "bytes": 4841215
+ },
+ "downloads-lfs-pointers": {
+  "files": 3555,
+  "bytes": 463775
+ },
+ "native-code": {
+  "files": 676,
+  "bytes": 6892740
+ },
+ "native-resources": {
+  "files": 1528,
+  "bytes": 32981483
+ },
+ "test-fixtures": {
+  "files": 408,
+  "bytes": 4639115974
+ },
+ "tools": {
+  "files": 716,
+  "bytes": 7108959
+ }
+}

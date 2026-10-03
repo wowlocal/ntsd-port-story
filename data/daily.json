@@ -1,0 +1,245 @@
+[
+ {
+  "date": "2026-09-07",
+  "pre": 10,
+  "claude": 0,
+  "parallel": 0,
+  "ins": 46058,
+  "native": 8,
+  "commits": 10
+ },
+ {
+  "date": "2026-09-08",
+  "pre": 43,
+  "claude": 0,
+  "parallel": 0,
+  "ins": 141961,
+  "native": 42,
+  "commits": 43
+ },
+ {
+  "date": "2026-09-09",
+  "pre": 44,
+  "claude": 0,
+  "parallel": 0,
+  "ins": 95308,
+  "native": 39,
+  "commits": 44
+ },
+ {
+  "date": "2026-09-10",
+  "pre": 43,
+  "claude": 0,
+  "parallel": 0,
+  "ins": 306345,
+  "native": 39,
+  "commits": 43
+ },
+ {
+  "date": "2026-09-11",
+  "pre": 32,
+  "claude": 0,
+  "parallel": 0,
+  "ins": 50439,
+  "native": 24,
+  "commits": 32
+ },
+ {
+  "date": "2026-09-12",
+  "pre": 20,
+  "claude": 0,
+  "parallel": 0,
+  "ins": 152029,
+  "native": 12,
+  "commits": 20
+ },
+ {
+  "date": "2026-09-13",
+  "pre": 20,
+  "claude": 0,
+  "parallel": 0,
+  "ins": 49039,
+  "native": 13,
+  "commits": 20
+ },
+ {
+  "date": "2026-09-14",
+  "pre": 19,
+  "claude": 0,
+  "parallel": 0,
+  "ins": 13144,
+  "native": 1,
+  "commits": 19
+ },
+ {
+  "date": "2026-09-15",
+  "pre": 0,
+  "claude": 0,
+  "parallel": 0,
+  "ins": 0,
+  "native": 0,
+  "commits": 0
+ },
+ {
+  "date": "2026-09-16",
+  "pre": 0,
+  "claude": 0,
+  "parallel": 0,
+  "ins": 0,
+  "native": 0,
+  "commits": 0
+ },
+ {
+  "date": "2026-09-17",
+  "pre": 0,
+  "claude": 0,
+  "parallel": 0,
+  "ins": 0,
+  "native": 0,
+  "commits": 0
+ },
+ {
+  "date": "2026-09-18",
+  "pre": 0,
+  "claude": 0,
+  "parallel": 0,
+  "ins": 0,
+  "native": 0,
+  "commits": 0
+ },
+ {
+  "date": "2026-09-19",
+  "pre": 0,
+  "claude": 0,
+  "parallel": 0,
+  "ins": 0,
+  "native": 0,
+  "commits": 0
+ },
+ {
+  "date": "2026-09-20",
+  "pre": 0,
+  "claude": 0,
+  "parallel": 0,
+  "ins": 0,
+  "native": 0,
+  "commits": 0
+ },
+ {
+  "date": "2026-09-21",
+  "pre": 0,
+  "claude": 0,
+  "parallel": 0,
+  "ins": 0,
+  "native": 0,
+  "commits": 0
+ },
+ {
+  "date": "2026-09-22",
+  "pre": 19,
+  "claude": 0,
+  "parallel": 0,
+  "ins": 132323,
+  "native": 0,
+  "commits": 19
+ },
+ {
+  "date": "2026-09-23",
+  "pre": 0,
+  "claude": 0,
+  "parallel": 0,
+  "ins": 0,
+  "native": 0,
+  "commits": 0
+ },
+ {
+  "date": "2026-09-24",
+  "pre": 0,
+  "claude": 0,
+  "parallel": 0,
+  "ins": 0,
+  "native": 0,
+  "commits": 0
+ },
+ {
+  "date": "2026-09-25",
+  "pre": 0,
+  "claude": 0,
+  "parallel": 0,
+  "ins": 0,
+  "native": 0,
+  "commits": 0
+ },
+ {
+  "date": "2026-09-26",
+  "pre": 52,
+  "claude": 0,
+  "parallel": 0,
+  "ins": 37207,
+  "native": 0,
+  "commits": 52
+ },
+ {
+  "date": "2026-09-27",
+  "pre": 25,
+  "claude": 0,
+  "parallel": 0,
+  "ins": 66002,
+  "native": 0,
+  "commits": 25
+ },
+ {
+  "date": "2026-09-28",
+  "pre": 0,
+  "claude": 15,
+  "parallel": 0,
+  "ins": 24860,
+  "native": 12,
+  "commits": 15
+ },
+ {
+  "date": "2026-09-29",
+  "pre": 0,
+  "claude": 34,
+  "parallel": 0,
+  "ins": 25934,
+  "native": 29,
+  "commits": 34
+ },
+ {
+  "date": "2026-09-30",
+  "pre": 0,
+  "claude": 30,
+  "parallel": 0,
+  "ins": 1874,
+  "native": 14,
+  "commits": 30
+ },
+ {
+  "date": "2026-10-01",
+  "pre": 0,
+  "claude": 11,
+  "parallel": 2,
+  "ins": 2944,
+  "native": 8,
+  "commits": 13
+ },
+ {
+  "date": "2026-10-02",
+  "pre": 0,
+  "claude": 10,
+  "parallel": 13,
+  "ins": 271925,
+  "native": 12,
+  "commits": 23
+ },
+ {
+  "date": "2026-10-03",
+  "pre": 0,
+  "claude": 20,
+  "parallel": 1,
+  "ins": 15593,
+  "native": 4,
+  "commits": 21
+ }
+]

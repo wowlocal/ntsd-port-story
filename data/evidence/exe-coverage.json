@@ -1,0 +1,1177 @@
+{
+ "title": "How much of the original EXE is executed, compared and cited (measurement of 2026-10-02)",
+ "source": "docs/evidence/exe-coverage-20261002.json + docs/research/EXE_COVERAGE_2026-10-02.md; per-function sizes recomputed read-only with tools/exe_coverage_universe.py (identical totals: 72,199 instructions, 274,600 bytes, 373 functions)",
+ "universe": {
+  "instructions": 72199,
+  "bytes": 274600,
+  "functions": 373,
+  "unreachedBytes": 8802
+ },
+ "partitionsInstructions": {
+  "game code": 63694,
+  "zlib 1.1.4": 7413,
+  "MSVC runtime stubs/EH": 1057,
+  "import thunks": 35
+ },
+ "gameCodeBars": [
+  {
+   "measure": "recorded as executed in any saved record",
+   "instructions": 32735,
+   "percent": 51.4
+  },
+  {
+   "measure": "... in fixtures that Native tests compare",
+   "instructions": 29965,
+   "percent": 47.0
+  },
+  {
+   "measure": "in functions with recorded execution or a compared corpus (157 of 174)",
+   "instructions": 58845,
+   "percent": 92.4
+  },
+  {
+   "measure": "cited in the Swift port: ranges only (lower bound)",
+   "instructions": 32961,
+   "percent": 51.7
+  },
+  {
+   "measure": "cited in the Swift port incl. whole functions by entry (upper bound, 151 functions)",
+   "instructions": 60164,
+   "percent": 94.5
+  },
+  {
+   "measure": "cited in research documents or the port (160 functions)",
+   "instructions": 62318,
+   "percent": 97.8
+  }
+ ],
+ "recordSources": {
+  "fixtures (all Native test resources)": {
+   "instructions": 29965,
+   "percent": 47.0,
+   "functionsTouched": 139
+  },
+  "evidence files": {
+   "instructions": 4631,
+   "percent": 7.3,
+   "functionsTouched": 79
+  },
+  "raw oracle corpora (build/original)": {
+   "instructions": 21485,
+   "percent": 33.7,
+   "functionsTouched": 136
+  },
+  "catalog trace PCs (build/research)": {
+   "instructions": 2029,
+   "percent": 3.2,
+   "functionsTouched": 14
+  }
+ },
+ "otherCode": {
+  "zlib 1.1.4": {
+   "instructions": 7413,
+   "recordedExecuted": 3536,
+   "percent": 47.7
+  },
+  "runtime stubs and EH funclets": {
+   "instructions": 1057,
+   "recordedExecuted": 104,
+   "percent": 9.8
+  },
+  "import thunks": {
+   "instructions": 35,
+   "recordedExecuted": 18,
+   "percent": 51.4
+  }
+ },
+ "gameFunctionsByStatus": {
+  "functions": {
+   "recordedOrCompared": 157,
+   "developerModes": 3,
+   "undocumentedOrUnported": 8,
+   "portedInsideComparedCallers": 6
+  },
+  "instructions": {
+   "recordedOrCompared": 58845,
+   "developerModes": 2106,
+   "undocumentedOrUnported": 1474,
+   "portedInsideComparedCallers": 1249
+  }
+ },
+ "statusLegend": {
+  "recordedOrCompared": "157 functions with recorded execution or a compared corpus",
+  "portedInsideComparedCallers": "ported; executed inside compared callers (evidence filed under the caller)",
+  "developerModes": "dispatcher modes 1/2 reachable only with diagnostics flag 450bec + F2/F3; not ported",
+  "undocumentedOrUnported": "reachability in play not established"
+ },
+ "gameFunctions": [
+  {
+   "entry": "0x41bc90",
+   "instructions": 6810,
+   "bytes": 28150,
+   "status": "recordedOrCompared",
+   "label": "gameplay body / first pass (tick, loading prologue)"
+  },
+  {
+   "entry": "0x429730",
+   "instructions": 4793,
+   "bytes": 18823,
+   "status": "recordedOrCompared",
+   "label": "menu prologue + screen continuation"
+  },
+  {
+   "entry": "0x4246b0",
+   "instructions": 4430,
+   "bytes": 20570,
+   "status": "recordedOrCompared",
+   "label": "start-menu / game driver (incl. network connect)"
+  },
+  {
+   "entry": "0x40ef70",
+   "instructions": 3517,
+   "bytes": 13138,
+   "status": "recordedOrCompared",
+   "label": "Object (.dat) loader"
+  },
+  {
+   "entry": "0x42e100",
+   "instructions": 3216,
+   "bytes": 14951,
+   "status": "recordedOrCompared",
+   "label": "hit resolution (damage, guard, falls, reflection)"
+  },
+  {
+   "entry": "0x403a40",
+   "instructions": 2720,
+   "bytes": 10071,
+   "status": "recordedOrCompared",
+   "label": "special-move selector (AI specials)"
+  },
+  {
+   "entry": "0x4094b0",
+   "instructions": 2453,
+   "bytes": 10035,
+   "status": "recordedOrCompared",
+   "label": "character AI"
+  },
+  {
+   "entry": "0x434ab0",
+   "instructions": 2341,
+   "bytes": 9468,
+   "status": "recordedOrCompared",
+   "label": "Team Tournament setup"
+  },
+  {
+   "entry": "0x406ba0",
+   "instructions": 2202,
+   "bytes": 8445,
+   "status": "recordedOrCompared",
+   "label": "object input (hit_Fa projectiles)"
+  },
+  {
+   "entry": "0x432ab0",
+   "instructions": 2004,
+   "bytes": 8140,
+   "status": "recordedOrCompared",
+   "label": "Tournament setup / bracket"
+  },
+  {
+   "entry": "0x438b40",
+   "instructions": 1903,
+   "bytes": 7397,
+   "status": "recordedOrCompared",
+   "label": "War troop/settings menu"
+  },
+  {
+   "entry": "0x4151d0",
+   "instructions": 1731,
+   "bytes": 6785,
+   "status": "developerModes",
+   "label": "developer mode 1 (data.txt loader/editor)"
+  },
+  {
+   "entry": "0x413080",
+   "instructions": 1426,
+   "bytes": 4942,
+   "status": "recordedOrCompared",
+   "label": "actor control"
+  },
+  {
+   "entry": "0x437860",
+   "instructions": 1163,
+   "bytes": 4410,
+   "status": "recordedOrCompared",
+   "label": "Mission (Stage) logic"
+  },
+  {
+   "entry": "0x431d10",
+   "instructions": 934,
+   "bytes": 3479,
+   "status": "recordedOrCompared",
+   "label": "mode-selection screen"
+  },
+  {
+   "entry": "0x40e490",
+   "instructions": 782,
+   "bytes": 2779,
+   "status": "recordedOrCompared",
+   "label": "physics"
+  },
+  {
+   "entry": "0x43a860",
+   "instructions": 759,
+   "bytes": 2918,
+   "status": "recordedOrCompared",
+   "label": "War battle logic"
+  },
+  {
+   "entry": "0x40d0a0",
+   "instructions": 749,
+   "bytes": 2177,
+   "status": "undocumentedOrUnported"
+  },
+  {
+   "entry": "0x417400",
+   "instructions": 686,
+   "bytes": 2942,
+   "status": "recordedOrCompared",
+   "label": "contact detection (ITR/BDY)"
+  },
+  {
+   "entry": "0x41a5a0",
+   "instructions": 651,
+   "bytes": 2173,
+   "status": "recordedOrCompared",
+   "label": "object drawing"
+  },
+  {
+   "entry": "0x408cb0",
+   "instructions": 538,
+   "bytes": 2032,
+   "status": "portedInsideComparedCallers"
+  },
+  {
+   "entry": "0x423b00",
+   "instructions": 536,
+   "bytes": 2004,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x40c160",
+   "instructions": 534,
+   "bytes": 1945,
+   "status": "recordedOrCompared",
+   "label": "background (bg.dat) loader"
+  },
+  {
+   "entry": "0x43d2c0",
+   "instructions": 529,
+   "bytes": 2155,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x417f80",
+   "instructions": 527,
+   "bytes": 2083,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x41b5d0",
+   "instructions": 491,
+   "bytes": 1722,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x40c910",
+   "instructions": 490,
+   "bytes": 1926,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x418c30",
+   "instructions": 446,
+   "bytes": 1860,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x43dfa0",
+   "instructions": 404,
+   "bytes": 1638,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x4014e0",
+   "instructions": 358,
+   "bytes": 1153,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x4034f0",
+   "instructions": 357,
+   "bytes": 1359,
+   "status": "portedInsideComparedCallers"
+  },
+  {
+   "entry": "0x414b70",
+   "instructions": 346,
+   "bytes": 1485,
+   "status": "developerModes"
+  },
+  {
+   "entry": "0x4122f0",
+   "instructions": 339,
+   "bytes": 1294,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x4064d0",
+   "instructions": 332,
+   "bytes": 1360,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x422f60",
+   "instructions": 318,
+   "bytes": 707,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x40d960",
+   "instructions": 316,
+   "bytes": 1219,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x43c780",
+   "instructions": 310,
+   "bytes": 1236,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x4242e0",
+   "instructions": 306,
+   "bytes": 1042,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x422b00",
+   "instructions": 289,
+   "bytes": 1114,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x4187b0",
+   "instructions": 266,
+   "bytes": 1145,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x414450",
+   "instructions": 265,
+   "bytes": 606,
+   "status": "undocumentedOrUnported"
+  },
+  {
+   "entry": "0x437400",
+   "instructions": 260,
+   "bytes": 1112,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x40de30",
+   "instructions": 251,
+   "bytes": 819,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x402130",
+   "instructions": 250,
+   "bytes": 1142,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x419a60",
+   "instructions": 249,
+   "bytes": 977,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x43e9a0",
+   "instructions": 236,
+   "bytes": 866,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x43cf40",
+   "instructions": 232,
+   "bytes": 738,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x41ae60",
+   "instructions": 223,
+   "bytes": 720,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x419380",
+   "instructions": 220,
+   "bytes": 863,
+   "status": "recordedOrCompared",
+   "label": "contact pairs pass"
+  },
+  {
+   "entry": "0x43f010",
+   "instructions": 214,
+   "bytes": 753,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x41a250",
+   "instructions": 209,
+   "bytes": 828,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x41b390",
+   "instructions": 200,
+   "bytes": 575,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x423480",
+   "instructions": 195,
+   "bytes": 576,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x423230",
+   "instructions": 166,
+   "bytes": 582,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x43e620",
+   "instructions": 161,
+   "bytes": 558,
+   "status": "portedInsideComparedCallers",
+   "label": "replay loader"
+  },
+  {
+   "entry": "0x436fc0",
+   "instructions": 158,
+   "bytes": 589,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x4146b0",
+   "instructions": 157,
+   "bytes": 471,
+   "status": "undocumentedOrUnported"
+  },
+  {
+   "entry": "0x43cc60",
+   "instructions": 156,
+   "bytes": 731,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x403270",
+   "instructions": 156,
+   "bytes": 614,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x41b130",
+   "instructions": 156,
+   "bytes": 598,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x4061d0",
+   "instructions": 151,
+   "bytes": 765,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x437220",
+   "instructions": 147,
+   "bytes": 480,
+   "status": "undocumentedOrUnported",
+   "label": "Stage ENDING screen"
+  },
+  {
+   "entry": "0x41a050",
+   "instructions": 144,
+   "bytes": 502,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x419e60",
+   "instructions": 143,
+   "bytes": 476,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x402b60",
+   "instructions": 135,
+   "bytes": 516,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x43c4a0",
+   "instructions": 132,
+   "bytes": 486,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x4389a0",
+   "instructions": 130,
+   "bytes": 294,
+   "status": "portedInsideComparedCallers"
+  },
+  {
+   "entry": "0x417200",
+   "instructions": 128,
+   "bytes": 509,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x43bf10",
+   "instructions": 127,
+   "bytes": 427,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x4025d0",
+   "instructions": 125,
+   "bytes": 595,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x4148a0",
+   "instructions": 123,
+   "bytes": 390,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x4028a0",
+   "instructions": 119,
+   "bytes": 448,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x43dd60",
+   "instructions": 116,
+   "bytes": 405,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x414a30",
+   "instructions": 112,
+   "bytes": 320,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x43ed10",
+   "instructions": 106,
+   "bytes": 320,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x423940",
+   "instructions": 103,
+   "bytes": 298,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x406a20",
+   "instructions": 98,
+   "bytes": 372,
+   "status": "undocumentedOrUnported"
+  },
+  {
+   "entry": "0x40e2d0",
+   "instructions": 97,
+   "bytes": 376,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x4198f0",
+   "instructions": 96,
+   "bytes": 355,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x40e170",
+   "instructions": 89,
+   "bytes": 347,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x4013d0",
+   "instructions": 88,
+   "bytes": 258,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x401300",
+   "instructions": 87,
+   "bytes": 207,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x401f30",
+   "instructions": 87,
+   "bytes": 208,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x4197a0",
+   "instructions": 87,
+   "bytes": 324,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x40bbf0",
+   "instructions": 85,
+   "bytes": 404,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x401da0",
+   "instructions": 81,
+   "bytes": 230,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x401b00",
+   "instructions": 79,
+   "bytes": 233,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x402d70",
+   "instructions": 79,
+   "bytes": 327,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x412f40",
+   "instructions": 78,
+   "bytes": 314,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x402020",
+   "instructions": 76,
+   "bytes": 215,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x43ee50",
+   "instructions": 75,
+   "bytes": 244,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x40bd90",
+   "instructions": 74,
+   "bytes": 216,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x431b70",
+   "instructions": 72,
+   "bytes": 245,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x43bdd0",
+   "instructions": 64,
+   "bytes": 234,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x4236d0",
+   "instructions": 64,
+   "bytes": 248,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x423a70",
+   "instructions": 63,
+   "bytes": 139,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x412c90",
+   "instructions": 62,
+   "bytes": 229,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x412ba0",
+   "instructions": 62,
+   "bytes": 229,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x4128f0",
+   "instructions": 62,
+   "bytes": 229,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x412800",
+   "instructions": 62,
+   "bytes": 229,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x40be70",
+   "instructions": 61,
+   "bytes": 178,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x412e60",
+   "instructions": 61,
+   "bytes": 222,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x412d80",
+   "instructions": 61,
+   "bytes": 222,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x412ac0",
+   "instructions": 61,
+   "bytes": 222,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x4129e0",
+   "instructions": 61,
+   "bytes": 222,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x401110",
+   "instructions": 58,
+   "bytes": 187,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x401000",
+   "instructions": 58,
+   "bytes": 142,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x4237e0",
+   "instructions": 58,
+   "bytes": 165,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x416cd0",
+   "instructions": 58,
+   "bytes": 243,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x416fb0",
+   "instructions": 58,
+   "bytes": 211,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x417090",
+   "instructions": 58,
+   "bytes": 211,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x4196f0",
+   "instructions": 58,
+   "bytes": 169,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x43ef70",
+   "instructions": 57,
+   "bytes": 145,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x423840",
+   "instructions": 55,
+   "bytes": 202,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x4011d0",
+   "instructions": 54,
+   "bytes": 118,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x43db40",
+   "instructions": 54,
+   "bytes": 264,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x40c030",
+   "instructions": 52,
+   "bytes": 168,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x43dc50",
+   "instructions": 52,
+   "bytes": 263,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x402810",
+   "instructions": 49,
+   "bytes": 132,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x401c90",
+   "instructions": 49,
+   "bytes": 151,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x402ad0",
+   "instructions": 48,
+   "bytes": 138,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x438ad0",
+   "instructions": 48,
+   "bytes": 108,
+   "status": "portedInsideComparedCallers"
+  },
+  {
+   "entry": "0x401290",
+   "instructions": 46,
+   "bytes": 111,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x40c0e0",
+   "instructions": 45,
+   "bytes": 122,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x40bf30",
+   "instructions": 43,
+   "bytes": 123,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x40bfb0",
+   "instructions": 43,
+   "bytes": 123,
+   "status": "undocumentedOrUnported"
+  },
+  {
+   "entry": "0x402a60",
+   "instructions": 41,
+   "bytes": 112,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x401bf0",
+   "instructions": 40,
+   "bytes": 150,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x43df00",
+   "instructions": 40,
+   "bytes": 123,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x4019b0",
+   "instructions": 38,
+   "bytes": 119,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x431c70",
+   "instructions": 38,
+   "bytes": 152,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x43f310",
+   "instructions": 38,
+   "bytes": 109,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x43e940",
+   "instructions": 37,
+   "bytes": 95,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x401090",
+   "instructions": 36,
+   "bytes": 123,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x401d30",
+   "instructions": 36,
+   "bytes": 97,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x43c710",
+   "instructions": 32,
+   "bytes": 111,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x401a30",
+   "instructions": 30,
+   "bytes": 66,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x43c690",
+   "instructions": 30,
+   "bytes": 121,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x417170",
+   "instructions": 29,
+   "bytes": 77,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x4143d0",
+   "instructions": 29,
+   "bytes": 99,
+   "status": "developerModes"
+  },
+  {
+   "entry": "0x415160",
+   "instructions": 28,
+   "bytes": 99,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x43e8e0",
+   "instructions": 26,
+   "bytes": 85,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x401a80",
+   "instructions": 25,
+   "bytes": 87,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x4171c0",
+   "instructions": 22,
+   "bytes": 61,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x416eb0",
+   "instructions": 21,
+   "bytes": 83,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x416f60",
+   "instructions": 20,
+   "bytes": 78,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x416f10",
+   "instructions": 19,
+   "bytes": 76,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x416e60",
+   "instructions": 19,
+   "bytes": 74,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x401970",
+   "instructions": 19,
+   "bytes": 57,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x43bec0",
+   "instructions": 19,
+   "bytes": 67,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x43e860",
+   "instructions": 18,
+   "bytes": 44,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x422ac0",
+   "instructions": 18,
+   "bytes": 56,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x401250",
+   "instructions": 17,
+   "bytes": 50,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x43e890",
+   "instructions": 16,
+   "bytes": 69,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x402100",
+   "instructions": 16,
+   "bytes": 44,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x4061a0",
+   "instructions": 15,
+   "bytes": 37,
+   "status": "portedInsideComparedCallers"
+  },
+  {
+   "entry": "0x43ef50",
+   "instructions": 12,
+   "bytes": 25,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x43d280",
+   "instructions": 11,
+   "bytes": 29,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x40e450",
+   "instructions": 11,
+   "bytes": 61,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x423910",
+   "instructions": 10,
+   "bytes": 41,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x416ca0",
+   "instructions": 9,
+   "bytes": 37,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x416c70",
+   "instructions": 9,
+   "bytes": 37,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x416dd0",
+   "instructions": 8,
+   "bytes": 31,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x416e30",
+   "instructions": 8,
+   "bytes": 34,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x402000",
+   "instructions": 8,
+   "bytes": 18,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x415140",
+   "instructions": 8,
+   "bytes": 29,
+   "status": "undocumentedOrUnported"
+  },
+  {
+   "entry": "0x401ae0",
+   "instructions": 7,
+   "bytes": 22,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x416e10",
+   "instructions": 7,
+   "bytes": 28,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x40d940",
+   "instructions": 7,
+   "bytes": 28,
+   "status": "undocumentedOrUnported"
+  },
+  {
+   "entry": "0x43d2a0",
+   "instructions": 6,
+   "bytes": 24,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x416df0",
+   "instructions": 6,
+   "bytes": 30,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x4034e0",
+   "instructions": 5,
+   "bytes": 11,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x4025b0",
+   "instructions": 0,
+   "bytes": 0,
+   "status": "recordedOrCompared"
+  },
+  {
+   "entry": "0x43d230",
+   "instructions": 0,
+   "bytes": 0,
+   "status": "recordedOrCompared"
+  }
+ ],
+ "note": "instruction counts per function come from function instruction sets (sum 63,674 vs 63,694 by address; 20 instructions unattributed)."
+}

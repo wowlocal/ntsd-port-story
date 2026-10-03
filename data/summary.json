@@ -1,0 +1,128 @@
+{
+ "commits_all": 468,
+ "commits_since_sept": 463,
+ "prologue": [
+  {
+   "hash": "8940864",
+   "date": "2026-03-31T00:25:51+0300",
+   "subject": "initial plan"
+  },
+  {
+   "hash": "20b1b09",
+   "date": "2026-03-31T00:26:04+0300",
+   "subject": "reverse engeneering plan"
+  },
+  {
+   "hash": "aa2e149",
+   "date": "2026-03-31T12:00:13+0300",
+   "subject": "docs: add NTSD 2.4 CrossOver troubleshooting report and launcher script"
+  },
+  {
+   "hash": "ff42a07",
+   "date": "2026-03-31T12:01:59+0300",
+   "subject": "chore: add NTSD game files and downloaded assets"
+  },
+  {
+   "hash": "4ab27f7",
+   "date": "2026-03-31T12:25:34+0300",
+   "subject": "docs: add README and harden launcher for Git LFS"
+  }
+ ],
+ "first": "2026-09-07T18:20:07+0300",
+ "last": "2026-10-03T16:18:13+0200",
+ "calendar_days": 27,
+ "active_days": 17,
+ "busiest_day": {
+  "date": "2026-09-26",
+  "pre": 52,
+  "claude": 0,
+  "parallel": 0,
+  "ins": 37207,
+  "native": 0,
+  "commits": 52
+ },
+ "insertions": 1432985,
+ "deletions": 13550,
+ "night_commits": 92,
+ "eras": {
+  "pre": {
+   "commits": 327,
+   "first": "2026-09-07T18:20:07+0300",
+   "last": "2026-09-27T10:06:14+0300",
+   "median_gap_min": 27.7,
+   "night_share": 0.199,
+   "median_body_chars": 0,
+   "with_body": 112,
+   "conventional_prefix": 116
+  },
+  "claude": {
+   "commits": 120,
+   "first": "2026-09-28T13:31:38+0200",
+   "last": "2026-10-03T16:18:13+0200",
+   "median_gap_min": 30.0,
+   "night_share": 0.225,
+   "median_body_chars": 516.0,
+   "with_body": 120,
+   "conventional_prefix": 0
+  },
+  "parallel": {
+   "commits": 16,
+   "first": "2026-10-01T19:42:51+0200",
+   "last": "2026-10-03T07:28:53+0200",
+   "median_gap_min": 19.3,
+   "night_share": 0.0,
+   "median_body_chars": 428.0,
+   "with_body": 11,
+   "conventional_prefix": 3
+  }
+ },
+ "longest_pauses_h": [
+  {
+   "hours": 196.5,
+   "after": "be3d407",
+   "before": "5b7e63d",
+   "from": "2026-09-14T12:05:32+0300",
+   "to": "2026-09-22T16:37:05+0300"
+  },
+  {
+   "hours": 82.6,
+   "after": "47ef76e",
+   "before": "97a07b2",
+   "from": "2026-09-22T22:57:15+0300",
+   "to": "2026-09-26T09:31:21+0300"
+  },
+  {
+   "hours": 28.4,
+   "after": "4c0f3e2",
+   "before": "838cbe7",
+   "from": "2026-09-27T10:06:14+0300",
+   "to": "2026-09-28T13:31:38+0200"
+  },
+  {
+   "hours": 10.6,
+   "after": "0356f06",
+   "before": "735c49e",
+   "from": "2026-10-02T07:02:15+0200",
+   "to": "2026-10-02T17:37:21+0200"
+  }
+ ],
+ "subject_words": {
+  "preserve": 48,
+  "verify": 48,
+  "validate": 13,
+  "recover": 23,
+  "reproduce": 41,
+  "port": 29,
+  "play": 13,
+  "cross-check": 12,
+  "failure": 12,
+  "correct": 4,
+  "fix": 9,
+  "original": 109
+ },
+ "research_cards": 567,
+ "plan_cards": 202,
+ "evidence_files": 789,
+ "oracle_scripts": 215,
+ "test_functions": 692
+}

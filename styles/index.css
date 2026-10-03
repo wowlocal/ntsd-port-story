@@ -1,0 +1,341 @@
+/* NTSD port story — deck-wide tokens and base styles.
+   Chart series colors are the validated dark categorical slots
+   (checked against the card surface #141821 with the dataviz validator). */
+
+:root {
+  --bg: #0a0d13;
+  --bg-2: #0f131b;
+  --surface: #141821;
+  --surface-2: #1a2030;
+  --surface-3: #232a3b;
+  --ink: #f6f3ec;
+  --ink-2: #c3c2b7;
+  --muted: #8d919c;
+  --grid: #252b37;
+  --axis: #3a4252;
+  --hair: rgba(255, 255, 255, 0.08);
+
+  --s1: #3987e5; /* blue   — era before 28 Sep / Mac side */
+  --s2: #d95926; /* orange — Claude era / highlight */
+  --s3: #199e70; /* aqua   — parallel agent */
+  --s4: #c98500; /* yellow */
+  --s5: #d55181; /* magenta */
+  --s6: #008300; /* green */
+  --s7: #9085e9; /* violet */
+  --s8: #e66767; /* red */
+
+  --good: #0ca30c;
+  --warning: #fab219;
+  --serious: #ec835a;
+  --critical: #d03b3b;
+
+  --naruto: #ff8a3d; /* decorative accent only */
+  --chakra: #6cb6ff; /* decorative accent only */
+
+  --font-display: 'Unbounded', 'Onest', system-ui, sans-serif;
+  --font-pixel: 'Pixelify Sans', 'Onest', system-ui, sans-serif;
+  --font-sans: 'Onest', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  --slidev-code-background: #11151d;
+  --slidev-code-radius: 10px;
+  --slidev-code-font-size: 12px;
+  --slidev-code-line-height: 18px;
+}
+
+html, body, #app {
+  background: var(--bg);
+}
+
+.slidev-layout {
+  position: relative;
+  color: var(--ink);
+  font-family: var(--font-sans);
+  background:
+    radial-gradient(120% 70% at 100% 115%, rgba(217, 89, 38, 0.16), transparent 55%),
+    radial-gradient(80% 60% at -10% -20%, rgba(57, 135, 229, 0.12), transparent 60%),
+    var(--bg);
+  padding: 2.1rem 3rem 2rem;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* faint pixel grid */
+.slidev-layout::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 24px 24px;
+  pointer-events: none;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.15));
+}
+
+.slidev-layout > * {
+  position: relative;
+}
+
+.slidev-layout h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.85rem;
+  line-height: 1.18;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.9rem;
+  color: var(--ink);
+}
+
+.slidev-layout h1 + p {
+  opacity: 1;
+  margin-top: -0.35rem;
+  color: var(--ink-2);
+}
+
+.slidev-layout h2 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.25rem;
+  line-height: 1.25;
+  margin: 0 0 0.6rem;
+}
+
+.slidev-layout h3 {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 1.02rem;
+  margin: 0 0 0.35rem;
+  color: var(--ink);
+}
+
+.slidev-layout p {
+  margin: 0.4rem 0;
+}
+
+.slidev-layout strong {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.slidev-layout em {
+  color: var(--ink-2);
+}
+
+.slidev-layout a {
+  color: var(--chakra);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(108, 182, 255, 0.35);
+}
+
+.slidev-layout ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0.4rem 0;
+}
+
+.slidev-layout ul > li {
+  position: relative;
+  padding-left: 1.15rem;
+  margin: 0.32rem 0;
+  color: var(--ink-2);
+}
+
+.slidev-layout ul > li::before {
+  content: '';
+  position: absolute;
+  left: 0.1rem;
+  top: 0.62em;
+  width: 6px;
+  height: 6px;
+  background: var(--naruto);
+  box-shadow: 2px 2px 0 rgba(255, 138, 61, 0.25);
+}
+
+.slidev-layout ul > li strong {
+  color: var(--ink);
+}
+
+.slidev-layout code:not(pre code) {
+  font-family: var(--font-mono);
+  font-size: 0.86em;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid var(--hair);
+  border-radius: 5px;
+  padding: 0.05em 0.35em;
+  color: #ffd5b8;
+}
+
+.slidev-layout pre,
+.slidev-code {
+  border: 1px solid var(--hair);
+}
+
+.slidev-layout blockquote {
+  border-left: 3px solid var(--naruto);
+  background: rgba(255, 255, 255, 0.03);
+  padding: 0.6rem 1rem;
+  border-radius: 0 10px 10px 0;
+  color: var(--ink-2);
+  font-style: normal;
+}
+
+.slidev-layout table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.82rem;
+}
+
+.slidev-layout th {
+  text-align: left;
+  font-weight: 600;
+  color: var(--muted);
+  border-bottom: 1px solid var(--axis);
+  padding: 0.35rem 0.6rem;
+}
+
+.slidev-layout td {
+  border-bottom: 1px solid var(--grid);
+  padding: 0.38rem 0.6rem;
+  color: var(--ink-2);
+  vertical-align: top;
+}
+
+.slidev-layout td strong {
+  color: var(--ink);
+}
+
+/* utility classes used across slides */
+.pixel {
+  font-family: var(--font-pixel);
+  letter-spacing: 0.02em;
+}
+
+.display {
+  font-family: var(--font-display);
+}
+
+.mono {
+  font-family: var(--font-mono);
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.ink2 {
+  color: var(--ink-2);
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--hair);
+  border-radius: 14px;
+  padding: 0.9rem 1rem;
+}
+
+.card-soft {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--hair);
+  border-radius: 12px;
+  padding: 0.7rem 0.9rem;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--ink-2);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--hair);
+  border-radius: 999px;
+  padding: 0.08rem 0.55rem;
+  white-space: nowrap;
+}
+
+.hl {
+  color: var(--naruto);
+}
+
+.hl-blue {
+  color: var(--chakra);
+}
+
+.small {
+  font-size: 0.8rem;
+}
+
+.xsmall {
+  font-size: 0.7rem;
+}
+
+.pixelated {
+  image-rendering: pixelated;
+}
+
+.swatch {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  margin-right: 0.35rem;
+  vertical-align: baseline;
+}
+
+/* footer source line on data slides */
+.source {
+  position: absolute;
+  left: 3rem;
+  right: 3rem;
+  bottom: 0.9rem;
+  font-size: 0.62rem;
+  color: var(--muted);
+  font-family: var(--font-mono);
+}
+
+/* click-reveal motion */
+.slidev-vclick-target {
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.slidev-vclick-hidden {
+  transform: translateY(6px);
+}
+
+/* slide number in the corner */
+.slide-no {
+  position: absolute;
+  right: 1.1rem;
+  bottom: 0.7rem;
+  font-family: var(--font-pixel);
+  font-size: 0.7rem;
+  color: var(--muted);
+}
+
+/* grid children may shrink below their content (long code lines) */
+.slidev-layout .grid > * {
+  min-width: 0;
+}
+
+/* code on slides wraps instead of widening its column */
+.slidev-layout .slidev-code,
+.slidev-layout pre.shiki {
+  font-size: 10.5px !important;
+  line-height: 16px !important;
+  white-space: pre-wrap !important;
+  overflow-wrap: anywhere;
+  padding: 0.6rem 0.8rem !important;
+}
+.slidev-layout pre.shiki code {
+  white-space: pre-wrap !important;
+}
+
+.slidev-layout .tight table {
+  font-size: 0.74rem;
+}
+.slidev-layout .tight td,
+.slidev-layout .tight th {
+  padding: 0.24rem 0.5rem;
+}
