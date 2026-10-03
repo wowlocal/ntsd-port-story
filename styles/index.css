@@ -284,6 +284,29 @@ html, body, #app {
   vertical-align: baseline;
 }
 
+.ink {
+  color: var(--ink);
+}
+
+/* legend marks inside text: filled dot, ring, dashed ring */
+.dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 0.4rem;
+  vertical-align: -1px;
+}
+
+.dot.ring {
+  background: transparent;
+  border: 1.6px solid var(--ink);
+}
+
+.dot.ring.dashed {
+  border: 1.5px dashed var(--ink-2);
+}
+
 /* footer source line on data slides */
 .source {
   position: absolute;

@@ -120,19 +120,50 @@ stats: 34 сессии · 31 095 ответов моделей · 1 101 ход �
 
 ---
 
-<Kicker>почему была пауза</Kicker>
+<Kicker>лимиты · ChatGPT Pro</Kicker>
 
-# Восемь дней тишины совпали с лимитом
+# Сколько ресетов ушло на Astra
 
-<WeeklyLimit class="mt-2" />
+<div class="small ink2 -mt-1">За 27 дней недельное окно Codex досрочно обнулялось 8 раз. Четыре раза это были ваши ресеты, когда лимит был выбран на 93–100 %.</div>
 
-<div class="grid grid-cols-3 gap-4 mt-1 small ink2">
-<div>Каждый столбец — максимум недельного лимита Codex за день (по московскому времени) по счётчику в журнале. <b class="hl">13 и 14 сентября — 100 %.</b></div>
-<div>14 сентября в 12:05 МСК — последний коммит перед паузой; лимит сбрасывался только 20 сентября в 08:36 МСК.</div>
-<div>Это совпадение по времени, а не доказанная причина: 22 сентября работа возобновилась уже при новом лимите.</div>
+<LimitSaw class="mt-1" :height="190" />
+
+<div class="grid grid-cols-[1.25fr_1fr_1fr] gap-3 mt-1 xsmall ink2">
+<div class="card-soft">
+<div class="small ink"><i class="dot" style="background: var(--s2)" /><b>4 ваших ресета за 5 дней</b></div>
+<b class="ink">10 сен</b>: через пару минут после «You've hit your usage limit… try again at Sep 15th» · <b class="ink">12 сен</b>: при 93 % · <b class="ink">13 сен</b>: через 7 часов после ночного упора («try again at Sep 19th») · <b class="ink">14 сен</b>: через 9 минут после 100 %
+</div>
+<div class="card-soft">
+<div class="small ink"><i class="dot ring" /><b>2 общих сброса OpenAI</b></div>
+<b class="ink">8 сен</b>: всем платным после выката GPT-6 Astra, было 36 % · <b class="ink">26 сен</b>: после сбоя Codex 25 сентября, было 72 %
+</div>
+<div class="card-soft">
+<div class="small ink"><i class="dot ring dashed" /><b>2 — не различить</b></div>
+<b class="ink">24 сен</b> при 90 % и <b class="ink">2 окт</b> при 86 %: окно началось заново раньше срока, но журнал не говорит, кто его сбросил.
+</div>
 </div>
 
-<div class="source">~/.codex/sessions: rate_limits.primary (окно 10 080 минут) в событиях token_count · data/sessions.json</div>
+<div class="xsmall muted mt-2">Лимит паузу 15–21 сентября не объясняет: 14-го окно обнулили, и до 18-го 87 из 90 % нового окна ушли на другие проекты.</div>
+
+<div class="source">~/.codex/sessions: rate_limits.primary (окно 10 080 мин) в token_count, ошибки usage_limit_exceeded · общие сбросы — объявления OpenAI · scripts/collect_limits.py</div>
+
+---
+
+<Kicker>лимиты · ChatGPT Pro</Kicker>
+
+# Как сгорала подписка за $200
+
+<div class="small ink2 -mt-1">В журнале нет денег, только процент недельного лимита. По номиналу неделя Pro стоит ≈ $46: $200 × 12 месяцев ÷ 52 недели.</div>
+
+<SubscriptionBurn class="mt-1" />
+
+<div class="grid grid-cols-3 gap-3 mt-2">
+<StatTile :value="7.9" :decimals="1" label="недельного лимита за 27 дней" sub="весь аккаунт, из них 5,8 на порт; без досрочных сбросов потолок был бы 3,9" size="sm" accent="var(--s1)" />
+<StatTile :value="362" prefix="≈ $" label="лимита по номиналу" sub="из них ≈ $266 на порт; подписка за эти 27 дней стоила ≈ $177" size="sm" />
+<StatTile :value="152" suffix="%" label="за 12 сентября" sub="полтора недельных лимита за сутки, ≈ $70; с 28 сентября работу ведёт Claude, и Codex тратит до 20 % в день" size="sm" accent="var(--s2)" />
+</div>
+
+<div class="source">~/.codex/sessions: рост максимума внутри недельного окна по дням (+03:00, с 28 сентября +02:00) · пересчёт по номиналу $200 в месяц · scripts/collect_limits.py</div>
 
 ---
 
