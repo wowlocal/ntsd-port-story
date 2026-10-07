@@ -1,0 +1,107 @@
+{
+ "title": "Память игры на Galaxy A12 и на macOS: убийство на загрузке, куда уходит куча, три шага хранения",
+ "source": "ntsd-2.4 at 8840eb3: docs/evidence/crossplatform-p8-android-phone-20261005.json, crossplatform-memory-footprint-20261005.json, crossplatform-memory-attribution-20261005.json, crossplatform-memory-step{1,2,3}-20261005.json, docs/research/MEMORY_FOOTPRINT.md",
+ "caveat": "Holders are malloc_history stacks at a 3.6 GB footprint of the macOS headless run (live heap 3.84 GiB); 'other' is the rest of that live heap. Steps 1-2 are measured as live heap (heap -s), step 3 as resident heap (vmmap dirty+swapped): two metrics, not one series. The macOS footprint varied 1.4-3.1 GB between identical runs and is not used to compare steps.",
+ "rev": "8840eb3",
+ "phone": {
+  "device": "Samsung Galaxy A12 (SM-A125F), Android 12",
+  "memTotalKB": 2809044,
+  "memTotalMiB": 2743,
+  "lmkd": "Reclaim local.ntsd.port ... to free 1311324kB rss, 2493324kB swap; reason: device is low on swap (0kB < 786428kB) and thrashing (272%)",
+  "residentGB": 1.3,
+  "availableMB": 50
+ },
+ "macPeakFootprintBytes": 4165046040,
+ "liveHeapMiB": 3932,
+ "mappedFilesMB": 34.8,
+ "holders": [
+  {
+   "id": "surface",
+   "label": "пиксели 851 поверхности дисплея",
+   "image": true,
+   "MiB": 1113
+  },
+  {
+   "id": "decoded",
+   "label": "декодированные цвета битмапов",
+   "image": true,
+   "MiB": 1041
+  },
+  {
+   "id": "filebytes",
+   "label": "байты файлов картинок, копия",
+   "image": true,
+   "MiB": 666
+  },
+  {
+   "id": "known",
+   "label": "маска «known», байт на пиксель",
+   "image": true,
+   "MiB": 283
+  },
+  {
+   "id": "records",
+   "label": "записи состояния",
+   "image": false,
+   "MiB": 181
+  },
+  {
+   "id": "frames",
+   "label": "словари загрузчика кадров",
+   "image": false,
+   "MiB": 161
+  },
+  {
+   "id": "sounds",
+   "label": "звуки",
+   "image": false,
+   "MiB": 60
+  },
+  {
+   "id": "startup",
+   "label": "чтение стартовых файлов",
+   "image": false,
+   "MiB": 57
+  },
+  {
+   "id": "other",
+   "label": "прочее",
+   "image": false,
+   "MiB": 370
+  }
+ ],
+ "steps": [
+  {
+   "n": 1,
+   "hash": "2289ad0",
+   "what": "картинка не хранит декодированную копию",
+   "metric": "живая куча",
+   "before": 4.1,
+   "after": 3.02
+  },
+  {
+   "n": 2,
+   "hash": "58bb8cc",
+   "what": "маска «known» битами, а не байтами",
+   "metric": "живая куча",
+   "before": 3.02,
+   "after": 2.75
+  },
+  {
+   "n": 3,
+   "hash": "109304a",
+   "what": "поверхность заполняется при первом обращении",
+   "metric": "резидентная куча",
+   "before": 2.6,
+   "after": 1.5
+  }
+ ],
+ "phoneAfter": {
+  "scriptedSeconds": 668,
+  "emulatorSeconds": 95,
+  "frames": 1832,
+  "loadingSeconds": 165,
+  "peakRssGB": 1.26,
+  "ticksPerSecond": "5.3-5.5"
+ }
+}
