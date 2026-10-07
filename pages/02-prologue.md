@@ -1,7 +1,7 @@
 ---
 layout: chapter
 num: 1
-total: 13
+total: 15
 kicker: Пролог
 dates: 31 марта 2026
 image: /img/covers/ch01-academy-konoha.jpg
@@ -56,7 +56,7 @@ stats: 5 коммитов · потом 160 дней тишины
 ---
 layout: chapter
 num: 2
-total: 13
+total: 15
 kicker: Глава вторая
 dates: 7 сентября, 18:20–21:13
 image: /img/district-composite-960x550.png
