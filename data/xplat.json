@@ -1,0 +1,1013 @@
+{
+ "note": "cross-platform chapter data; pinned commits in scripts/collect_xplat.py",
+ "passport": {
+  "before": {
+   "ref": "fc959db",
+   "date": "2026-10-03T16:18:13+0200",
+   "commits_since_sept": 463,
+   "active_days": 17,
+   "first_day": "2026-09-07",
+   "last_day": "2026-10-03",
+   "swift_src_lines": 48369,
+   "swift_src_files": 329,
+   "swift_test_lines": 46852,
+   "test_functions": 692,
+   "python_lines": 84428,
+   "research_cards": 567,
+   "evidence_files": 789,
+   "insertions": 1432985
+  },
+  "after": {
+   "ref": "8840eb3",
+   "date": "2026-10-07T08:23:11+0200",
+   "commits_since_sept": 601,
+   "active_days": 21,
+   "first_day": "2026-09-07",
+   "last_day": "2026-10-07",
+   "swift_src_lines": 53447,
+   "swift_src_files": 373,
+   "swift_test_lines": 48860,
+   "test_functions": 734,
+   "python_lines": 86453,
+   "research_cards": 581,
+   "evidence_files": 911,
+   "insertions": 1457825
+  }
+ },
+ "targets": {
+  "main": {
+   "mac": 6038,
+   "checks": 11791,
+   "core": 30540
+  },
+  "nine": {
+   "android": 572,
+   "mac": 1534,
+   "checks": 11839,
+   "core": 30737,
+   "freetype": 59,
+   "headless": 153,
+   "music": 74,
+   "runtime": 5748,
+   "sdl": 655,
+   "ios": 301
+  },
+  "now": {
+   "android": 625,
+   "mac": 1534,
+   "checks": 11839,
+   "core": 31962,
+   "freetype": 59,
+   "headless": 166,
+   "music": 74,
+   "runtime": 6232,
+   "sdl": 655,
+   "ios": 301
+  }
+ },
+ "core_diff": {
+  "from": "74be317",
+  "to": "2fe64be",
+  "files": [
+   {
+    "file": "OriginalApplicationArenaInputs.swift",
+    "added": 3,
+    "deleted": 1
+   },
+   {
+    "file": "OriginalApplicationCatalogInputs.swift",
+    "added": 6,
+    "deleted": 4
+   },
+   {
+    "file": "OriginalApplicationInterfaceInputs.swift",
+    "added": 3,
+    "deleted": 1
+   },
+   {
+    "file": "OriginalApplicationLoadingInputs.swift",
+    "added": 4,
+    "deleted": 2
+   },
+   {
+    "file": "OriginalApplicationMenuInputs.swift",
+    "added": 3,
+    "deleted": 1
+   },
+   {
+    "file": "OriginalApplicationStartupInputs.swift",
+    "added": 5,
+    "deleted": 3
+   },
+   {
+    "file": "OriginalDirectoryPrefetch.swift",
+    "added": 16,
+    "deleted": 0
+   },
+   {
+    "file": "OriginalFileFacts.swift",
+    "added": 34,
+    "deleted": 0
+   },
+   {
+    "file": "OriginalMacStartupClock.swift",
+    "added": 29,
+    "deleted": 0
+   },
+   {
+    "file": "OriginalRetainedHistory.swift",
+    "added": 24,
+    "deleted": 14
+   },
+   {
+    "file": "PortableSHA256.swift",
+    "added": 96,
+    "deleted": 0
+   }
+  ],
+  "added": 223,
+  "deleted": 26
+ },
+ "commits": [
+  {
+   "hash": "c753d7c",
+   "time": "2026-10-03T20:11",
+   "subject": "Plan the cross-platform port and its cross-compilation loop",
+   "lane": "core"
+  },
+  {
+   "hash": "c649bac",
+   "time": "2026-10-03T20:20",
+   "subject": "Cross-compile and run a Linux probe; record the first Core blocker",
+   "lane": "linux"
+  },
+  {
+   "hash": "4547acc",
+   "time": "2026-10-03T20:32",
+   "subject": "Give Core a portable SHA-256 where CryptoKit is missing",
+   "lane": "core"
+  },
+  {
+   "hash": "65c6916",
+   "time": "2026-10-03T20:37",
+   "subject": "Import the clock's C library per OS so Core builds for Linux",
+   "lane": "core",
+   "milestone": "ядро собралось под Linux"
+  },
+  {
+   "hash": "699f9ec",
+   "time": "2026-10-03T20:54",
+   "subject": "Decode DEFLATE fixtures with SDK zlib where Compression is missing",
+   "lane": "core"
+  },
+  {
+   "hash": "48db790",
+   "time": "2026-10-03T21:00",
+   "subject": "Let the package build without its Mac targets for other platforms",
+   "lane": "core"
+  },
+  {
+   "hash": "6203799",
+   "time": "2026-10-03T21:01",
+   "subject": "Extract the Swift Windows SDK from the official installer",
+   "lane": "windows"
+  },
+  {
+   "hash": "ebb9adc",
+   "time": "2026-10-03T21:18",
+   "subject": "Cross-build the portable tests for Linux and pass the first 12",
+   "lane": "linux"
+  },
+  {
+   "hash": "503af05",
+   "time": "2026-10-03T21:42",
+   "subject": "Compare raw JSON parents with Darwin semantics on every platform",
+   "lane": "core"
+  },
+  {
+   "hash": "b154778",
+   "time": "2026-10-03T22:00",
+   "subject": "Move build/research into verified archives on T7",
+   "lane": "matrix"
+  },
+  {
+   "hash": "a4c48a6",
+   "time": "2026-10-03T22:01",
+   "subject": "Skip git-tracked entries when archiving to T7",
+   "lane": "matrix"
+  },
+  {
+   "hash": "3f43f53",
+   "time": "2026-10-03T22:01",
+   "subject": "Plan the shared runtime split; record the Windows UCRT gap",
+   "lane": "core"
+  },
+  {
+   "hash": "fb61a77",
+   "time": "2026-10-03T22:10",
+   "subject": "Start NTSDRuntime with the platform-free runtime leaves",
+   "lane": "core"
+  },
+  {
+   "hash": "56ac79e",
+   "time": "2026-10-03T22:22",
+   "subject": "Move the sound mixer into NTSDRuntime",
+   "lane": "core"
+  },
+  {
+   "hash": "1c2db2a",
+   "time": "2026-10-03T22:33",
+   "subject": "Move music sequencing into NTSDRuntime",
+   "lane": "core"
+  },
+  {
+   "hash": "882adc6",
+   "time": "2026-10-03T22:42",
+   "subject": "Give presentation a portable framebuffer type",
+   "lane": "core"
+  },
+  {
+   "hash": "92985dd",
+   "time": "2026-10-03T23:14",
+   "subject": "Record the app e2e baseline before moving the display backend",
+   "lane": "core"
+  },
+  {
+   "hash": "c5f5e0b",
+   "time": "2026-10-03T23:42",
+   "subject": "Move the display backend into NTSDRuntime behind a window protocol",
+   "lane": "core"
+  },
+  {
+   "hash": "08e6f4f",
+   "time": "2026-10-04T00:09",
+   "subject": "Move the audio backend into NTSDRuntime with portable samples",
+   "lane": "core"
+  },
+  {
+   "hash": "1dcf183",
+   "time": "2026-10-04T00:17",
+   "subject": "Move the display-startup and bitmap services into NTSDRuntime",
+   "lane": "core"
+  },
+  {
+   "hash": "6cdb5c2",
+   "time": "2026-10-04T00:21",
+   "subject": "Record that heavy Lib* suites exceed the Linux container's memory",
+   "lane": "linux"
+  },
+  {
+   "hash": "d855299",
+   "time": "2026-10-04T00:52",
+   "subject": "Move the window request model into NTSDRuntime over a host protocol",
+   "lane": "core"
+  },
+  {
+   "hash": "60b463b",
+   "time": "2026-10-04T01:19",
+   "subject": "Move the startup services into NTSDRuntime",
+   "lane": "core"
+  },
+  {
+   "hash": "fb2e1c0",
+   "time": "2026-10-04T01:47",
+   "subject": "Move the network runtime into NTSDRuntime over a sockets protocol",
+   "lane": "core"
+  },
+  {
+   "hash": "6e68178",
+   "time": "2026-10-04T02:12",
+   "subject": "Move the front-screen service into NTSDRuntime",
+   "lane": "core"
+  },
+  {
+   "hash": "5ffe2dc",
+   "time": "2026-10-04T02:39",
+   "subject": "Move the startup composition into NTSDRuntime over a startup host",
+   "lane": "core"
+  },
+  {
+   "hash": "414a2aa",
+   "time": "2026-10-04T02:45",
+   "subject": "Record the Linux run: 581 portable tests pass, none fail",
+   "lane": "linux"
+  },
+  {
+   "hash": "706dc65",
+   "time": "2026-10-04T03:07",
+   "subject": "Move the menu and loading runtimes into NTSDRuntime",
+   "lane": "core"
+  },
+  {
+   "hash": "2f5e707",
+   "time": "2026-10-04T03:07",
+   "subject": "Note that 414a2aa does not build and guard against staged renames",
+   "lane": "core"
+  },
+  {
+   "hash": "da2414f",
+   "time": "2026-10-04T03:38",
+   "subject": "Move the app session into NTSDRuntime behind a session host",
+   "lane": "core"
+  },
+  {
+   "hash": "5dd1933",
+   "time": "2026-10-04T04:00",
+   "subject": "Run the whole VS match headless, identically on macOS and Linux",
+   "lane": "linux",
+   "milestone": "VS-матч: Linux = macOS"
+  },
+  {
+   "hash": "f7de972",
+   "time": "2026-10-04T04:20",
+   "subject": "Run every app e2e scenario headless on Linux against its reference",
+   "lane": "linux"
+  },
+  {
+   "hash": "a72ae97",
+   "time": "2026-10-04T05:14",
+   "subject": "Work around a Swift 6.4.0 Linux miscompile in the retained history",
+   "lane": "linux",
+   "milestone": "баг компилятора Swift"
+  },
+  {
+   "hash": "6b6ed02",
+   "time": "2026-10-04T07:08",
+   "subject": "Add the SDL3 backend and host-independent frame captures",
+   "lane": "macsdl"
+  },
+  {
+   "hash": "50c19ea",
+   "time": "2026-10-04T07:46",
+   "subject": "Compare whole matches frame by frame across hosts",
+   "lane": "macsdl",
+   "milestone": "15 909 кадров SDL = AppKit"
+  },
+  {
+   "hash": "4bbf311",
+   "time": "2026-10-04T08:10",
+   "subject": "Cross-build and run the SDL backend on Linux",
+   "lane": "linux"
+  },
+  {
+   "hash": "3e3c712",
+   "time": "2026-10-04T08:52",
+   "subject": "Rasterise text on Linux with FreeType",
+   "lane": "linux"
+  },
+  {
+   "hash": "de3ad55",
+   "time": "2026-10-04T09:00",
+   "subject": "Drive the Linux SDL build on X11 with real input",
+   "lane": "linux"
+  },
+  {
+   "hash": "7c504a6",
+   "time": "2026-10-04T09:46",
+   "subject": "Play the original music without AVFoundation",
+   "lane": "linux"
+  },
+  {
+   "hash": "927f319",
+   "time": "2026-10-04T10:23",
+   "subject": "Run ONLINE GAME on Linux with the shared Winsock",
+   "lane": "linux"
+  },
+  {
+   "hash": "0f91b25",
+   "time": "2026-10-04T10:31",
+   "subject": "Package the Linux build and check it on a clean Ubuntu",
+   "lane": "linux",
+   "milestone": "пакет на чистом Ubuntu"
+  },
+  {
+   "hash": "ee2c6b8",
+   "time": "2026-10-04T10:36",
+   "subject": "Record the Linux package's reproducibility",
+   "lane": "linux"
+  },
+  {
+   "hash": "e1eb5b8",
+   "time": "2026-10-04T10:46",
+   "subject": "Package and check the Linux build for x86_64",
+   "lane": "linux"
+  },
+  {
+   "hash": "c8f475b",
+   "time": "2026-10-04T10:55",
+   "subject": "Cross-compile a Swift program for Windows and run it under Wine",
+   "lane": "windows"
+  },
+  {
+   "hash": "d02c20b",
+   "time": "2026-10-04T12:12",
+   "subject": "Run the game headless on Windows under a Wine test bottle",
+   "lane": "windows"
+  },
+  {
+   "hash": "6dfc200",
+   "time": "2026-10-04T12:41",
+   "subject": "Build the SDL backend for Windows with GDI text",
+   "lane": "windows"
+  },
+  {
+   "hash": "e300149",
+   "time": "2026-10-04T12:45",
+   "subject": "Package the Windows build and check it in a fresh bottle",
+   "lane": "windows"
+  },
+  {
+   "hash": "a8ed861",
+   "time": "2026-10-04T12:48",
+   "subject": "Play ONLINE GAME on Windows through real Winsock",
+   "lane": "windows",
+   "milestone": "онлайн через Winsock"
+  },
+  {
+   "hash": "c50e514",
+   "time": "2026-10-04T12:51",
+   "subject": "Record the Windows package rebuilt with ONLINE GAME on",
+   "lane": "windows"
+  },
+  {
+   "hash": "8f6d1eb",
+   "time": "2026-10-04T13:20",
+   "subject": "Run the game on an iPad host in the simulator",
+   "lane": "ipad",
+   "milestone": "iPad в симуляторе"
+  },
+  {
+   "hash": "87edc32",
+   "time": "2026-10-04T17:21",
+   "subject": "Record the cross-host matrix baseline and fix SDL drivers under Wine",
+   "lane": "matrix"
+  },
+  {
+   "hash": "e752f9c",
+   "time": "2026-10-04T17:22",
+   "subject": "Record what the cross-platform work is waiting on",
+   "lane": "matrix"
+  },
+  {
+   "hash": "59cb328",
+   "time": "2026-10-04T20:19",
+   "subject": "Complete the cross-host matrix baseline on all eight hosts",
+   "lane": "matrix"
+  },
+  {
+   "hash": "3045f07",
+   "time": "2026-10-04T20:39",
+   "subject": "Play the original music on the iPad host",
+   "lane": "ipad"
+  },
+  {
+   "hash": "db3e341",
+   "time": "2026-10-04T20:51",
+   "subject": "Run the Linux SDL build on Wayland",
+   "lane": "linux"
+  },
+  {
+   "hash": "b13b1de",
+   "time": "2026-10-04T20:54",
+   "subject": "Record the upstream Swift report and its narrowed scope",
+   "lane": "linux"
+  },
+  {
+   "hash": "38fc1a8",
+   "time": "2026-10-04T21:12",
+   "subject": "Compile the socket adapter for Android",
+   "lane": "android"
+  },
+  {
+   "hash": "e240ca2",
+   "time": "2026-10-04T21:12",
+   "subject": "Ship ICU's licence and only the loaded DLLs in the packages",
+   "lane": "matrix"
+  },
+  {
+   "hash": "71dd3cb",
+   "time": "2026-10-04T21:32",
+   "subject": "Record the published Linux and Windows pre-release",
+   "lane": "matrix",
+   "milestone": "pre-release Linux и Windows"
+  },
+  {
+   "hash": "0fc5bb9",
+   "time": "2026-10-04T21:36",
+   "subject": "Run the headless game on Android in the emulator",
+   "lane": "android"
+  },
+  {
+   "hash": "14e495e",
+   "time": "2026-10-04T22:13",
+   "subject": "Build and sign the iPad app for a real device",
+   "lane": "ipad"
+  },
+  {
+   "hash": "9d63735",
+   "time": "2026-10-04T22:15",
+   "subject": "Release cancelled key presses on the iPad",
+   "lane": "ipad"
+  },
+  {
+   "hash": "b5d00e4",
+   "time": "2026-10-04T22:20",
+   "subject": "Let a host name the game's resource folder",
+   "lane": "core"
+  },
+  {
+   "hash": "edccfde",
+   "time": "2026-10-04T22:43",
+   "subject": "Make taps click the original's menus on the iPad",
+   "lane": "ipad"
+  },
+  {
+   "hash": "07bc662",
+   "time": "2026-10-04T22:45",
+   "subject": "Run the game as an Android app",
+   "lane": "android",
+   "milestone": "Android-приложение"
+  },
+  {
+   "hash": "af1f808",
+   "time": "2026-10-04T22:53",
+   "subject": "Share the FreeType text code between hosts",
+   "lane": "core"
+  },
+  {
+   "hash": "1fc52f2",
+   "time": "2026-10-04T23:07",
+   "subject": "Give the Android app text, sound and music",
+   "lane": "android"
+  },
+  {
+   "hash": "b9d4b62",
+   "time": "2026-10-04T23:18",
+   "subject": "Handle focus and background on Android",
+   "lane": "android"
+  },
+  {
+   "hash": "2fe64be",
+   "time": "2026-10-05T01:59",
+   "subject": "Record the nine-host matrix baseline",
+   "lane": "matrix",
+   "milestone": "9 хостов, одно состояние"
+  },
+  {
+   "hash": "f1acc80",
+   "time": "2026-10-05T02:01",
+   "subject": "Play ONLINE GAME on Android in the emulator",
+   "lane": "android"
+  },
+  {
+   "hash": "c9803c9",
+   "time": "2026-10-05T02:05",
+   "subject": "Play ONLINE GAME across platforms",
+   "lane": "matrix",
+   "milestone": "онлайн между платформами"
+  },
+  {
+   "hash": "0a3707d",
+   "time": "2026-10-05T02:16",
+   "subject": "Add Linux to the cross-platform ONLINE GAME probe",
+   "lane": "matrix"
+  },
+  {
+   "hash": "e509c32",
+   "time": "2026-10-05T02:22",
+   "subject": "Explain and fix the Linux client case of the cross probe",
+   "lane": "matrix"
+  },
+  {
+   "hash": "75593f5",
+   "time": "2026-10-05T02:23",
+   "subject": "Bring the cross-platform toolchain table up to date",
+   "lane": "matrix"
+  }
+ ],
+ "matrix": {
+  "scenarios": [
+   "vs",
+   "mission",
+   "demo",
+   "war",
+   "playback",
+   "tournament",
+   "altenter",
+   "tournament-win",
+   "team-tournament",
+   "joystick"
+  ],
+  "groups": {
+   "appkit": "coretext",
+   "macos-sdl": "coretext",
+   "ios": "coretext",
+   "linux-headless": "none",
+   "linux-x86_64": "none",
+   "windows": "none",
+   "linux-sdl": "freetype",
+   "windows-sdl": "gdi",
+   "android": "none"
+  },
+  "before": {
+   "commit": "b9d4b62",
+   "date": "2026-10-04T23:20:43",
+   "cells": {
+    "appkit": {
+     "vs": "equal",
+     "mission": "equal",
+     "demo": "equal",
+     "war": "equal",
+     "playback": "differs",
+     "tournament": "equal",
+     "altenter": "equal",
+     "tournament-win": "equal",
+     "team-tournament": "equal",
+     "joystick": "equal"
+    },
+    "macos-sdl": {
+     "vs": "equal",
+     "mission": "equal",
+     "demo": "equal",
+     "war": "equal",
+     "playback": "differs",
+     "tournament": "equal",
+     "altenter": "equal",
+     "tournament-win": "equal",
+     "team-tournament": "equal",
+     "joystick": "equal"
+    },
+    "ios": {
+     "vs": "equal",
+     "mission": "equal",
+     "demo": "equal",
+     "war": "equal",
+     "playback": "differs",
+     "tournament": "equal",
+     "altenter": "equal",
+     "tournament-win": "equal",
+     "team-tournament": "equal",
+     "joystick": "equal"
+    },
+    "linux-headless": {
+     "vs": "equal",
+     "mission": "equal",
+     "demo": "equal",
+     "war": "equal",
+     "playback": "differs",
+     "tournament": "equal",
+     "altenter": "equal",
+     "tournament-win": "equal",
+     "team-tournament": "equal",
+     "joystick": "equal"
+    },
+    "linux-x86_64": {
+     "vs": "equal",
+     "mission": "equal",
+     "demo": "equal",
+     "war": "equal",
+     "playback": "differs",
+     "tournament": "equal",
+     "altenter": "equal",
+     "tournament-win": "equal",
+     "team-tournament": "equal",
+     "joystick": "equal"
+    },
+    "windows": {
+     "vs": "equal",
+     "mission": "equal",
+     "demo": "equal",
+     "war": "equal",
+     "playback": "differs",
+     "tournament": "equal",
+     "altenter": "equal",
+     "tournament-win": "equal",
+     "team-tournament": "equal",
+     "joystick": "equal"
+    },
+    "linux-sdl": {
+     "vs": "equal",
+     "mission": "equal",
+     "demo": "equal",
+     "war": "equal",
+     "playback": "differs",
+     "tournament": "equal",
+     "altenter": "equal",
+     "tournament-win": "equal",
+     "team-tournament": "equal",
+     "joystick": "equal"
+    },
+    "windows-sdl": {
+     "vs": "equal",
+     "mission": "equal",
+     "demo": "equal",
+     "war": "equal",
+     "playback": "differs",
+     "tournament": "equal",
+     "altenter": "equal",
+     "tournament-win": "equal",
+     "team-tournament": "equal",
+     "joystick": "equal"
+    },
+    "android": {
+     "vs": "equal",
+     "mission": "equal",
+     "demo": "equal",
+     "war": "equal",
+     "playback": "differs",
+     "tournament": "equal",
+     "altenter": "equal",
+     "tournament-win": "equal",
+     "team-tournament": "equal",
+     "joystick": "equal"
+    }
+   },
+   "frames": {
+    "appkit==macos-sdl": {
+     "frames": 15960,
+     "mismatched": 0,
+     "result": "identical"
+    },
+    "appkit==ios": {
+     "frames": 15960,
+     "mismatched": 0,
+     "result": "identical"
+    },
+    "linux-headless==linux-x86_64": {
+     "frames": 15960,
+     "mismatched": 0,
+     "result": "identical"
+    },
+    "linux-headless==windows": {
+     "frames": 15960,
+     "mismatched": 0,
+     "result": "identical"
+    },
+    "linux-headless==android": {
+     "frames": 15960,
+     "mismatched": 0,
+     "result": "identical"
+    },
+    "text:appkit~linux-sdl": {
+     "frames": 15909,
+     "textless": 6698,
+     "text": 9211,
+     "disagree": 0,
+     "result": "agree"
+    },
+    "text:appkit~windows-sdl": {
+     "frames": 15909,
+     "textless": 6698,
+     "text": 9211,
+     "disagree": 0,
+     "result": "agree"
+    }
+   }
+  },
+  "after": {
+   "commit": "870c24a",
+   "recorded_in": "7f15b7b",
+   "date": "2026-10-05T19:59:29",
+   "cells": {
+    "appkit": {
+     "vs": "equal",
+     "mission": "equal",
+     "demo": "equal",
+     "war": "equal",
+     "playback": "equal",
+     "tournament": "equal",
+     "altenter": "equal",
+     "tournament-win": "equal",
+     "team-tournament": "equal",
+     "joystick": "equal"
+    },
+    "macos-sdl": {
+     "vs": "equal",
+     "mission": "equal",
+     "demo": "equal",
+     "war": "equal",
+     "playback": "equal",
+     "tournament": "equal",
+     "altenter": "equal",
+     "tournament-win": "equal",
+     "team-tournament": "equal",
+     "joystick": "equal"
+    },
+    "ios": {
+     "vs": "equal",
+     "mission": "equal",
+     "demo": "equal",
+     "war": "equal",
+     "playback": "equal",
+     "tournament": "equal",
+     "altenter": "equal",
+     "tournament-win": "equal",
+     "team-tournament": "equal",
+     "joystick": "equal"
+    },
+    "linux-headless": {
+     "vs": "equal",
+     "mission": "equal",
+     "demo": "equal",
+     "war": "equal",
+     "playback": "equal",
+     "tournament": "equal",
+     "altenter": "equal",
+     "tournament-win": "equal",
+     "team-tournament": "equal",
+     "joystick": "equal"
+    },
+    "linux-x86_64": {
+     "vs": "equal",
+     "mission": "equal",
+     "demo": "equal",
+     "war": "equal",
+     "playback": "equal",
+     "tournament": "equal",
+     "altenter": "equal",
+     "tournament-win": "equal",
+     "team-tournament": "equal",
+     "joystick": "equal"
+    },
+    "windows": {
+     "vs": "equal",
+     "mission": "equal",
+     "demo": "equal",
+     "war": "equal",
+     "playback": "equal",
+     "tournament": "equal",
+     "altenter": "equal",
+     "tournament-win": "equal",
+     "team-tournament": "equal",
+     "joystick": "equal"
+    },
+    "linux-sdl": {
+     "vs": "equal",
+     "mission": "equal",
+     "demo": "equal",
+     "war": "equal",
+     "playback": "equal",
+     "tournament": "equal",
+     "altenter": "equal",
+     "tournament-win": "equal",
+     "team-tournament": "equal",
+     "joystick": "equal"
+    },
+    "windows-sdl": {
+     "vs": "equal",
+     "mission": "equal",
+     "demo": "equal",
+     "war": "equal",
+     "playback": "equal",
+     "tournament": "equal",
+     "altenter": "equal",
+     "tournament-win": "equal",
+     "team-tournament": "equal",
+     "joystick": "equal"
+    },
+    "android": {
+     "vs": "equal",
+     "mission": "equal",
+     "demo": "equal",
+     "war": "equal",
+     "playback": "equal",
+     "tournament": "equal",
+     "altenter": "equal",
+     "tournament-win": "equal",
+     "team-tournament": "equal",
+     "joystick": "equal"
+    }
+   },
+   "frames": {
+    "appkit==macos-sdl": {
+     "frames": 18088,
+     "mismatched": 0,
+     "result": "identical"
+    },
+    "appkit==ios": {
+     "frames": 18088,
+     "mismatched": 0,
+     "result": "identical"
+    },
+    "linux-headless==linux-x86_64": {
+     "frames": 18088,
+     "mismatched": 0,
+     "result": "identical"
+    },
+    "linux-headless==windows": {
+     "frames": 18088,
+     "mismatched": 0,
+     "result": "identical"
+    },
+    "linux-headless==android": {
+     "frames": 18088,
+     "mismatched": 0,
+     "result": "identical"
+    },
+    "text:appkit~linux-sdl": {
+     "frames": 18030,
+     "textless": 8465,
+     "text": 9565,
+     "disagree": 0,
+     "result": "agree"
+    },
+    "text:appkit~windows-sdl": {
+     "frames": 18030,
+     "textless": 8465,
+     "text": 9565,
+     "disagree": 0,
+     "result": "agree"
+    }
+   },
+   "note": "Matrix at 870c24a (memory steps 1-3, speed steps 1-7, the playback harness reading the committed recording from Git LFS). All nine hosts ran all 10 scenarios: 89 equal on the first comparison; windows/playback differed only because app_e2e.summarize took the playback dialog's file name with a POSIX Path on a Windows path (Z:\\...\\20260331_012329_VS.lfr). With the comparator fix in this commit (PureWindowsPath for paths with backslashes) its stored outputs compare equal; windows-sdl ran after the fix and is equal. Playback passes on every host for the first time (it had failed everywhere because the recording was an LFS pointer)."
+  },
+  "playback_cause": "the working tree held the recording's 130-byte Git LFS pointer, which the game rejects; app_e2e.py now reads the committed recording from the local LFS store (16cb07b)",
+  "source": [
+   "2fe64be:docs/evidence/crossplatform-matrix-20261005-nine-hosts.json",
+   "7f15b7b:docs/evidence/crossplatform-matrix-20261005-speed.json"
+  ]
+ },
+ "online": {
+  "pairs": [
+   {
+    "host": "local",
+    "client": "android",
+    "result": "PASS",
+    "rng": "5352f941c619060669587370c1974685877d4899a6ad0d1b165f54ecd4aa89c7"
+   },
+   {
+    "host": "android",
+    "client": "local",
+    "result": "PASS",
+    "rng": "5352f941c619060669587370c1974685877d4899a6ad0d1b165f54ecd4aa89c7"
+   },
+   {
+    "host": "wine",
+    "client": "local",
+    "result": "PASS",
+    "rng": "5352f941c619060669587370c1974685877d4899a6ad0d1b165f54ecd4aa89c7"
+   },
+   {
+    "host": "local",
+    "client": "wine",
+    "result": "PASS",
+    "rng": "5352f941c619060669587370c1974685877d4899a6ad0d1b165f54ecd4aa89c7"
+   },
+   {
+    "host": "wine",
+    "client": "android",
+    "result": "PASS",
+    "rng": "5352f941c619060669587370c1974685877d4899a6ad0d1b165f54ecd4aa89c7"
+   },
+   {
+    "host": "linux",
+    "client": "local",
+    "result": "PASS",
+    "rng": "5352f941c619060669587370c1974685877d4899a6ad0d1b165f54ecd4aa89c7"
+   },
+   {
+    "host": "local",
+    "client": "linux",
+    "result": "PASS",
+    "rng": "5352f941c619060669587370c1974685877d4899a6ad0d1b165f54ecd4aa89c7"
+   }
+  ],
+  "cause_linux_client": "entering ONLINE GAME the client creates a TCP socket and binds 127.0.0.1:12345 itself (as the original does in either role); in the container's own port space that bind succeeds, so dialling 127.0.0.1:12345 connected to its own socket (connect returned 0 at once) and the client then waited in a blocking recv for a greeting that never came. In every other pairing the client's bind fails because the host or a forwarder (adb, OrbStack) already holds the port. Two machines on a network never meet this: a client dials the host's address, not its own",
+  "binaries": {
+   "local": "macOS NTSDHeadless (f1acc80)",
+   "wine": "NTSDHeadless.exe in the CrossOver bottle ntsd-xplat-test (real Winsock through Wine)",
+   "android": "NTSDHeadless for Android in the arm64 emulator (Bionic sockets)"
+  },
+  "source": [
+   "e509c32:docs/evidence/crossplatform-online-cross-20261005.json",
+   "e509c32:docs/evidence/crossplatform-online-cross-linux-client-20261005.json"
+  ]
+ },
+ "swift": {
+  "issue": "https://github.com/swiftlang/swift/issues/92905",
+  "title": "[6.4.0] Static Linux SDK, -O: store to the inout slot of unspecialised generic isKnownUniquelyReferenced is dropped (crash / wrong answer)",
+  "results": {
+   "x86_64-swift-linux-musl (static SDK 0.1.0), ubuntu:24.04 under Rosetta": "prints 'older kept: 5 (expected 5)', then SIGSEGV exit 139; 3/3 runs",
+   "aarch64-swift-linux-musl (static SDK 0.1.0), ubuntu:24.04": "prints 'older kept: 5 (expected 5)', then SIGSEGV exit 139; 3/3 runs",
+   "ntsd-6.4.0-ubuntu24.04-aarch64 (glibc, swift-sdk-generator 57190988), swift:6.4.0-noble": "correct, 'released', exit 0; 3/3 runs",
+   "macOS arm64 (open-source 6.4.0)": "correct, exit 0"
+  },
+  "codegen": {
+   "linux-x86_64 (swift-6.4.0-RELEASE, -O)": "lea -0x38(%rbp),%r15; mov %r15,%rdi; call $ss25isKnownUniquelyReferencedySbxzRlzClF -- the node (r14) is never stored to -0x38(%rbp)",
+   "linux-aarch64 (swift-6.4.0-RELEASE, -O)": "add x0, sp, #0x8; bl $ss25isKnownUniquelyReferencedySbxzRlzClF -- the node (x21) is never stored to [sp,#8]",
+   "macOS arm64 (Xcode Swift 6.4, swiftlang-6.4.0.34.1) and open-source 6.4.0 targeting macOS": "str x22, [sp, #0x8] before the call and ldr x0, [sp, #0x8] after: correct; the shipping AppKit app is unaffected",
+   "Optional-overload rewrite on Linux": "also no store, and the call is hoisted out of the loop (checked once)",
+   "mechanism": "inference: the optimizer treats the unspecialised generic isKnownUniquelyReferenced call as not reading the inout slot (the Linux SDK ships only a binary Swift.swiftmodule, so the attribute was not read directly)"
+  },
+  "symptom": "every NTSDHeadless scenario exited 139 (SIGSEGV) right after the 'started' event (docker --platform linux/amd64 under Rosetta); reproduced identically under QEMU 10.0.13 user mode (debian:trixie), so not a Rosetta artefact (QEMU 8.2.2 from ubuntu:24.04 crashes internally even without arguments and was not used)",
+  "closed": {
+   "at": "2026-10-06T10:06:53Z",
+   "by_comment": "This is fixed on 6.4.x by https://github.com/swiftlang/swift/pull/92771",
+   "source": "gh issue view 92905 -R swiftlang/swift, read 7 Oct 2026"
+  },
+  "source": [
+   "a72ae97:docs/evidence/crossplatform-swift640-linux-uniqueness-20261004.json",
+   "b13b1de:docs/evidence/crossplatform-swift640-report-20261004.json"
+  ]
+ }
+}
