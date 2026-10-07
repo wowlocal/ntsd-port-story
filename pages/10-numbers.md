@@ -1,7 +1,7 @@
 ---
 layout: chapter
 num: 10
-total: 13
+total: 15
 kicker: В цифрах
 dates: 7 сентября — 3 октября
 image: /img/roster-25-faces-2x.png
@@ -15,7 +15,7 @@ stats: всё посчитано из git и evidence-файлов порта
 
 ---
 
-<Kicker>паспорт проекта на 3 октября</Kicker>
+<Kicker>паспорт проекта на 3 октября · четыре дня спустя — в эпилоге</Kicker>
 
 # Двенадцать чисел
 

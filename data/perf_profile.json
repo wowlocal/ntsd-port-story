@@ -1,0 +1,90 @@
+{
+ "title": "Профиль телефона на старте редизайна (simpleperf, 30 с игры): доли фаз и символов",
+ "source": "ntsd-2.4 at 8840eb3: docs/evidence/rt-baseline-20261006.json (35ec7a3); per-tick data flow: docs/research/CORE_REALTIME_DATAFLOW.md, copy map: docs/research/CORE_REALTIME_COPIES.md",
+ "caveat": "Inclusive shares overlap (the gameplay body is inside the gameplay session); do not add them. Self shares are disjoint. Frame-pointer call graphs on one phone; the build is debuggable.",
+ "rev": "8840eb3",
+ "samples": 24318,
+ "seconds": 30,
+ "ticksPerSecond": 10.07,
+ "peakResidentMB": 1330,
+ "inclusive": [
+  {
+   "key": "front-buffer drawing",
+   "label": "рисование в буфер экрана",
+   "depth": 0,
+   "share": 19.7
+  },
+  {
+   "key": "gameplay session",
+   "label": "игровая сессия",
+   "depth": 0,
+   "share": 17.3
+  },
+  {
+   "key": "gameplay body",
+   "label": "тело игрового тика",
+   "depth": 1,
+   "share": 11.4
+  },
+  {
+   "key": "loaded cycle",
+   "label": "загруженный цикл",
+   "depth": 0,
+   "share": 11.3
+  },
+  {
+   "key": "bindings store",
+   "label": "запись модели обратно в состояние",
+   "depth": 0,
+   "share": 7.4
+  },
+  {
+   "key": "Android window drawing",
+   "label": "окно Android",
+   "depth": 0,
+   "share": 6.8
+  },
+  {
+   "key": "loaded menu attempt",
+   "label": "подготовка попытки меню",
+   "depth": 0,
+   "share": 4.7
+  },
+  {
+   "key": "loaded match entry",
+   "label": "вход в матч",
+   "depth": 0,
+   "share": 4.2
+  },
+  {
+   "key": "display perform",
+   "label": "сервис дисплея",
+   "depth": 0,
+   "share": 3.1
+  },
+  {
+   "key": "bindings read",
+   "label": "чтение состояния в модель",
+   "depth": 0,
+   "share": 2.7
+  },
+  {
+   "key": "menu state replace",
+   "label": "замена записи меню",
+   "depth": 0,
+   "share": 1.9
+  },
+  {
+   "key": "observed iteration",
+   "label": "наблюдаемая итерация",
+   "depth": 0,
+   "share": 1.6
+  }
+ ],
+ "self": {
+  "memcpy": 16.1,
+  "retain": 7.6,
+  "release": 7.0,
+  "atomics": 3.9
+ }
+}

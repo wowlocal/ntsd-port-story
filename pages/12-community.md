@@ -1,7 +1,7 @@
 ---
 layout: chapter
 num: 12
-total: 13
+total: 15
 kicker: Сообщество
 dates: 2007 → 3 октября 2026
 image: /img/covers/ch12-collage.jpg
@@ -248,7 +248,7 @@ Not anymore 🙂
 
 ---
 
-<Kicker>что дальше · ветка dev/crossplatform</Kicker>
+<Kicker>что дальше · на вечер 3 октября</Kicker>
 
 # Что открывает исходный код
 
@@ -269,8 +269,8 @@ Not anymore 🙂
 <div class="card">
 <div class="ph pixel" style="color: var(--s1)"><span class="i-pixelarticons-loader" />в работе</div>
 <ul>
-<li><b>Одно ядро на всех платформах</b> — без веток геймплея и второго движка</li>
-<li><b>Linux</b>: ядро впервые собралось 3 октября; дальше Windows, iPad и Android</li>
+<li><b>Одно ядро на всех платформах</b> — без веток геймплея и второго движка <span class="fwd">→ глава 13</span></li>
+<li><b>Linux</b>: ядро впервые собралось 3 октября; дальше Windows, iPad и Android <span class="fwd">→ за 30 часов</span></li>
 <li><b>Кроссплей с оригиналом</b> под Windows — цель, пока не наблюдался</li>
 </ul>
 </div>
@@ -293,6 +293,7 @@ Not anymore 🙂
 .persp ul { margin: 0.4rem 0 0; padding-left: 1rem; }
 .persp li { font-size: 0.72rem; line-height: 1.38; color: var(--ink-2); margin: 0.3rem 0; }
 .persp li b { color: var(--ink); }
+.persp .fwd { color: var(--naruto); font-weight: 600; white-space: nowrap; }
 </style>
 
 <div class="source">ntsd-2.4: CROSS_PLATFORM.md L3–21, L86–124 · NETWORK_PLAY.md L21–23, L233–250 · NETWORK_PLAY_PLAN.md L13–45, L93–94 · LIB_RUNTIME.md L3–6, L63–66 · PLAN.md L28–30 · 65c6916 (локальная ветка)</div>

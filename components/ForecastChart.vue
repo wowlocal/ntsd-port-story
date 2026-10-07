@@ -6,7 +6,7 @@
 //   docs/estimates/2026-09-08-code-progress.md — snapshot c2c2c91, 8 Sep 22:39:01 (UTC+3)
 //   docs/estimates/2026-09-27-code-progress.md — snapshot 166ddf7, 27 Sep 09:49:38 MSK
 // Facts: 0a77527 (pages/06-turn.md), all modes on 29 Sep (07-game.md), 58 whole matches on 2–3 Oct
-// (08-crosscheck.md), release v0.4.0 on 3 Oct, 16:46 (13-lessons.md). Pauses: data/summary.json.
+// (08-crosscheck.md), release v0.4.0 on 3 Oct, 16:46 (13-hosts.md). Pauses: data/summary.json.
 import summary from '../data/summary.json'
 
 const W = 900

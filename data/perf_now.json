@@ -1,0 +1,56 @@
+{
+ "title": "Что в работе и что не доказано на 7 октября, 08:23",
+ "source": "ntsd-2.4 at 8840eb3: docs/research/CORE_REALTIME.md (Next task, header), docs/research/CORE_REALTIME_A3.md, docs/research/CORE_REALTIME_TIER2.md; afterFreeze: commits on exp/core-realtime after REV",
+ "caveat": "Plans and design estimates are not measurements. afterFreeze = steps committed after REV on exp/core-realtime, outside the frozen chapter.",
+ "rev": "8840eb3",
+ "afterB1": {
+  "mainMs": 27.6,
+  "orchestrationMs": 19,
+  "gameplayBodyMs": 8.5
+ },
+ "bench1j": {
+  "beforeMs": 18.6,
+  "afterMs": 11.3,
+  "branchlessMs": 21.5,
+  "simdMs": 19.6,
+  "what": "300 keyed 80x80 blits per frame on the A12 (committed note, change in flight)"
+ },
+ "idleIteration": {
+  "nowMs": 0.945,
+  "targetMs": 0.2
+ },
+ "openManualCheck": true,
+ "loadingMinutes": 4.5,
+ "merged": false,
+ "renderPassesPlan": {
+  "hash": "e3dcd6a",
+  "state": "a static plan by a read-only planner, nothing built or run",
+  "renderMsAfter1j": 17.5,
+  "passMs": 1.69,
+  "passes": 6
+ },
+ "afterFreeze": [
+  {
+   "hash": "bf5628e",
+   "time": "2026-10-07 08:51",
+   "phase": "4m",
+   "evidence": "rt-4m-loaded-continuation-20261007.json",
+   "ticksPerSecond": 23.69,
+   "mainMs": 23.85,
+   "renderMs": 18.1,
+   "menuMsPerStep": 0.89,
+   "runs": 2
+  },
+  {
+   "hash": "e3dcd6a",
+   "time": "2026-10-07 08:52",
+   "phase": "1j",
+   "evidence": "rt-1j-keyed-full-target-20261007.json",
+   "ticksPerSecond": 23.405,
+   "mainMs": 24.05,
+   "renderMs": 17.5,
+   "menuMsPerStep": 0.9,
+   "runs": 2
+  }
+ ]
+}

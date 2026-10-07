@@ -1,0 +1,86 @@
+{
+ "title": "Восемь локальных ускорений на Galaxy A12, 5 октября: тики в секунду по шагам",
+ "source": "ntsd-2.4 at 8840eb3: docs/research/MOBILE_PERFORMANCE.md (Measurements), docs/evidence/crossplatform-speed-*.json; hashes = commits that added each evidence file",
+ "caveat": "android_speed predecessor: scripted computer-vs match on one phone, bodies 300->1800, no frame capture, virtual clock. Step 8 (10.2 -> 10.1) is within run-to-run noise by the evidence's own words. The copy probe is a temporary macOS headless probe before step 3, not committed code.",
+ "rev": "8840eb3",
+ "gameRate": 30,
+ "steps": [
+  {
+   "step": "start",
+   "what": "после шагов памяти 1–3",
+   "ticksPerSecond": 5.4,
+   "hash": "109304a"
+  },
+  {
+   "step": "steps 1–2",
+   "what": "скан экрана на неизвестные пиксели — сразу выход",
+   "ticksPerSecond": 7.6,
+   "hash": "accefc6"
+  },
+  {
+   "step": "step 3",
+   "what": "буфер повтора 6,5 МБ страницами по 16 КиБ",
+   "ticksPerSecond": 8.8,
+   "hash": "f378a0d"
+  },
+  {
+   "step": "steps 3–4",
+   "what": "копирование спрайтов по строкам",
+   "ticksPerSecond": 9.2,
+   "hash": "791ad85"
+  },
+  {
+   "step": "steps 3–5",
+   "what": "биты маски словами по 64",
+   "ticksPerSecond": 9.3,
+   "hash": "791ad85"
+  },
+  {
+   "step": "step 6",
+   "what": "диапазоны адресов в локальном массиве",
+   "ticksPerSecond": 9.4,
+   "hash": "0667838"
+  },
+  {
+   "step": "step 6b",
+   "what": "токены звука без склейки списков",
+   "ticksPerSecond": 9.9,
+   "hash": "0b5e9f7"
+  },
+  {
+   "step": "step 7",
+   "what": "целые строки экрана одним блоком",
+   "ticksPerSecond": 10.2,
+   "hash": "870c24a"
+  },
+  {
+   "step": "step 8",
+   "what": "запись меню перезаписывается на месте",
+   "ticksPerSecond": 10.1,
+   "hash": "c8177d7",
+   "noise": true
+  }
+ ],
+ "copyProbe": [
+  {
+   "what": "буфер записи повтора, 6,5 МБ",
+   "copies": 1659,
+   "GB": 21.5
+  },
+  {
+   "what": "записи актёров, 1 КБ",
+   "copies": 2900000,
+   "GB": 6.2
+  },
+  {
+   "what": "записи ресурсов битмапов, 8 КБ",
+   "copies": 363000,
+   "GB": 5.8
+  },
+  {
+   "what": "глобальные переменные, 45 КБ",
+   "copies": 28000,
+   "GB": 2.6
+  }
+ ]
+}

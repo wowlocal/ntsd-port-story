@@ -1,0 +1,41 @@
+{
+ "title": "Часы харнесса и бюджет кадра: виртуальные и настоящие часы на фазе 4f, ярусы 33/16/8 мс",
+ "source": "ntsd-2.4 at 8840eb3: docs/evidence/rt-measurement-20261006.json (4c3ea6f), docs/research/CORE_REALTIME_BUDGET.md, the last ledger row (rt-4l-pending-loading-20261007.json)",
+ "caveat": "Wall time per tick = 1000 / ticks per second. Compute per tick = the thread's on-CPU share x wall time per tick. The render thread runs in parallel with the main thread. Scripted match on one phone; hand play is an open check. состояние на 7 октября 2026, 08:23 (8840eb3)",
+ "rev": "8840eb3",
+ "pacingMs": 33,
+ "sleepStepMs": 5,
+ "virtualIterationMs": 8,
+ "offcpu": {
+  "share": 37,
+  "inLooper": 99.8,
+  "waits": 1785,
+  "waits4to6": 1316,
+  "medianMs": 5.14
+ },
+ "virtual": {
+  "ticksPerSecond": 20.43,
+  "wallMs": 48.9,
+  "mainMs": 30.4,
+  "renderMs": 22.2
+ },
+ "real": {
+  "ticksPerSecond": 30.25,
+  "wallMs": 33.1,
+  "mainMs": 26.1,
+  "renderMs": 19.3
+ },
+ "tiers": [
+  33,
+  16,
+  8
+ ],
+ "tier1MetAt": "2026-10-06 22:40",
+ "now": {
+  "id": "4l",
+  "hash": "8840eb3",
+  "mainMs": 24.55,
+  "renderMs": 18.1,
+  "menuMsPerStep": 0.945
+ }
+}

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-// The whole deck as one metro route: 13 chapters are stations. Line colour = who worked in that period:
+// The whole deck as one metro route: 15 chapters are stations. Line colour = who worked in that period:
 // blue — Codex (7–27 Sep), orange — Claude (from 28 Sep). Chapters 9–11 cover the whole project, so the blue
 // line runs alongside the orange there. The prologue (31 Mar) sits before the start, on a dotted pause.
 // `visited` fills the stations up to that chapter; `current` puts a glow and a "вы здесь" pin on one station.
@@ -27,7 +27,7 @@ const xR = 815 // right bend centre x
 const xL = 95 // left bend centre x
 const off = 8 // offset of the parallel blue line in the shared corridor (outer side of the left bend)
 
-// facts: chapter covers (num, kicker, dates, stats) of pages/02-prologue.md … pages/13-lessons.md
+// facts: chapter covers (num, kicker, dates, stats) of pages/02-prologue.md … pages/15-lessons.md
 const stations: Station[] = [
   { n: 1, title: 'Сначала был план', sub: '31 марта', tip: 'Пролог · 31 марта 2026 · 5 коммитов · потом 160 дней тишины', kind: 'pre', x: 44, y: yA, place: 'below-start' },
   { n: 2, title: 'Первый вечер', sub: '7 сентября', tip: 'Глава 2 · 7 сентября, 18:20–21:13 · 4 коммита практики · 1 разворот', kind: 'codex', x: 250, y: yA, place: 'below' },
@@ -40,13 +40,13 @@ const stations: Station[] = [
   { n: 9, title: 'Кунсткамера', sub: 'баги оригинала', tip: 'Глава 9 · что нашлось внутри EXE: баги оригинала, которые порт обязан повторить', kind: 'both', x: 310, y: yB, place: 'below', cap: { dx: 0, dy: -off } },
   { n: 10, title: 'В цифрах', sub: '463 коммита', tip: 'Глава 10 · 7 сентября — 3 октября · всё посчитано из git и evidence-файлов порта', kind: 'both', x: xL - r, y: yB + r, place: 'right', cap: { dx: -off, dy: 0 } },
   { n: 11, title: 'Под капотом агентов', sub: '6,3 млрд токенов', tip: 'Глава 11 · 34 сессии · 31 095 ответов моделей · 1 101 ход · 6,3 млрд токенов', kind: 'both', x: 205, y: yC, place: 'below', cap: { dx: 0, dy: off } },
-  { n: 12, title: 'Сообщество', sub: '2007 → 2026', tip: 'Глава 12 · 2007 → 3 октября 2026 · Discord · лента · что дальше', kind: 'claude', x: 375, y: yC, place: 'below' },
-  { n: 13, title: 'Уроки', sub: '3 октября · v0.4.0', tip: 'Глава 13 · Эпилог · релиз v0.4.0 · что дальше · чему научились', kind: 'claude', x: 545, y: yC, place: 'below' },
+  { n: 12, title: 'Сообщество', sub: '2007 → 2026', tip: 'Глава 12 · 2007 → 3 октября 2026 · Discord · лента · релиз v0.4.0', kind: 'claude', x: 350, y: yC, place: 'below' },
+  { n: 13, title: 'Девять хостов', sub: '3–5 октября', tip: 'Глава 13 · 74 коммита за 30 часов · 9 хостов · 90 из 90 сценариев · баг компилятора Swift', kind: 'claude', x: 490, y: yC, place: 'below' },
+  { n: 14, title: 'Телефон 2008 года', sub: '5–7 октября', tip: 'Глава 14 · Galaxy A12 · память матча 3,9 → 1,5 ГБ · 30,25 тика в секунду', kind: 'claude', x: 630, y: yC, place: 'below' },
+  { n: 15, title: 'Уроки', sub: '7 октября', tip: 'Глава 15 · Эпилог · 84 часа одной сессии · паспорт 3 → 7 октября · десять уроков', kind: 'claude', x: 765, y: yC, place: 'below' },
 ]
 const planned = [
-  { name: 'Linux', x: 668 },
-  { name: 'Windows', x: 768 },
-  { name: 'iPad', x: 862 },
+  { name: '16 мс', x: 866 },
 ]
 
 const color: Record<Kind, string> = { pre: 'var(--muted)', codex: 'var(--s1)', transfer: 'var(--ink)', claude: 'var(--s2)', both: 'var(--ink-2)' }
@@ -56,9 +56,9 @@ const pad = (n: number) => String(n).padStart(2, '0')
 const st = (n: number) => stations[n - 1]
 const routeDotted = `M${st(1).x},${yA} H${st(2).x}`
 const routeBlue = `M${st(2).x},${yA} H${xR} A${r},${r} 0 0 1 ${xR + r},${yA + r}`
-const routeOrange = `M${xR + r},${yA + r} A${r},${r} 0 0 1 ${xR},${yB} H${xL} A${r},${r} 0 0 0 ${xL - r},${yB + r} A${r},${r} 0 0 0 ${xL},${yC} H${st(13).x}`
+const routeOrange = `M${xR + r},${yA + r} A${r},${r} 0 0 1 ${xR},${yB} H${xL} A${r},${r} 0 0 0 ${xL - r},${yB + r} A${r},${r} 0 0 0 ${xL},${yC} H${st(15).x}`
 const corridor = `M${st(9).x},${yB - off} H${xL} A${r + off},${r + off} 0 0 0 ${xL - r - off},${yB + r} A${r + off},${r + off} 0 0 0 ${xL},${yC + off} H${st(11).x}`
-const routeFuture = `M${st(13).x},${yC} H${planned[planned.length - 1].x}`
+const routeFuture = `M${st(15).x},${yC} H${planned[planned.length - 1].x}`
 
 const nav = useNav()
 const active = useIsSlideActive()
@@ -98,12 +98,12 @@ const cur = computed(() => stations.find(s => s.n === props.current))
       <path class="seg" style="--d: 1" :d="routeBlue" fill="none" stroke="var(--s1)" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" />
       <path class="seg" style="--d: 6" :d="routeOrange" fill="none" stroke="var(--s2)" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" />
       <path class="seg" style="--d: 9" :d="corridor" fill="none" stroke="var(--s1)" stroke-width="4.5" stroke-linecap="round" />
-      <g v-if="future" class="seg" style="--d: 13">
+      <g v-if="future" class="seg" style="--d: 15">
         <path :d="routeFuture" fill="none" stroke="var(--s2)" stroke-width="5" stroke-dasharray="9 7" style="opacity: 0.75" />
-        <text class="pause" :x="(st(13).x + planned[planned.length - 1].x) / 2 + 20" :y="yC - 14" text-anchor="middle">что дальше</text>
+        <text class="pause" :x="(st(15).x + planned[planned.length - 1].x) / 2" :y="yC - 14" text-anchor="middle">что дальше</text>
         <g v-for="p in planned" :key="p.name">
           <circle :cx="p.x" :cy="yC" r="6.5" fill="var(--bg)" stroke="var(--s2)" stroke-width="2.5">
-            <title>что дальше · ветка dev/crossplatform · {{ p.name }}</title>
+            <title>что дальше · ветка exp/core-realtime: ярус 16 мс на тик, ручная игра на телефоне, слияние</title>
           </circle>
           <text class="plan" :x="p.x" :y="yC + 26" text-anchor="middle">{{ p.name }}</text>
         </g>
@@ -210,7 +210,7 @@ const cur = computed(() => stations.find(s => s.n === props.current))
 }
 .play .here {
   animation: metro-in 0.4s ease both;
-  animation-delay: 1.05s;
+  animation-delay: 1.2s;
 }
 .play .glow {
   transform-box: fill-box;
