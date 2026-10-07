@@ -2,7 +2,10 @@
 """Regenerate the deck's data/*.json from the NTSD port repository.
 
 Usage:
-    python3 scripts/collect_stats.py ../ntsd-2.4
+    python3 scripts/collect_stats.py ../ntsd-2.4 [REF]
+
+REF defaults to fc959db (3 Oct 16:18), the commit the first part of the deck
+was counted at; the port repository has moved on since (see collect_xplat.py).
 
 Everything is read with plain `git` commands; nothing in the source repository
 is modified. Times are the commit's own local time as recorded by git.
@@ -16,6 +19,7 @@ import subprocess
 import sys
 
 REPO = os.path.abspath(sys.argv[1] if len(sys.argv) > 1 else "../ntsd-2.4")
+REF = sys.argv[2] if len(sys.argv) > 2 else "fc959db"
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data")
 SINCE = "2026-09-01"
 # First commit carrying "Co-Authored-By: Claude"; before it every commit has no AI trailer.
@@ -45,7 +49,7 @@ def area_of(path):
 
 # ------------------------------------------------------------------ commits
 RS, US = "\x1e", "\x1f"
-raw = git("log", "--reverse", "--numstat", "--date=format:%Y-%m-%dT%H:%M:%S%z",
+raw = git("log", REF, "--reverse", "--numstat", "--date=format:%Y-%m-%dT%H:%M:%S%z",
           f"--format={RS}%h{US}%ad{US}%s{US}%b{US}")
 commits = []
 for chunk in raw.split(RS)[1:]:
@@ -177,7 +181,7 @@ dump("growth.json", growth)
 
 # ------------------------------------------------------------------ composition at HEAD (bytes by area)
 comp = collections.defaultdict(lambda: {"files": 0, "bytes": 0})
-for t in git("ls-tree", "-r", "-l", "HEAD").split("\n"):
+for t in git("ls-tree", "-r", "-l", REF).split("\n"):
     if not t.strip():
         continue
     meta, path = t.split("\t", 1)
@@ -210,7 +214,7 @@ dump("turn_day.json", [{"time": c["date"][11:16], "hash": c["hash"], "subject": 
 # ------------------------------------------------------------------ rulebook: line counts of instruction files per commit
 def line_history(path):
     out = []
-    for ln in git("log", "--reverse", "--format=%h %ad", "--date=format:%Y-%m-%dT%H:%M:%S%z", "--", path).split("\n"):
+    for ln in git("log", REF, "--reverse", "--format=%h %ad", "--date=format:%Y-%m-%dT%H:%M:%S%z", "--", path).split("\n"):
         if not ln.strip():
             continue
         h, d = ln.split()
@@ -270,15 +274,15 @@ summary = {
     "longest_pauses_h": [{"hours": round(g, 1), "after": a, "before": b, "from": fa, "to": tb} for g, a, b, fa, tb in gaps],
     "subject_words": {w: word(w) for w in ("preserve", "verify", "validate", "recover", "reproduce", "port",
                                             "play", "cross-check", "failure", "correct", "fix", "original")},
-    "research_cards": int(git("ls-tree", "-r", "--name-only", "HEAD", "docs/research").count(".md")),
-    "plan_cards": sum(1 for p in git("ls-tree", "-r", "--name-only", "HEAD", "docs/research").split("\n") if p.endswith("_PLAN.md")),
-    "evidence_files": len([p for p in git("ls-tree", "-r", "--name-only", "HEAD", "docs/evidence").split("\n") if p]),
-    "oracle_scripts": len([p for p in git("ls-tree", "--name-only", "HEAD", "tools/").split("\n") if os.path.basename(p).startswith("oracle")]),
+    "research_cards": int(git("ls-tree", "-r", "--name-only", REF, "docs/research").count(".md")),
+    "plan_cards": sum(1 for p in git("ls-tree", "-r", "--name-only", REF, "docs/research").split("\n") if p.endswith("_PLAN.md")),
+    "evidence_files": len([p for p in git("ls-tree", "-r", "--name-only", REF, "docs/evidence").split("\n") if p]),
+    "oracle_scripts": len([p for p in git("ls-tree", "--name-only", REF, "tools/").split("\n") if os.path.basename(p).startswith("oracle")]),
 }
 tests = 0
-for p in git("ls-tree", "-r", "--name-only", "HEAD", "native/Tests").split("\n"):
+for p in git("ls-tree", "-r", "--name-only", REF, "native/Tests").split("\n"):
     if p.endswith(".swift"):
-        tests += len(re.findall(r"\bfunc test\w*", git("show", f"HEAD:{p}")))
+        tests += len(re.findall(r"\bfunc test\w*", git("show", f"{REF}:{p}")))
 summary["test_functions"] = tests
 dump("summary.json", summary)
 print(json.dumps({k: v for k, v in summary.items() if k != "prologue"}, ensure_ascii=False, indent=1))
