@@ -34,7 +34,7 @@ const sy = 196
     </g>
     <g v-for="r in bars" :key="r.key">
       <text x="0" :y="r.y + 18.5" class="lab">{{ r.label }}</text>
-      <rect :x="x(0)" :y="r.y" :width="x(r.was) - x(0)" height="28" rx="3" :fill="r.color" opacity="0.22" />
+      <rect :x="x(0)" :y="r.y" :width="x(r.was) - x(0)" height="28" rx="3" :fill="r.color" style="opacity: 0.22" />
       <rect :x="x(0)" :y="r.y" :width="x(r.now) - x(0)" height="28" rx="3" :fill="r.color" />
       <text :x="x(0) + 8" :y="r.y + 18.5" class="in">{{ f(r.now) }} мс</text>
       <text v-if="x(r.was) + 62 < x(33)" :x="x(r.was) + 5" :y="r.y + 18.5" class="was">4f: {{ f(r.was) }}</text>
