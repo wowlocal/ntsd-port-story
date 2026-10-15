@@ -1,0 +1,73 @@
+{
+ "title": "Время на тик: браузер, WASI и Mac (медианы трёх прогонов)",
+ "source": "docs/evidence/tw-w3a-browser-frame-time-20261012.json (medians), коммит ef6e880a; вопрос автора и ответ агента — журнал сессии 1f9218ae, 12 октября 17:36–17:37",
+ "caveat": "completeMsPerTick on the browser and WASI is wall time on the one game thread with the frame's rendering inline (WASI has no render thread). On the Mac by default it is the game thread only, its pixel work running on the render thread alongside, and processMsPerTick is CPU summed over all threads (thread hops and queues included) — neither is like for like. The like-for-like Mac figure is 'macsync': the same binary with --synchronous-render (load_memory.py --game-arg), rendering on its game thread as WASI does. ticksPerSecond is mostly the virtual clock's pacing, not compute",
+ "how": "Per scenario and host, 3 runs: vs over bodies 600–1500, the Demo over 300–900 (--bodies 300); Chromium 153 headless shell and Playwright's WebKit with build-wasm-web's NTSDWeb.wasm, Node 26 WASI with build-wasm's NTSDHeadless.wasm, macOS with the frozen unchecked NTSDHeadless of the tw-w2b3 gate; one host at a time on this Mac",
+ "frozen": "состояние на 13 октября 2026, 20:14 (5f5a8ee4)",
+ "rows": [
+  {
+   "key": "mac",
+   "label": "Mac · игровой поток",
+   "likeForLike": false,
+   "note": "отрисовка идёт рядом, в потоке рендера",
+   "vs": 1.33,
+   "demo": 1.55,
+   "startedToLoaded": 0.631
+  },
+  {
+   "key": "mac-cpu",
+   "label": "Mac · CPU всех потоков",
+   "likeForLike": false,
+   "note": "сумма по потокам, с очередями и пересылками",
+   "vs": 3.23,
+   "demo": 3.27,
+   "startedToLoaded": 0.631
+  },
+  {
+   "key": "chromium",
+   "label": "Chromium",
+   "likeForLike": true,
+   "note": "один поток: тик и отрисовка подряд",
+   "vs": 2.24,
+   "demo": 2.2,
+   "startedToLoaded": 5.61
+  },
+  {
+   "key": "macsync",
+   "label": "Mac · --synchronous-render",
+   "likeForLike": true,
+   "note": "отрисовка в том же потоке, как в wasm",
+   "vs": 1.91,
+   "demo": 1.97,
+   "startedToLoaded": 0.664
+  },
+  {
+   "key": "webkit",
+   "label": "WebKit",
+   "likeForLike": true,
+   "note": "один поток",
+   "vs": 3.27,
+   "demo": 3.03,
+   "startedToLoaded": 5.468
+  },
+  {
+   "key": "wasi",
+   "label": "Node WASI",
+   "likeForLike": true,
+   "note": "один поток, без страницы",
+   "vs": 3.67,
+   "demo": 3.49,
+   "startedToLoaded": 4.282
+  }
+ ],
+ "budgetMs": {
+  "fps60": 16.67,
+  "originalTick": 33
+ },
+ "linearMemoryMiB": {
+  "vs-chromium": 1617,
+  "demo-chromium": 1588,
+  "vs-webkit": 1617,
+  "demo-webkit": 1588
+ }
+}

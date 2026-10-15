@@ -1,0 +1,326 @@
+{
+ "title": "Масштабируемое окно: замеренные размеры картинки на хостах",
+ "source": "docs/research/WINDOW_SCALING.md (Flags and controls), docs/evidence/ws-s1 … ws-s6 (13 октября)",
+ "caveat": "Apple TV и iPad — симуляторы; браузер — headless Chromium; Linux — Xvfb и Weston в контейнере; Mac и Galaxy A12 — настоящие; Windows SDL не собиралась",
+ "frozen": "состояние на 13 октября 2026, 20:14 (5f5a8ee4)",
+ "game": [
+  794,
+  550
+ ],
+ "presets": [
+  {
+   "key": "tv1080",
+   "name": "Apple TV · 1080p",
+   "unit": "pt",
+   "screen": [
+    1920,
+    1080
+   ],
+   "scale": 1,
+   "windowed": false,
+   "measured": {
+    "fit": [
+     1560,
+     1080
+    ],
+    "orig": [
+     794,
+     550
+    ]
+   },
+   "evidence": "ws-s1-tvos-full-screen-20261013.json",
+   "commit": "f075d765",
+   "where": "симулятор Apple TV 4K (3-е поколение) в режиме 1080p"
+  },
+  {
+   "key": "tv4k",
+   "name": "Apple TV · 4K",
+   "unit": "pt",
+   "screen": [
+    1920,
+    1080
+   ],
+   "scale": 2,
+   "windowed": false,
+   "measured": {
+    "fit": [
+     3118,
+     2160
+    ],
+    "orig": [
+     1588,
+     1100
+    ]
+   },
+   "evidence": "ws-s1-tvos-full-screen-20261013.json",
+   "commit": "f075d765",
+   "where": "симулятор Apple TV 4K, 3840×2160 px"
+  },
+  {
+   "key": "mac",
+   "name": "Mac · окно",
+   "unit": "pt",
+   "screen": [
+    3008,
+    1692
+   ],
+   "scale": 2,
+   "windowed": true,
+   "window": [
+    1588,
+    1100
+   ],
+   "measured": {
+    "fit": [
+     3176,
+     2200
+    ],
+    "orig": [
+     1588,
+     1100
+    ]
+   },
+   "evidence": "ws-s3-macos-scalable-window-20261013.json",
+   "commit": "b7cd16c6",
+   "where": "дисплей Apple 6K, 3008×1692 pt: окно открывается в 2× — 1588×1100 pt; с флагом — 794×550"
+  },
+  {
+   "key": "macfs",
+   "name": "Mac · полный экран",
+   "unit": "pt",
+   "screen": [
+    3008,
+    1692
+   ],
+   "scale": 2,
+   "windowed": false,
+   "measured": {
+    "fit": [
+     4886,
+     3384
+    ]
+   },
+   "evidence": "ws-s3-macos-scalable-window-20261013.json",
+   "commit": "b7cd16c6",
+   "where": "зелёная кнопка: клиент 3008×1692 pt, картинка 4886×3384 px по центру"
+  },
+  {
+   "key": "x11",
+   "name": "Linux · окно X11",
+   "unit": "px",
+   "screen": [
+    1920,
+    1080
+   ],
+   "scale": 1,
+   "windowed": true,
+   "window": [
+    1325,
+    918
+   ],
+   "measured": {
+    "fit": [
+     1325,
+     918
+    ],
+    "orig": [
+     794,
+     550
+    ]
+   },
+   "evidence": "ws-s4-sdl-scalable-window-20261013.json",
+   "commit": "d45fd928",
+   "where": "Xvfb 1920×1080 без оконного менеджера: окно 1325×918, потом 1001×600; клики xdotool"
+  },
+  {
+   "key": "a12",
+   "name": "Galaxy A12",
+   "unit": "px",
+   "screen": [
+    1600,
+    720
+   ],
+   "scale": 1,
+   "windowed": false,
+   "measured": {
+    "fit": [
+     1041,
+     720
+    ],
+    "orig": [
+     794,
+     550
+    ]
+   },
+   "evidence": "ws-s5-ipad-android-20261013.json",
+   "commit": "f7aeada1",
+   "where": "настоящий телефон, 1600×720 px; по умолчанию масштабирует компоновщик Android (с фильтрацией); флаг — пиксель в пиксель устройства"
+  },
+  {
+   "key": "web1600",
+   "name": "Браузер · 1600×900",
+   "unit": "px",
+   "screen": [
+    1600,
+    900
+   ],
+   "scale": 1,
+   "windowed": true,
+   "window": [
+    1600,
+    900
+   ],
+   "measured": {
+    "fit": [
+     1299.3,
+     900
+    ],
+    "orig": [
+     794,
+     550
+    ]
+   },
+   "evidence": "tw-w2b4b-browser-page-20261012.json (fit), ws-s2-browser-original-window-20261013.json (флаг)",
+   "commit": "4f678fa7, 71e5243a",
+   "where": "headless Chromium, окно 1600×900: canvas 1299×900; с флагом — 794×550 по центру (403, 175); полный экран с флагом — снова 1299×900"
+  },
+  {
+   "key": "web400",
+   "name": "Браузер · 400×600",
+   "unit": "px",
+   "screen": [
+    400,
+    600
+   ],
+   "scale": 1,
+   "windowed": true,
+   "window": [
+    400,
+    600
+   ],
+   "measured": {
+    "fit": [
+     400,
+     277.1
+    ],
+    "orig": [
+     400,
+     277.1
+    ]
+   },
+   "evidence": "tw-w2b4b-browser-page-20261012.json (fit), ws-s2-browser-original-window-20261013.json (флаг)",
+   "commit": "4f678fa7, 71e5243a",
+   "where": "с флагом окно меньше кадра: картинка уменьшается до 400×277, не обрезается"
+  }
+ ],
+ "browser800": {
+  "viewport": [
+   800,
+   600
+  ],
+  "fit": [
+   800,
+   554
+  ]
+ },
+ "pointer": {
+  "sizes": [
+   "800x600",
+   "1600x900",
+   "400x600",
+   "1000x1000",
+   "3000x1000"
+  ],
+  "exact": true,
+  "pixels": [
+   [
+    0,
+    0
+   ],
+   [
+    350,
+    230
+   ],
+   [
+    793,
+    549
+   ],
+   [
+    400,
+    275
+   ]
+  ],
+  "source": "tw-w2b4b-browser-page-20261012.json (pointerMapping)"
+ },
+ "uneven1080": {
+  "rows": 20,
+  "columns": 29,
+  "derived": "в компоненте: при масштабе между k и k+1 исходных пикселей шириной k ровно (k+1)·n − m; для 1080p это совпадает с замером"
+ },
+ "flags": [
+  {
+   "host": "macOS app",
+   "default": "resizable window opening at the largest whole multiple of 2× or more within 85% of the visible screen, else the fraction that fits (down to half); its size is kept across Alt+Enter",
+   "original": "`--original-window`, or `defaults write local.ntsd.native NTSDOriginalWindow -bool YES` (a bare executable: `-NTSDOriginalWindow YES`)",
+   "fullScreen": "the green button or View ▸ Enter Full Screen (⌃⌘F)"
+  },
+  {
+   "host": "SDL (Linux, macOS SDL; Windows shares the code, not built)",
+   "default": "resizable, maximisable, high pixel density, the same initial size rule",
+   "original": "`--original-window` or `NTSD_ORIGINAL_WINDOW=1`",
+   "fullScreen": "the window manager's maximise and full-screen controls (macOS SDL: the green button, a zoom, not tried by hand); no game key is taken, since the original receives F1–F12"
+  },
+  {
+   "host": "Apple TV",
+   "default": "the whole TV, aspect kept",
+   "original": "the launch argument `--original-window` or the NTSDOriginalWindow default",
+   "fullScreen": "always full screen"
+  },
+  {
+   "host": "iPad",
+   "default": "the whole screen, aspect kept",
+   "original": "as Apple TV",
+   "fullScreen": "always full screen"
+  },
+  {
+   "host": "Android",
+   "default": "the whole screen, aspect kept (the compositor scales)",
+   "original": "`--original-window` in the app's `files/args.txt` (one argument per line; needs adb `run-as`): one device pixel per pixel, centred",
+   "fullScreen": "always immersive full screen"
+  },
+  {
+   "host": "Browser",
+   "default": "the canvas fitted to the page",
+   "original": "`?original-window` (alias `?original`; `=0`, `=false`, `=no` turn it off; the real name wins over the alias), or `\"originalWindow\": true` in config.json; `web_run.mjs --original-window`",
+   "fullScreen": "the page's Full screen button; the browser's own full screen (F11, the green button) enlarges the page, which the default fit follows, while the original window stays 1:1 there"
+  }
+ ],
+ "macAB": {
+  "msPerTick": "2.02 vs 1.74",
+  "peakMB": "799 vs 692 (vs)",
+  "source": "WINDOW_SCALING.md, строка S3"
+ },
+ "linuxResized": "resized 1001 600",
+ "wayland": [
+  {
+   "entered": true,
+   "event": "sdlFullScreen",
+   "window": [
+    1280,
+    1024
+   ]
+  },
+  {
+   "entered": false,
+   "event": "sdlFullScreen",
+   "window": [
+    1088,
+    754
+   ]
+  }
+ ],
+ "openQuestions": [
+  "растянуть или обрезать картинку на 16:9 — исказит или срежет оригинал: решать автору",
+  "сглаживание при нецелом масштабе размоет пиксели: тоже выбор автора"
+ ]
+}

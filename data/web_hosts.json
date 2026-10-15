@@ -1,0 +1,328 @@
+{
+ "title": "Новые хосты против замороженных эталонов: 10 сценариев app_e2e и кадры",
+ "source": "docs/evidence/tw-t1a-tvos-all-scenarios-20261011.json, tw-w0-w1-wasi-headless-20261011.json, tw-w3e-wasi-lazy-packages-20261012.json (повтор всех трёх веб-хостов), web-text-20261013.json, ws-s1-tvos-full-screen-20261013.json",
+ "caveat": "симулятор — не Apple TV у телевизора; headless Chromium и WebKit из Playwright — не браузер игрока; WASI в Node — тестовый стенд",
+ "frozen": "состояние на 13 октября 2026, 20:14 (5f5a8ee4)",
+ "scenarios": [
+  "vs",
+  "mission",
+  "demo",
+  "war",
+  "playback",
+  "tournament",
+  "altenter",
+  "tournament-win",
+  "team-tournament",
+  "joystick"
+ ],
+ "hosts": [
+  {
+   "key": "tvos",
+   "name": "Apple TV",
+   "env": "симулятор Apple TV 4K, tvOS 27.0",
+   "group": "coretext",
+   "against": "приложение AppKit",
+   "commit": "76c40436",
+   "evidence": "tw-t1a-tvos-all-scenarios-20261011.json",
+   "cells": {
+    "vs": "equal",
+    "mission": "equal",
+    "demo": "equal",
+    "war": "equal",
+    "playback": "equal",
+    "tournament": "equal",
+    "altenter": "equal",
+    "tournament-win": "equal",
+    "team-tournament": "equal",
+    "joystick": "equal"
+   },
+   "frames": 18088,
+   "mismatched": 0,
+   "note": "iOS-хост, собранный под tvOS; Core и Runtime не тронуты (T0)",
+   "detail": {
+    "vs": {
+     "frames": 6,
+     "digests": 1826
+    },
+    "mission": {
+     "frames": 6,
+     "digests": 1800
+    },
+    "demo": {
+     "frames": 3,
+     "digests": 945
+    },
+    "war": {
+     "frames": 10,
+     "digests": 3008
+    },
+    "playback": {
+     "frames": 7,
+     "digests": 2121
+    },
+    "tournament": {
+     "frames": 6,
+     "digests": 1832
+    },
+    "altenter": {
+     "frames": 6,
+     "digests": 1826
+    },
+    "tournament-win": {
+     "frames": 8,
+     "digests": 2520
+    },
+    "team-tournament": {
+     "frames": 6,
+     "digests": 1856
+    },
+    "joystick": {
+     "frames": 0,
+     "digests": 296
+    }
+   }
+  },
+  {
+   "key": "wasi",
+   "name": "WASI",
+   "env": "Node 26.7.0 (тестовый стенд)",
+   "group": "none",
+   "against": "Mac headless",
+   "commit": "6a17823c",
+   "evidence": "tw-w0-w1-wasi-headless-20261011.json; повтор tw-w3e-wasi-lazy-packages-20261012.json",
+   "cells": {
+    "vs": "equal",
+    "mission": "equal",
+    "demo": "equal",
+    "war": "equal",
+    "playback": "equal",
+    "tournament": "equal",
+    "altenter": "equal",
+    "tournament-win": "equal",
+    "team-tournament": "equal",
+    "joystick": "equal"
+   },
+   "frames": 18088,
+   "mismatched": 0,
+   "note": "NTSDHeadless.wasm, 96 МБ с отладочной информацией; Node 20 падал на компиляции модуля, Node 26 запускает",
+   "detail": {
+    "vs": {
+     "seconds": 62.6
+    },
+    "mission": {
+     "seconds": 61.6
+    },
+    "demo": {
+     "seconds": 45.9
+    },
+    "war": {
+     "seconds": 100.7
+    },
+    "playback": {
+     "seconds": 67.3
+    },
+    "tournament": {
+     "seconds": 88.6
+    },
+    "altenter": {
+     "seconds": 64.0
+    },
+    "tournament-win": {
+     "seconds": 93.7
+    },
+    "team-tournament": {
+     "seconds": 73.1
+    },
+    "joystick": {
+     "seconds": 22.4
+    }
+   }
+  },
+  {
+   "key": "chromium",
+   "name": "Chromium",
+   "env": "headless Chromium 153 (Playwright)",
+   "group": "none → свой текст",
+   "against": "Mac headless (без текста)",
+   "commit": "ce9b3c5f",
+   "evidence": "tw-w2a … tw-w3f, web-text-20261013.json",
+   "cells": {
+    "vs": "equal",
+    "mission": "equal",
+    "demo": "equal",
+    "war": "equal",
+    "playback": "equal",
+    "tournament": "equal",
+    "altenter": "equal",
+    "tournament-win": "equal",
+    "team-tournament": "equal",
+    "joystick": "equal"
+   },
+   "frames": 18088,
+   "mismatched": 0,
+   "note": "страница с canvas: нарисованы почти все кадры игры (vs 2339 из 2341; tournament-win 3655 из 3655)",
+   "detail": {
+    "vs": {
+     "seconds": 74.1,
+     "presents": 2341,
+     "draws": 2339
+    },
+    "mission": {
+     "seconds": 73.0,
+     "presents": 2170,
+     "draws": 2170
+    },
+    "demo": {
+     "seconds": 54.5,
+     "presents": 1784,
+     "draws": 1784
+    },
+    "war": {
+     "seconds": 118.9,
+     "presents": 3611,
+     "draws": 3611
+    },
+    "playback": {
+     "seconds": 80.5,
+     "presents": 2368,
+     "draws": 2368
+    },
+    "tournament": {
+     "seconds": 104.0,
+     "presents": 3414,
+     "draws": 3414
+    },
+    "altenter": {
+     "seconds": 75.3,
+     "presents": 2390,
+     "draws": 2387
+    },
+    "tournament-win": {
+     "seconds": 110.7,
+     "presents": 3655,
+     "draws": 3655
+    },
+    "team-tournament": {
+     "seconds": 85.1,
+     "presents": 2686,
+     "draws": 2686
+    },
+    "joystick": {
+     "seconds": 26.5,
+     "presents": 766,
+     "draws": 766
+    }
+   }
+  },
+  {
+   "key": "webkit",
+   "name": "WebKit",
+   "env": "WebKit из Playwright (движок Safari)",
+   "group": "none → свой текст",
+   "against": "Mac headless (без текста)",
+   "commit": "ce9b3c5f",
+   "evidence": "tw-w2a … tw-w3f, web-text-20261013.json",
+   "cells": {
+    "vs": "equal",
+    "mission": "equal",
+    "demo": "equal",
+    "war": "equal",
+    "playback": "equal",
+    "tournament": "equal",
+    "altenter": "equal",
+    "tournament-win": "equal",
+    "team-tournament": "equal",
+    "joystick": "equal"
+   },
+   "frames": 18088,
+   "mismatched": 0,
+   "note": "настоящий Safari и Firefox руками не проверялись",
+   "detail": {
+    "vs": {
+     "seconds": 79.4,
+     "presents": 2341,
+     "draws": 2340
+    },
+    "mission": {
+     "seconds": 80.0,
+     "presents": 2170,
+     "draws": 2170
+    },
+    "demo": {
+     "seconds": 59.7,
+     "presents": 1784,
+     "draws": 1784
+    },
+    "war": {
+     "seconds": 126.2,
+     "presents": 3611,
+     "draws": 3611
+    },
+    "playback": {
+     "seconds": 87.9,
+     "presents": 2368,
+     "draws": 2368
+    },
+    "tournament": {
+     "seconds": 113.1,
+     "presents": 3414,
+     "draws": 3414
+    },
+    "altenter": {
+     "seconds": 82.4,
+     "presents": 2390,
+     "draws": 2390
+    },
+    "tournament-win": {
+     "seconds": 119.8,
+     "presents": 3655,
+     "draws": 3655
+    },
+    "team-tournament": {
+     "seconds": 94.6,
+     "presents": 2686,
+     "draws": 2685
+    },
+    "joystick": {
+     "seconds": 29.7,
+     "presents": 766,
+     "draws": 766
+    }
+   }
+  }
+ ],
+ "earlier": {
+  "hosts": 9,
+  "equal": 90,
+  "of": 90,
+  "source": "глава 13: crossplatform-matrix-20261005-speed.json"
+ },
+ "loadSeconds": {
+  "chromium": "0.76–0.81",
+  "webkit": "0.55–0.57",
+  "native": 0.33,
+  "wasi": 0.9,
+  "source": "TVOS_WEB.md, строка W2a"
+ },
+ "text": {
+  "commit": "f0471f13",
+  "frames": 18030,
+  "text": 9565,
+  "textless": 8465,
+  "disagree": 0,
+  "enginesDiffer": 39,
+  "font": "bold 13px, системный UI-шрифт платформы (SF, Segoe UI, Roboto …)",
+  "how": "compare_text_frames.py: the CoreText reference (S1's AppKit run), the text-free none group (tw-w1b3/wasi), the browser run — text in exactly the same 9,565 frames as CoreText, the 8,465 text-free frames identical to both"
+ },
+ "tvosRerun": {
+  "commit": "f075d765",
+  "frames": 18088,
+  "mismatched": 0
+ },
+ "minutes": {
+  "tvosFirst": 14,
+  "tvosAll": 30,
+  "wasiAll": 64,
+  "from": "2026-10-11T20:12"
+ }
+}

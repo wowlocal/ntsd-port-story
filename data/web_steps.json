@@ -1,0 +1,245 @@
+{
+ "title": "Apple TV, Web и масштабируемое окно: коммиты a16fe0d2 … f0471f13",
+ "source": "git log --reverse a16fe0d2^..f0471f13 (ntsd-2.4); дорожка — по метке карточки в заголовке коммита",
+ "caveat": "время коммита, UTC+2; все коммиты попали в main перемоткой (fast-forward), без merge-коммитов",
+ "frozen": "состояние на 13 октября 2026, 20:14 (5f5a8ee4)",
+ "count": 29,
+ "hours": 34.1,
+ "first": "2026-10-11T20:12",
+ "last": "2026-10-13T06:21",
+ "tag": "web-f0471f13-20261013 (на f0471f13, W4)",
+ "steps": [
+  {
+   "hash": "a16fe0d2",
+   "time": "2026-10-11T20:12",
+   "subject": "Start the Apple TV and Web study",
+   "card": "TVOS_WEB",
+   "step": null,
+   "lane": "card"
+  },
+  {
+   "hash": "a1f3ac0f",
+   "time": "2026-10-11T20:26",
+   "subject": "Run the iOS host on the Apple TV simulator",
+   "card": "TVOS_WEB",
+   "step": "T0",
+   "lane": "tvos"
+  },
+  {
+   "hash": "76c40436",
+   "time": "2026-10-11T20:42",
+   "subject": "Run all 10 scenarios on the Apple TV simulator",
+   "card": "TVOS_WEB",
+   "step": "T1a",
+   "lane": "tvos"
+  },
+  {
+   "hash": "09d1912a",
+   "time": "2026-10-11T20:49",
+   "subject": "Record that the branch is published and the hosting plan",
+   "card": "TVOS_WEB",
+   "step": null,
+   "lane": "card"
+  },
+  {
+   "hash": "be6b35a3",
+   "time": "2026-10-11T20:53",
+   "subject": "Plan Bluetooth gamepads and the Siri Remote on tvOS next",
+   "card": "TVOS_WEB",
+   "step": "T1b",
+   "lane": "tvos"
+  },
+  {
+   "hash": "6a17823c",
+   "time": "2026-10-11T21:16",
+   "subject": "Run the game under WASI with every frame identical",
+   "card": "TVOS_WEB",
+   "step": "W0, W1",
+   "lane": "web"
+  },
+  {
+   "hash": "64b6e7ef",
+   "time": "2026-10-11T21:50",
+   "subject": "Play with Bluetooth gamepads on the iPad and Apple TV",
+   "card": "TVOS_WEB",
+   "step": "T1b",
+   "lane": "tvos"
+  },
+  {
+   "hash": "3566265f",
+   "time": "2026-10-11T22:18",
+   "subject": "Play with gamepads on Android, and stop B from quitting",
+   "card": "TVOS_WEB",
+   "step": "T1c",
+   "lane": "tvos"
+  },
+  {
+   "hash": "d5cf2f0a",
+   "time": "2026-10-12T08:06",
+   "subject": "Reach the 64-bit hosts' boundaries on wasm32 instead of trapping",
+   "card": "TVOS_WEB",
+   "step": "W1b",
+   "lane": "web"
+  },
+  {
+   "hash": "ce9b3c5f",
+   "time": "2026-10-12T09:09",
+   "subject": "Run the game in Chromium and WebKit with every frame identical",
+   "card": "TVOS_WEB",
+   "step": "W2a",
+   "lane": "web"
+  },
+  {
+   "hash": "b0b6b470",
+   "time": "2026-10-12T10:28",
+   "subject": "Draw the game on a browser page from a new web host",
+   "card": "TVOS_WEB",
+   "step": "W2b-1",
+   "lane": "web"
+  },
+  {
+   "hash": "6f4cb344",
+   "time": "2026-10-12T12:21",
+   "subject": "Play the game in a browser with keyboard, mouse and gamepads",
+   "card": "TVOS_WEB",
+   "step": "W2b-2",
+   "lane": "web"
+  },
+  {
+   "hash": "c1cd3f91",
+   "time": "2026-10-12T14:06",
+   "subject": "Play sound and music in the browser host",
+   "card": "TVOS_WEB",
+   "step": "W2b-3",
+   "lane": "web"
+  },
+  {
+   "hash": "f829a551",
+   "time": "2026-10-12T14:57",
+   "subject": "Keep the browser host's saves in the browser",
+   "card": "TVOS_WEB",
+   "step": "W2b-4a",
+   "lane": "web"
+  },
+  {
+   "hash": "4f678fa7",
+   "time": "2026-10-12T15:47",
+   "subject": "Fit the browser page to its window, with full screen and saves controls",
+   "card": "TVOS_WEB",
+   "step": "W2b-4b",
+   "lane": "web"
+  },
+  {
+   "hash": "21f5caa9",
+   "time": "2026-10-12T16:51",
+   "subject": "Serve the browser host from any static host",
+   "card": "TVOS_WEB",
+   "step": "W2b-4c",
+   "lane": "web"
+  },
+  {
+   "hash": "ef6e880a",
+   "time": "2026-10-12T18:02",
+   "subject": "Measure the browser host's frame time and memory",
+   "card": "TVOS_WEB",
+   "step": "W3a",
+   "lane": "web"
+  },
+  {
+   "hash": "5d24e399",
+   "time": "2026-10-12T19:27",
+   "subject": "Send the browser host's data compressed",
+   "card": "TVOS_WEB",
+   "step": "W3b",
+   "lane": "web"
+  },
+  {
+   "hash": "b90394c0",
+   "time": "2026-10-12T20:01",
+   "subject": "Attribute the browser host's startup",
+   "card": "TVOS_WEB",
+   "step": "W3c",
+   "lane": "web"
+  },
+  {
+   "hash": "05e9c595",
+   "time": "2026-10-12T21:38",
+   "subject": "Show the browser host's menu before reading every package",
+   "card": "TVOS_WEB",
+   "step": "W3e",
+   "lane": "web"
+  },
+  {
+   "hash": "9d7beb8a",
+   "time": "2026-10-12T22:47",
+   "subject": "Prefetch the browser host's data while the game starts",
+   "card": "TVOS_WEB",
+   "step": "W3f",
+   "lane": "web"
+  },
+  {
+   "hash": "1d39dd65",
+   "time": "2026-10-12T22:54",
+   "subject": "Start the scalable window and native full screen work",
+   "card": "WINDOW_SCALING",
+   "step": "S0",
+   "lane": "card"
+  },
+  {
+   "hash": "f075d765",
+   "time": "2026-10-12T23:32",
+   "subject": "Keep Apple TV on the whole TV and add the original format",
+   "card": "WINDOW_SCALING",
+   "step": "S1",
+   "lane": "window"
+  },
+  {
+   "hash": "71e5243a",
+   "time": "2026-10-13T00:10",
+   "subject": "Add the browser's original window",
+   "card": "WINDOW_SCALING",
+   "step": "S2",
+   "lane": "window"
+  },
+  {
+   "hash": "b7cd16c6",
+   "time": "2026-10-13T01:57",
+   "subject": "Make the macOS game window scalable",
+   "card": "WINDOW_SCALING",
+   "step": "S3",
+   "lane": "window"
+  },
+  {
+   "hash": "d45fd928",
+   "time": "2026-10-13T03:40",
+   "subject": "Make the SDL game window scalable",
+   "card": "WINDOW_SCALING",
+   "step": "S4",
+   "lane": "window"
+  },
+  {
+   "hash": "f7aeada1",
+   "time": "2026-10-13T04:18",
+   "subject": "Add the original window on Android and check the iPad",
+   "card": "WINDOW_SCALING",
+   "step": "S5",
+   "lane": "window"
+  },
+  {
+   "hash": "df74758a",
+   "time": "2026-10-13T04:48",
+   "subject": "Document the window flags in one place",
+   "card": "WINDOW_SCALING",
+   "step": "S6",
+   "lane": "window"
+  },
+  {
+   "hash": "f0471f13",
+   "time": "2026-10-13T06:21",
+   "subject": "Draw the game's text in the browser",
+   "card": "TVOS_WEB",
+   "step": "W4",
+   "lane": "web"
+  }
+ ]
+}

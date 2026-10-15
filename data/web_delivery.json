@@ -1,0 +1,165 @@
+{
+ "title": "Первый визит в браузере: что скачивается и когда появляется меню",
+ "source": "docs/evidence/tw-w2b4c-browser-static-20261012.json (firstLoad.measure), tw-w3b-browser-compressed-20261012.json, tw-w3c-browser-startup-20261012.json, tw-w3e-wasi-lazy-packages-20261012.json, tw-w3f-browser-prefetch-overlap-20261012.json; TVOS_WEB.md (Hosting); release-refresh-20261013.json (web)",
+ "caveat": "локальный тестовый сервер web_app.py serve с --rate 100 (только полоса, без задержек сети): времена — нижние границы; Chromium 153 headless на этом Mac, три холодных визита на точку; WebKit по HTTP не берёт brotli (gzip, 120,9 МБ)",
+ "frozen": "состояние на 13 октября 2026, 20:14 (5f5a8ee4)",
+ "total": {
+  "files": 1529,
+  "MB": 881.5,
+  "brotliMB": 99.2,
+  "gzipMB": 123.0,
+  "requests": 1530
+ },
+ "programMB": 96.0,
+ "parts": [
+  {
+   "key": ".bmp",
+   "label": "картинки BMP",
+   "files": 893,
+   "MB": 691.3,
+   "brotliMB": 19.0,
+   "gzipMB": 28.5
+  },
+  {
+   "key": "program",
+   "label": "программа .wasm",
+   "files": 1,
+   "MB": 96.0,
+   "brotliMB": 20.1,
+   "gzipMB": 30.2
+  },
+  {
+   "key": ".dib",
+   "label": "картинки DIB",
+   "files": 63,
+   "MB": 31.4,
+   "brotliMB": 6.4,
+   "gzipMB": 8.1
+  },
+  {
+   "key": ".caf",
+   "label": "музыка меню (ALAC)",
+   "files": 1,
+   "MB": 27.5,
+   "brotliMB": 27.5,
+   "gzipMB": 27.5
+  },
+  {
+   "key": ".wav",
+   "label": "звуки WAV",
+   "files": 388,
+   "MB": 14.9,
+   "brotliMB": 10.9,
+   "gzipMB": 12.8
+  },
+  {
+   "key": ".wma",
+   "label": "WMA",
+   "files": 8,
+   "MB": 14.5,
+   "brotliMB": 13.7,
+   "gzipMB": 13.8
+  },
+  {
+   "key": ".dat",
+   "label": "данные .dat",
+   "files": 155,
+   "MB": 5.2,
+   "brotliMB": 1.6,
+   "gzipMB": 1.9
+  },
+  {
+   "key": "other",
+   "label": "остальное",
+   "files": 20,
+   "MB": 0.7,
+   "brotliMB": 0.1,
+   "gzipMB": 0.1
+  }
+ ],
+ "wire": {
+  "plain": 881.5,
+  "brotliChromium": 99.5,
+  "gzipWebkit": 120.9
+ },
+ "configs": [
+  {
+   "label": "как было: файлы без сжатия",
+   "short": "без сжатия",
+   "step": "W3b",
+   "commit": "5d24e399",
+   "firstFrame100": 75.46,
+   "firstFrameLocal": 5.5,
+   "wireMB": 881.5,
+   "effectiveMB": 874.5,
+   "note": "программа ждёт все файлы, читает и хеширует их до меню"
+  },
+  {
+   "label": "сжатие brotli",
+   "short": "brotli",
+   "step": "W3b",
+   "commit": "5d24e399",
+   "firstFrame100": 12.82,
+   "firstFrameLocal": 6.16,
+   "wireMB": 99.5,
+   "effectiveMB": 83.2,
+   "note": "байты те же после распаковки; распаковка стоит ≈ 0,7 с"
+  },
+  {
+   "label": "меню раньше + подкачка",
+   "short": "меню раньше",
+   "step": "W3e + W3f",
+   "commit": "9d7beb8a",
+   "firstFrame100": 13.62,
+   "firstFrameLocal": 1.06,
+   "wireMB": 881.5,
+   "effectiveMB": 157.0,
+   "note": "пакеты считаются при первой загрузке, страница качает файлы, пока программа стартует"
+  },
+  {
+   "label": "brotli + меню раньше + подкачка",
+   "short": "всё вместе",
+   "step": "W3b + W3e + W3f",
+   "commit": "9d7beb8a",
+   "firstFrame100": 5.64,
+   "firstFrameLocal": 1.22,
+   "wireMB": 99.5,
+   "effectiveMB": 55.2,
+   "note": "все данные на месте к 8,5 с; первый кадр — 5,6 с"
+  }
+ ],
+ "model": {
+  "derived": "t(полоса) = t(локально) + effectiveMB × 8 / полоса — прямая через два замера каждой конфигурации (без ограничения и 100 Мбит/с); между ними и ниже 100 Мбит/с — оценка, не замер",
+  "measuredMbit": 100
+ },
+ "startup": {
+  "firstFrame": 5.6,
+  "sha256": 2.2,
+  "prefetchWait": 1.1,
+  "cacheReads": 0.8,
+  "lz4": 0.5,
+  "other": 1.0,
+  "digestedMB": 757.7,
+  "menuNeedsMB": 29.7,
+  "after": 1.82,
+  "before": 5.39,
+  "source": "tw-w3c (профиль воркера, статическая страница, данные в кэше) · tw-w3e (первый кадр, 3 холодных визита)"
+ },
+ "hosting": {
+  "checked": "2026-10-11",
+  "tiers": [
+   "Vercel Hobby 100 GB/month, 100 MB per file",
+   "Cloudflare R2 10 GB with free egress",
+   "Cloudflare Pages 25 MiB per file"
+  ],
+  "plan": "автор: тестировать локально; публиковать позже на Vercel, бесплатно или с минимальным счётом",
+  "rights": "данные — файлы оригинальной игры: публиковать их — решение автора; страница, открывающая копию игрока, их не распространяет"
+ },
+ "release": {
+  "tag": "native-preview-20261013",
+  "archive": "ntsd-web-f340f1e.zip",
+  "hosting": "Static archive, not a new deployed website; requires configured COOP/COEP and Content-Encoding for precompressed forms",
+  "commit": "0b5d4621",
+  "date": "2026-10-13 15:28"
+ }
+}
