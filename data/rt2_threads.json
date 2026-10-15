@@ -1,0 +1,283 @@
+{
+ "title": "Работа на тик по потокам: начало главы (4l) и конец (e5); R2 → P0 → R2 → R3",
+ "source": "ntsd-2.4 at 5f5a8ee4: rt-4l-pending-loading-20261007.json, rt-e5-emit-consumes-20261010.json, rt-r2-presenter-thread-parked-20261009.json, rt-r2b-presenter-remeasured-20261010.json, rt-p0-main-on-fast-cores-20261010.json, rt-r2-presenter-thread-20261010.json, rt-r3-release-thread-20261010.json",
+ "caveat": "One phone (Galaxy A12, Helio P35: CPUs 0-3 at 2.3 GHz, 4-7 at 1.8 GHz), debuggable build (local.ntsd.port), shipping flags from 4aa on (no dynamic exclusivity checks); scripted match (vs: computer vs computer, bodies 300->1800; Demo: eight computer fighters) with music, sounds and network off, no frame capture, the harness's virtual clock (8 ms per message-loop iteration). Compute per tick per thread from schedstat between bodies 600 and 1500 (tools/crossplatform/android_speed.py); not wall time. The sum over threads is CPU work per tick, not a frame time: the threads run at the same time on different cores. 4l had no Demo measurement (the Demo was first measured on 8 Oct).",
+ "start": {
+  "main": 24.55,
+  "render": 18.1
+ },
+ "end": {
+  "vs": {
+   "n": 3,
+   "main": 11.09,
+   "render": 7.55,
+   "mainMin": 11.04,
+   "mainMax": 11.19,
+   "renderMin": 7.52,
+   "renderMax": 7.58,
+   "present": 5.75,
+   "release": 1.94
+  },
+  "demo": {
+   "n": 3,
+   "main": 11.62,
+   "render": 6.14,
+   "mainMin": 11.37,
+   "mainMax": 11.79,
+   "renderMin": 6.05,
+   "renderMax": 6.2,
+   "present": 5.45,
+   "release": 1.56
+  }
+ },
+ "cores": {
+  "fast": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "fastGHz": 2.3,
+  "slow": [
+   4,
+   5,
+   6,
+   7
+  ],
+  "slowGHz": 1.8,
+  "finding": "while re-measuring R2 (rtr2b, rtr2c) the A12's threads were sampled during the Demo (/proc/<pid>/task/*/stat field 39 once a second): with the render thread busy the scheduler ran the main thread mostly on the slower cluster (CPUs 5–7, 1.8 GHz; CPUs 0–3 run at 2.3 GHz). An experiment with R2, the presenter on CPUs 4–7 and the main thread on 0–3 (exp-r2d, hard-coded) gave Demo main 13.10 -> 12.43 and render 10.40 -> 5.91, vs main 12.74 -> 11.94 and render 12.23 -> 7.94; this step is its main-thread half"
+ },
+ "r2parked": {
+  "vs": {
+   "base": {
+    "n": 2,
+    "main": 15.27,
+    "render": 13.92,
+    "mainMin": 15.2,
+    "mainMax": 15.34,
+    "renderMin": 13.83,
+    "renderMax": 14.01,
+    "interleaved": true
+   },
+   "after": {
+    "n": 2,
+    "main": 15.46,
+    "render": 9.98,
+    "mainMin": 15.43,
+    "mainMax": 15.48,
+    "renderMin": 9.96,
+    "renderMax": 10.0,
+    "present": 5.05
+   }
+  },
+  "demo": {
+   "base": {
+    "n": 2,
+    "main": 15.3,
+    "render": 12.04,
+    "mainMin": 15.3,
+    "mainMax": 15.3,
+    "renderMin": 12.03,
+    "renderMax": 12.04,
+    "interleaved": true
+   },
+   "after": {
+    "n": 3,
+    "main": 15.66,
+    "render": 7.8,
+    "mainMin": 15.61,
+    "mainMax": 15.71,
+    "renderMin": 7.73,
+    "renderMax": 7.83,
+    "present": 4.93
+   }
+  }
+ },
+ "r2b": {
+  "vs": {
+   "base": {
+    "n": 2,
+    "main": 12.75,
+    "render": 12.45,
+    "mainMin": 12.7,
+    "mainMax": 12.81,
+    "renderMin": 12.41,
+    "renderMax": 12.49,
+    "interleaved": true
+   },
+   "after": {
+    "n": 3,
+    "main": 12.8,
+    "render": 8.42,
+    "mainMin": 12.79,
+    "mainMax": 12.82,
+    "renderMin": 8.29,
+    "renderMax": 8.53,
+    "present": 5.11
+   }
+  },
+  "demo": {
+   "base": {
+    "n": 2,
+    "main": 13.17,
+    "render": 10.46,
+    "mainMin": 13.14,
+    "mainMax": 13.2,
+    "renderMin": 10.4,
+    "renderMax": 10.53,
+    "interleaved": true
+   },
+   "after": {
+    "n": 3,
+    "main": 13.74,
+    "render": 6.12,
+    "mainMin": 13.59,
+    "mainMax": 13.82,
+    "renderMin": 6.04,
+    "renderMax": 6.18,
+    "present": 4.97
+   }
+  },
+  "result": "render −4.0 ms in vs and −4.3 ms in the Demo (both under 8 ms); the main thread is unchanged in vs (+0.05) but still +0.57 ms in the Demo, where main is the frame's limit. Not committed: next, R2c pins the presenter to the other CPU cluster (CPUs 4–7, separate L2) to test whether the Demo's main-thread cost is cache contention"
+ },
+ "p0": {
+  "vs": {
+   "base": {
+    "n": 2,
+    "main": 12.75,
+    "render": 12.46,
+    "mainMin": 12.74,
+    "mainMax": 12.76,
+    "renderMin": 12.43,
+    "renderMax": 12.5,
+    "interleaved": true
+   },
+   "after": {
+    "n": 3,
+    "main": 11.89,
+    "render": 12.35,
+    "mainMin": 11.82,
+    "mainMax": 11.97,
+    "renderMin": 12.12,
+    "renderMax": 12.47
+   }
+  },
+  "demo": {
+   "base": {
+    "n": 2,
+    "main": 13.16,
+    "render": 10.41,
+    "mainMin": 13.1,
+    "mainMax": 13.21,
+    "renderMin": 10.32,
+    "renderMax": 10.51,
+    "interleaved": true
+   },
+   "after": {
+    "n": 3,
+    "main": 12.48,
+    "render": 10.45,
+    "mainMin": 12.44,
+    "mainMax": 12.54,
+    "renderMin": 10.31,
+    "renderMax": 10.58
+   }
+  }
+ },
+ "r2": {
+  "vs": {
+   "base": {
+    "n": 2,
+    "main": 11.57,
+    "render": 11.88,
+    "mainMin": 11.26,
+    "mainMax": 11.88,
+    "renderMin": 11.43,
+    "renderMax": 12.33,
+    "interleaved": true
+   },
+   "after": {
+    "n": 3,
+    "main": 12.03,
+    "render": 8.24,
+    "mainMin": 12.02,
+    "mainMax": 12.05,
+    "renderMin": 8.05,
+    "renderMax": 8.5,
+    "present": 5.89
+   }
+  },
+  "demo": {
+   "base": {
+    "n": 2,
+    "main": 12.53,
+    "render": 10.59,
+    "mainMin": 12.49,
+    "mainMax": 12.57,
+    "renderMin": 10.38,
+    "renderMax": 10.8,
+    "interleaved": true
+   },
+   "after": {
+    "n": 3,
+    "main": 12.4,
+    "render": 5.9,
+    "mainMin": 12.31,
+    "mainMax": 12.46,
+    "renderMin": 5.75,
+    "renderMax": 6.18,
+    "present": 5.73
+   }
+  }
+ },
+ "r3": {
+  "vs": {
+   "base": {
+    "n": 2,
+    "main": 11.75,
+    "render": 7.98,
+    "mainMin": 11.67,
+    "mainMax": 11.84,
+    "renderMin": 7.87,
+    "renderMax": 8.1,
+    "present": 5.79,
+    "interleaved": true
+   },
+   "after": {
+    "n": 3,
+    "main": 11.34,
+    "render": 8.09,
+    "mainMin": 11.22,
+    "mainMax": 11.51,
+    "renderMin": 8.05,
+    "renderMax": 8.17,
+    "present": 5.75,
+    "release": 2.08
+   }
+  },
+  "demo": {
+   "base": {
+    "n": 2,
+    "main": 12.14,
+    "render": 5.83,
+    "mainMin": 12.02,
+    "mainMax": 12.27,
+    "renderMin": 5.79,
+    "renderMax": 5.88,
+    "present": 5.7,
+    "interleaved": true
+   },
+   "after": {
+    "n": 3,
+    "main": 11.85,
+    "render": 6.05,
+    "mainMin": 11.77,
+    "mainMax": 11.95,
+    "renderMin": 5.89,
+    "renderMax": 6.23,
+    "present": 5.73,
+    "release": 1.69
+   }
+  }
+ }
+}

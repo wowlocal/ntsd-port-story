@@ -1,0 +1,109 @@
+{
+ "title": "Стена 10 октября: что осталось без решений автора и что откроют Q1–Q4",
+ "source": "ntsd-2.4 at 5f5a8ee4: docs/research/CORE_REALTIME.md (Next task, 2026-10-10) and docs/research/CORE_REALTIME_TIER3.md (Candidates, Order, Decisions for the user; written 2026-10-08, 5fe8641d)",
+ "caveat": "Savings are the plan's conservative estimates (ms per tick), not measurements. The phone resolves about ±0.25 ms per run. The plan's trajectory was written for its own order of steps; the loop took a different order (P0, R2, R3 were not in it), so only the endpoints compare.",
+ "resolutionMs": 0.25,
+ "decisionFree": [
+  {
+   "item": "H3",
+   "ms": 0.13
+  },
+  {
+   "item": "H2",
+   "ms": 0.15
+  },
+  {
+   "item": "a polling render thread",
+   "ms": 0.1
+  },
+  {
+   "item": "boxing the platform's rarely written deliveries",
+   "ms": 0.06
+  },
+  {
+   "item": "L6",
+   "ms": 0.05
+  },
+  {
+   "item": "lastRequest",
+   "ms": 0.04
+  }
+ ],
+ "decisions": {
+  "Q1": {
+   "id": "B",
+   "mechanism": "One transactional copy for entry and body (an undo journal would keep today's behaviour but needs per-write logging; not worth it)",
+   "lo": 0.15,
+   "hi": 0.4,
+   "question": "May a failed loaded tick leave the Host with only its pre-tick pending input instead of the post-entry Ready (changes `OriginalApplicationHostGameplayTests`)? Unlocks B."
+  },
+  "Q2": {
+   "id": "D",
+   "mechanism": "Direct gameplay tick: one Host attempt over one pre-tick snapshot, bindings stored once",
+   "lo": 0.6,
+   "hi": 1.2,
+   "question": "May any failure from the due iteration through the tail leave the Host at its last committed batch (no retained pending/Ready/returned stage, no tail retry)? Unlocks D and covers Q1."
+  },
+  "Q3": {
+   "id": "L6b",
+   "mechanism": "Idle commits keep the previous committed platform",
+   "lo": 0.15,
+   "hi": 0.3,
+   "question": "May idle commits keep the previous committed platform object (tests see different `platformSnapshot` values)? Unlocks L6b."
+  },
+  "Q4": {
+   "id": "P",
+   "mechanism": "The display's checks on committed draws on the render thread",
+   "lo": 0.4,
+   "hi": 0.9,
+   "question": "May a display error on committed draws stop the game one tick later, after the next tick's Core work ran? Unlocks P."
+  }
+ },
+ "projectionWithQ2toQ4": {
+  "lo": 9,
+  "hi": 10
+ },
+ "planWithoutDecisions": {
+  "main": 11,
+  "lo": 9,
+  "hi": 12.5,
+  "render": 8
+ },
+ "planOrder": [
+  {
+   "steps": "S1, G1",
+   "vs": 15.4,
+   "demo": 15.0
+  },
+  {
+   "steps": "G2, G3",
+   "vs": 13.8,
+   "demo": 13.8
+  },
+  {
+   "steps": "A (L4b, then L5 and L6)",
+   "vs": 13.0,
+   "demo": 13.0
+  },
+  {
+   "steps": "S2, S3, H1",
+   "vs": 12.0,
+   "demo": 12.3
+  },
+  {
+   "steps": "H2, H3, R0, L",
+   "vs": 11.0,
+   "demo": 11.5
+  }
+ ],
+ "planStart": {
+  "vs": 16.25,
+  "demo": 16.13
+ },
+ "fact": {
+  "vs": 11.09,
+  "demo": 11.62,
+  "renderVs": 7.55,
+  "renderDemo": 6.14
+ }
+}

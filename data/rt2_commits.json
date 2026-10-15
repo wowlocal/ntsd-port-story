@@ -1,0 +1,518 @@
+{
+ "title": "84 коммита 8840eb3..0034e45c (7 окт 08:51 — 10 окт 18:27), время местное (+0200)",
+ "source": "git log --reverse 8840eb3..0034e45c in ntsd-2.4; tag rt-60fps-a12",
+ "caveat": "kind: step = the commit named by a ledger row (or adding its evidence); record = a ledger/plan/status commit (Record, Update, Plan); tool = harness and install fixes. Subjects verbatim.",
+ "count": 84,
+ "tag": {
+  "name": "rt-60fps-a12",
+  "commit": "7c02b7f",
+  "time": "10-08 19:49",
+  "subject": "60 fps on the Galaxy A12 (core real-time redesign, tier 2)"
+ },
+ "commits": [
+  {
+   "hash": "bf5628e",
+   "time": "10-07 08:51",
+   "subject": "Hold the loaded cycle's continuation and returns in shared objects",
+   "kind": "step"
+  },
+  {
+   "hash": "e3dcd6a",
+   "time": "10-07 08:52",
+   "subject": "Copy keyed rows without known-bit work over a full target",
+   "kind": "step"
+  },
+  {
+   "hash": "e209133",
+   "time": "10-07 10:21",
+   "subject": "Hold the loaded owners and batch delivery context in shared objects",
+   "kind": "step"
+  },
+  {
+   "hash": "aba1e4e",
+   "time": "10-07 10:51",
+   "subject": "Read the session in place in Host attempts",
+   "kind": "step"
+  },
+  {
+   "hash": "6941d89",
+   "time": "10-07 10:52",
+   "subject": "Crop presented frames from the back buffer and defer the primary's copy",
+   "kind": "step"
+  },
+  {
+   "hash": "606cfd1",
+   "time": "10-07 13:25",
+   "subject": "Make the frame allocation order once per loaded catalog",
+   "kind": "step"
+  },
+  {
+   "hash": "b9d59af",
+   "time": "10-07 13:26",
+   "subject": "Make the post-draw slot event adapter once per pass",
+   "kind": "step"
+  },
+  {
+   "hash": "f335320",
+   "time": "10-07 14:37",
+   "subject": "Run the post-draw slot passes and the actor scheduler in place (B2 P1)",
+   "kind": "step"
+  },
+  {
+   "hash": "2a03667",
+   "time": "10-07 14:38",
+   "subject": "Build one in-place body per pass and test both forms (B2 P1b)",
+   "kind": "step"
+  },
+  {
+   "hash": "1d1055f",
+   "time": "10-07 14:51",
+   "subject": "End inactive post-draw slots before building their passes",
+   "kind": "step"
+  },
+  {
+   "hash": "b189ee9",
+   "time": "10-07 16:25",
+   "subject": "Run the loaded match entry's sub-steps in place (B2 P2)",
+   "kind": "step"
+  },
+  {
+   "hash": "c761435",
+   "time": "10-07 16:26",
+   "subject": "Build received input on one in-place core (B2 P2b)",
+   "kind": "step"
+  },
+  {
+   "hash": "ba69395",
+   "time": "10-07 16:47",
+   "subject": "Run local input in place on the entry's copy (B2 P2c)",
+   "kind": "step"
+  },
+  {
+   "hash": "96661df",
+   "time": "10-07 16:48",
+   "subject": "Test the loaded entry's rollback inside its sub-steps (B2 P2d)",
+   "kind": "step"
+  },
+  {
+   "hash": "e7dedda",
+   "time": "10-07 17:17",
+   "subject": "Run the AI and object-input children in place (B2 P3)",
+   "kind": "step"
+  },
+  {
+   "hash": "67f4083",
+   "time": "10-07 17:18",
+   "subject": "Check the AI children's rollback through both forms (B2 P3b)",
+   "kind": "step"
+  },
+  {
+   "hash": "3f7e9cb",
+   "time": "10-07 17:19",
+   "subject": "Measure idle message-loop iterations apart from the tick (A3 P0)",
+   "kind": "step"
+  },
+  {
+   "hash": "4e13691",
+   "time": "10-07 18:59",
+   "subject": "Run the idle message-loop iteration on an empty context (A3 L3)",
+   "kind": "step"
+  },
+  {
+   "hash": "bf85e22",
+   "time": "10-07 19:01",
+   "subject": "Schedule Android iterations on a main-looper timerfd (A3 P5a)",
+   "kind": "step"
+  },
+  {
+   "hash": "8ac7969",
+   "time": "10-07 19:01",
+   "subject": "Harden the Android iteration timer (A3 P5b)",
+   "kind": "step"
+  },
+  {
+   "hash": "180d845",
+   "time": "10-07 21:22",
+   "subject": "Build gate binaries clean after a stale inlined class size (4u)",
+   "kind": "step"
+  },
+  {
+   "hash": "cbb15b5",
+   "time": "10-07 21:53",
+   "subject": "Read bitmap draw words in place (4s)",
+   "kind": "step"
+  },
+  {
+   "hash": "8d888a3",
+   "time": "10-07 22:17",
+   "subject": "Replay the loaded batch without copying it (4t)",
+   "kind": "step"
+  },
+  {
+   "hash": "54bb195",
+   "time": "10-07 23:40",
+   "subject": "Serve the idle attempt's queue requests without permits (A3 L4a)",
+   "kind": "step"
+  },
+  {
+   "hash": "3314f10",
+   "time": "10-07 23:41",
+   "subject": "Dispatch each replayed batch's render work once (1k)",
+   "kind": "step"
+  },
+  {
+   "hash": "43814e9",
+   "time": "10-08 00:21",
+   "subject": "Record B2 P4a: three world passes in place, not faster, reverted",
+   "kind": "step"
+  },
+  {
+   "hash": "2356f5a",
+   "time": "10-08 01:18",
+   "subject": "Read and write flat records' integers on a fast path (4w)",
+   "kind": "step"
+  },
+  {
+   "hash": "1f9c75e",
+   "time": "10-08 01:28",
+   "subject": "Install on the full A12 when the streamed session cannot be created",
+   "kind": "tool"
+  },
+  {
+   "hash": "472ee11",
+   "time": "10-08 03:30",
+   "subject": "Retry the A12 install while its free space swings",
+   "kind": "tool"
+  },
+  {
+   "hash": "1ff5775",
+   "time": "10-08 04:06",
+   "subject": "Run control, physics and the post-draw lifecycle in place (B2 P4b+c)",
+   "kind": "step"
+  },
+  {
+   "hash": "bdaf40f",
+   "time": "10-08 04:07",
+   "subject": "Run links, contacts, camera, drawing and impulses in place (B2 P4d)",
+   "kind": "step"
+  },
+  {
+   "hash": "89f4b52",
+   "time": "10-08 04:27",
+   "subject": "Run hits, cpoints and the result recording in place (B2 P4e)",
+   "kind": "step"
+  },
+  {
+   "hash": "0805251",
+   "time": "10-08 05:53",
+   "subject": "Run the post-draw commands in place (B2 P4f)",
+   "kind": "step"
+  },
+  {
+   "hash": "2d56169",
+   "time": "10-08 05:54",
+   "subject": "Identify loading attempts by their storage object (4x)",
+   "kind": "step"
+  },
+  {
+   "hash": "0551555",
+   "time": "10-08 06:13",
+   "subject": "Record B3a: the loaded cycle in place, not faster, reverted",
+   "kind": "step"
+  },
+  {
+   "hash": "7b60f50",
+   "time": "10-08 07:03",
+   "subject": "Run the gameplay output and mode label in place (B2 P4g)",
+   "kind": "step"
+  },
+  {
+   "hash": "4773f33",
+   "time": "10-08 07:28",
+   "subject": "Report the A12 main and render times with two decimals",
+   "kind": "tool"
+  },
+  {
+   "hash": "75c59ec",
+   "time": "10-08 08:07",
+   "subject": "Measure the Demo on the A12 as well as vs",
+   "kind": "tool"
+  },
+  {
+   "hash": "241ed04",
+   "time": "10-08 09:26",
+   "subject": "Resolve each glyph bitmap once per font draw (4z)",
+   "kind": "step"
+  },
+  {
+   "hash": "3d8935d",
+   "time": "10-08 19:48",
+   "subject": "Ship without Swift's dynamic exclusivity checks: 60 fps on the A12 (4aa)",
+   "kind": "step"
+  },
+  {
+   "hash": "7c02b7f",
+   "time": "10-08 19:48",
+   "subject": "Let the APK builder opt in to unchecked exclusivity (4aa, completed)",
+   "kind": "step"
+  },
+  {
+   "hash": "0dd7740",
+   "time": "10-08 20:46",
+   "subject": "Extend the exclusivity switch to FreeType text, SDL and iOS (4ab)",
+   "kind": "step"
+  },
+  {
+   "hash": "5fe8641",
+   "time": "10-08 21:12",
+   "subject": "Plan tier 3: 8 ms per tick on the A12",
+   "kind": "record"
+  },
+  {
+   "hash": "e6c4c00",
+   "time": "10-08 22:22",
+   "subject": "Group the replay buffer's pages in two levels (tier 3 S1)",
+   "kind": "step"
+  },
+  {
+   "hash": "55dbf94",
+   "time": "10-08 23:33",
+   "subject": "Draw unobserved sprites and glyphs on stack values (tier 3 G1)",
+   "kind": "step"
+  },
+  {
+   "hash": "5e01e67",
+   "time": "10-09 01:02",
+   "subject": "Build Blt and fill commands directly (tier 3 G3a)",
+   "kind": "step"
+  },
+  {
+   "hash": "5db3e6a",
+   "time": "10-09 02:42",
+   "subject": "Skip observations nobody receives (tier 3 G3b)",
+   "kind": "step"
+  },
+  {
+   "hash": "887490c",
+   "time": "10-09 03:49",
+   "subject": "Build the Blt event in place (tier 3 G3c)",
+   "kind": "step"
+  },
+  {
+   "hash": "8b98653",
+   "time": "10-09 04:59",
+   "subject": "Reserve each gameplay tick's command lists (tier 3 d1)",
+   "kind": "step"
+  },
+  {
+   "hash": "2459bdb",
+   "time": "10-09 06:09",
+   "subject": "Record R2, the Android presenter thread: measured, parked",
+   "kind": "step"
+  },
+  {
+   "hash": "fc00d70",
+   "time": "10-09 11:18",
+   "subject": "Read single record bytes without the whole arrays (tier 3 S2a)",
+   "kind": "step"
+  },
+  {
+   "hash": "10b9c05",
+   "time": "10-09 18:51",
+   "subject": "Store each record in one buffer with a definedness bit mask (tier 3 S2b)",
+   "kind": "step"
+  },
+  {
+   "hash": "cea9fd0",
+   "time": "10-09 18:52",
+   "subject": "Record S3, the actor table in chunks: measured, parked",
+   "kind": "step"
+  },
+  {
+   "hash": "86ef8f4",
+   "time": "10-09 18:52",
+   "subject": "Keep the Host commit's loop tail apart (tier 3 d2)",
+   "kind": "step"
+  },
+  {
+   "hash": "c69b2ea",
+   "time": "10-09 18:52",
+   "subject": "Replay committed draws without owner arrays or second lookups (tier 3 g)",
+   "kind": "step"
+  },
+  {
+   "hash": "4c38d06",
+   "time": "10-09 18:53",
+   "subject": "Convert the World's actor table in one pass (tier 3 M1)",
+   "kind": "step"
+  },
+  {
+   "hash": "963c7cd",
+   "time": "10-09 20:00",
+   "subject": "Store Blt and fill commands as one record (tier 3 e)",
+   "kind": "step"
+  },
+  {
+   "hash": "1b09469",
+   "time": "10-09 20:01",
+   "subject": "Share the committed platform with the delivery context (A3 L5a)",
+   "kind": "step"
+  },
+  {
+   "hash": "1cb51a8",
+   "time": "10-09 20:32",
+   "subject": "Replay committed commands in place; L5a's review nits (tier 3 e2)",
+   "kind": "step"
+  },
+  {
+   "hash": "f2fa6fa",
+   "time": "10-09 21:41",
+   "subject": "Lend the back buffer as the presented frame (render pass P2)",
+   "kind": "step"
+  },
+  {
+   "hash": "0204382",
+   "time": "10-09 22:36",
+   "subject": "Inline the record's flat integer read (tier 3 L1)",
+   "kind": "step"
+  },
+  {
+   "hash": "9eff4aa",
+   "time": "10-09 23:34",
+   "subject": "Check the random table with memchr; resolve the music track once (tier 3 R0)",
+   "kind": "step"
+  },
+  {
+   "hash": "c053c2b",
+   "time": "10-10 00:19",
+   "subject": "Inline the record's flat write (tier 3 L2)",
+   "kind": "step"
+  },
+  {
+   "hash": "f9ee3a1",
+   "time": "10-10 01:16",
+   "subject": "Read the pending pool once per loaded session (tier 3 L3)",
+   "kind": "step"
+  },
+  {
+   "hash": "b423015",
+   "time": "10-10 02:04",
+   "subject": "Walk the commit tail's operations in place (tier 3 e3)",
+   "kind": "step"
+  },
+  {
+   "hash": "c2c9952",
+   "time": "10-10 02:52",
+   "subject": "Queue replayed copies and fills as values (tier 3 G4a)",
+   "kind": "step"
+  },
+  {
+   "hash": "09b6e29",
+   "time": "10-10 03:40",
+   "subject": "Record G4b, a per-replay surface cache: measured, parked",
+   "kind": "step"
+  },
+  {
+   "hash": "581896e",
+   "time": "10-10 04:31",
+   "subject": "Drop the physics pass's per-actor observer copy and second lookup (tier 3 L4)",
+   "kind": "step"
+  },
+  {
+   "hash": "8a9e24b",
+   "time": "10-10 04:33",
+   "subject": "Update the study's status: what remains and what needs decisions",
+   "kind": "record"
+  },
+  {
+   "hash": "7fe4d0e",
+   "time": "10-10 07:46",
+   "subject": "Run the game's main thread on the faster cores (Android, P0)",
+   "kind": "step"
+  },
+  {
+   "hash": "60a16db",
+   "time": "10-10 08:30",
+   "subject": "Present Android frames on their own thread, on the slower cores (R2)",
+   "kind": "step"
+  },
+  {
+   "hash": "5b17098",
+   "time": "10-10 08:31",
+   "subject": "Update the study's status after P0 and R2",
+   "kind": "record"
+  },
+  {
+   "hash": "7091da1",
+   "time": "10-10 10:12",
+   "subject": "Run a step's first idle attempt without a driver or exchange (A3 L4b)",
+   "kind": "step"
+  },
+  {
+   "hash": "d342f74",
+   "time": "10-10 12:18",
+   "subject": "Free the loaded cycle's dead values on a release thread (R3)",
+   "kind": "step"
+  },
+  {
+   "hash": "e7af764",
+   "time": "10-10 13:18",
+   "subject": "Share the platform's fixed inputs; read the present's 16 bytes in place (e4)",
+   "kind": "step"
+  },
+  {
+   "hash": "4015f32",
+   "time": "10-10 13:19",
+   "subject": "Update where the main thread's remaining time is (after R3 and e4)",
+   "kind": "record"
+  },
+  {
+   "hash": "32d464c",
+   "time": "10-10 15:39",
+   "subject": "Copy sprite pixels four at a time on the render thread (R4b)",
+   "kind": "step"
+  },
+  {
+   "hash": "03c06a0",
+   "time": "10-10 16:37",
+   "subject": "Let the release thread wake on its own instead of signalling it (R3b)",
+   "kind": "step"
+  },
+  {
+   "hash": "5f9e5b9",
+   "time": "10-10 17:31",
+   "subject": "Let the loaded menu's emit take its effect instead of copying it (e5)",
+   "kind": "step"
+  },
+  {
+   "hash": "acf8e1b",
+   "time": "10-10 17:50",
+   "subject": "Record F1 (physics frame fields in place) as parked",
+   "kind": "step"
+  },
+  {
+   "hash": "49f44e0",
+   "time": "10-10 17:56",
+   "subject": "Record the per-tick split and the real-clock idle steps",
+   "kind": "record"
+  },
+  {
+   "hash": "1035e40",
+   "time": "10-10 18:02",
+   "subject": "Build the shipping macOS app without dynamic exclusivity checks (4ac)",
+   "kind": "step"
+  },
+  {
+   "hash": "5b8e5d0",
+   "time": "10-10 18:26",
+   "subject": "Build the Linux, Windows and iOS packages without exclusivity checks (4ad)",
+   "kind": "step"
+  },
+  {
+   "hash": "0034e45",
+   "time": "10-10 18:27",
+   "subject": "Record that the main thread's next steps need the user's decisions",
+   "kind": "record"
+  }
+ ]
+}

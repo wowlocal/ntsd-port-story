@@ -1,0 +1,32 @@
+{
+ "title": "Петля 7–10 октября в числах",
+ "source": "data/rt2_steps.json and data/rt2_commits.json (ntsd-2.4 8840eb3..0034e45c, rows 4m..4ad of docs/research/CORE_REALTIME.md)",
+ "caveat": "Counts of ledger rows by the verdict and review classes defined in rt2_steps.json; phone runs are distinct labelled runs in the evidence files.",
+ "rows": 75,
+ "commits": 84,
+ "verdicts": {
+  "kept": 37,
+  "less": 19,
+  "follow": 4,
+  "test": 2,
+  "telemetry": 1,
+  "procedure": 1,
+  "reverted": 2,
+  "decision": 1,
+  "parked": 6,
+  "build": 2
+ },
+ "reviews": {
+  "ok": 22,
+  "skipped": 23,
+  "caught": 5,
+  "nits": 20,
+  "none": 5
+ },
+ "phoneRuns": 480,
+ "phoneHours": 31.1,
+ "firstTime": "10-07 08:51",
+ "lastTime": "10-10 18:27",
+ "hours": 81.6,
+ "independentReviews": 47
+}

@@ -1,0 +1,6657 @@
+{
+ "title": "Ярусы 16 и 8 мс на Galaxy A12, 7–10 октября: каждая строка реестра CORE_REALTIME от 4m до 4ad",
+ "source": "ntsd-2.4 at 5f5a8ee4: docs/research/CORE_REALTIME.md (Ledger) and the evidence file named in each row (docs/evidence/rt-*.json); commit times from git (+0200)",
+ "caveat": "One phone (Galaxy A12, Helio P35: CPUs 0-3 at 2.3 GHz, 4-7 at 1.8 GHz), debuggable build (local.ntsd.port), shipping flags from 4aa on (no dynamic exclusivity checks); scripted match (vs: computer vs computer, bodies 300->1800; Demo: eight computer fighters) with music, sounds and network off, no frame capture, the harness's virtual clock (8 ms per message-loop iteration). Compute per tick per thread from schedstat between bodies 600 and 1500 (tools/crossplatform/android_speed.py); not wall time. after = mean of the step's runs; base = mean of the previous build's runs interleaved in the same session (the phone drifts between sessions, so compare after with base, not with the previous step's after). The phone resolves about ±0.25 ms per run (CORE_REALTIME.md). From R2 (10 Oct) the Android present runs on its own presenter thread and is not in 'render'; from R3 freeing runs on a release thread and is not in 'main'. verdict: kept = measurably faster; less = committed as strictly less work within noise; reverted/parked = measured and not committed; follow/test/telemetry/procedure/build/decision as named. review: ok/nits = independent read-only review approved (with nits); caught = the review or a gate found a defect that was fixed before the commit; skipped = recorded as not required; none = no review field.",
+ "start": {
+  "id": "4l",
+  "hash": "8840eb3",
+  "time": "10-07 08:23",
+  "vs": {
+   "n": 2,
+   "main": 24.55,
+   "render": 18.1,
+   "mainMin": 24.5,
+   "mainMax": 24.6,
+   "renderMin": 17.9,
+   "renderMax": 18.3
+  }
+ },
+ "end": {
+  "id": "e5",
+  "hash": "5f9e5b9",
+  "time": "10-10 17:31",
+  "vs": {
+   "n": 3,
+   "main": 11.09,
+   "render": 7.55,
+   "mainMin": 11.04,
+   "mainMax": 11.19,
+   "renderMin": 7.52,
+   "renderMax": 7.58,
+   "present": 5.75,
+   "release": 1.94
+  },
+  "demo": {
+   "n": 3,
+   "main": 11.62,
+   "render": 6.14,
+   "mainMin": 11.37,
+   "mainMax": 11.79,
+   "renderMin": 6.05,
+   "renderMax": 6.2,
+   "present": 5.45,
+   "release": 1.56
+  }
+ },
+ "firstDemo": {
+  "id": "4z",
+  "hash": "241ed04",
+  "time": "10-08 09:26"
+ },
+ "tiers": {
+  "60fps": {
+   "vs_main": {
+    "id": "4aa",
+    "hash": "3d8935d",
+    "time": "10-08 19:48",
+    "value": 16.25
+   },
+   "vs_render": {
+    "id": "R1",
+    "hash": "6941d89",
+    "time": "10-07 10:52",
+    "value": 15.0
+   },
+   "demo_main": {
+    "id": "4aa",
+    "hash": "3d8935d",
+    "time": "10-08 19:48",
+    "value": 16.13
+   },
+   "demo_render": {
+    "id": "4z",
+    "hash": "241ed04",
+    "time": "10-08 09:26",
+    "value": 12.03
+   }
+  },
+  "16": {
+   "vs_main": {
+    "id": "S1",
+    "hash": "e6c4c00",
+    "time": "10-08 22:22",
+    "value": 15.73
+   },
+   "vs_render": {
+    "id": "R1",
+    "hash": "6941d89",
+    "time": "10-07 10:52",
+    "value": 15.0
+   },
+   "demo_main": {
+    "id": "G1",
+    "hash": "55dbf94",
+    "time": "10-08 23:33",
+    "value": 15.46
+   },
+   "demo_render": {
+    "id": "4z",
+    "hash": "241ed04",
+    "time": "10-08 09:26",
+    "value": 12.03
+   }
+  },
+  "8": {
+   "vs_main": null,
+   "vs_render": {
+    "id": "R4b",
+    "hash": "32d464c",
+    "time": "10-10 15:39",
+    "value": 7.59
+   },
+   "demo_main": null,
+   "demo_render": {
+    "id": "R2",
+    "hash": "60a16db",
+    "time": "10-10 08:30",
+    "value": 5.9
+   }
+  }
+ },
+ "deltas": [
+  {
+   "id": "R2",
+   "scenario": "demo",
+   "thread": "render",
+   "hash": "60a16db",
+   "from": 10.59,
+   "to": 5.9,
+   "delta": -4.69
+  },
+  {
+   "id": "R2",
+   "scenario": "vs",
+   "thread": "render",
+   "hash": "60a16db",
+   "from": 11.88,
+   "to": 8.24,
+   "delta": -3.64
+  },
+  {
+   "id": "R1",
+   "scenario": "vs",
+   "thread": "render",
+   "hash": "6941d89",
+   "from": 17.4,
+   "to": 15.0,
+   "delta": -2.4
+  },
+  {
+   "id": "A3 P5a",
+   "scenario": "vs",
+   "thread": "render",
+   "hash": "bf85e22",
+   "from": 16.15,
+   "to": 14.05,
+   "delta": -2.1
+  },
+  {
+   "id": "4p",
+   "scenario": "vs",
+   "thread": "main",
+   "hash": "606cfd1",
+   "from": 23.45,
+   "to": 21.85,
+   "delta": -1.6
+  },
+  {
+   "id": "P2",
+   "scenario": "demo",
+   "thread": "render",
+   "hash": "f2fa6fa",
+   "from": 11.95,
+   "to": 10.52,
+   "delta": -1.43
+  },
+  {
+   "id": "B2 P4f",
+   "scenario": "vs",
+   "thread": "main",
+   "hash": "0805251",
+   "from": 18.14,
+   "to": 16.86,
+   "delta": -1.28
+  },
+  {
+   "id": "S2b",
+   "scenario": "demo",
+   "thread": "main",
+   "hash": "10b9c05",
+   "from": 15.25,
+   "to": 14.04,
+   "delta": -1.21
+  },
+  {
+   "id": "P2",
+   "scenario": "vs",
+   "thread": "render",
+   "hash": "f2fa6fa",
+   "from": 13.81,
+   "to": 12.62,
+   "delta": -1.19
+  },
+  {
+   "id": "S2b",
+   "scenario": "vs",
+   "thread": "main",
+   "hash": "10b9c05",
+   "from": 15.29,
+   "to": 14.36,
+   "delta": -0.93
+  },
+  {
+   "id": "B2 P1",
+   "scenario": "vs",
+   "thread": "main",
+   "hash": "f335320",
+   "from": 21.8,
+   "to": 20.9,
+   "delta": -0.9
+  },
+  {
+   "id": "4z",
+   "scenario": "demo",
+   "thread": "main",
+   "hash": "241ed04",
+   "from": 17.54,
+   "to": 16.68,
+   "delta": -0.86
+  },
+  {
+   "id": "P0",
+   "scenario": "vs",
+   "thread": "main",
+   "hash": "7fe4d0e",
+   "from": 12.75,
+   "to": 11.89,
+   "delta": -0.86
+  },
+  {
+   "id": "g",
+   "scenario": "demo",
+   "thread": "main",
+   "hash": "c69b2ea",
+   "from": 13.9,
+   "to": 13.08,
+   "delta": -0.82
+  },
+  {
+   "id": "A3 P5a",
+   "scenario": "vs",
+   "thread": "main",
+   "hash": "bf85e22",
+   "from": 19.85,
+   "to": 19.1,
+   "delta": -0.75
+  },
+  {
+   "id": "4x",
+   "scenario": "vs",
+   "thread": "render",
+   "hash": "2d56169",
+   "from": 14.67,
+   "to": 13.95,
+   "delta": -0.72
+  },
+  {
+   "id": "B2 P4e",
+   "scenario": "vs",
+   "thread": "main",
+   "hash": "89f4b52",
+   "from": 18.14,
+   "to": 17.43,
+   "delta": -0.71
+  },
+  {
+   "id": "e",
+   "scenario": "vs",
+   "thread": "main",
+   "hash": "963c7cd",
+   "from": 13.96,
+   "to": 13.25,
+   "delta": -0.71
+  },
+  {
+   "id": "4m",
+   "scenario": "vs",
+   "thread": "main",
+   "hash": "bf5628e",
+   "from": 24.55,
+   "to": 23.85,
+   "delta": -0.7
+  },
+  {
+   "id": "S1",
+   "scenario": "vs",
+   "thread": "main",
+   "hash": "e6c4c00",
+   "from": 16.43,
+   "to": 15.73,
+   "delta": -0.7
+  },
+  {
+   "id": "P0",
+   "scenario": "demo",
+   "thread": "main",
+   "hash": "7fe4d0e",
+   "from": 13.16,
+   "to": 12.48,
+   "delta": -0.68
+  },
+  {
+   "id": "4r",
+   "scenario": "vs",
+   "thread": "main",
+   "hash": "1d1055f",
+   "from": 21.05,
+   "to": 20.4,
+   "delta": -0.65
+  },
+  {
+   "id": "L4",
+   "scenario": "vs",
+   "thread": "render",
+   "hash": "581896e",
+   "from": 12.61,
+   "to": 11.97,
+   "delta": -0.64
+  },
+  {
+   "id": "1j",
+   "scenario": "vs",
+   "thread": "render",
+   "hash": "e3dcd6a",
+   "from": 18.1,
+   "to": 17.5,
+   "delta": -0.6
+  },
+  {
+   "id": "G1",
+   "scenario": "demo",
+   "thread": "main",
+   "hash": "55dbf94",
+   "from": 16.06,
+   "to": 15.46,
+   "delta": -0.6
+  },
+  {
+   "id": "R4b",
+   "scenario": "vs",
+   "thread": "render",
+   "hash": "32d464c",
+   "from": 8.16,
+   "to": 7.59,
+   "delta": -0.57
+  },
+  {
+   "id": "4aa",
+   "scenario": "vs",
+   "thread": "main",
+   "hash": "3d8935d",
+   "from": 16.77,
+   "to": 16.25,
+   "delta": -0.52
+  },
+  {
+   "id": "g",
+   "scenario": "demo",
+   "thread": "render",
+   "hash": "c69b2ea",
+   "from": 11.96,
+   "to": 11.45,
+   "delta": -0.51
+  },
+  {
+   "id": "B2 P2",
+   "scenario": "vs",
+   "thread": "render",
+   "hash": "b189ee9",
+   "from": 16.3,
+   "to": 15.8,
+   "delta": -0.5
+  },
+  {
+   "id": "G4a",
+   "scenario": "vs",
+   "thread": "render",
+   "hash": "c2c9952",
+   "from": 12.81,
+   "to": 12.36,
+   "delta": -0.45
+  },
+  {
+   "id": "B2 P4e",
+   "scenario": "vs",
+   "thread": "render",
+   "hash": "89f4b52",
+   "from": 14.6,
+   "to": 14.17,
+   "delta": -0.43
+  },
+  {
+   "id": "4aa",
+   "scenario": "demo",
+   "thread": "main",
+   "hash": "3d8935d",
+   "from": 16.54,
+   "to": 16.13,
+   "delta": -0.41
+  },
+  {
+   "id": "R3",
+   "scenario": "vs",
+   "thread": "main",
+   "hash": "d342f74",
+   "from": 11.75,
+   "to": 11.34,
+   "delta": -0.41
+  },
+  {
+   "id": "4n",
+   "scenario": "vs",
+   "thread": "main",
+   "hash": "e209133",
+   "from": 24.05,
+   "to": 23.65,
+   "delta": -0.4
+  },
+  {
+   "id": "B2 P2c",
+   "scenario": "vs",
+   "thread": "render",
+   "hash": "ba69395",
+   "from": 16.0,
+   "to": 15.6,
+   "delta": -0.4
+  },
+  {
+   "id": "4s",
+   "scenario": "vs",
+   "thread": "main",
+   "hash": "cbb15b5",
+   "from": 19.25,
+   "to": 18.85,
+   "delta": -0.4
+  },
+  {
+   "id": "A3 L4a",
+   "scenario": "vs",
+   "thread": "render",
+   "hash": "54bb195",
+   "from": 14.75,
+   "to": 14.35,
+   "delta": -0.4
+  },
+  {
+   "id": "B2 P4b+c",
+   "scenario": "vs",
+   "thread": "render",
+   "hash": "1ff5775",
+   "from": 14.45,
+   "to": 14.05,
+   "delta": -0.4
+  },
+  {
+   "id": "B2 P4d",
+   "scenario": "vs",
+   "thread": "main",
+   "hash": "bdaf40f",
+   "from": 18.15,
+   "to": 17.75,
+   "delta": -0.4
+  },
+  {
+   "id": "4n",
+   "scenario": "vs",
+   "thread": "render",
+   "hash": "e209133",
+   "from": 17.5,
+   "to": 17.15,
+   "delta": -0.35
+  },
+  {
+   "id": "P2",
+   "scenario": "vs",
+   "thread": "main",
+   "hash": "f2fa6fa",
+   "from": 13.46,
+   "to": 13.11,
+   "delta": -0.35
+  },
+  {
+   "id": "G3a",
+   "scenario": "vs",
+   "thread": "render",
+   "hash": "5e01e67",
+   "from": 14.42,
+   "to": 14.11,
+   "delta": -0.31
+  },
+  {
+   "id": "e2",
+   "scenario": "demo",
+   "thread": "render",
+   "hash": "1cb51a8",
+   "from": 12.18,
+   "to": 11.87,
+   "delta": -0.31
+  },
+  {
+   "id": "R3b",
+   "scenario": "demo",
+   "thread": "render",
+   "hash": "03c06a0",
+   "from": 6.39,
+   "to": 6.08,
+   "delta": -0.31
+  },
+  {
+   "id": "R1",
+   "scenario": "vs",
+   "thread": "main",
+   "hash": "6941d89",
+   "from": 23.75,
+   "to": 23.45,
+   "delta": -0.3
+  },
+  {
+   "id": "B2 P3",
+   "scenario": "vs",
+   "thread": "main",
+   "hash": "e7dedda",
+   "from": 20.0,
+   "to": 19.7,
+   "delta": -0.3
+  },
+  {
+   "id": "4t",
+   "scenario": "vs",
+   "thread": "main",
+   "hash": "8d888a3",
+   "from": 18.85,
+   "to": 18.55,
+   "delta": -0.3
+  },
+  {
+   "id": "B2 P4d",
+   "scenario": "vs",
+   "thread": "render",
+   "hash": "bdaf40f",
+   "from": 14.45,
+   "to": 14.15,
+   "delta": -0.3
+  },
+  {
+   "id": "R3",
+   "scenario": "demo",
+   "thread": "main",
+   "hash": "d342f74",
+   "from": 12.14,
+   "to": 11.85,
+   "delta": -0.29
+  },
+  {
+   "id": "B2 P2",
+   "scenario": "vs",
+   "thread": "main",
+   "hash": "b189ee9",
+   "from": 20.4,
+   "to": 20.12,
+   "delta": -0.28
+  },
+  {
+   "id": "P2",
+   "scenario": "demo",
+   "thread": "main",
+   "hash": "f2fa6fa",
+   "from": 13.5,
+   "to": 13.22,
+   "delta": -0.28
+  },
+  {
+   "id": "e",
+   "scenario": "vs",
+   "thread": "render",
+   "hash": "963c7cd",
+   "from": 13.89,
+   "to": 13.62,
+   "delta": -0.27
+  },
+  {
+   "id": "4aa",
+   "scenario": "vs",
+   "thread": "render",
+   "hash": "3d8935d",
+   "from": 14.08,
+   "to": 13.82,
+   "delta": -0.26
+  },
+  {
+   "id": "4s",
+   "scenario": "vs",
+   "thread": "render",
+   "hash": "cbb15b5",
+   "from": 14.6,
+   "to": 14.35,
+   "delta": -0.25
+  },
+  {
+   "id": "1k",
+   "scenario": "vs",
+   "thread": "main",
+   "hash": "3314f10",
+   "from": 18.5,
+   "to": 18.25,
+   "delta": -0.25
+  },
+  {
+   "id": "4w",
+   "scenario": "vs",
+   "thread": "main",
+   "hash": "2356f5a",
+   "from": 18.25,
+   "to": 18.0,
+   "delta": -0.25
+  },
+  {
+   "id": "B2 P4b+c",
+   "scenario": "vs",
+   "thread": "main",
+   "hash": "1ff5775",
+   "from": 18.15,
+   "to": 17.9,
+   "delta": -0.25
+  },
+  {
+   "id": "A3 L5a",
+   "scenario": "demo",
+   "thread": "main",
+   "hash": "1b09469",
+   "from": 13.53,
+   "to": 13.28,
+   "delta": -0.25
+  },
+  {
+   "id": "e2",
+   "scenario": "demo",
+   "thread": "main",
+   "hash": "1cb51a8",
+   "from": 13.59,
+   "to": 13.34,
+   "delta": -0.25
+  },
+  {
+   "id": "L4",
+   "scenario": "vs",
+   "thread": "main",
+   "hash": "581896e",
+   "from": 12.91,
+   "to": 12.66,
+   "delta": -0.25
+  },
+  {
+   "id": "A3 L4b",
+   "scenario": "vs",
+   "thread": "main",
+   "hash": "7091da1",
+   "from": 12.07,
+   "to": 11.82,
+   "delta": -0.25
+  },
+  {
+   "id": "R0",
+   "scenario": "demo",
+   "thread": "main",
+   "hash": "9eff4aa",
+   "from": 13.61,
+   "to": 13.38,
+   "delta": -0.23
+  },
+  {
+   "id": "B2 P4f",
+   "scenario": "vs",
+   "thread": "render",
+   "hash": "0805251",
+   "from": 14.6,
+   "to": 14.38,
+   "delta": -0.22
+  },
+  {
+   "id": "d1",
+   "scenario": "demo",
+   "thread": "render",
+   "hash": "8b98653",
+   "from": 12.12,
+   "to": 11.91,
+   "delta": -0.21
+  },
+  {
+   "id": "G3a",
+   "scenario": "vs",
+   "thread": "main",
+   "hash": "5e01e67",
+   "from": 15.83,
+   "to": 15.65,
+   "delta": -0.18
+  },
+  {
+   "id": "d2",
+   "scenario": "demo",
+   "thread": "main",
+   "hash": "86ef8f4",
+   "from": 14.07,
+   "to": 13.89,
+   "delta": -0.18
+  },
+  {
+   "id": "L1",
+   "scenario": "vs",
+   "thread": "main",
+   "hash": "0204382",
+   "from": 13.38,
+   "to": 13.2,
+   "delta": -0.18
+  },
+  {
+   "id": "G4a",
+   "scenario": "demo",
+   "thread": "render",
+   "hash": "c2c9952",
+   "from": 10.6,
+   "to": 10.42,
+   "delta": -0.18
+  },
+  {
+   "id": "G3c",
+   "scenario": "demo",
+   "thread": "render",
+   "hash": "887490c",
+   "from": 11.99,
+   "to": 11.82,
+   "delta": -0.17
+  },
+  {
+   "id": "M1",
+   "scenario": "vs",
+   "thread": "main",
+   "hash": "4c38d06",
+   "from": 14.19,
+   "to": 14.02,
+   "delta": -0.17
+  },
+  {
+   "id": "L3",
+   "scenario": "vs",
+   "thread": "main",
+   "hash": "f9ee3a1",
+   "from": 13.11,
+   "to": 12.94,
+   "delta": -0.17
+  },
+  {
+   "id": "G3c",
+   "scenario": "vs",
+   "thread": "main",
+   "hash": "887490c",
+   "from": 15.57,
+   "to": 15.42,
+   "delta": -0.15
+  },
+  {
+   "id": "R2",
+   "scenario": "demo",
+   "thread": "main",
+   "hash": "60a16db",
+   "from": 12.53,
+   "to": 12.4,
+   "delta": -0.13
+  },
+  {
+   "id": "G1",
+   "scenario": "vs",
+   "thread": "main",
+   "hash": "55dbf94",
+   "from": 15.79,
+   "to": 15.67,
+   "delta": -0.12
+  },
+  {
+   "id": "S1",
+   "scenario": "demo",
+   "thread": "main",
+   "hash": "e6c4c00",
+   "from": 16.14,
+   "to": 16.03,
+   "delta": -0.11
+  },
+  {
+   "id": "G1",
+   "scenario": "demo",
+   "thread": "render",
+   "hash": "55dbf94",
+   "from": 12.0,
+   "to": 11.89,
+   "delta": -0.11
+  },
+  {
+   "id": "e",
+   "scenario": "demo",
+   "thread": "main",
+   "hash": "963c7cd",
+   "from": 13.7,
+   "to": 13.59,
+   "delta": -0.11
+  },
+  {
+   "id": "P0",
+   "scenario": "vs",
+   "thread": "render",
+   "hash": "7fe4d0e",
+   "from": 12.46,
+   "to": 12.35,
+   "delta": -0.11
+  },
+  {
+   "id": "e4",
+   "scenario": "demo",
+   "thread": "main",
+   "hash": "e7af764",
+   "from": 11.87,
+   "to": 11.76,
+   "delta": -0.11
+  },
+  {
+   "id": "e5",
+   "scenario": "demo",
+   "thread": "main",
+   "hash": "5f9e5b9",
+   "from": 11.73,
+   "to": 11.62,
+   "delta": -0.11
+  },
+  {
+   "id": "4w",
+   "scenario": "vs",
+   "thread": "render",
+   "hash": "2356f5a",
+   "from": 14.35,
+   "to": 14.25,
+   "delta": -0.1
+  },
+  {
+   "id": "4aa",
+   "scenario": "demo",
+   "thread": "render",
+   "hash": "3d8935d",
+   "from": 12.09,
+   "to": 11.99,
+   "delta": -0.1
+  },
+  {
+   "id": "M1",
+   "scenario": "demo",
+   "thread": "main",
+   "hash": "4c38d06",
+   "from": 13.9,
+   "to": 13.8,
+   "delta": -0.1
+  },
+  {
+   "id": "e",
+   "scenario": "demo",
+   "thread": "render",
+   "hash": "963c7cd",
+   "from": 12.1,
+   "to": 12.0,
+   "delta": -0.1
+  },
+  {
+   "id": "A3 L5a",
+   "scenario": "vs",
+   "thread": "render",
+   "hash": "1b09469",
+   "from": 13.91,
+   "to": 13.81,
+   "delta": -0.1
+  },
+  {
+   "id": "R0",
+   "scenario": "vs",
+   "thread": "main",
+   "hash": "9eff4aa",
+   "from": 13.08,
+   "to": 12.98,
+   "delta": -0.1
+  },
+  {
+   "id": "R4b",
+   "scenario": "demo",
+   "thread": "main",
+   "hash": "32d464c",
+   "from": 11.83,
+   "to": 11.73,
+   "delta": -0.1
+  },
+  {
+   "id": "d1",
+   "scenario": "vs",
+   "thread": "main",
+   "hash": "8b98653",
+   "from": 15.47,
+   "to": 15.38,
+   "delta": -0.09
+  },
+  {
+   "id": "d2",
+   "scenario": "vs",
+   "thread": "main",
+   "hash": "86ef8f4",
+   "from": 14.25,
+   "to": 14.16,
+   "delta": -0.09
+  },
+  {
+   "id": "L3",
+   "scenario": "vs",
+   "thread": "render",
+   "hash": "f9ee3a1",
+   "from": 12.76,
+   "to": 12.67,
+   "delta": -0.09
+  },
+  {
+   "id": "G3c",
+   "scenario": "demo",
+   "thread": "main",
+   "hash": "887490c",
+   "from": 15.3,
+   "to": 15.22,
+   "delta": -0.08
+  },
+  {
+   "id": "L2",
+   "scenario": "vs",
+   "thread": "render",
+   "hash": "c053c2b",
+   "from": 12.75,
+   "to": 12.67,
+   "delta": -0.08
+  },
+  {
+   "id": "e5",
+   "scenario": "vs",
+   "thread": "render",
+   "hash": "5f9e5b9",
+   "from": 7.63,
+   "to": 7.55,
+   "delta": -0.08
+  },
+  {
+   "id": "G3b",
+   "scenario": "vs",
+   "thread": "main",
+   "hash": "5db3e6a",
+   "from": 15.62,
+   "to": 15.55,
+   "delta": -0.07
+  },
+  {
+   "id": "G4a",
+   "scenario": "vs",
+   "thread": "main",
+   "hash": "c2c9952",
+   "from": 12.8,
+   "to": 12.73,
+   "delta": -0.07
+  },
+  {
+   "id": "R3b",
+   "scenario": "demo",
+   "thread": "main",
+   "hash": "03c06a0",
+   "from": 11.76,
+   "to": 11.69,
+   "delta": -0.07
+  },
+  {
+   "id": "4z",
+   "scenario": "vs",
+   "thread": "main",
+   "hash": "241ed04",
+   "from": 16.91,
+   "to": 16.85,
+   "delta": -0.06
+  },
+  {
+   "id": "G3a",
+   "scenario": "demo",
+   "thread": "render",
+   "hash": "5e01e67",
+   "from": 11.97,
+   "to": 11.91,
+   "delta": -0.06
+  },
+  {
+   "id": "A3 L4b",
+   "scenario": "demo",
+   "thread": "main",
+   "hash": "7091da1",
+   "from": 12.38,
+   "to": 12.32,
+   "delta": -0.06
+  },
+  {
+   "id": "4q",
+   "scenario": "vs",
+   "thread": "main",
+   "hash": "b9d59af",
+   "from": 21.85,
+   "to": 21.8,
+   "delta": -0.05
+  },
+  {
+   "id": "A3 L4a",
+   "scenario": "vs",
+   "thread": "main",
+   "hash": "54bb195",
+   "from": 18.55,
+   "to": 18.5,
+   "delta": -0.05
+  },
+  {
+   "id": "S1",
+   "scenario": "demo",
+   "thread": "render",
+   "hash": "e6c4c00",
+   "from": 11.98,
+   "to": 11.93,
+   "delta": -0.05
+  },
+  {
+   "id": "e3",
+   "scenario": "demo",
+   "thread": "main",
+   "hash": "b423015",
+   "from": 13.32,
+   "to": 13.27,
+   "delta": -0.05
+  },
+  {
+   "id": "e5",
+   "scenario": "vs",
+   "thread": "main",
+   "hash": "5f9e5b9",
+   "from": 11.14,
+   "to": 11.09,
+   "delta": -0.05
+  },
+  {
+   "id": "d1",
+   "scenario": "demo",
+   "thread": "main",
+   "hash": "8b98653",
+   "from": 15.37,
+   "to": 15.33,
+   "delta": -0.04
+  },
+  {
+   "id": "d2",
+   "scenario": "demo",
+   "thread": "render",
+   "hash": "86ef8f4",
+   "from": 11.97,
+   "to": 11.93,
+   "delta": -0.04
+  },
+  {
+   "id": "L1",
+   "scenario": "demo",
+   "thread": "render",
+   "hash": "0204382",
+   "from": 10.64,
+   "to": 10.6,
+   "delta": -0.04
+  },
+  {
+   "id": "A3 L5a",
+   "scenario": "vs",
+   "thread": "main",
+   "hash": "1b09469",
+   "from": 13.54,
+   "to": 13.51,
+   "delta": -0.03
+  },
+  {
+   "id": "e3",
+   "scenario": "demo",
+   "thread": "render",
+   "hash": "b423015",
+   "from": 10.67,
+   "to": 10.64,
+   "delta": -0.03
+  },
+  {
+   "id": "e4",
+   "scenario": "vs",
+   "thread": "main",
+   "hash": "e7af764",
+   "from": 11.36,
+   "to": 11.33,
+   "delta": -0.03
+  },
+  {
+   "id": "G3a",
+   "scenario": "demo",
+   "thread": "main",
+   "hash": "5e01e67",
+   "from": 15.54,
+   "to": 15.52,
+   "delta": -0.02
+  },
+  {
+   "id": "M1",
+   "scenario": "demo",
+   "thread": "render",
+   "hash": "4c38d06",
+   "from": 12.0,
+   "to": 11.98,
+   "delta": -0.02
+  },
+  {
+   "id": "e4",
+   "scenario": "demo",
+   "thread": "render",
+   "hash": "e7af764",
+   "from": 5.99,
+   "to": 5.97,
+   "delta": -0.02
+  },
+  {
+   "id": "S1",
+   "scenario": "vs",
+   "thread": "render",
+   "hash": "e6c4c00",
+   "from": 13.95,
+   "to": 13.94,
+   "delta": -0.01
+  },
+  {
+   "id": "S2a",
+   "scenario": "vs",
+   "thread": "render",
+   "hash": "fc00d70",
+   "from": 13.95,
+   "to": 13.94,
+   "delta": -0.01
+  },
+  {
+   "id": "A3 L4b",
+   "scenario": "vs",
+   "thread": "render",
+   "hash": "7091da1",
+   "from": 8.04,
+   "to": 8.03,
+   "delta": -0.01
+  },
+  {
+   "id": "4m",
+   "scenario": "vs",
+   "thread": "render",
+   "hash": "bf5628e",
+   "from": 18.1,
+   "to": 18.1,
+   "delta": 0.0
+  },
+  {
+   "id": "B2 P2c",
+   "scenario": "vs",
+   "thread": "main",
+   "hash": "ba69395",
+   "from": 20.0,
+   "to": 20.0,
+   "delta": 0.0
+  },
+  {
+   "id": "A3 L3",
+   "scenario": "vs",
+   "thread": "main",
+   "hash": "4e13691",
+   "from": 19.85,
+   "to": 19.85,
+   "delta": 0.0
+  },
+  {
+   "id": "1k",
+   "scenario": "vs",
+   "thread": "render",
+   "hash": "3314f10",
+   "from": 14.35,
+   "to": 14.35,
+   "delta": 0.0
+  },
+  {
+   "id": "L4",
+   "scenario": "demo",
+   "thread": "render",
+   "hash": "581896e",
+   "from": 10.36,
+   "to": 10.36,
+   "delta": 0.0
+  },
+  {
+   "id": "S2b",
+   "scenario": "demo",
+   "thread": "render",
+   "hash": "10b9c05",
+   "from": 11.93,
+   "to": 11.94,
+   "delta": 0.01
+  },
+  {
+   "id": "d2",
+   "scenario": "vs",
+   "thread": "render",
+   "hash": "86ef8f4",
+   "from": 14.11,
+   "to": 14.12,
+   "delta": 0.01
+  },
+  {
+   "id": "M1",
+   "scenario": "vs",
+   "thread": "render",
+   "hash": "4c38d06",
+   "from": 13.88,
+   "to": 13.89,
+   "delta": 0.01
+  },
+  {
+   "id": "A3 L5a",
+   "scenario": "demo",
+   "thread": "render",
+   "hash": "1b09469",
+   "from": 11.97,
+   "to": 11.98,
+   "delta": 0.01
+  },
+  {
+   "id": "d1",
+   "scenario": "vs",
+   "thread": "render",
+   "hash": "8b98653",
+   "from": 13.87,
+   "to": 13.89,
+   "delta": 0.02
+  },
+  {
+   "id": "L3",
+   "scenario": "demo",
+   "thread": "main",
+   "hash": "f9ee3a1",
+   "from": 13.28,
+   "to": 13.3,
+   "delta": 0.02
+  },
+  {
+   "id": "R3b",
+   "scenario": "vs",
+   "thread": "render",
+   "hash": "03c06a0",
+   "from": 7.6,
+   "to": 7.62,
+   "delta": 0.02
+  },
+  {
+   "id": "4x",
+   "scenario": "vs",
+   "thread": "main",
+   "hash": "2d56169",
+   "from": 16.9,
+   "to": 16.93,
+   "delta": 0.03
+  },
+  {
+   "id": "4z",
+   "scenario": "demo",
+   "thread": "render",
+   "hash": "241ed04",
+   "from": 12.0,
+   "to": 12.03,
+   "delta": 0.03
+  },
+  {
+   "id": "G3b",
+   "scenario": "vs",
+   "thread": "render",
+   "hash": "5db3e6a",
+   "from": 13.94,
+   "to": 13.97,
+   "delta": 0.03
+  },
+  {
+   "id": "S2a",
+   "scenario": "vs",
+   "thread": "main",
+   "hash": "fc00d70",
+   "from": 15.34,
+   "to": 15.37,
+   "delta": 0.03
+  },
+  {
+   "id": "S2a",
+   "scenario": "demo",
+   "thread": "render",
+   "hash": "fc00d70",
+   "from": 11.89,
+   "to": 11.92,
+   "delta": 0.03
+  },
+  {
+   "id": "L3",
+   "scenario": "demo",
+   "thread": "render",
+   "hash": "f9ee3a1",
+   "from": 10.51,
+   "to": 10.54,
+   "delta": 0.03
+  },
+  {
+   "id": "L4",
+   "scenario": "demo",
+   "thread": "main",
+   "hash": "581896e",
+   "from": 13.2,
+   "to": 13.23,
+   "delta": 0.03
+  },
+  {
+   "id": "R3b",
+   "scenario": "vs",
+   "thread": "main",
+   "hash": "03c06a0",
+   "from": 11.25,
+   "to": 11.28,
+   "delta": 0.03
+  },
+  {
+   "id": "R0",
+   "scenario": "demo",
+   "thread": "render",
+   "hash": "9eff4aa",
+   "from": 10.61,
+   "to": 10.65,
+   "delta": 0.04
+  },
+  {
+   "id": "P0",
+   "scenario": "demo",
+   "thread": "render",
+   "hash": "7fe4d0e",
+   "from": 10.41,
+   "to": 10.45,
+   "delta": 0.04
+  },
+  {
+   "id": "B2 P1",
+   "scenario": "vs",
+   "thread": "render",
+   "hash": "f335320",
+   "from": 16.1,
+   "to": 16.15,
+   "delta": 0.05
+  },
+  {
+   "id": "L2",
+   "scenario": "vs",
+   "thread": "main",
+   "hash": "c053c2b",
+   "from": 12.99,
+   "to": 13.04,
+   "delta": 0.05
+  },
+  {
+   "id": "L2",
+   "scenario": "demo",
+   "thread": "render",
+   "hash": "c053c2b",
+   "from": 10.59,
+   "to": 10.64,
+   "delta": 0.05
+  },
+  {
+   "id": "G1",
+   "scenario": "vs",
+   "thread": "render",
+   "hash": "55dbf94",
+   "from": 13.92,
+   "to": 13.98,
+   "delta": 0.06
+  },
+  {
+   "id": "e5",
+   "scenario": "demo",
+   "thread": "render",
+   "hash": "5f9e5b9",
+   "from": 6.07,
+   "to": 6.14,
+   "delta": 0.07
+  },
+  {
+   "id": "S2a",
+   "scenario": "demo",
+   "thread": "main",
+   "hash": "fc00d70",
+   "from": 15.08,
+   "to": 15.16,
+   "delta": 0.08
+  },
+  {
+   "id": "4o",
+   "scenario": "vs",
+   "thread": "main",
+   "hash": "aba1e4e",
+   "from": 23.65,
+   "to": 23.75,
+   "delta": 0.1
+  },
+  {
+   "id": "A3 L3",
+   "scenario": "vs",
+   "thread": "render",
+   "hash": "4e13691",
+   "from": 16.05,
+   "to": 16.15,
+   "delta": 0.1
+  },
+  {
+   "id": "4z",
+   "scenario": "vs",
+   "thread": "render",
+   "hash": "241ed04",
+   "from": 14.05,
+   "to": 14.15,
+   "delta": 0.1
+  },
+  {
+   "id": "L2",
+   "scenario": "demo",
+   "thread": "main",
+   "hash": "c053c2b",
+   "from": 13.36,
+   "to": 13.46,
+   "delta": 0.1
+  },
+  {
+   "id": "R4b",
+   "scenario": "vs",
+   "thread": "main",
+   "hash": "32d464c",
+   "from": 11.13,
+   "to": 11.23,
+   "delta": 0.1
+  },
+  {
+   "id": "R3",
+   "scenario": "vs",
+   "thread": "render",
+   "hash": "d342f74",
+   "from": 7.98,
+   "to": 8.09,
+   "delta": 0.11
+  },
+  {
+   "id": "R4b",
+   "scenario": "demo",
+   "thread": "render",
+   "hash": "32d464c",
+   "from": 6.01,
+   "to": 6.12,
+   "delta": 0.11
+  },
+  {
+   "id": "B2 P4g",
+   "scenario": "vs",
+   "thread": "main",
+   "hash": "7b60f50",
+   "from": 16.85,
+   "to": 16.97,
+   "delta": 0.12
+  },
+  {
+   "id": "G3b",
+   "scenario": "demo",
+   "thread": "main",
+   "hash": "5db3e6a",
+   "from": 15.27,
+   "to": 15.4,
+   "delta": 0.13
+  },
+  {
+   "id": "e3",
+   "scenario": "vs",
+   "thread": "main",
+   "hash": "b423015",
+   "from": 12.75,
+   "to": 12.88,
+   "delta": 0.13
+  },
+  {
+   "id": "e2",
+   "scenario": "vs",
+   "thread": "main",
+   "hash": "1cb51a8",
+   "from": 13.15,
+   "to": 13.29,
+   "delta": 0.14
+  },
+  {
+   "id": "G3b",
+   "scenario": "demo",
+   "thread": "render",
+   "hash": "5db3e6a",
+   "from": 11.79,
+   "to": 11.94,
+   "delta": 0.15
+  },
+  {
+   "id": "L1",
+   "scenario": "demo",
+   "thread": "main",
+   "hash": "0204382",
+   "from": 13.38,
+   "to": 13.54,
+   "delta": 0.16
+  },
+  {
+   "id": "G4a",
+   "scenario": "demo",
+   "thread": "main",
+   "hash": "c2c9952",
+   "from": 13.18,
+   "to": 13.34,
+   "delta": 0.16
+  },
+  {
+   "id": "A3 L4b",
+   "scenario": "demo",
+   "thread": "render",
+   "hash": "7091da1",
+   "from": 5.8,
+   "to": 5.97,
+   "delta": 0.17
+  },
+  {
+   "id": "e4",
+   "scenario": "vs",
+   "thread": "render",
+   "hash": "e7af764",
+   "from": 8.07,
+   "to": 8.26,
+   "delta": 0.19
+  },
+  {
+   "id": "1j",
+   "scenario": "vs",
+   "thread": "main",
+   "hash": "e3dcd6a",
+   "from": 23.85,
+   "to": 24.05,
+   "delta": 0.2
+  },
+  {
+   "id": "S2b",
+   "scenario": "vs",
+   "thread": "render",
+   "hash": "10b9c05",
+   "from": 13.93,
+   "to": 14.13,
+   "delta": 0.2
+  },
+  {
+   "id": "e3",
+   "scenario": "vs",
+   "thread": "render",
+   "hash": "b423015",
+   "from": 12.61,
+   "to": 12.82,
+   "delta": 0.21
+  },
+  {
+   "id": "R3",
+   "scenario": "demo",
+   "thread": "render",
+   "hash": "d342f74",
+   "from": 5.83,
+   "to": 6.05,
+   "delta": 0.22
+  },
+  {
+   "id": "G3c",
+   "scenario": "vs",
+   "thread": "render",
+   "hash": "887490c",
+   "from": 14.0,
+   "to": 14.23,
+   "delta": 0.23
+  },
+  {
+   "id": "4o",
+   "scenario": "vs",
+   "thread": "render",
+   "hash": "aba1e4e",
+   "from": 17.15,
+   "to": 17.4,
+   "delta": 0.25
+  },
+  {
+   "id": "g",
+   "scenario": "vs",
+   "thread": "render",
+   "hash": "c69b2ea",
+   "from": 13.55,
+   "to": 13.88,
+   "delta": 0.33
+  },
+  {
+   "id": "R0",
+   "scenario": "vs",
+   "thread": "render",
+   "hash": "9eff4aa",
+   "from": 12.59,
+   "to": 12.93,
+   "delta": 0.34
+  },
+  {
+   "id": "4q",
+   "scenario": "vs",
+   "thread": "render",
+   "hash": "b9d59af",
+   "from": 15.75,
+   "to": 16.1,
+   "delta": 0.35
+  },
+  {
+   "id": "L1",
+   "scenario": "vs",
+   "thread": "render",
+   "hash": "0204382",
+   "from": 12.43,
+   "to": 12.8,
+   "delta": 0.37
+  },
+  {
+   "id": "B2 P3",
+   "scenario": "vs",
+   "thread": "render",
+   "hash": "e7dedda",
+   "from": 15.6,
+   "to": 16.0,
+   "delta": 0.4
+  },
+  {
+   "id": "4t",
+   "scenario": "vs",
+   "thread": "render",
+   "hash": "8d888a3",
+   "from": 14.35,
+   "to": 14.75,
+   "delta": 0.4
+  },
+  {
+   "id": "4r",
+   "scenario": "vs",
+   "thread": "render",
+   "hash": "1d1055f",
+   "from": 15.85,
+   "to": 16.3,
+   "delta": 0.45
+  },
+  {
+   "id": "R2",
+   "scenario": "vs",
+   "thread": "main",
+   "hash": "60a16db",
+   "from": 11.57,
+   "to": 12.03,
+   "delta": 0.46
+  },
+  {
+   "id": "g",
+   "scenario": "vs",
+   "thread": "main",
+   "hash": "c69b2ea",
+   "from": 13.68,
+   "to": 14.17,
+   "delta": 0.49
+  },
+  {
+   "id": "B2 P4g",
+   "scenario": "vs",
+   "thread": "render",
+   "hash": "7b60f50",
+   "from": 13.87,
+   "to": 14.53,
+   "delta": 0.66
+  },
+  {
+   "id": "4p",
+   "scenario": "vs",
+   "thread": "render",
+   "hash": "606cfd1",
+   "from": 15.0,
+   "to": 15.75,
+   "delta": 0.75
+  },
+  {
+   "id": "e2",
+   "scenario": "vs",
+   "thread": "render",
+   "hash": "1cb51a8",
+   "from": 13.34,
+   "to": 14.1,
+   "delta": 0.76
+  }
+ ],
+ "biggest": {
+  "top": [
+   {
+    "id": "R2",
+    "label": "вывод Android — в свой поток, на медленные ядра",
+    "hash": "60a16db",
+    "time": "10-10 08:30",
+    "thread": "render",
+    "from": 11.88,
+    "to": 8.24,
+    "delta": -3.64,
+    "runs": 3,
+    "toMin": 8.05,
+    "toMax": 8.5,
+    "moved": "вывод на экран — в поток presenter (≈ 5,8 мс на медленных ядрах)"
+   },
+   {
+    "id": "R1",
+    "label": "вывод кадра: копия и обрезка слиты",
+    "hash": "6941d89",
+    "time": "10-07 10:52",
+    "thread": "render",
+    "from": 17.4,
+    "to": 15.0,
+    "delta": -2.4,
+    "runs": 2,
+    "toMin": 14.2,
+    "toMax": 15.8,
+    "moved": null
+   },
+   {
+    "id": "A3 P5a",
+    "label": "таймер итераций Android — timerfd",
+    "hash": "bf85e22",
+    "time": "10-07 19:01",
+    "thread": "render",
+    "from": 16.15,
+    "to": 14.05,
+    "delta": -2.1,
+    "runs": 2,
+    "toMin": 13.7,
+    "toMax": 14.4,
+    "moved": null
+   },
+   {
+    "id": "4p",
+    "label": "порядок 14 600 блоков кадров — раз на каталог",
+    "hash": "606cfd1",
+    "time": "10-07 13:25",
+    "thread": "main",
+    "from": 23.45,
+    "to": 21.85,
+    "delta": -1.6,
+    "runs": 2,
+    "toMin": 21.8,
+    "toMax": 21.9,
+    "moved": null
+   },
+   {
+    "id": "B2 P4b–f",
+    "label": "все проходы игрового тела — на месте, разом",
+    "hash": "1ff5775…0805251",
+    "time": "10-08 05:53",
+    "from": 18.15,
+    "to": 16.86,
+    "delta": -1.29,
+    "moved": null,
+    "group": [
+     "B2 P4b+c",
+     "B2 P4d",
+     "B2 P4e",
+     "B2 P4f"
+    ],
+    "thread": "main",
+    "runs": 5,
+    "toMin": 16.4,
+    "toMax": 17.2
+   },
+   {
+    "id": "P2",
+    "label": "задний буфер одалживается кадру",
+    "hash": "f2fa6fa",
+    "time": "10-09 21:41",
+    "thread": "render",
+    "from": 13.81,
+    "to": 12.62,
+    "delta": -1.19,
+    "runs": 3,
+    "toMin": 12.57,
+    "toMax": 12.67,
+    "moved": null
+   },
+   {
+    "id": "S2b",
+    "label": "запись — один буфер с битовой маской",
+    "hash": "10b9c05",
+    "time": "10-09 18:51",
+    "thread": "main",
+    "from": 15.29,
+    "to": 14.36,
+    "delta": -0.93,
+    "runs": 3,
+    "toMin": 14.34,
+    "toMax": 14.38,
+    "moved": null
+   },
+   {
+    "id": "B2 P1",
+    "label": "проходы слотов и планировщик — на месте",
+    "hash": "f335320",
+    "time": "10-07 14:37",
+    "thread": "main",
+    "from": 21.8,
+    "to": 20.9,
+    "delta": -0.9,
+    "runs": 2,
+    "toMin": 20.9,
+    "toMax": 20.9,
+    "moved": null
+   },
+   {
+    "id": "P0",
+    "label": "главный поток — на быстрые ядра",
+    "hash": "7fe4d0e",
+    "time": "10-10 07:46",
+    "thread": "main",
+    "from": 12.75,
+    "to": 11.89,
+    "delta": -0.86,
+    "runs": 3,
+    "toMin": 11.82,
+    "toMax": 11.97,
+    "moved": "те же вычисления на быстрых ядрах"
+   },
+   {
+    "id": "A3 P5a",
+    "label": "таймер итераций Android — timerfd",
+    "hash": "bf85e22",
+    "time": "10-07 19:01",
+    "thread": "main",
+    "from": 19.85,
+    "to": 19.1,
+    "delta": -0.75,
+    "runs": 2,
+    "toMin": 19.0,
+    "toMax": 19.2,
+    "moved": null
+   },
+   {
+    "id": "e",
+    "label": "Blt и заливка — одна запись",
+    "hash": "963c7cd",
+    "time": "10-09 20:00",
+    "thread": "main",
+    "from": 13.96,
+    "to": 13.25,
+    "delta": -0.71,
+    "runs": 3,
+    "toMin": 12.54,
+    "toMax": 13.73,
+    "moved": null
+   },
+   {
+    "id": "4m",
+    "label": "продолжение цикла и возвраты — в общих объектах",
+    "hash": "bf5628e",
+    "time": "10-07 08:51",
+    "thread": "main",
+    "from": 24.55,
+    "to": 23.85,
+    "delta": -0.7,
+    "runs": 2,
+    "toMin": 23.8,
+    "toMax": 23.9,
+    "moved": null
+   }
+  ],
+  "strip": [
+   {
+    "id": "4p",
+    "label": "порядок 14 600 блоков кадров — раз на каталог",
+    "hash": "606cfd1",
+    "time": "10-07 13:25",
+    "thread": "main",
+    "from": 23.45,
+    "to": 21.85,
+    "delta": -1.6,
+    "runs": 2,
+    "toMin": 21.8,
+    "toMax": 21.9,
+    "moved": null
+   },
+   {
+    "id": "S2b",
+    "label": "запись — один буфер с битовой маской",
+    "hash": "10b9c05",
+    "time": "10-09 18:51",
+    "thread": "main",
+    "from": 15.29,
+    "to": 14.36,
+    "delta": -0.93,
+    "runs": 3,
+    "toMin": 14.34,
+    "toMax": 14.38,
+    "moved": null
+   },
+   {
+    "id": "B2 P1",
+    "label": "проходы слотов и планировщик — на месте",
+    "hash": "f335320",
+    "time": "10-07 14:37",
+    "thread": "main",
+    "from": 21.8,
+    "to": 20.9,
+    "delta": -0.9,
+    "runs": 2,
+    "toMin": 20.9,
+    "toMax": 20.9,
+    "moved": null
+   },
+   {
+    "id": "P0",
+    "label": "главный поток — на быстрые ядра",
+    "hash": "7fe4d0e",
+    "time": "10-10 07:46",
+    "thread": "main",
+    "from": 12.75,
+    "to": 11.89,
+    "delta": -0.86,
+    "runs": 3,
+    "toMin": 11.82,
+    "toMax": 11.97,
+    "moved": "те же вычисления на быстрых ядрах"
+   },
+   {
+    "id": "A3 P5a",
+    "label": "таймер итераций Android — timerfd",
+    "hash": "bf85e22",
+    "time": "10-07 19:01",
+    "thread": "main",
+    "from": 19.85,
+    "to": 19.1,
+    "delta": -0.75,
+    "runs": 2,
+    "toMin": 19.0,
+    "toMax": 19.2,
+    "moved": null
+   },
+   {
+    "id": "e",
+    "label": "Blt и заливка — одна запись",
+    "hash": "963c7cd",
+    "time": "10-09 20:00",
+    "thread": "main",
+    "from": 13.96,
+    "to": 13.25,
+    "delta": -0.71,
+    "runs": 3,
+    "toMin": 12.54,
+    "toMax": 13.73,
+    "moved": null
+   },
+   {
+    "id": "4m",
+    "label": "продолжение цикла и возвраты — в общих объектах",
+    "hash": "bf5628e",
+    "time": "10-07 08:51",
+    "thread": "main",
+    "from": 24.55,
+    "to": 23.85,
+    "delta": -0.7,
+    "runs": 2,
+    "toMin": 23.8,
+    "toMax": 23.9,
+    "moved": null
+   },
+   {
+    "id": "S1",
+    "label": "двухуровневые таблицы страниц повтора",
+    "hash": "e6c4c00",
+    "time": "10-08 22:22",
+    "thread": "main",
+    "from": 16.43,
+    "to": 15.73,
+    "delta": -0.7,
+    "runs": 3,
+    "toMin": 15.59,
+    "toMax": 15.86,
+    "moved": null
+   },
+   {
+    "id": "4r",
+    "label": "неактивные слоты выходят до прохода",
+    "hash": "1d1055f",
+    "time": "10-07 14:51",
+    "thread": "main",
+    "from": 21.05,
+    "to": 20.4,
+    "delta": -0.65,
+    "runs": 2,
+    "toMin": 20.3,
+    "toMax": 20.5,
+    "moved": null
+   },
+   {
+    "id": "B2 P4f",
+    "label": "команды после отрисовки — на месте",
+    "hash": "0805251",
+    "time": "10-08 05:53",
+    "thread": "main",
+    "from": 17.43,
+    "to": 16.86,
+    "delta": -0.57,
+    "runs": 5,
+    "toMin": 16.4,
+    "toMax": 17.2,
+    "moved": null
+   },
+   {
+    "id": "4aa",
+    "label": "релиз без динамических проверок эксклюзивности",
+    "hash": "3d8935d",
+    "time": "10-08 19:48",
+    "thread": "main",
+    "from": 16.77,
+    "to": 16.25,
+    "delta": -0.52,
+    "runs": 3,
+    "toMin": 15.93,
+    "toMax": 16.43,
+    "moved": null
+   },
+   {
+    "id": "R3",
+    "label": "мёртвые значения освобождает свой поток",
+    "hash": "d342f74",
+    "time": "10-10 12:18",
+    "thread": "main",
+    "from": 11.75,
+    "to": 11.34,
+    "delta": -0.41,
+    "runs": 3,
+    "toMin": 11.22,
+    "toMax": 11.51,
+    "moved": null
+   },
+   {
+    "id": "4n",
+    "label": "владельцы и контекст доставки — в общих объектах",
+    "hash": "e209133",
+    "time": "10-07 10:21",
+    "thread": "main",
+    "from": 24.05,
+    "to": 23.65,
+    "delta": -0.4,
+    "runs": 2,
+    "toMin": 23.5,
+    "toMax": 23.8,
+    "moved": null
+   },
+   {
+    "id": "4s",
+    "label": "слова битмапов читаются на месте",
+    "hash": "cbb15b5",
+    "time": "10-07 21:53",
+    "thread": "main",
+    "from": 19.25,
+    "to": 18.85,
+    "delta": -0.4,
+    "runs": 2,
+    "toMin": 18.8,
+    "toMax": 18.9,
+    "moved": null
+   },
+   {
+    "id": "P2",
+    "label": "задний буфер одалживается кадру",
+    "hash": "f2fa6fa",
+    "time": "10-09 21:41",
+    "thread": "main",
+    "from": 13.46,
+    "to": 13.11,
+    "delta": -0.35,
+    "runs": 3,
+    "toMin": 13.05,
+    "toMax": 13.18,
+    "moved": null
+   },
+   {
+    "id": "B2 P4e",
+    "label": "удары, cpoints и запись — на месте",
+    "hash": "89f4b52",
+    "time": "10-08 04:27",
+    "thread": "main",
+    "from": 17.75,
+    "to": 17.43,
+    "delta": -0.32,
+    "runs": 3,
+    "toMin": 17.4,
+    "toMax": 17.5,
+    "moved": null
+   },
+   {
+    "id": "R1",
+    "label": "вывод кадра: копия и обрезка слиты",
+    "hash": "6941d89",
+    "time": "10-07 10:52",
+    "thread": "main",
+    "from": 23.75,
+    "to": 23.45,
+    "delta": -0.3,
+    "runs": 2,
+    "toMin": 23.3,
+    "toMax": 23.6,
+    "moved": null
+   },
+   {
+    "id": "B2 P3",
+    "label": "ИИ и ввод объектов — на месте",
+    "hash": "e7dedda",
+    "time": "10-07 17:17",
+    "thread": "main",
+    "from": 20.0,
+    "to": 19.7,
+    "delta": -0.3,
+    "runs": 2,
+    "toMin": 19.6,
+    "toMax": 19.8,
+    "moved": null
+   },
+   {
+    "id": "4t",
+    "label": "завершение цикла без копий",
+    "hash": "8d888a3",
+    "time": "10-07 22:17",
+    "thread": "main",
+    "from": 18.85,
+    "to": 18.55,
+    "delta": -0.3,
+    "runs": 2,
+    "toMin": 18.5,
+    "toMax": 18.6,
+    "moved": null
+   },
+   {
+    "id": "B2 P2",
+    "label": "подшаги входа в матч — на месте",
+    "hash": "b189ee9",
+    "time": "10-07 16:25",
+    "thread": "main",
+    "from": 20.4,
+    "to": 20.12,
+    "delta": -0.28,
+    "runs": 4,
+    "toMin": 20.1,
+    "toMax": 20.2,
+    "moved": null
+   },
+   {
+    "id": "1k",
+    "label": "одна отправка рендеру на батч",
+    "hash": "3314f10",
+    "time": "10-07 23:41",
+    "thread": "main",
+    "from": 18.5,
+    "to": 18.25,
+    "delta": -0.25,
+    "runs": 2,
+    "toMin": 18.2,
+    "toMax": 18.3,
+    "moved": null
+   },
+   {
+    "id": "4w",
+    "label": "быстрые пути плоских записей",
+    "hash": "2356f5a",
+    "time": "10-08 01:18",
+    "thread": "main",
+    "from": 18.25,
+    "to": 18.0,
+    "delta": -0.25,
+    "runs": 2,
+    "toMin": 17.9,
+    "toMax": 18.1,
+    "moved": null
+   },
+   {
+    "id": "B2 P4b+c",
+    "label": "управление, физика, жизненный цикл — на месте",
+    "hash": "1ff5775",
+    "time": "10-08 04:06",
+    "thread": "main",
+    "from": 18.15,
+    "to": 17.9,
+    "delta": -0.25,
+    "runs": 4,
+    "toMin": 17.7,
+    "toMax": 18.0,
+    "moved": null
+   },
+   {
+    "id": "L4",
+    "label": "физика без копии актёра для наблюдателя",
+    "hash": "581896e",
+    "time": "10-10 04:31",
+    "thread": "main",
+    "from": 12.91,
+    "to": 12.66,
+    "delta": -0.25,
+    "runs": 3,
+    "toMin": 12.25,
+    "toMax": 12.89,
+    "moved": null
+   },
+   {
+    "id": "A3 L4b",
+    "label": "первая холостая попытка без драйвера",
+    "hash": "7091da1",
+    "time": "10-10 10:12",
+    "thread": "main",
+    "from": 12.07,
+    "to": 11.82,
+    "delta": -0.25,
+    "runs": 3,
+    "toMin": 11.8,
+    "toMax": 11.84,
+    "moved": null
+   },
+   {
+    "id": "G3a",
+    "label": "прямые команды Blt и заливки",
+    "hash": "5e01e67",
+    "time": "10-09 01:02",
+    "thread": "main",
+    "from": 15.83,
+    "to": 15.65,
+    "delta": -0.18,
+    "runs": 3,
+    "toMin": 15.59,
+    "toMax": 15.71,
+    "moved": null
+   },
+   {
+    "id": "L1",
+    "label": "чтение записи — встроено",
+    "hash": "0204382",
+    "time": "10-09 22:36",
+    "thread": "main",
+    "from": 13.38,
+    "to": 13.2,
+    "delta": -0.18,
+    "runs": 3,
+    "toMin": 12.95,
+    "toMax": 13.33,
+    "moved": null
+   },
+   {
+    "id": "M1",
+    "label": "таблица актёров мира — за один проход",
+    "hash": "4c38d06",
+    "time": "10-09 18:53",
+    "thread": "main",
+    "from": 14.19,
+    "to": 14.02,
+    "delta": -0.17,
+    "runs": 3,
+    "toMin": 13.91,
+    "toMax": 14.1,
+    "moved": null
+   },
+   {
+    "id": "L3",
+    "label": "пул ожидания — раз на сессию",
+    "hash": "f9ee3a1",
+    "time": "10-10 01:16",
+    "thread": "main",
+    "from": 13.11,
+    "to": 12.94,
+    "delta": -0.17,
+    "runs": 3,
+    "toMin": 12.79,
+    "toMax": 13.04,
+    "moved": null
+   },
+   {
+    "id": "B2 P4d",
+    "label": "связи, контакты, камера, рисование — на месте",
+    "hash": "bdaf40f",
+    "time": "10-08 04:07",
+    "thread": "main",
+    "from": 17.9,
+    "to": 17.75,
+    "delta": -0.15,
+    "runs": 2,
+    "toMin": 17.7,
+    "toMax": 17.8,
+    "moved": null
+   },
+   {
+    "id": "G3c",
+    "label": "событие Blt строится на месте",
+    "hash": "887490c",
+    "time": "10-09 03:49",
+    "thread": "main",
+    "from": 15.57,
+    "to": 15.42,
+    "delta": -0.15,
+    "runs": 3,
+    "toMin": 15.3,
+    "toMax": 15.5,
+    "moved": null
+   },
+   {
+    "id": "G1",
+    "label": "невидимые спрайты и глифы — на стеке",
+    "hash": "55dbf94",
+    "time": "10-08 23:33",
+    "thread": "main",
+    "from": 15.79,
+    "to": 15.67,
+    "delta": -0.12,
+    "runs": 3,
+    "toMin": 15.56,
+    "toMax": 15.86,
+    "moved": null
+   },
+   {
+    "id": "R0",
+    "label": "memchr для таблицы случайных; трек — один раз",
+    "hash": "9eff4aa",
+    "time": "10-09 23:34",
+    "thread": "main",
+    "from": 13.08,
+    "to": 12.98,
+    "delta": -0.1,
+    "runs": 3,
+    "toMin": 12.89,
+    "toMax": 13.07,
+    "moved": null
+   },
+   {
+    "id": "d1",
+    "label": "списки команд резервируются заранее",
+    "hash": "8b98653",
+    "time": "10-09 04:59",
+    "thread": "main",
+    "from": 15.47,
+    "to": 15.38,
+    "delta": -0.09,
+    "runs": 3,
+    "toMin": 15.17,
+    "toMax": 15.49,
+    "moved": null
+   },
+   {
+    "id": "d2",
+    "label": "хвост коммита Host — отдельно",
+    "hash": "86ef8f4",
+    "time": "10-09 18:52",
+    "thread": "main",
+    "from": 14.25,
+    "to": 14.16,
+    "delta": -0.09,
+    "runs": 3,
+    "toMin": 14.05,
+    "toMax": 14.24,
+    "moved": null
+   },
+   {
+    "id": "G3b",
+    "label": "без наблюдений, которые никто не получает",
+    "hash": "5db3e6a",
+    "time": "10-09 02:42",
+    "thread": "main",
+    "from": 15.62,
+    "to": 15.55,
+    "delta": -0.07,
+    "runs": 3,
+    "toMin": 15.48,
+    "toMax": 15.62,
+    "moved": null
+   },
+   {
+    "id": "G4a",
+    "label": "копии и заливки рендеру — значениями",
+    "hash": "c2c9952",
+    "time": "10-10 02:52",
+    "thread": "main",
+    "from": 12.8,
+    "to": 12.73,
+    "delta": -0.07,
+    "runs": 3,
+    "toMin": 12.59,
+    "toMax": 12.83,
+    "moved": null
+   },
+   {
+    "id": "4z",
+    "label": "шрифт ищет битмап глифа один раз",
+    "hash": "241ed04",
+    "time": "10-08 09:26",
+    "thread": "main",
+    "from": 16.91,
+    "to": 16.85,
+    "delta": -0.06,
+    "runs": 2,
+    "toMin": 16.83,
+    "toMax": 16.88,
+    "moved": null
+   },
+   {
+    "id": "4q",
+    "label": "адаптер событий слотов — один на проход",
+    "hash": "b9d59af",
+    "time": "10-07 13:26",
+    "thread": "main",
+    "from": 21.85,
+    "to": 21.8,
+    "delta": -0.05,
+    "runs": 2,
+    "toMin": 21.7,
+    "toMax": 21.9,
+    "moved": null
+   },
+   {
+    "id": "A3 L4a",
+    "label": "холостые запросы без разрешений",
+    "hash": "54bb195",
+    "time": "10-07 23:40",
+    "thread": "main",
+    "from": 18.55,
+    "to": 18.5,
+    "delta": -0.05,
+    "runs": 2,
+    "toMin": 18.5,
+    "toMax": 18.5,
+    "moved": null
+   },
+   {
+    "id": "e5",
+    "label": "emit забирает эффект, а не копирует",
+    "hash": "5f9e5b9",
+    "time": "10-10 17:31",
+    "thread": "main",
+    "from": 11.14,
+    "to": 11.09,
+    "delta": -0.05,
+    "runs": 3,
+    "toMin": 11.04,
+    "toMax": 11.19,
+    "moved": null
+   },
+   {
+    "id": "A3 L5a",
+    "label": "контекст доставки делит платформу",
+    "hash": "1b09469",
+    "time": "10-09 20:01",
+    "thread": "main",
+    "from": 13.54,
+    "to": 13.51,
+    "delta": -0.03,
+    "runs": 3,
+    "toMin": 13.47,
+    "toMax": 13.58,
+    "moved": null
+   },
+   {
+    "id": "e4",
+    "label": "две копии убраны с пути тика",
+    "hash": "e7af764",
+    "time": "10-10 13:18",
+    "thread": "main",
+    "from": 11.36,
+    "to": 11.33,
+    "delta": -0.03,
+    "runs": 3,
+    "toMin": 11.31,
+    "toMax": 11.36,
+    "moved": null
+   },
+   {
+    "id": "B2 P2c",
+    "label": "локальный ввод — на месте",
+    "hash": "ba69395",
+    "time": "10-07 16:47",
+    "thread": "main",
+    "from": 20.0,
+    "to": 20.0,
+    "delta": 0.0,
+    "runs": 2,
+    "toMin": 20.0,
+    "toMax": 20.0,
+    "moved": null
+   },
+   {
+    "id": "A3 L3",
+    "label": "холостой цикл — на пустом контексте",
+    "hash": "4e13691",
+    "time": "10-07 18:59",
+    "thread": "main",
+    "from": 19.85,
+    "to": 19.85,
+    "delta": 0.0,
+    "runs": 2,
+    "toMin": 19.8,
+    "toMax": 19.9,
+    "moved": null
+   },
+   {
+    "id": "4x",
+    "label": "попытка загрузки без случайного UUID",
+    "hash": "2d56169",
+    "time": "10-08 05:54",
+    "thread": "main",
+    "from": 16.9,
+    "to": 16.93,
+    "delta": 0.03,
+    "runs": 4,
+    "toMin": 16.6,
+    "toMax": 17.1,
+    "moved": null
+   },
+   {
+    "id": "S2a",
+    "label": "узкие чтения записей: 169 правок в 79 файлах",
+    "hash": "fc00d70",
+    "time": "10-09 11:18",
+    "thread": "main",
+    "from": 15.34,
+    "to": 15.37,
+    "delta": 0.03,
+    "runs": 3,
+    "toMin": 15.28,
+    "toMax": 15.52,
+    "moved": null
+   },
+   {
+    "id": "R3b",
+    "label": "поток освобождения просыпается сам",
+    "hash": "03c06a0",
+    "time": "10-10 16:37",
+    "thread": "main",
+    "from": 11.25,
+    "to": 11.28,
+    "delta": 0.03,
+    "runs": 3,
+    "toMin": 11.19,
+    "toMax": 11.32,
+    "moved": null
+   },
+   {
+    "id": "L2",
+    "label": "запись в запись — встроена",
+    "hash": "c053c2b",
+    "time": "10-10 00:19",
+    "thread": "main",
+    "from": 12.99,
+    "to": 13.04,
+    "delta": 0.05,
+    "runs": 3,
+    "toMin": 12.99,
+    "toMax": 13.08,
+    "moved": null
+   },
+   {
+    "id": "4o",
+    "label": "Host читает сессию на месте, без копий",
+    "hash": "aba1e4e",
+    "time": "10-07 10:51",
+    "thread": "main",
+    "from": 23.65,
+    "to": 23.75,
+    "delta": 0.1,
+    "runs": 2,
+    "toMin": 23.7,
+    "toMax": 23.8,
+    "moved": null
+   },
+   {
+    "id": "R4b",
+    "label": "копии по 4 пикселя в тесных циклах",
+    "hash": "32d464c",
+    "time": "10-10 15:39",
+    "thread": "main",
+    "from": 11.13,
+    "to": 11.23,
+    "delta": 0.1,
+    "runs": 3,
+    "toMin": 11.16,
+    "toMax": 11.32,
+    "moved": null
+   },
+   {
+    "id": "B2 P4g",
+    "label": "вывод и метка режима — на месте",
+    "hash": "7b60f50",
+    "time": "10-08 07:03",
+    "thread": "main",
+    "from": 16.85,
+    "to": 16.97,
+    "delta": 0.12,
+    "runs": 3,
+    "toMin": 16.9,
+    "toMax": 17.0,
+    "moved": null
+   },
+   {
+    "id": "e3",
+    "label": "хвост коммита — по индексу",
+    "hash": "b423015",
+    "time": "10-10 02:04",
+    "thread": "main",
+    "from": 12.75,
+    "to": 12.88,
+    "delta": 0.13,
+    "runs": 3,
+    "toMin": 12.8,
+    "toMax": 12.99,
+    "moved": null
+   },
+   {
+    "id": "e2",
+    "label": "повтор читает команды на месте",
+    "hash": "1cb51a8",
+    "time": "10-09 20:32",
+    "thread": "main",
+    "from": 13.15,
+    "to": 13.29,
+    "delta": 0.14,
+    "runs": 3,
+    "toMin": 13.09,
+    "toMax": 13.6,
+    "moved": null
+   },
+   {
+    "id": "1j",
+    "label": "копии с ключом без битов маски над полным кадром",
+    "hash": "e3dcd6a",
+    "time": "10-07 08:52",
+    "thread": "main",
+    "from": 23.85,
+    "to": 24.05,
+    "delta": 0.2,
+    "runs": 2,
+    "toMin": 24.0,
+    "toMax": 24.1,
+    "moved": null
+   },
+   {
+    "id": "R2",
+    "label": "вывод Android — в свой поток, на медленные ядра",
+    "hash": "60a16db",
+    "time": "10-10 08:30",
+    "thread": "main",
+    "from": 11.57,
+    "to": 12.03,
+    "delta": 0.46,
+    "runs": 3,
+    "toMin": 12.02,
+    "toMax": 12.05,
+    "moved": "вывод на экран — в поток presenter (≈ 5,8 мс на медленных ядрах)"
+   },
+   {
+    "id": "g",
+    "label": "повтор без массивов владельцев",
+    "hash": "c69b2ea",
+    "time": "10-09 18:52",
+    "thread": "main",
+    "from": 13.68,
+    "to": 14.17,
+    "delta": 0.49,
+    "runs": 3,
+    "toMin": 14.06,
+    "toMax": 14.26,
+    "moved": null
+   }
+  ],
+  "noiseMs": 0.25,
+  "withinNoise": 35
+ },
+ "phoneRuns": {
+  "runs": 480,
+  "hours": 31.1,
+  "note": "distinct phone runs (by label) recorded in the chapter's evidence, incl. baselines and reverted builds; runSeconds summed"
+ },
+ "steps": [
+  {
+   "id": "4m",
+   "label": "продолжение цикла и возвраты — в общих объектах",
+   "title": "Phase 4m: the loaded cycle's continuation, pending return and match prelude in shared objects",
+   "date": "2026-10-07",
+   "hash": "bf5628e",
+   "time": "10-07 08:51",
+   "verdict": "kept",
+   "focus": "main",
+   "review": "ok",
+   "gates": {
+    "scenarios10": true,
+    "appkit": true,
+    "emulator": true,
+    "tsan": false
+   },
+   "vs": {
+    "after": {
+     "n": 2,
+     "main": 23.85,
+     "render": 18.1,
+     "mainMin": 23.8,
+     "mainMax": 23.9,
+     "renderMin": 18.1,
+     "renderMax": 18.1
+    },
+    "base": {
+     "n": 2,
+     "main": 24.55,
+     "render": 18.1,
+     "mainMin": 24.5,
+     "mainMax": 24.6,
+     "renderMin": 17.9,
+     "renderMax": 18.3,
+     "interleaved": false
+    },
+    "baseKey": "before"
+   },
+   "demo": null,
+   "probe": null,
+   "evidence": "rt-4m-loaded-continuation-20261007.json"
+  },
+  {
+   "id": "1j",
+   "label": "копии с ключом без битов маски над полным кадром",
+   "title": "Phase 1j: keyed copies without known-bit work over a full target (render thread)",
+   "date": "2026-10-07",
+   "hash": "e3dcd6a",
+   "time": "10-07 08:52",
+   "verdict": "kept",
+   "focus": "render",
+   "review": "skipped",
+   "gates": {
+    "scenarios10": true,
+    "appkit": true,
+    "emulator": true,
+    "tsan": false
+   },
+   "vs": {
+    "after": {
+     "n": 2,
+     "main": 24.05,
+     "render": 17.5,
+     "mainMin": 24.0,
+     "mainMax": 24.1,
+     "renderMin": 17.5,
+     "renderMax": 17.5
+    },
+    "base": {
+     "n": 2,
+     "main": 23.85,
+     "render": 18.1,
+     "mainMin": 23.8,
+     "mainMax": 23.9,
+     "renderMin": 18.1,
+     "renderMax": 18.1,
+     "interleaved": false
+    },
+    "baseKey": "before"
+   },
+   "demo": null,
+   "probe": null,
+   "evidence": "rt-1j-keyed-full-target-20261007.json"
+  },
+  {
+   "id": "4n",
+   "label": "владельцы и контекст доставки — в общих объектах",
+   "title": "Phase 4n: the loaded owners and the batch delivery context in shared objects",
+   "date": "2026-10-07",
+   "hash": "e209133",
+   "time": "10-07 10:21",
+   "verdict": "kept",
+   "focus": "main",
+   "review": "ok",
+   "gates": {
+    "scenarios10": true,
+    "appkit": true,
+    "emulator": true,
+    "tsan": false
+   },
+   "vs": {
+    "after": {
+     "n": 2,
+     "main": 23.65,
+     "render": 17.15,
+     "mainMin": 23.5,
+     "mainMax": 23.8,
+     "renderMin": 16.0,
+     "renderMax": 18.3
+    },
+    "base": {
+     "n": 2,
+     "main": 24.05,
+     "render": 17.5,
+     "mainMin": 24.0,
+     "mainMax": 24.1,
+     "renderMin": 17.5,
+     "renderMax": 17.5,
+     "interleaved": false
+    },
+    "baseKey": "before"
+   },
+   "demo": null,
+   "probe": null,
+   "evidence": "rt-4n-owners-context-20261007.json"
+  },
+  {
+   "id": "4o",
+   "label": "Host читает сессию на месте, без копий",
+   "title": "Phase 4o: no read-only copies of the session in Host attempts",
+   "date": "2026-10-07",
+   "hash": "aba1e4e",
+   "time": "10-07 10:51",
+   "verdict": "less",
+   "focus": "main",
+   "review": "skipped",
+   "gates": {
+    "scenarios10": true,
+    "appkit": true,
+    "emulator": true,
+    "tsan": false
+   },
+   "vs": {
+    "after": {
+     "n": 2,
+     "main": 23.75,
+     "render": 17.4,
+     "mainMin": 23.7,
+     "mainMax": 23.8,
+     "renderMin": 17.3,
+     "renderMax": 17.5
+    },
+    "base": {
+     "n": 2,
+     "main": 23.65,
+     "render": 17.15,
+     "mainMin": 23.5,
+     "mainMax": 23.8,
+     "renderMin": 16.0,
+     "renderMax": 18.3,
+     "interleaved": false
+    },
+    "baseKey": "before"
+   },
+   "demo": null,
+   "probe": null,
+   "evidence": "rt-4o-session-reads-20261007.json"
+  },
+  {
+   "id": "R1",
+   "label": "вывод кадра: копия и обрезка слиты",
+   "title": "R1: the present's back-buffer copy and crop fused (render thread)",
+   "date": "2026-10-07",
+   "hash": "6941d89",
+   "time": "10-07 10:52",
+   "verdict": "kept",
+   "focus": "render",
+   "review": "caught",
+   "gates": {
+    "scenarios10": true,
+    "appkit": true,
+    "emulator": true,
+    "tsan": false
+   },
+   "vs": {
+    "after": {
+     "n": 2,
+     "main": 23.45,
+     "render": 15.0,
+     "mainMin": 23.3,
+     "mainMax": 23.6,
+     "renderMin": 14.2,
+     "renderMax": 15.8
+    },
+    "base": {
+     "n": 2,
+     "main": 23.75,
+     "render": 17.4,
+     "mainMin": 23.7,
+     "mainMax": 23.8,
+     "renderMin": 17.3,
+     "renderMax": 17.5,
+     "interleaved": false
+    },
+    "baseKey": "before"
+   },
+   "demo": null,
+   "probe": null,
+   "evidence": "rt-r1-present-crop-20261007.json"
+  },
+  {
+   "id": "4p",
+   "label": "порядок 14 600 блоков кадров — раз на каталог",
+   "title": "Phase 4p: frame allocation order made once per loaded catalog",
+   "date": "2026-10-07",
+   "hash": "606cfd1",
+   "time": "10-07 13:25",
+   "verdict": "kept",
+   "focus": "main",
+   "review": "ok",
+   "gates": {
+    "scenarios10": true,
+    "appkit": true,
+    "emulator": true,
+    "tsan": false
+   },
+   "vs": {
+    "after": {
+     "n": 2,
+     "main": 21.85,
+     "render": 15.75,
+     "mainMin": 21.8,
+     "mainMax": 21.9,
+     "renderMin": 15.7,
+     "renderMax": 15.8
+    },
+    "base": {
+     "n": 2,
+     "main": 23.45,
+     "render": 15.0,
+     "mainMin": 23.3,
+     "mainMax": 23.6,
+     "renderMin": 14.2,
+     "renderMax": 15.8,
+     "interleaved": false
+    },
+    "baseKey": "before"
+   },
+   "demo": null,
+   "probe": null,
+   "evidence": "rt-4p-frame-order-20261007.json"
+  },
+  {
+   "id": "4q",
+   "label": "адаптер событий слотов — один на проход",
+   "title": "Phase 4q: the post-draw slot event adapter made once per pass",
+   "date": "2026-10-07",
+   "hash": "b9d59af",
+   "time": "10-07 13:26",
+   "verdict": "less",
+   "focus": "main",
+   "review": "skipped",
+   "gates": {
+    "scenarios10": true,
+    "appkit": true,
+    "emulator": true,
+    "tsan": false
+   },
+   "vs": {
+    "after": {
+     "n": 2,
+     "main": 21.8,
+     "render": 16.1,
+     "mainMin": 21.7,
+     "mainMax": 21.9,
+     "renderMin": 15.8,
+     "renderMax": 16.4
+    },
+    "base": {
+     "n": 2,
+     "main": 21.85,
+     "render": 15.75,
+     "mainMin": 21.8,
+     "mainMax": 21.9,
+     "renderMin": 15.7,
+     "renderMax": 15.8,
+     "interleaved": false
+    },
+    "baseKey": "before"
+   },
+   "demo": null,
+   "probe": null,
+   "evidence": "rt-4q-slot-adapter-20261007.json"
+  },
+  {
+   "id": "B2 P1",
+   "label": "проходы слотов и планировщик — на месте",
+   "title": "B2 P1: post-draw slot passes and the actor scheduler in place",
+   "date": "2026-10-07",
+   "hash": "f335320",
+   "time": "10-07 14:37",
+   "verdict": "kept",
+   "focus": "main",
+   "review": "ok",
+   "gates": {
+    "scenarios10": true,
+    "appkit": true,
+    "emulator": true,
+    "tsan": false
+   },
+   "vs": {
+    "after": {
+     "n": 2,
+     "main": 20.9,
+     "render": 16.15,
+     "mainMin": 20.9,
+     "mainMax": 20.9,
+     "renderMin": 15.8,
+     "renderMax": 16.5
+    },
+    "base": {
+     "n": 2,
+     "main": 21.8,
+     "render": 16.1,
+     "mainMin": 21.7,
+     "mainMax": 21.9,
+     "renderMin": 15.8,
+     "renderMax": 16.4,
+     "interleaved": false
+    },
+    "baseKey": "before"
+   },
+   "demo": null,
+   "probe": null,
+   "evidence": "rt-b2p1-postdraw-in-place-20261007.json"
+  },
+  {
+   "id": "B2 P1b",
+   "label": "одно тело на проход; корпуса через обе формы",
+   "title": "B2 P1b: one in-place body per pass; corpora through both paths",
+   "date": "2026-10-07",
+   "hash": "2a03667",
+   "time": "10-07 14:38",
+   "verdict": "follow",
+   "focus": "main",
+   "review": "skipped",
+   "gates": {
+    "scenarios10": true,
+    "appkit": true,
+    "emulator": true,
+    "tsan": false
+   },
+   "vs": {
+    "after": {
+     "n": 2,
+     "main": 21.05,
+     "render": 15.85,
+     "mainMin": 21.0,
+     "mainMax": 21.1,
+     "renderMin": 15.8,
+     "renderMax": 15.9
+    },
+    "base": {
+     "n": 2,
+     "main": 20.9,
+     "render": 16.15,
+     "mainMin": 20.9,
+     "mainMax": 20.9,
+     "renderMin": 15.8,
+     "renderMax": 16.5,
+     "interleaved": false
+    },
+    "baseKey": "before"
+   },
+   "demo": null,
+   "probe": null,
+   "evidence": "rt-b2p1b-one-body-20261007.json"
+  },
+  {
+   "id": "4r",
+   "label": "неактивные слоты выходят до прохода",
+   "title": "Phase 4r: inactive post-draw slots end before their passes",
+   "date": "2026-10-07",
+   "hash": "1d1055f",
+   "time": "10-07 14:51",
+   "verdict": "kept",
+   "focus": "main",
+   "review": "skipped",
+   "gates": {
+    "scenarios10": true,
+    "appkit": true,
+    "emulator": true,
+    "tsan": false
+   },
+   "vs": {
+    "after": {
+     "n": 2,
+     "main": 20.4,
+     "render": 16.3,
+     "mainMin": 20.3,
+     "mainMax": 20.5,
+     "renderMin": 16.0,
+     "renderMax": 16.6
+    },
+    "base": {
+     "n": 2,
+     "main": 21.05,
+     "render": 15.85,
+     "mainMin": 21.0,
+     "mainMax": 21.1,
+     "renderMin": 15.8,
+     "renderMax": 15.9,
+     "interleaved": false
+    },
+    "baseKey": "before"
+   },
+   "demo": null,
+   "probe": null,
+   "evidence": "rt-4r-inactive-slots-20261007.json"
+  },
+  {
+   "id": "B2 P2",
+   "label": "подшаги входа в матч — на месте",
+   "title": "B2 P2: the loaded match entry's sub-steps in place",
+   "date": "2026-10-07",
+   "hash": "b189ee9",
+   "time": "10-07 16:25",
+   "verdict": "kept",
+   "focus": "main",
+   "review": "ok",
+   "gates": {
+    "scenarios10": true,
+    "appkit": true,
+    "emulator": true,
+    "tsan": false
+   },
+   "vs": {
+    "after": {
+     "n": 4,
+     "main": 20.12,
+     "render": 15.8,
+     "mainMin": 20.1,
+     "mainMax": 20.2,
+     "renderMin": 15.4,
+     "renderMax": 16.5
+    },
+    "base": {
+     "n": 2,
+     "main": 20.4,
+     "render": 16.3,
+     "mainMin": 20.3,
+     "mainMax": 20.5,
+     "renderMin": 16.0,
+     "renderMax": 16.6,
+     "interleaved": false
+    },
+    "baseKey": "before"
+   },
+   "demo": null,
+   "probe": null,
+   "evidence": "rt-b2p2-entry-in-place-20261007.json"
+  },
+  {
+   "id": "B2 P2b",
+   "label": "одно ядро приёма ввода",
+   "title": "B2 P2b: one received-input core",
+   "date": "2026-10-07",
+   "hash": "c761435",
+   "time": "10-07 16:26",
+   "verdict": "follow",
+   "focus": "main",
+   "review": "skipped",
+   "gates": {
+    "scenarios10": true,
+    "appkit": true,
+    "emulator": true,
+    "tsan": false
+   },
+   "vs": {
+    "after": {
+     "n": 2,
+     "main": 20.0,
+     "render": 16.0,
+     "mainMin": 20.0,
+     "mainMax": 20.0,
+     "renderMin": 15.6,
+     "renderMax": 16.4
+    },
+    "base": {
+     "n": 2,
+     "main": 20.1,
+     "render": 15.65,
+     "mainMin": 20.1,
+     "mainMax": 20.1,
+     "renderMin": 15.6,
+     "renderMax": 15.7,
+     "interleaved": false
+    },
+    "baseKey": "before"
+   },
+   "demo": null,
+   "probe": null,
+   "evidence": "rt-b2p2b-receive-core-20261007.json"
+  },
+  {
+   "id": "B2 P2c",
+   "label": "локальный ввод — на месте",
+   "title": "B2 P2c: local input in place",
+   "date": "2026-10-07",
+   "hash": "ba69395",
+   "time": "10-07 16:47",
+   "verdict": "less",
+   "focus": "main",
+   "review": "ok",
+   "gates": {
+    "scenarios10": true,
+    "appkit": true,
+    "emulator": true,
+    "tsan": false
+   },
+   "vs": {
+    "after": {
+     "n": 2,
+     "main": 20.0,
+     "render": 15.6,
+     "mainMin": 20.0,
+     "mainMax": 20.0,
+     "renderMin": 15.5,
+     "renderMax": 15.7
+    },
+    "base": {
+     "n": 2,
+     "main": 20.0,
+     "render": 16.0,
+     "mainMin": 20.0,
+     "mainMax": 20.0,
+     "renderMin": 15.6,
+     "renderMax": 16.4,
+     "interleaved": false
+    },
+    "baseKey": "before"
+   },
+   "demo": null,
+   "probe": null,
+   "evidence": "rt-b2p2c-local-input-20261007.json"
+  },
+  {
+   "id": "B2 P2d",
+   "label": "тест отката входа в матч",
+   "title": "B2 P2d: entry and local-input rollback test",
+   "date": "2026-10-07",
+   "hash": "96661df",
+   "time": "10-07 16:48",
+   "verdict": "test",
+   "focus": "test",
+   "review": "skipped",
+   "gates": {
+    "scenarios10": false,
+    "appkit": true,
+    "emulator": true,
+    "tsan": false
+   },
+   "vs": null,
+   "demo": null,
+   "probe": null,
+   "evidence": "rt-b2p2d-entry-rollback-test-20261007.json"
+  },
+  {
+   "id": "B2 P3",
+   "label": "ИИ и ввод объектов — на месте",
+   "title": "B2 P3: the AI and object-input children in place",
+   "date": "2026-10-07",
+   "hash": "e7dedda",
+   "time": "10-07 17:17",
+   "verdict": "kept",
+   "focus": "main",
+   "review": "ok",
+   "gates": {
+    "scenarios10": true,
+    "appkit": true,
+    "emulator": true,
+    "tsan": false
+   },
+   "vs": {
+    "after": {
+     "n": 2,
+     "main": 19.7,
+     "render": 16.0,
+     "mainMin": 19.6,
+     "mainMax": 19.8,
+     "renderMin": 15.6,
+     "renderMax": 16.4
+    },
+    "base": {
+     "n": 2,
+     "main": 20.0,
+     "render": 15.6,
+     "mainMin": 20.0,
+     "mainMax": 20.0,
+     "renderMin": 15.5,
+     "renderMax": 15.7,
+     "interleaved": false
+    },
+    "baseKey": "before"
+   },
+   "demo": null,
+   "probe": null,
+   "evidence": "rt-b2p3-ai-children-in-place-20261007.json"
+  },
+  {
+   "id": "B2 P3b",
+   "label": "проверки отката ИИ через обе формы",
+   "title": "B2 P3b: AI and object-input rollback checks through both forms",
+   "date": "2026-10-07",
+   "hash": "67f4083",
+   "time": "10-07 17:18",
+   "verdict": "test",
+   "focus": "test",
+   "review": "skipped",
+   "gates": {
+    "scenarios10": false,
+    "appkit": true,
+    "emulator": true,
+    "tsan": false
+   },
+   "vs": null,
+   "demo": null,
+   "probe": null,
+   "evidence": "rt-b2p3b-ai-rollback-checks-20261007.json"
+  },
+  {
+   "id": "A3 P0",
+   "label": "холостые итерации измерены отдельно",
+   "title": "A3 P0: idle iterations measured apart",
+   "date": "2026-10-07",
+   "hash": "3f7e9cb",
+   "time": "10-07 17:19",
+   "verdict": "telemetry",
+   "focus": "main",
+   "review": "skipped",
+   "gates": {
+    "scenarios10": true,
+    "appkit": true,
+    "emulator": true,
+    "tsan": false
+   },
+   "vs": {
+    "after": {
+     "n": 2,
+     "main": 19.85,
+     "render": 16.05,
+     "mainMin": 19.8,
+     "mainMax": 19.9,
+     "renderMin": 15.7,
+     "renderMax": 16.4
+    },
+    "base": null,
+    "baseKey": null
+   },
+   "demo": null,
+   "probe": null,
+   "evidence": "rt-a3p0-idle-split-20261007.json"
+  },
+  {
+   "id": "A3 L3",
+   "label": "холостой цикл — на пустом контексте",
+   "title": "A3 L3: the idle loop on an empty context",
+   "date": "2026-10-07",
+   "hash": "4e13691",
+   "time": "10-07 18:59",
+   "verdict": "less",
+   "focus": "main",
+   "review": "ok",
+   "gates": {
+    "scenarios10": true,
+    "appkit": true,
+    "emulator": true,
+    "tsan": false
+   },
+   "vs": {
+    "after": {
+     "n": 2,
+     "main": 19.85,
+     "render": 16.15,
+     "mainMin": 19.8,
+     "mainMax": 19.9,
+     "renderMin": 15.7,
+     "renderMax": 16.6
+    },
+    "base": {
+     "n": 2,
+     "main": 19.85,
+     "render": 16.05,
+     "mainMin": 19.8,
+     "mainMax": 19.9,
+     "renderMin": 15.7,
+     "renderMax": 16.4,
+     "interleaved": false
+    },
+    "baseKey": "before"
+   },
+   "demo": null,
+   "probe": null,
+   "evidence": "rt-a3l3-idle-context-20261007.json"
+  },
+  {
+   "id": "A3 P5a",
+   "label": "таймер итераций Android — timerfd",
+   "title": "A3 P5a: the Android host's iteration timer",
+   "date": "2026-10-07",
+   "hash": "bf85e22",
+   "time": "10-07 19:01",
+   "verdict": "kept",
+   "focus": "both",
+   "review": "ok",
+   "gates": {
+    "scenarios10": true,
+    "appkit": true,
+    "emulator": true,
+    "tsan": false
+   },
+   "vs": {
+    "after": {
+     "n": 2,
+     "main": 19.1,
+     "render": 14.05,
+     "mainMin": 19.0,
+     "mainMax": 19.2,
+     "renderMin": 13.7,
+     "renderMax": 14.4
+    },
+    "base": {
+     "n": 2,
+     "main": 19.85,
+     "render": 16.15,
+     "mainMin": 19.8,
+     "mainMax": 19.9,
+     "renderMin": 15.7,
+     "renderMax": 16.6,
+     "interleaved": false
+    },
+    "baseKey": "before"
+   },
+   "demo": null,
+   "probe": null,
+   "evidence": "rt-a3p5a-android-timer-20261007.json"
+  },
+  {
+   "id": "A3 P5b",
+   "label": "таймер итераций укреплён после ревью",
+   "title": "A3 P5b: the Android iteration timer hardened",
+   "date": "2026-10-07",
+   "hash": "8ac7969",
+   "time": "10-07 19:01",
+   "verdict": "follow",
+   "focus": "main",
+   "review": "skipped",
+   "gates": {
+    "scenarios10": false,
+    "appkit": true,
+    "emulator": true,
+    "tsan": false
+   },
+   "vs": {
+    "after": {
+     "n": 2,
+     "main": 19.2,
+     "render": 14.8,
+     "mainMin": 19.2,
+     "mainMax": 19.2,
+     "renderMin": 14.5,
+     "renderMax": 15.1
+    },
+    "base": {
+     "n": 2,
+     "main": 19.1,
+     "render": 14.05,
+     "mainMin": 19.0,
+     "mainMax": 19.2,
+     "renderMin": 13.7,
+     "renderMax": 14.4,
+     "interleaved": false
+    },
+    "baseKey": "before"
+   },
+   "demo": null,
+   "probe": null,
+   "evidence": "rt-a3p5b-timer-hardening-20261007.json"
+  },
+  {
+   "id": "4u",
+   "label": "ворота — только из чистых сборок",
+   "title": "4u: gate binaries from clean builds",
+   "date": "2026-10-07",
+   "hash": "180d845",
+   "time": "10-07 21:22",
+   "verdict": "procedure",
+   "focus": "build",
+   "review": "skipped",
+   "gates": {
+    "scenarios10": true,
+    "appkit": true,
+    "emulator": true,
+    "tsan": false
+   },
+   "vs": {
+    "after": {
+     "n": 2,
+     "main": 19.25,
+     "render": 14.6,
+     "mainMin": 19.2,
+     "mainMax": 19.3,
+     "renderMin": 14.6,
+     "renderMax": 14.6
+    },
+    "base": null,
+    "baseKey": null
+   },
+   "demo": null,
+   "probe": null,
+   "evidence": "rt-4u-clean-gate-builds-20261007.json"
+  },
+  {
+   "id": "4s",
+   "label": "слова битмапов читаются на месте",
+   "title": "Phase 4s: bitmap draws read their words in place",
+   "date": "2026-10-07",
+   "hash": "cbb15b5",
+   "time": "10-07 21:53",
+   "verdict": "kept",
+   "focus": "main",
+   "review": "ok",
+   "gates": {
+    "scenarios10": true,
+    "appkit": true,
+    "emulator": true,
+    "tsan": false
+   },
+   "vs": {
+    "after": {
+     "n": 2,
+     "main": 18.85,
+     "render": 14.35,
+     "mainMin": 18.8,
+     "mainMax": 18.9,
+     "renderMin": 14.2,
+     "renderMax": 14.5
+    },
+    "base": {
+     "n": 2,
+     "main": 19.25,
+     "render": 14.6,
+     "mainMin": 19.2,
+     "mainMax": 19.3,
+     "renderMin": 14.6,
+     "renderMax": 14.6,
+     "interleaved": false
+    },
+    "baseKey": "before"
+   },
+   "demo": null,
+   "probe": null,
+   "evidence": "rt-4s-bitmap-raw-words-20261007.json"
+  },
+  {
+   "id": "4t",
+   "label": "завершение цикла без копий",
+   "title": "Phase 4t: the loaded cycle's finish without copies",
+   "date": "2026-10-07",
+   "hash": "8d888a3",
+   "time": "10-07 22:17",
+   "verdict": "kept",
+   "focus": "main",
+   "review": "nits",
+   "gates": {
+    "scenarios10": true,
+    "appkit": true,
+    "emulator": true,
+    "tsan": false
+   },
+   "vs": {
+    "after": {
+     "n": 2,
+     "main": 18.55,
+     "render": 14.75,
+     "mainMin": 18.5,
+     "mainMax": 18.6,
+     "renderMin": 14.2,
+     "renderMax": 15.3
+    },
+    "base": {
+     "n": 2,
+     "main": 18.85,
+     "render": 14.35,
+     "mainMin": 18.8,
+     "mainMax": 18.9,
+     "renderMin": 14.2,
+     "renderMax": 14.5,
+     "interleaved": false
+    },
+    "baseKey": "before"
+   },
+   "demo": null,
+   "probe": null,
+   "evidence": "rt-4t-finish-copies-20261007.json"
+  },
+  {
+   "id": "A3 L4a",
+   "label": "холостые запросы без разрешений",
+   "title": "A3 L4a: the idle attempt's queue requests without permits",
+   "date": "2026-10-07",
+   "hash": "54bb195",
+   "time": "10-07 23:40",
+   "verdict": "less",
+   "focus": "main",
+   "review": "ok",
+   "gates": {
+    "scenarios10": true,
+    "appkit": true,
+    "emulator": true,
+    "tsan": false
+   },
+   "vs": {
+    "after": {
+     "n": 2,
+     "main": 18.5,
+     "render": 14.35,
+     "mainMin": 18.5,
+     "mainMax": 18.5,
+     "renderMin": 14.3,
+     "renderMax": 14.4
+    },
+    "base": {
+     "n": 2,
+     "main": 18.55,
+     "render": 14.75,
+     "mainMin": 18.5,
+     "mainMax": 18.6,
+     "renderMin": 14.2,
+     "renderMax": 15.3,
+     "interleaved": false
+    },
+    "baseKey": "before"
+   },
+   "demo": null,
+   "probe": null,
+   "evidence": "rt-a3l4a-direct-idle-queue-20261007.json"
+  },
+  {
+   "id": "1k",
+   "label": "одна отправка рендеру на батч",
+   "title": "Phase 1k: one render dispatch per replayed batch",
+   "date": "2026-10-07",
+   "hash": "3314f10",
+   "time": "10-07 23:41",
+   "verdict": "kept",
+   "focus": "both",
+   "review": "nits",
+   "gates": {
+    "scenarios10": true,
+    "appkit": true,
+    "emulator": true,
+    "tsan": false
+   },
+   "vs": {
+    "after": {
+     "n": 2,
+     "main": 18.25,
+     "render": 14.35,
+     "mainMin": 18.2,
+     "mainMax": 18.3,
+     "renderMin": 14.3,
+     "renderMax": 14.4
+    },
+    "base": {
+     "n": 2,
+     "main": 18.5,
+     "render": 14.35,
+     "mainMin": 18.5,
+     "mainMax": 18.5,
+     "renderMin": 14.3,
+     "renderMax": 14.4,
+     "interleaved": false
+    },
+    "baseKey": "before"
+   },
+   "demo": null,
+   "probe": null,
+   "evidence": "rt-1k-render-batch-20261007.json"
+  },
+  {
+   "id": "B2 P4a",
+   "label": "три прохода мира на месте",
+   "title": "B2 P4a: three world passes in place — reverted",
+   "date": "2026-10-08",
+   "hash": "43814e9",
+   "time": "10-08 00:21",
+   "verdict": "reverted",
+   "focus": "main",
+   "review": "ok",
+   "gates": {
+    "scenarios10": true,
+    "appkit": true,
+    "emulator": true,
+    "tsan": false
+   },
+   "vs": {
+    "after": {
+     "n": 2,
+     "main": 17.85,
+     "render": 13.85,
+     "mainMin": 17.7,
+     "mainMax": 18.0,
+     "renderMin": 13.4,
+     "renderMax": 14.3
+    },
+    "base": {
+     "n": 2,
+     "main": 18.0,
+     "render": 14.25,
+     "mainMin": 17.9,
+     "mainMax": 18.1,
+     "renderMin": 14.2,
+     "renderMax": 14.3,
+     "interleaved": false
+    },
+    "baseKey": "before"
+   },
+   "demo": null,
+   "probe": null,
+   "evidence": "rt-b2p4a-world-passes-reverted-20261008.json"
+  },
+  {
+   "id": "4w",
+   "label": "быстрые пути плоских записей",
+   "title": "4w: flat-record fast paths",
+   "date": "2026-10-08",
+   "hash": "2356f5a",
+   "time": "10-08 01:18",
+   "verdict": "kept",
+   "focus": "both",
+   "review": "ok",
+   "gates": {
+    "scenarios10": true,
+    "appkit": true,
+    "emulator": true,
+    "tsan": false
+   },
+   "vs": {
+    "after": {
+     "n": 2,
+     "main": 18.0,
+     "render": 14.25,
+     "mainMin": 17.9,
+     "mainMax": 18.1,
+     "renderMin": 14.2,
+     "renderMax": 14.3
+    },
+    "base": {
+     "n": 2,
+     "main": 18.25,
+     "render": 14.35,
+     "mainMin": 18.2,
+     "mainMax": 18.3,
+     "renderMin": 14.3,
+     "renderMax": 14.4,
+     "interleaved": false
+    },
+    "baseKey": "before"
+   },
+   "demo": null,
+   "probe": null,
+   "evidence": "rt-4w-flat-fast-paths-20261008.json"
+  },
+  {
+   "id": "B2 P4b+c",
+   "label": "управление, физика, жизненный цикл — на месте",
+   "title": "B2 P4b+c: control, physics and lifecycle chains in place",
+   "date": "2026-10-08",
+   "hash": "1ff5775",
+   "time": "10-08 04:06",
+   "verdict": "kept",
+   "focus": "main",
+   "review": "nits",
+   "gates": {
+    "scenarios10": true,
+    "appkit": true,
+    "emulator": true,
+    "tsan": false
+   },
+   "vs": {
+    "after": {
+     "n": 4,
+     "main": 17.9,
+     "render": 14.05,
+     "mainMin": 17.7,
+     "mainMax": 18.0,
+     "renderMin": 13.3,
+     "renderMax": 14.4
+    },
+    "base": {
+     "n": 4,
+     "main": 18.15,
+     "render": 14.45,
+     "mainMin": 18.1,
+     "mainMax": 18.2,
+     "renderMin": 14.0,
+     "renderMax": 15.1,
+     "interleaved": true
+    },
+    "baseKey": "baseline_4w_same_day"
+   },
+   "demo": null,
+   "probe": null,
+   "evidence": "rt-b2p4bc-control-physics-lifecycle-20261008.json"
+  },
+  {
+   "id": "B2 P4d",
+   "label": "связи, контакты, камера, рисование — на месте",
+   "title": "B2 P4d: links, contacts, camera, drawing and impulses in place",
+   "date": "2026-10-08",
+   "hash": "bdaf40f",
+   "time": "10-08 04:07",
+   "verdict": "kept",
+   "focus": "main",
+   "review": "ok",
+   "gates": {
+    "scenarios10": true,
+    "appkit": true,
+    "emulator": true,
+    "tsan": false
+   },
+   "vs": {
+    "after": {
+     "n": 2,
+     "main": 17.75,
+     "render": 14.15,
+     "mainMin": 17.7,
+     "mainMax": 17.8,
+     "renderMin": 14.1,
+     "renderMax": 14.2
+    },
+    "base": {
+     "n": 4,
+     "main": 18.15,
+     "render": 14.45,
+     "mainMin": 18.1,
+     "mainMax": 18.2,
+     "renderMin": 14.0,
+     "renderMax": 15.1,
+     "interleaved": true
+    },
+    "baseKey": "baseline_4w_same_day"
+   },
+   "demo": null,
+   "probe": null,
+   "evidence": "rt-b2p4d-links-contacts-camera-drawing-impulses-20261008.json"
+  },
+  {
+   "id": "B2 P4e",
+   "label": "удары, cpoints и запись — на месте",
+   "title": "B2 P4e: hits, cpoints and recording in place",
+   "date": "2026-10-08",
+   "hash": "89f4b52",
+   "time": "10-08 04:27",
+   "verdict": "kept",
+   "focus": "main",
+   "review": "nits",
+   "gates": {
+    "scenarios10": true,
+    "appkit": true,
+    "emulator": true,
+    "tsan": false
+   },
+   "vs": {
+    "after": {
+     "n": 3,
+     "main": 17.43,
+     "render": 14.17,
+     "mainMin": 17.4,
+     "mainMax": 17.5,
+     "renderMin": 14.0,
+     "renderMax": 14.3
+    },
+    "base": {
+     "n": 5,
+     "main": 18.14,
+     "render": 14.6,
+     "mainMin": 18.1,
+     "mainMax": 18.2,
+     "renderMin": 14.0,
+     "renderMax": 15.2,
+     "interleaved": true
+    },
+    "baseKey": "baseline_4w_same_day"
+   },
+   "demo": null,
+   "probe": null,
+   "evidence": "rt-b2p4e-hits-cpoints-recording-20261008.json"
+  },
+  {
+   "id": "B2 P4f",
+   "label": "команды после отрисовки — на месте",
+   "title": "B2 P4f: post-draw commands in place",
+   "date": "2026-10-08",
+   "hash": "0805251",
+   "time": "10-08 05:53",
+   "verdict": "kept",
+   "focus": "main",
+   "review": "ok",
+   "gates": {
+    "scenarios10": true,
+    "appkit": true,
+    "emulator": true,
+    "tsan": false
+   },
+   "vs": {
+    "after": {
+     "n": 5,
+     "main": 16.86,
+     "render": 14.38,
+     "mainMin": 16.4,
+     "mainMax": 17.2,
+     "renderMin": 12.9,
+     "renderMax": 15.4
+    },
+    "base": {
+     "n": 5,
+     "main": 18.14,
+     "render": 14.6,
+     "mainMin": 18.1,
+     "mainMax": 18.2,
+     "renderMin": 14.0,
+     "renderMax": 15.2,
+     "interleaved": true
+    },
+    "baseKey": "baseline_4w_same_day"
+   },
+   "demo": null,
+   "probe": null,
+   "evidence": "rt-b2p4f-commands-20261008.json"
+  },
+  {
+   "id": "4x",
+   "label": "попытка загрузки без случайного UUID",
+   "title": "4x: attempt identity without a random UUID",
+   "date": "2026-10-08",
+   "hash": "2d56169",
+   "time": "10-08 05:54",
+   "verdict": "less",
+   "focus": "main",
+   "review": "ok",
+   "gates": {
+    "scenarios10": true,
+    "appkit": true,
+    "emulator": true,
+    "tsan": false
+   },
+   "vs": {
+    "after": {
+     "n": 4,
+     "main": 16.93,
+     "render": 13.95,
+     "mainMin": 16.6,
+     "mainMax": 17.1,
+     "renderMin": 13.3,
+     "renderMax": 14.3
+    },
+    "base": {
+     "n": 3,
+     "main": 16.9,
+     "render": 14.67,
+     "mainMin": 16.6,
+     "mainMax": 17.1,
+     "renderMin": 14.2,
+     "renderMax": 15.4,
+     "interleaved": true
+    },
+    "baseKey": "before_P4f_same_session"
+   },
+   "demo": null,
+   "probe": null,
+   "evidence": "rt-4x-attempt-identity-20261008.json"
+  },
+  {
+   "id": "B3a",
+   "label": "загруженный цикл — один уровень транзакции",
+   "title": "B3a: loaded cycle in one transactional level — reverted",
+   "date": "2026-10-08",
+   "hash": "0551555",
+   "time": "10-08 06:13",
+   "verdict": "reverted",
+   "focus": "main",
+   "review": "ok",
+   "gates": {
+    "scenarios10": true,
+    "appkit": true,
+    "emulator": true,
+    "tsan": false
+   },
+   "vs": {
+    "after": {
+     "n": 2,
+     "main": 16.95,
+     "render": 14.5,
+     "mainMin": 16.8,
+     "mainMax": 17.1,
+     "renderMin": 14.1,
+     "renderMax": 14.9
+    },
+    "base": {
+     "n": 2,
+     "main": 17.05,
+     "render": 14.1,
+     "mainMin": 17.0,
+     "mainMax": 17.1,
+     "renderMin": 14.0,
+     "renderMax": 14.2,
+     "interleaved": true
+    },
+    "baseKey": "before_4x_same_session"
+   },
+   "demo": null,
+   "probe": null,
+   "evidence": "rt-b3a-loaded-cycle-in-place-20261008.json"
+  },
+  {
+   "id": "B2 P4g",
+   "label": "вывод и метка режима — на месте",
+   "title": "B2 P4g: gameplay output and mode label in place",
+   "date": "2026-10-08",
+   "hash": "7b60f50",
+   "time": "10-08 07:03",
+   "verdict": "less",
+   "focus": "main",
+   "review": "ok",
+   "gates": {
+    "scenarios10": true,
+    "appkit": true,
+    "emulator": true,
+    "tsan": false
+   },
+   "vs": {
+    "after": {
+     "n": 3,
+     "main": 16.97,
+     "render": 14.53,
+     "mainMin": 16.9,
+     "mainMax": 17.0,
+     "renderMin": 14.2,
+     "renderMax": 15.2
+    },
+    "base": {
+     "n": 6,
+     "main": 16.85,
+     "render": 13.87,
+     "mainMin": 16.5,
+     "mainMax": 17.1,
+     "renderMin": 13.3,
+     "renderMax": 14.3,
+     "interleaved": true
+    },
+    "baseKey": "baseline_4x_same_night"
+   },
+   "demo": null,
+   "probe": null,
+   "evidence": "rt-b2p4g-output-mode-label-20261008.json"
+  },
+  {
+   "id": "4z",
+   "label": "шрифт ищет битмап глифа один раз",
+   "title": "4z: the font resolves each glyph bitmap once per draw",
+   "date": "2026-10-08",
+   "hash": "241ed04",
+   "time": "10-08 09:26",
+   "verdict": "kept",
+   "focus": "main",
+   "review": "nits",
+   "gates": {
+    "scenarios10": true,
+    "appkit": true,
+    "emulator": true,
+    "tsan": false
+   },
+   "vs": {
+    "after": {
+     "n": 2,
+     "main": 16.85,
+     "render": 14.15,
+     "mainMin": 16.83,
+     "mainMax": 16.88,
+     "renderMin": 14.13,
+     "renderMax": 14.17
+    },
+    "base": {
+     "n": 4,
+     "main": 16.91,
+     "render": 14.05,
+     "mainMin": 16.9,
+     "mainMax": 16.92,
+     "renderMin": 13.96,
+     "renderMax": 14.1,
+     "interleaved": true
+    },
+    "baseKey": "before_P4g_same_session"
+   },
+   "demo": {
+    "after": {
+     "n": 3,
+     "main": 16.68,
+     "render": 12.03,
+     "mainMin": 16.62,
+     "mainMax": 16.73,
+     "renderMin": 12.01,
+     "renderMax": 12.05
+    },
+    "base": {
+     "n": 6,
+     "main": 17.54,
+     "render": 12.0,
+     "mainMin": 17.46,
+     "mainMax": 17.67,
+     "renderMin": 11.92,
+     "renderMax": 12.1,
+     "interleaved": true
+    },
+    "baseKey": "before_P4g_same_session"
+   },
+   "probe": null,
+   "evidence": "rt-4z-font-bitmap-once-20261008.json"
+  },
+  {
+   "id": "4aa",
+   "label": "релиз без динамических проверок эксклюзивности",
+   "title": "4aa: shipping builds without dynamic exclusivity checks — 60 fps",
+   "date": "2026-10-08",
+   "hash": "3d8935d",
+   "time": "10-08 19:48",
+   "verdict": "decision",
+   "focus": "both",
+   "review": "ok",
+   "gates": {
+    "scenarios10": true,
+    "appkit": true,
+    "emulator": true,
+    "tsan": false
+   },
+   "vs": {
+    "after": {
+     "n": 3,
+     "main": 16.25,
+     "render": 13.82,
+     "mainMin": 15.93,
+     "mainMax": 16.43,
+     "renderMin": 13.6,
+     "renderMax": 14.07
+    },
+    "base": {
+     "n": 2,
+     "main": 16.77,
+     "render": 14.08,
+     "mainMin": 16.74,
+     "mainMax": 16.81,
+     "renderMin": 14.08,
+     "renderMax": 14.08,
+     "interleaved": true
+    },
+    "baseKey": "4z_same_session"
+   },
+   "demo": {
+    "after": {
+     "n": 3,
+     "main": 16.13,
+     "render": 11.99,
+     "mainMin": 16.06,
+     "mainMax": 16.18,
+     "renderMin": 11.96,
+     "renderMax": 12.01
+    },
+    "base": {
+     "n": 2,
+     "main": 16.54,
+     "render": 12.09,
+     "mainMin": 16.47,
+     "mainMax": 16.61,
+     "renderMin": 12.07,
+     "renderMax": 12.12,
+     "interleaved": true
+    },
+    "baseKey": "4z_same_session"
+   },
+   "probe": null,
+   "evidence": "rt-4aa-unchecked-exclusivity-60fps-20261008.json"
+  },
+  {
+   "id": "4ab",
+   "label": "тот же выключатель для FreeType, SDL и iOS",
+   "title": "4ab: the switch for FreeType text, SDL and iOS",
+   "date": "2026-10-08",
+   "hash": "0dd7740",
+   "time": "10-08 20:46",
+   "verdict": "follow",
+   "focus": "both",
+   "review": "skipped",
+   "gates": {
+    "scenarios10": false,
+    "appkit": true,
+    "emulator": true,
+    "tsan": false
+   },
+   "vs": {
+    "after": {
+     "n": 2,
+     "main": 16.43,
+     "render": 13.93,
+     "mainMin": 16.39,
+     "mainMax": 16.47,
+     "renderMin": 13.92,
+     "renderMax": 13.93
+    },
+    "base": {
+     "n": 1,
+     "main": 16.36,
+     "render": 13.86,
+     "mainMin": 16.36,
+     "mainMax": 16.36,
+     "renderMin": 13.86,
+     "renderMax": 13.86,
+     "interleaved": true
+    },
+    "baseKey": "4aa_same_session"
+   },
+   "demo": {
+    "after": {
+     "n": 2,
+     "main": 16.11,
+     "render": 11.96,
+     "mainMin": 16.07,
+     "mainMax": 16.15,
+     "renderMin": 11.94,
+     "renderMax": 11.97
+    },
+    "base": {
+     "n": 1,
+     "main": 16.24,
+     "render": 12.1,
+     "mainMin": 16.24,
+     "mainMax": 16.24,
+     "renderMin": 12.1,
+     "renderMax": 12.1,
+     "interleaved": true
+    },
+    "baseKey": "4aa_same_session"
+   },
+   "probe": null,
+   "evidence": "rt-4ab-exclusivity-freetype-sdl-ios-20261008.json"
+  },
+  {
+   "id": "S1",
+   "label": "двухуровневые таблицы страниц повтора",
+   "title": "S1 (tier 3): two-level page tables",
+   "date": "2026-10-08",
+   "hash": "e6c4c00",
+   "time": "10-08 22:22",
+   "verdict": "kept",
+   "focus": "main",
+   "review": "caught",
+   "gates": {
+    "scenarios10": true,
+    "appkit": true,
+    "emulator": true,
+    "tsan": false
+   },
+   "vs": {
+    "after": {
+     "n": 3,
+     "main": 15.73,
+     "render": 13.94,
+     "mainMin": 15.59,
+     "mainMax": 15.86,
+     "renderMin": 13.89,
+     "renderMax": 14.03
+    },
+    "base": {
+     "n": 2,
+     "main": 16.43,
+     "render": 13.95,
+     "mainMin": 16.4,
+     "mainMax": 16.47,
+     "renderMin": 13.87,
+     "renderMax": 14.04,
+     "interleaved": true
+    },
+    "baseKey": "rt4ab_same_session"
+   },
+   "demo": {
+    "after": {
+     "n": 3,
+     "main": 16.03,
+     "render": 11.93,
+     "mainMin": 15.98,
+     "mainMax": 16.08,
+     "renderMin": 11.9,
+     "renderMax": 11.98
+    },
+    "base": {
+     "n": 2,
+     "main": 16.14,
+     "render": 11.98,
+     "mainMin": 16.08,
+     "mainMax": 16.2,
+     "renderMin": 11.98,
+     "renderMax": 11.99,
+     "interleaved": true
+    },
+    "baseKey": "rt4ab_same_session"
+   },
+   "probe": null,
+   "evidence": "rt-s1-two-level-pages-20261008.json"
+  },
+  {
+   "id": "G1",
+   "label": "невидимые спрайты и глифы — на стеке",
+   "title": "G1 (tier 3): unobserved draws on the stack",
+   "date": "2026-10-08",
+   "hash": "55dbf94",
+   "time": "10-08 23:33",
+   "verdict": "kept",
+   "focus": "main",
+   "review": "caught",
+   "gates": {
+    "scenarios10": true,
+    "appkit": true,
+    "emulator": true,
+    "tsan": false
+   },
+   "vs": {
+    "after": {
+     "n": 3,
+     "main": 15.67,
+     "render": 13.98,
+     "mainMin": 15.56,
+     "mainMax": 15.86,
+     "renderMin": 13.84,
+     "renderMax": 14.14
+    },
+    "base": {
+     "n": 2,
+     "main": 15.79,
+     "render": 13.92,
+     "mainMin": 15.74,
+     "mainMax": 15.84,
+     "renderMin": 13.9,
+     "renderMax": 13.94,
+     "interleaved": true
+    },
+    "baseKey": "rts1_same_session"
+   },
+   "demo": {
+    "after": {
+     "n": 3,
+     "main": 15.46,
+     "render": 11.89,
+     "mainMin": 15.4,
+     "mainMax": 15.51,
+     "renderMin": 11.88,
+     "renderMax": 11.9
+    },
+    "base": {
+     "n": 2,
+     "main": 16.06,
+     "render": 12.0,
+     "mainMin": 16.02,
+     "mainMax": 16.11,
+     "renderMin": 11.96,
+     "renderMax": 12.03,
+     "interleaved": true
+    },
+    "baseKey": "rts1_same_session"
+   },
+   "probe": null,
+   "evidence": "rt-g1-unobserved-draw-20261008.json"
+  },
+  {
+   "id": "G3a",
+   "label": "прямые команды Blt и заливки",
+   "title": "G3a (tier 3): direct Blt and fill commands",
+   "date": "2026-10-09",
+   "hash": "5e01e67",
+   "time": "10-09 01:02",
+   "verdict": "less",
+   "focus": "main",
+   "review": "nits",
+   "gates": {
+    "scenarios10": true,
+    "appkit": true,
+    "emulator": true,
+    "tsan": false
+   },
+   "vs": {
+    "after": {
+     "n": 3,
+     "main": 15.65,
+     "render": 14.11,
+     "mainMin": 15.59,
+     "mainMax": 15.71,
+     "renderMin": 13.93,
+     "renderMax": 14.44
+    },
+    "base": {
+     "n": 2,
+     "main": 15.83,
+     "render": 14.42,
+     "mainMin": 15.7,
+     "mainMax": 15.96,
+     "renderMin": 13.85,
+     "renderMax": 14.99,
+     "interleaved": true
+    },
+    "baseKey": "rtg1_same_session"
+   },
+   "demo": {
+    "after": {
+     "n": 3,
+     "main": 15.52,
+     "render": 11.91,
+     "mainMin": 15.49,
+     "mainMax": 15.58,
+     "renderMin": 11.89,
+     "renderMax": 11.96
+    },
+    "base": {
+     "n": 2,
+     "main": 15.54,
+     "render": 11.97,
+     "mainMin": 15.48,
+     "mainMax": 15.6,
+     "renderMin": 11.89,
+     "renderMax": 12.05,
+     "interleaved": true
+    },
+    "baseKey": "rtg1_same_session"
+   },
+   "probe": {
+    "what": "emit",
+    "before": 7.7,
+    "after": 7.0
+   },
+   "evidence": "rt-g3a-direct-blit-fill-20261009.json"
+  },
+  {
+   "id": "G3b",
+   "label": "без наблюдений, которые никто не получает",
+   "title": "G3b (tier 3): no observations nobody receives",
+   "date": "2026-10-09",
+   "hash": "5db3e6a",
+   "time": "10-09 02:42",
+   "verdict": "less",
+   "focus": "main",
+   "review": "nits",
+   "gates": {
+    "scenarios10": true,
+    "appkit": true,
+    "emulator": true,
+    "tsan": false
+   },
+   "vs": {
+    "after": {
+     "n": 3,
+     "main": 15.55,
+     "render": 13.97,
+     "mainMin": 15.48,
+     "mainMax": 15.62,
+     "renderMin": 13.9,
+     "renderMax": 14.03
+    },
+    "base": {
+     "n": 2,
+     "main": 15.62,
+     "render": 13.94,
+     "mainMin": 15.59,
+     "mainMax": 15.66,
+     "renderMin": 13.91,
+     "renderMax": 13.97,
+     "interleaved": true
+    },
+    "baseKey": "rtg3a_same_session"
+   },
+   "demo": {
+    "after": {
+     "n": 6,
+     "main": 15.4,
+     "render": 11.94,
+     "mainMin": 15.26,
+     "mainMax": 15.53,
+     "renderMin": 11.85,
+     "renderMax": 12.02
+    },
+    "base": {
+     "n": 5,
+     "main": 15.27,
+     "render": 11.79,
+     "mainMin": 14.58,
+     "mainMax": 15.54,
+     "renderMin": 11.09,
+     "renderMax": 12.0,
+     "interleaved": true
+    },
+    "baseKey": "rtg3a_same_session"
+   },
+   "probe": null,
+   "evidence": "rt-g3b-unobserved-observations-20261009.json"
+  },
+  {
+   "id": "G3c",
+   "label": "событие Blt строится на месте",
+   "title": "G3c (tier 3): the Blt event in place",
+   "date": "2026-10-09",
+   "hash": "887490c",
+   "time": "10-09 03:49",
+   "verdict": "kept",
+   "focus": "main",
+   "review": "nits",
+   "gates": {
+    "scenarios10": true,
+    "appkit": true,
+    "emulator": true,
+    "tsan": false
+   },
+   "vs": {
+    "after": {
+     "n": 3,
+     "main": 15.42,
+     "render": 14.23,
+     "mainMin": 15.3,
+     "mainMax": 15.5,
+     "renderMin": 13.97,
+     "renderMax": 14.63
+    },
+    "base": {
+     "n": 2,
+     "main": 15.57,
+     "render": 14.0,
+     "mainMin": 15.53,
+     "mainMax": 15.61,
+     "renderMin": 13.89,
+     "renderMax": 14.11,
+     "interleaved": true
+    },
+    "baseKey": "rtg3b_same_session"
+   },
+   "demo": {
+    "after": {
+     "n": 3,
+     "main": 15.22,
+     "render": 11.82,
+     "mainMin": 15.07,
+     "mainMax": 15.45,
+     "renderMin": 11.7,
+     "renderMax": 11.89
+    },
+    "base": {
+     "n": 2,
+     "main": 15.3,
+     "render": 11.99,
+     "mainMin": 15.29,
+     "mainMax": 15.31,
+     "renderMin": 11.96,
+     "renderMax": 12.02,
+     "interleaved": true
+    },
+    "baseKey": "rtg3b_same_session"
+   },
+   "probe": {
+    "what": "emit",
+    "before": 6.82,
+    "after": 6.07
+   },
+   "evidence": "rt-g3c-in-place-blit-event-20261009.json"
+  },
+  {
+   "id": "d1",
+   "label": "списки команд резервируются заранее",
+   "title": "d1 (tier 3): reserved command and operation lists",
+   "date": "2026-10-09",
+   "hash": "8b98653",
+   "time": "10-09 04:59",
+   "verdict": "less",
+   "focus": "main",
+   "review": "skipped",
+   "gates": {
+    "scenarios10": true,
+    "appkit": true,
+    "emulator": true,
+    "tsan": false
+   },
+   "vs": {
+    "after": {
+     "n": 3,
+     "main": 15.38,
+     "render": 13.89,
+     "mainMin": 15.17,
+     "mainMax": 15.49,
+     "renderMin": 13.85,
+     "renderMax": 13.92
+    },
+    "base": {
+     "n": 2,
+     "main": 15.47,
+     "render": 13.87,
+     "mainMin": 15.44,
+     "mainMax": 15.5,
+     "renderMin": 13.85,
+     "renderMax": 13.89,
+     "interleaved": true
+    },
+    "baseKey": "rtg3c_same_session"
+   },
+   "demo": {
+    "after": {
+     "n": 3,
+     "main": 15.33,
+     "render": 11.91,
+     "mainMin": 15.15,
+     "mainMax": 15.48,
+     "renderMin": 11.88,
+     "renderMax": 11.93
+    },
+    "base": {
+     "n": 2,
+     "main": 15.37,
+     "render": 12.12,
+     "mainMin": 15.33,
+     "mainMax": 15.4,
+     "renderMin": 11.97,
+     "renderMax": 12.27,
+     "interleaved": true
+    },
+    "baseKey": "rtg3c_same_session"
+   },
+   "probe": {
+    "what": "emit",
+    "before": 6.07,
+    "after": 5.17
+   },
+   "evidence": "rt-d1-reserved-lists-20261009.json"
+  },
+  {
+   "id": "R2@09",
+   "label": "вывод Android — в свой поток",
+   "title": "R2 (tier 3, render): the Android present on its own thread — not committed",
+   "date": "2026-10-09",
+   "hash": "2459bdb",
+   "time": "10-09 06:09",
+   "verdict": "parked",
+   "focus": "render",
+   "review": "caught",
+   "gates": {
+    "scenarios10": true,
+    "appkit": true,
+    "emulator": true,
+    "tsan": false
+   },
+   "vs": {
+    "after": {
+     "n": 2,
+     "main": 15.46,
+     "render": 9.98,
+     "mainMin": 15.43,
+     "mainMax": 15.48,
+     "renderMin": 9.96,
+     "renderMax": 10.0,
+     "present": 5.05
+    },
+    "base": {
+     "n": 2,
+     "main": 15.27,
+     "render": 13.92,
+     "mainMin": 15.2,
+     "mainMax": 15.34,
+     "renderMin": 13.83,
+     "renderMax": 14.01,
+     "interleaved": true
+    },
+    "baseKey": "rtd1_same_session"
+   },
+   "demo": {
+    "after": {
+     "n": 3,
+     "main": 15.66,
+     "render": 7.8,
+     "mainMin": 15.61,
+     "mainMax": 15.71,
+     "renderMin": 7.73,
+     "renderMax": 7.83,
+     "present": 4.93
+    },
+    "base": {
+     "n": 2,
+     "main": 15.3,
+     "render": 12.04,
+     "mainMin": 15.3,
+     "mainMax": 15.3,
+     "renderMin": 12.03,
+     "renderMax": 12.04,
+     "interleaved": true
+    },
+    "baseKey": "rtd1_same_session"
+   },
+   "probe": null,
+   "evidence": "rt-r2-presenter-thread-parked-20261009.json"
+  },
+  {
+   "id": "S2a",
+   "label": "узкие чтения записей: 169 правок в 79 файлах",
+   "title": "S2a (tier 3): narrow record reads",
+   "date": "2026-10-09",
+   "hash": "fc00d70",
+   "time": "10-09 11:18",
+   "verdict": "less",
+   "focus": "main",
+   "review": "nits",
+   "gates": {
+    "scenarios10": true,
+    "appkit": true,
+    "emulator": true,
+    "tsan": false
+   },
+   "vs": {
+    "after": {
+     "n": 3,
+     "main": 15.37,
+     "render": 13.94,
+     "mainMin": 15.28,
+     "mainMax": 15.52,
+     "renderMin": 13.9,
+     "renderMax": 13.99
+    },
+    "base": {
+     "n": 2,
+     "main": 15.34,
+     "render": 13.95,
+     "mainMin": 15.33,
+     "mainMax": 15.36,
+     "renderMin": 13.91,
+     "renderMax": 13.98,
+     "interleaved": true
+    },
+    "baseKey": "rtd1_same_session"
+   },
+   "demo": {
+    "after": {
+     "n": 3,
+     "main": 15.16,
+     "render": 11.92,
+     "mainMin": 15.06,
+     "mainMax": 15.29,
+     "renderMin": 11.86,
+     "renderMax": 12.01
+    },
+    "base": {
+     "n": 2,
+     "main": 15.08,
+     "render": 11.89,
+     "mainMin": 14.95,
+     "mainMax": 15.21,
+     "renderMin": 11.89,
+     "renderMax": 11.9,
+     "interleaved": true
+    },
+    "baseKey": "rtd1_same_session"
+   },
+   "probe": null,
+   "evidence": "rt-s2a-narrow-reads-20261009.json"
+  },
+  {
+   "id": "S2b",
+   "label": "запись — один буфер с битовой маской",
+   "title": "S2b (tier 3): one buffer per record",
+   "date": "2026-10-09",
+   "hash": "10b9c05",
+   "time": "10-09 18:51",
+   "verdict": "kept",
+   "focus": "main",
+   "review": "caught",
+   "gates": {
+    "scenarios10": true,
+    "appkit": true,
+    "emulator": true,
+    "tsan": false
+   },
+   "vs": {
+    "after": {
+     "n": 3,
+     "main": 14.36,
+     "render": 14.13,
+     "mainMin": 14.34,
+     "mainMax": 14.38,
+     "renderMin": 14.07,
+     "renderMax": 14.19
+    },
+    "base": {
+     "n": 2,
+     "main": 15.29,
+     "render": 13.93,
+     "mainMin": 15.25,
+     "mainMax": 15.33,
+     "renderMin": 13.87,
+     "renderMax": 13.99,
+     "interleaved": true
+    },
+    "baseKey": "rts2a_same_session"
+   },
+   "demo": {
+    "after": {
+     "n": 3,
+     "main": 14.04,
+     "render": 11.94,
+     "mainMin": 13.99,
+     "mainMax": 14.1,
+     "renderMin": 11.89,
+     "renderMax": 12.02
+    },
+    "base": {
+     "n": 2,
+     "main": 15.25,
+     "render": 11.93,
+     "mainMin": 15.25,
+     "mainMax": 15.26,
+     "renderMin": 11.9,
+     "renderMax": 11.95,
+     "interleaved": true
+    },
+    "baseKey": "rts2a_same_session"
+   },
+   "probe": {
+    "what": "копирование массивов при записи",
+    "before": 9.4,
+    "after": 4.96
+   },
+   "evidence": "rt-s2b-record-storage-20261009.json"
+  },
+  {
+   "id": "S3",
+   "label": "таблица актёров кусками по 16",
+   "title": "S3 (tier 3): the actor table in chunks — not committed",
+   "date": "2026-10-09",
+   "hash": "cea9fd0",
+   "time": "10-09 18:52",
+   "verdict": "parked",
+   "focus": "main",
+   "review": "nits",
+   "gates": {
+    "scenarios10": true,
+    "appkit": true,
+    "emulator": true,
+    "tsan": false
+   },
+   "vs": {
+    "after": {
+     "n": 3,
+     "main": 14.26,
+     "render": 14.14,
+     "mainMin": 14.16,
+     "mainMax": 14.37,
+     "renderMin": 13.84,
+     "renderMax": 14.7
+    },
+    "base": {
+     "n": 2,
+     "main": 14.18,
+     "render": 14.0,
+     "mainMin": 14.09,
+     "mainMax": 14.28,
+     "renderMin": 14.0,
+     "renderMax": 14.0,
+     "interleaved": true
+    },
+    "baseKey": "rts2b_same_session"
+   },
+   "demo": {
+    "after": {
+     "n": 3,
+     "main": 13.6,
+     "render": 11.66,
+     "mainMin": 12.64,
+     "mainMax": 14.14,
+     "renderMin": 11.06,
+     "renderMax": 12.0
+    },
+    "base": {
+     "n": 2,
+     "main": 14.0,
+     "render": 11.96,
+     "mainMin": 13.85,
+     "mainMax": 14.15,
+     "renderMin": 11.92,
+     "renderMax": 11.99,
+     "interleaved": true
+    },
+    "baseKey": "rts2b_same_session"
+   },
+   "probe": null,
+   "evidence": "rt-s3-actor-table-parked-20261009.json"
+  },
+  {
+   "id": "d2",
+   "label": "хвост коммита Host — отдельно",
+   "title": "d2 (tier 3): the Host's commit keeps the loop tail apart",
+   "date": "2026-10-09",
+   "hash": "86ef8f4",
+   "time": "10-09 18:52",
+   "verdict": "kept",
+   "focus": "main",
+   "review": "nits",
+   "gates": {
+    "scenarios10": true,
+    "appkit": true,
+    "emulator": true,
+    "tsan": false
+   },
+   "vs": {
+    "after": {
+     "n": 3,
+     "main": 14.16,
+     "render": 14.12,
+     "mainMin": 14.05,
+     "mainMax": 14.24,
+     "renderMin": 13.83,
+     "renderMax": 14.61
+    },
+    "base": {
+     "n": 2,
+     "main": 14.25,
+     "render": 14.11,
+     "mainMin": 14.24,
+     "mainMax": 14.26,
+     "renderMin": 13.73,
+     "renderMax": 14.49,
+     "interleaved": true
+    },
+    "baseKey": "rts2b_same_session"
+   },
+   "demo": {
+    "after": {
+     "n": 3,
+     "main": 13.89,
+     "render": 11.93,
+     "mainMin": 13.84,
+     "mainMax": 13.94,
+     "renderMin": 11.92,
+     "renderMax": 11.96
+    },
+    "base": {
+     "n": 2,
+     "main": 14.07,
+     "render": 11.97,
+     "mainMin": 13.99,
+     "mainMax": 14.14,
+     "renderMin": 11.96,
+     "renderMax": 11.98,
+     "interleaved": true
+    },
+    "baseKey": "rts2b_same_session"
+   },
+   "probe": null,
+   "evidence": "rt-d2-commit-tail-apart-20261009.json"
+  },
+  {
+   "id": "g",
+   "label": "повтор без массивов владельцев",
+   "title": "g (tier 3): the display replay without owner arrays or second lookups",
+   "date": "2026-10-09",
+   "hash": "c69b2ea",
+   "time": "10-09 18:52",
+   "verdict": "kept",
+   "focus": "main",
+   "review": "skipped",
+   "gates": {
+    "scenarios10": true,
+    "appkit": true,
+    "emulator": true,
+    "tsan": false
+   },
+   "vs": {
+    "after": {
+     "n": 3,
+     "main": 14.17,
+     "render": 13.88,
+     "mainMin": 14.06,
+     "mainMax": 14.26,
+     "renderMin": 13.78,
+     "renderMax": 13.99
+    },
+    "base": {
+     "n": 2,
+     "main": 13.68,
+     "render": 13.55,
+     "mainMin": 12.98,
+     "mainMax": 14.37,
+     "renderMin": 13.21,
+     "renderMax": 13.9,
+     "interleaved": true
+    },
+    "baseKey": "rtd2_same_session"
+   },
+   "demo": {
+    "after": {
+     "n": 3,
+     "main": 13.08,
+     "render": 11.45,
+     "mainMin": 11.62,
+     "mainMax": 13.81,
+     "renderMin": 10.39,
+     "renderMax": 11.98
+    },
+    "base": {
+     "n": 2,
+     "main": 13.9,
+     "render": 11.96,
+     "mainMin": 13.87,
+     "mainMax": 13.94,
+     "renderMin": 11.86,
+     "renderMax": 12.05,
+     "interleaved": true
+    },
+    "baseKey": "rtd2_same_session"
+   },
+   "probe": {
+    "what": "бэкенд дисплея",
+    "before": 6.7,
+    "after": 5.88
+   },
+   "evidence": "rt-g-replay-front-20261009.json"
+  },
+  {
+   "id": "M1",
+   "label": "таблица актёров мира — за один проход",
+   "title": "M1 (tier 3): the World's actor table converted in one pass",
+   "date": "2026-10-09",
+   "hash": "4c38d06",
+   "time": "10-09 18:53",
+   "verdict": "kept",
+   "focus": "main",
+   "review": "nits",
+   "gates": {
+    "scenarios10": true,
+    "appkit": true,
+    "emulator": true,
+    "tsan": false
+   },
+   "vs": {
+    "after": {
+     "n": 3,
+     "main": 14.02,
+     "render": 13.89,
+     "mainMin": 13.91,
+     "mainMax": 14.1,
+     "renderMin": 13.83,
+     "renderMax": 13.94
+    },
+    "base": {
+     "n": 2,
+     "main": 14.19,
+     "render": 13.88,
+     "mainMin": 14.15,
+     "mainMax": 14.23,
+     "renderMin": 13.8,
+     "renderMax": 13.95,
+     "interleaved": true
+    },
+    "baseKey": "rtg4_same_session"
+   },
+   "demo": {
+    "after": {
+     "n": 3,
+     "main": 13.8,
+     "render": 11.98,
+     "mainMin": 13.67,
+     "mainMax": 13.87,
+     "renderMin": 11.93,
+     "renderMax": 12.04
+    },
+    "base": {
+     "n": 2,
+     "main": 13.9,
+     "render": 12.0,
+     "mainMin": 13.87,
+     "mainMax": 13.93,
+     "renderMin": 11.96,
+     "renderMax": 12.03,
+     "interleaved": true
+    },
+    "baseKey": "rtg4_same_session"
+   },
+   "probe": {
+    "what": "привязки (bindings)",
+    "before": 4.61,
+    "after": 3.09
+   },
+   "evidence": "rt-m1-actor-table-one-pass-20261009.json"
+  },
+  {
+   "id": "e",
+   "label": "Blt и заливка — одна запись",
+   "title": "e (tier 3): Blt and fill commands as one record",
+   "date": "2026-10-09",
+   "hash": "963c7cd",
+   "time": "10-09 20:00",
+   "verdict": "kept",
+   "focus": "main",
+   "review": "nits",
+   "gates": {
+    "scenarios10": true,
+    "appkit": true,
+    "emulator": true,
+    "tsan": false
+   },
+   "vs": {
+    "after": {
+     "n": 3,
+     "main": 13.25,
+     "render": 13.62,
+     "mainMin": 12.54,
+     "mainMax": 13.73,
+     "renderMin": 12.9,
+     "renderMax": 14.17
+    },
+    "base": {
+     "n": 2,
+     "main": 13.96,
+     "render": 13.89,
+     "mainMin": 13.86,
+     "mainMax": 14.06,
+     "renderMin": 13.79,
+     "renderMax": 13.99,
+     "interleaved": true
+    },
+    "baseKey": "rtm1c_same_session"
+   },
+   "demo": {
+    "after": {
+     "n": 3,
+     "main": 13.59,
+     "render": 12.0,
+     "mainMin": 13.45,
+     "mainMax": 13.74,
+     "renderMin": 11.97,
+     "renderMax": 12.05
+    },
+    "base": {
+     "n": 2,
+     "main": 13.7,
+     "render": 12.1,
+     "mainMin": 13.7,
+     "mainMax": 13.7,
+     "renderMin": 11.97,
+     "renderMax": 12.23,
+     "interleaved": true
+    },
+    "baseKey": "rtm1c_same_session"
+   },
+   "probe": {
+    "what": "сборщик Blt",
+    "before": 3.0,
+    "after": 1.68
+   },
+   "evidence": "rt-e-compact-commands-20261009.json"
+  },
+  {
+   "id": "A3 L5a",
+   "label": "контекст доставки делит платформу",
+   "title": "A3 L5a: the delivery context shares the committed platform",
+   "date": "2026-10-09",
+   "hash": "1b09469",
+   "time": "10-09 20:01",
+   "verdict": "kept",
+   "focus": "main",
+   "review": "nits",
+   "gates": {
+    "scenarios10": true,
+    "appkit": true,
+    "emulator": true,
+    "tsan": false
+   },
+   "vs": {
+    "after": {
+     "n": 3,
+     "main": 13.51,
+     "render": 13.81,
+     "mainMin": 13.47,
+     "mainMax": 13.58,
+     "renderMin": 13.74,
+     "renderMax": 13.85
+    },
+    "base": {
+     "n": 2,
+     "main": 13.54,
+     "render": 13.91,
+     "mainMin": 13.52,
+     "mainMax": 13.56,
+     "renderMin": 13.77,
+     "renderMax": 14.06,
+     "interleaved": true
+    },
+    "baseKey": "rte_same_session"
+   },
+   "demo": {
+    "after": {
+     "n": 3,
+     "main": 13.28,
+     "render": 11.98,
+     "mainMin": 13.09,
+     "mainMax": 13.41,
+     "renderMin": 11.71,
+     "renderMax": 12.3
+    },
+    "base": {
+     "n": 2,
+     "main": 13.53,
+     "render": 11.97,
+     "mainMin": 13.46,
+     "mainMax": 13.6,
+     "renderMin": 11.94,
+     "renderMax": 12.0,
+     "interleaved": true
+    },
+    "baseKey": "rte_same_session"
+   },
+   "probe": {
+    "what": "холостой шаг",
+    "before": 6.9,
+    "after": 6.37
+   },
+   "evidence": "rt-l5a-shared-committed-platform-20261009.json"
+  },
+  {
+   "id": "e2",
+   "label": "повтор читает команды на месте",
+   "title": "e2 (tier 3): the replay reads commands in place; L5a's nits",
+   "date": "2026-10-09",
+   "hash": "1cb51a8",
+   "time": "10-09 20:32",
+   "verdict": "kept",
+   "focus": "main",
+   "review": "skipped",
+   "gates": {
+    "scenarios10": true,
+    "appkit": true,
+    "emulator": true,
+    "tsan": false
+   },
+   "vs": {
+    "after": {
+     "n": 3,
+     "main": 13.29,
+     "render": 14.1,
+     "mainMin": 13.09,
+     "mainMax": 13.6,
+     "renderMin": 13.89,
+     "renderMax": 14.5
+    },
+    "base": {
+     "n": 2,
+     "main": 13.15,
+     "render": 13.34,
+     "mainMin": 12.74,
+     "mainMax": 13.56,
+     "renderMin": 12.99,
+     "renderMax": 13.68,
+     "interleaved": true
+    },
+    "baseKey": "rtl5a_same_session"
+   },
+   "demo": {
+    "after": {
+     "n": 3,
+     "main": 13.34,
+     "render": 11.87,
+     "mainMin": 13.31,
+     "mainMax": 13.38,
+     "renderMin": 11.81,
+     "renderMax": 11.92
+    },
+    "base": {
+     "n": 2,
+     "main": 13.59,
+     "render": 12.18,
+     "mainMin": 13.58,
+     "mainMax": 13.59,
+     "renderMin": 12.08,
+     "renderMax": 12.27,
+     "interleaved": true
+    },
+    "baseKey": "rtl5a_same_session"
+   },
+   "probe": {
+    "what": "повтор батча",
+    "before": 8.23,
+    "after": 7.26
+   },
+   "evidence": "rt-e2-replay-in-place-20261009.json"
+  },
+  {
+   "id": "P2",
+   "label": "задний буфер одалживается кадру",
+   "title": "P2 (render thread): the back buffer lent as the frame",
+   "date": "2026-10-09",
+   "hash": "f2fa6fa",
+   "time": "10-09 21:41",
+   "verdict": "kept",
+   "focus": "render",
+   "review": "nits",
+   "gates": {
+    "scenarios10": true,
+    "appkit": true,
+    "emulator": true,
+    "tsan": true
+   },
+   "vs": {
+    "after": {
+     "n": 3,
+     "main": 13.11,
+     "render": 12.62,
+     "mainMin": 13.05,
+     "mainMax": 13.18,
+     "renderMin": 12.57,
+     "renderMax": 12.67
+    },
+    "base": {
+     "n": 2,
+     "main": 13.46,
+     "render": 13.81,
+     "mainMin": 13.43,
+     "mainMax": 13.48,
+     "renderMin": 13.61,
+     "renderMax": 14.01,
+     "interleaved": true
+    },
+    "baseKey": "rte2_same_session"
+   },
+   "demo": {
+    "after": {
+     "n": 3,
+     "main": 13.22,
+     "render": 10.52,
+     "mainMin": 13.07,
+     "mainMax": 13.3,
+     "renderMin": 10.4,
+     "renderMax": 10.61
+    },
+    "base": {
+     "n": 2,
+     "main": 13.5,
+     "render": 11.95,
+     "mainMin": 13.49,
+     "mainMax": 13.5,
+     "renderMin": 11.93,
+     "renderMax": 11.97,
+     "interleaved": true
+    },
+    "baseKey": "rte2_same_session"
+   },
+   "probe": {
+    "what": "memcpy (поток рендера)",
+    "before": 18.4,
+    "after": 6.8
+   },
+   "evidence": "rt-p2-lent-back-buffer-20261009.json"
+  },
+  {
+   "id": "L1",
+   "label": "чтение записи — встроено",
+   "title": "L1 (tier 3): the record's flat read inlined",
+   "date": "2026-10-09",
+   "hash": "0204382",
+   "time": "10-09 22:36",
+   "verdict": "less",
+   "focus": "main",
+   "review": "ok",
+   "gates": {
+    "scenarios10": true,
+    "appkit": true,
+    "emulator": true,
+    "tsan": false
+   },
+   "vs": {
+    "after": {
+     "n": 3,
+     "main": 13.2,
+     "render": 12.8,
+     "mainMin": 12.95,
+     "mainMax": 13.33,
+     "renderMin": 12.69,
+     "renderMax": 13.02
+    },
+    "base": {
+     "n": 2,
+     "main": 13.38,
+     "render": 12.43,
+     "mainMin": 13.37,
+     "mainMax": 13.4,
+     "renderMin": 12.36,
+     "renderMax": 12.5,
+     "interleaved": true
+    },
+    "baseKey": "rtp2_same_session"
+   },
+   "demo": {
+    "after": {
+     "n": 3,
+     "main": 13.54,
+     "render": 10.6,
+     "mainMin": 13.5,
+     "mainMax": 13.58,
+     "renderMin": 10.54,
+     "renderMax": 10.66
+    },
+    "base": {
+     "n": 2,
+     "main": 13.38,
+     "render": 10.64,
+     "mainMin": 13.34,
+     "mainMax": 13.43,
+     "renderMin": 10.61,
+     "renderMax": 10.68,
+     "interleaved": true
+    },
+    "baseKey": "rtp2_same_session"
+   },
+   "probe": {
+    "what": "тело игрового тика",
+    "before": 35.95,
+    "after": 33.76
+   },
+   "evidence": "rt-l1-inlined-record-read-20261009.json"
+  },
+  {
+   "id": "R0",
+   "label": "memchr для таблицы случайных; трек — один раз",
+   "title": "R0 (tier 3): small runtime cuts",
+   "date": "2026-10-09",
+   "hash": "9eff4aa",
+   "time": "10-09 23:34",
+   "verdict": "kept",
+   "focus": "main",
+   "review": "skipped",
+   "gates": {
+    "scenarios10": true,
+    "appkit": true,
+    "emulator": true,
+    "tsan": false
+   },
+   "vs": {
+    "after": {
+     "n": 3,
+     "main": 12.98,
+     "render": 12.93,
+     "mainMin": 12.89,
+     "mainMax": 13.07,
+     "renderMin": 12.65,
+     "renderMax": 13.4
+    },
+    "base": {
+     "n": 2,
+     "main": 13.08,
+     "render": 12.59,
+     "mainMin": 13.0,
+     "mainMax": 13.16,
+     "renderMin": 12.42,
+     "renderMax": 12.75,
+     "interleaved": true
+    },
+    "baseKey": "rtl1_same_session"
+   },
+   "demo": {
+    "after": {
+     "n": 3,
+     "main": 13.38,
+     "render": 10.65,
+     "mainMin": 13.36,
+     "mainMax": 13.42,
+     "renderMin": 10.5,
+     "renderMax": 10.81
+    },
+    "base": {
+     "n": 2,
+     "main": 13.61,
+     "render": 10.61,
+     "mainMin": 13.61,
+     "mainMax": 13.62,
+     "renderMin": 10.6,
+     "renderMax": 10.61,
+     "interleaved": true
+    },
+    "baseKey": "rtl1_same_session"
+   },
+   "probe": {
+    "what": "проверка таблицы случайных",
+    "before": 0.96,
+    "after": 0.17
+   },
+   "evidence": "rt-r0-small-runtime-cuts-20261009.json"
+  },
+  {
+   "id": "L2",
+   "label": "запись в запись — встроена",
+   "title": "L2 (tier 3): the record's flat write inlined",
+   "date": "2026-10-10",
+   "hash": "c053c2b",
+   "time": "10-10 00:19",
+   "verdict": "less",
+   "focus": "main",
+   "review": "skipped",
+   "gates": {
+    "scenarios10": true,
+    "appkit": true,
+    "emulator": true,
+    "tsan": false
+   },
+   "vs": {
+    "after": {
+     "n": 3,
+     "main": 13.04,
+     "render": 12.67,
+     "mainMin": 12.99,
+     "mainMax": 13.08,
+     "renderMin": 12.55,
+     "renderMax": 12.76
+    },
+    "base": {
+     "n": 2,
+     "main": 12.99,
+     "render": 12.75,
+     "mainMin": 12.99,
+     "mainMax": 12.99,
+     "renderMin": 12.74,
+     "renderMax": 12.75,
+     "interleaved": true
+    },
+    "baseKey": "rtr0_same_session"
+   },
+   "demo": {
+    "after": {
+     "n": 3,
+     "main": 13.46,
+     "render": 10.64,
+     "mainMin": 13.39,
+     "mainMax": 13.57,
+     "renderMin": 10.58,
+     "renderMax": 10.67
+    },
+    "base": {
+     "n": 2,
+     "main": 13.36,
+     "render": 10.59,
+     "mainMin": 13.13,
+     "mainMax": 13.58,
+     "renderMin": 10.54,
+     "renderMax": 10.63,
+     "interleaved": true
+    },
+    "baseKey": "rtr0_same_session"
+   },
+   "probe": null,
+   "evidence": "rt-l2-inlined-record-write-20261010.json"
+  },
+  {
+   "id": "L3",
+   "label": "пул ожидания — раз на сессию",
+   "title": "L3 (tier 3): the pending pool read once per session",
+   "date": "2026-10-10",
+   "hash": "f9ee3a1",
+   "time": "10-10 01:16",
+   "verdict": "kept",
+   "focus": "main",
+   "review": "skipped",
+   "gates": {
+    "scenarios10": true,
+    "appkit": true,
+    "emulator": true,
+    "tsan": false
+   },
+   "vs": {
+    "after": {
+     "n": 3,
+     "main": 12.94,
+     "render": 12.67,
+     "mainMin": 12.79,
+     "mainMax": 13.04,
+     "renderMin": 12.58,
+     "renderMax": 12.77
+    },
+    "base": {
+     "n": 2,
+     "main": 13.11,
+     "render": 12.76,
+     "mainMin": 13.07,
+     "mainMax": 13.14,
+     "renderMin": 12.69,
+     "renderMax": 12.83,
+     "interleaved": true
+    },
+    "baseKey": "rtl2_same_session"
+   },
+   "demo": {
+    "after": {
+     "n": 3,
+     "main": 13.3,
+     "render": 10.54,
+     "mainMin": 13.04,
+     "mainMax": 13.51,
+     "renderMin": 10.44,
+     "renderMax": 10.6
+    },
+    "base": {
+     "n": 2,
+     "main": 13.28,
+     "render": 10.51,
+     "mainMin": 13.15,
+     "mainMax": 13.4,
+     "renderMin": 10.44,
+     "renderMax": 10.58,
+     "interleaved": true
+    },
+    "baseKey": "rtl2_same_session"
+   },
+   "probe": null,
+   "evidence": "rt-l3-pending-pool-once-20261010.json"
+  },
+  {
+   "id": "e3",
+   "label": "хвост коммита — по индексу",
+   "title": "e3 (tier 3): the commit tail walks operations in place",
+   "date": "2026-10-10",
+   "hash": "b423015",
+   "time": "10-10 02:04",
+   "verdict": "less",
+   "focus": "main",
+   "review": "skipped",
+   "gates": {
+    "scenarios10": true,
+    "appkit": true,
+    "emulator": true,
+    "tsan": false
+   },
+   "vs": {
+    "after": {
+     "n": 3,
+     "main": 12.88,
+     "render": 12.82,
+     "mainMin": 12.8,
+     "mainMax": 12.99,
+     "renderMin": 12.79,
+     "renderMax": 12.86
+    },
+    "base": {
+     "n": 2,
+     "main": 12.75,
+     "render": 12.61,
+     "mainMin": 12.75,
+     "mainMax": 12.76,
+     "renderMin": 12.61,
+     "renderMax": 12.61,
+     "interleaved": true
+    },
+    "baseKey": "rtl3_same_session"
+   },
+   "demo": {
+    "after": {
+     "n": 3,
+     "main": 13.27,
+     "render": 10.64,
+     "mainMin": 13.22,
+     "mainMax": 13.33,
+     "renderMin": 10.57,
+     "renderMax": 10.69
+    },
+    "base": {
+     "n": 2,
+     "main": 13.32,
+     "render": 10.67,
+     "mainMin": 13.24,
+     "mainMax": 13.4,
+     "renderMin": 10.66,
+     "renderMax": 10.68,
+     "interleaved": true
+    },
+    "baseKey": "rtl3_same_session"
+   },
+   "probe": null,
+   "evidence": "rt-e3-commit-tail-in-place-20261010.json"
+  },
+  {
+   "id": "G4a",
+   "label": "копии и заливки рендеру — значениями",
+   "title": "G4a (tier 3): replayed copies and fills queued as values",
+   "date": "2026-10-10",
+   "hash": "c2c9952",
+   "time": "10-10 02:52",
+   "verdict": "less",
+   "focus": "both",
+   "review": "skipped",
+   "gates": {
+    "scenarios10": true,
+    "appkit": true,
+    "emulator": true,
+    "tsan": false
+   },
+   "vs": {
+    "after": {
+     "n": 3,
+     "main": 12.73,
+     "render": 12.36,
+     "mainMin": 12.59,
+     "mainMax": 12.83,
+     "renderMin": 12.34,
+     "renderMax": 12.37
+    },
+    "base": {
+     "n": 2,
+     "main": 12.8,
+     "render": 12.81,
+     "mainMin": 12.78,
+     "mainMax": 12.82,
+     "renderMin": 12.78,
+     "renderMax": 12.84,
+     "interleaved": true
+    },
+    "baseKey": "rte3_same_session"
+   },
+   "demo": {
+    "after": {
+     "n": 3,
+     "main": 13.34,
+     "render": 10.42,
+     "mainMin": 13.28,
+     "mainMax": 13.4,
+     "renderMin": 10.37,
+     "renderMax": 10.47
+    },
+    "base": {
+     "n": 2,
+     "main": 13.18,
+     "render": 10.6,
+     "mainMin": 13.17,
+     "mainMax": 13.19,
+     "renderMin": 10.52,
+     "renderMax": 10.68,
+     "interleaved": true
+    },
+    "baseKey": "rte3_same_session"
+   },
+   "probe": {
+    "what": "serveFront",
+    "before": 2.51,
+    "after": 2.06
+   },
+   "evidence": "rt-g4a-render-work-values-20261010.json"
+  },
+  {
+   "id": "G4b",
+   "label": "кэш поверхностей на повтор",
+   "title": "G4b (tier 3): a per-replay surface cache — not committed",
+   "date": "2026-10-10",
+   "hash": "09b6e29",
+   "time": "10-10 03:40",
+   "verdict": "parked",
+   "focus": "main",
+   "review": "none",
+   "gates": {
+    "scenarios10": false,
+    "appkit": true,
+    "emulator": true,
+    "tsan": false
+   },
+   "vs": {
+    "after": {
+     "n": 3,
+     "main": 12.8,
+     "render": 12.3,
+     "mainMin": 12.63,
+     "mainMax": 12.93,
+     "renderMin": 12.02,
+     "renderMax": 12.48
+    },
+    "base": {
+     "n": 2,
+     "main": 12.83,
+     "render": 12.26,
+     "mainMin": 12.74,
+     "mainMax": 12.92,
+     "renderMin": 12.11,
+     "renderMax": 12.41,
+     "interleaved": true
+    },
+    "baseKey": "rtg4a_same_session"
+   },
+   "demo": {
+    "after": {
+     "n": 3,
+     "main": 13.16,
+     "render": 10.4,
+     "mainMin": 13.0,
+     "mainMax": 13.26,
+     "renderMin": 10.25,
+     "renderMax": 10.51
+    },
+    "base": {
+     "n": 2,
+     "main": 13.27,
+     "render": 10.25,
+     "mainMin": 13.24,
+     "mainMax": 13.29,
+     "renderMin": 10.16,
+     "renderMax": 10.34,
+     "interleaved": true
+    },
+    "baseKey": "rtg4a_same_session"
+   },
+   "probe": null,
+   "evidence": "rt-g4b-surface-cache-parked-20261010.json"
+  },
+  {
+   "id": "L4",
+   "label": "физика без копии актёра для наблюдателя",
+   "title": "L4 (tier 3): the physics pass's per-actor copies",
+   "date": "2026-10-10",
+   "hash": "581896e",
+   "time": "10-10 04:31",
+   "verdict": "less",
+   "focus": "main",
+   "review": "skipped",
+   "gates": {
+    "scenarios10": true,
+    "appkit": true,
+    "emulator": true,
+    "tsan": false
+   },
+   "vs": {
+    "after": {
+     "n": 3,
+     "main": 12.66,
+     "render": 11.97,
+     "mainMin": 12.25,
+     "mainMax": 12.89,
+     "renderMin": 11.44,
+     "renderMax": 12.38
+    },
+    "base": {
+     "n": 2,
+     "main": 12.91,
+     "render": 12.61,
+     "mainMin": 12.76,
+     "mainMax": 13.06,
+     "renderMin": 12.28,
+     "renderMax": 12.95,
+     "interleaved": true
+    },
+    "baseKey": "rtg4a_same_session"
+   },
+   "demo": {
+    "after": {
+     "n": 3,
+     "main": 13.23,
+     "render": 10.36,
+     "mainMin": 13.14,
+     "mainMax": 13.28,
+     "renderMin": 10.35,
+     "renderMax": 10.38
+    },
+    "base": {
+     "n": 2,
+     "main": 13.2,
+     "render": 10.36,
+     "mainMin": 13.07,
+     "mainMax": 13.33,
+     "renderMin": 10.35,
+     "renderMax": 10.37,
+     "interleaved": true
+    },
+    "baseKey": "rtg4a_same_session"
+   },
+   "probe": null,
+   "evidence": "rt-l4-physics-actor-copies-20261010.json"
+  },
+  {
+   "id": "R2b",
+   "label": "R2 перемерен на новой сборке",
+   "title": "R2b: R2 re-measured — not committed",
+   "date": "2026-10-10",
+   "hash": "7fe4d0e",
+   "time": "10-10 07:46",
+   "verdict": "parked",
+   "focus": "render",
+   "review": "none",
+   "gates": {
+    "scenarios10": false,
+    "appkit": true,
+    "emulator": true,
+    "tsan": false
+   },
+   "vs": {
+    "after": {
+     "n": 3,
+     "main": 12.8,
+     "render": 8.42,
+     "mainMin": 12.79,
+     "mainMax": 12.82,
+     "renderMin": 8.29,
+     "renderMax": 8.53,
+     "present": 5.11
+    },
+    "base": {
+     "n": 2,
+     "main": 12.75,
+     "render": 12.45,
+     "mainMin": 12.7,
+     "mainMax": 12.81,
+     "renderMin": 12.41,
+     "renderMax": 12.49,
+     "interleaved": true
+    },
+    "baseKey": "rtl4_same_session"
+   },
+   "demo": {
+    "after": {
+     "n": 3,
+     "main": 13.74,
+     "render": 6.12,
+     "mainMin": 13.59,
+     "mainMax": 13.82,
+     "renderMin": 6.04,
+     "renderMax": 6.18,
+     "present": 4.97
+    },
+    "base": {
+     "n": 2,
+     "main": 13.17,
+     "render": 10.46,
+     "mainMin": 13.14,
+     "mainMax": 13.2,
+     "renderMin": 10.4,
+     "renderMax": 10.53,
+     "interleaved": true
+    },
+    "baseKey": "rtl4_same_session"
+   },
+   "probe": null,
+   "evidence": "rt-r2b-presenter-remeasured-20261010.json"
+  },
+  {
+   "id": "P0",
+   "label": "главный поток — на быстрые ядра",
+   "title": "P0 (Android): the main thread on the faster cores",
+   "date": "2026-10-10",
+   "hash": "7fe4d0e",
+   "time": "10-10 07:46",
+   "verdict": "kept",
+   "focus": "main",
+   "review": "ok",
+   "gates": {
+    "scenarios10": true,
+    "appkit": true,
+    "emulator": true,
+    "tsan": false
+   },
+   "vs": {
+    "after": {
+     "n": 3,
+     "main": 11.89,
+     "render": 12.35,
+     "mainMin": 11.82,
+     "mainMax": 11.97,
+     "renderMin": 12.12,
+     "renderMax": 12.47
+    },
+    "base": {
+     "n": 2,
+     "main": 12.75,
+     "render": 12.46,
+     "mainMin": 12.74,
+     "mainMax": 12.76,
+     "renderMin": 12.43,
+     "renderMax": 12.5,
+     "interleaved": true
+    },
+    "baseKey": "rtl4_same_session"
+   },
+   "demo": {
+    "after": {
+     "n": 3,
+     "main": 12.48,
+     "render": 10.45,
+     "mainMin": 12.44,
+     "mainMax": 12.54,
+     "renderMin": 10.31,
+     "renderMax": 10.58
+    },
+    "base": {
+     "n": 2,
+     "main": 13.16,
+     "render": 10.41,
+     "mainMin": 13.1,
+     "mainMax": 13.21,
+     "renderMin": 10.32,
+     "renderMax": 10.51,
+     "interleaved": true
+    },
+    "baseKey": "rtl4_same_session"
+   },
+   "probe": null,
+   "evidence": "rt-p0-main-on-fast-cores-20261010.json"
+  },
+  {
+   "id": "R2",
+   "label": "вывод Android — в свой поток, на медленные ядра",
+   "title": "R2 (render thread): the Android present on its own thread, on the slower cores",
+   "date": "2026-10-10",
+   "hash": "60a16db",
+   "time": "10-10 08:30",
+   "verdict": "kept",
+   "focus": "render",
+   "review": "ok",
+   "gates": {
+    "scenarios10": true,
+    "appkit": true,
+    "emulator": true,
+    "tsan": false
+   },
+   "vs": {
+    "after": {
+     "n": 3,
+     "main": 12.03,
+     "render": 8.24,
+     "mainMin": 12.02,
+     "mainMax": 12.05,
+     "renderMin": 8.05,
+     "renderMax": 8.5,
+     "present": 5.89
+    },
+    "base": {
+     "n": 2,
+     "main": 11.57,
+     "render": 11.88,
+     "mainMin": 11.26,
+     "mainMax": 11.88,
+     "renderMin": 11.43,
+     "renderMax": 12.33,
+     "interleaved": true
+    },
+    "baseKey": "rtp0_same_session"
+   },
+   "demo": {
+    "after": {
+     "n": 3,
+     "main": 12.4,
+     "render": 5.9,
+     "mainMin": 12.31,
+     "mainMax": 12.46,
+     "renderMin": 5.75,
+     "renderMax": 6.18,
+     "present": 5.73
+    },
+    "base": {
+     "n": 2,
+     "main": 12.53,
+     "render": 10.59,
+     "mainMin": 12.49,
+     "mainMax": 12.57,
+     "renderMin": 10.38,
+     "renderMax": 10.8,
+     "interleaved": true
+    },
+    "baseKey": "rtp0_same_session"
+   },
+   "probe": null,
+   "evidence": "rt-r2-presenter-thread-20261010.json"
+  },
+  {
+   "id": "A3 L4b",
+   "label": "первая холостая попытка без драйвера",
+   "title": "A3 L4b (main thread): a step's first idle attempt without a driver or exchange",
+   "date": "2026-10-10",
+   "hash": "7091da1",
+   "time": "10-10 10:12",
+   "verdict": "kept",
+   "focus": "main",
+   "review": "nits",
+   "gates": {
+    "scenarios10": true,
+    "appkit": true,
+    "emulator": true,
+    "tsan": false
+   },
+   "vs": {
+    "after": {
+     "n": 3,
+     "main": 11.82,
+     "render": 8.03,
+     "mainMin": 11.8,
+     "mainMax": 11.84,
+     "renderMin": 7.82,
+     "renderMax": 8.16,
+     "present": 5.88
+    },
+    "base": {
+     "n": 2,
+     "main": 12.07,
+     "render": 8.04,
+     "mainMin": 12.03,
+     "mainMax": 12.11,
+     "renderMin": 8.02,
+     "renderMax": 8.05,
+     "present": 5.92,
+     "interleaved": true
+    },
+    "baseKey": "rtr2e_same_session"
+   },
+   "demo": {
+    "after": {
+     "n": 3,
+     "main": 12.32,
+     "render": 5.97,
+     "mainMin": 12.27,
+     "mainMax": 12.39,
+     "renderMin": 5.8,
+     "renderMax": 6.24,
+     "present": 5.7
+    },
+    "base": {
+     "n": 2,
+     "main": 12.38,
+     "render": 5.8,
+     "mainMin": 12.37,
+     "mainMax": 12.38,
+     "renderMin": 5.78,
+     "renderMax": 5.82,
+     "present": 5.71,
+     "interleaved": true
+    },
+    "baseKey": "rtr2e_same_session"
+   },
+   "probe": null,
+   "evidence": "rt-a3-l4b-driverless-idle-20261010.json"
+  },
+  {
+   "id": "R3",
+   "label": "мёртвые значения освобождает свой поток",
+   "title": "R3 (main thread): dead values freed on a release thread",
+   "date": "2026-10-10",
+   "hash": "d342f74",
+   "time": "10-10 12:18",
+   "verdict": "kept",
+   "focus": "main",
+   "review": "nits",
+   "gates": {
+    "scenarios10": true,
+    "appkit": true,
+    "emulator": true,
+    "tsan": true
+   },
+   "vs": {
+    "after": {
+     "n": 3,
+     "main": 11.34,
+     "render": 8.09,
+     "mainMin": 11.22,
+     "mainMax": 11.51,
+     "renderMin": 8.05,
+     "renderMax": 8.17,
+     "present": 5.75,
+     "release": 2.08
+    },
+    "base": {
+     "n": 2,
+     "main": 11.75,
+     "render": 7.98,
+     "mainMin": 11.67,
+     "mainMax": 11.84,
+     "renderMin": 7.87,
+     "renderMax": 8.1,
+     "present": 5.79,
+     "interleaved": true
+    },
+    "baseKey": "rtl4b_same_session"
+   },
+   "demo": {
+    "after": {
+     "n": 3,
+     "main": 11.85,
+     "render": 6.05,
+     "mainMin": 11.77,
+     "mainMax": 11.95,
+     "renderMin": 5.89,
+     "renderMax": 6.23,
+     "present": 5.73,
+     "release": 1.69
+    },
+    "base": {
+     "n": 2,
+     "main": 12.14,
+     "render": 5.83,
+     "mainMin": 12.02,
+     "mainMax": 12.27,
+     "renderMin": 5.79,
+     "renderMax": 5.88,
+     "present": 5.7,
+     "interleaved": true
+    },
+    "baseKey": "rtl4b_same_session"
+   },
+   "probe": null,
+   "evidence": "rt-r3-release-thread-20261010.json"
+  },
+  {
+   "id": "e4",
+   "label": "две копии убраны с пути тика",
+   "title": "e4 (main thread): two copies off the per-tick path",
+   "date": "2026-10-10",
+   "hash": "e7af764",
+   "time": "10-10 13:18",
+   "verdict": "less",
+   "focus": "main",
+   "review": "nits",
+   "gates": {
+    "scenarios10": true,
+    "appkit": true,
+    "emulator": true,
+    "tsan": false
+   },
+   "vs": {
+    "after": {
+     "n": 3,
+     "main": 11.33,
+     "render": 8.26,
+     "mainMin": 11.31,
+     "mainMax": 11.36,
+     "renderMin": 8.09,
+     "renderMax": 8.55,
+     "present": 5.71,
+     "release": 2.07
+    },
+    "base": {
+     "n": 2,
+     "main": 11.36,
+     "render": 8.07,
+     "mainMin": 11.33,
+     "mainMax": 11.38,
+     "renderMin": 8.05,
+     "renderMax": 8.09,
+     "present": 5.7,
+     "release": 2.07,
+     "interleaved": true
+    },
+    "baseKey": "rtr3_same_session"
+   },
+   "demo": {
+    "after": {
+     "n": 3,
+     "main": 11.76,
+     "render": 5.97,
+     "mainMin": 11.7,
+     "mainMax": 11.82,
+     "renderMin": 5.92,
+     "renderMax": 6.02,
+     "present": 5.72,
+     "release": 1.69
+    },
+    "base": {
+     "n": 2,
+     "main": 11.87,
+     "render": 5.99,
+     "mainMin": 11.85,
+     "mainMax": 11.88,
+     "renderMin": 5.94,
+     "renderMax": 6.03,
+     "present": 5.7,
+     "release": 1.73,
+     "interleaved": true
+    },
+    "baseKey": "rtr3_same_session"
+   },
+   "probe": {
+    "what": "stagedCopy",
+    "before": 1.96,
+    "after": 1.41
+   },
+   "evidence": "rt-e4-fixed-inputs-and-present-20261010.json"
+  },
+  {
+   "id": "R4a",
+   "label": "SIMD-копии по 4 пикселя",
+   "title": "R4a (render thread): four-pixel SIMD copies — parked",
+   "date": "2026-10-10",
+   "hash": "32d464c",
+   "time": "10-10 15:39",
+   "verdict": "parked",
+   "focus": "render",
+   "review": "nits",
+   "gates": {
+    "scenarios10": false,
+    "appkit": false,
+    "emulator": false,
+    "tsan": false
+   },
+   "vs": {
+    "after": {
+     "n": 1,
+     "main": 11.18,
+     "render": 8.72,
+     "mainMin": 11.18,
+     "mainMax": 11.18,
+     "renderMin": 8.72,
+     "renderMax": 8.72,
+     "present": 5.74,
+     "release": 2.05
+    },
+    "base": {
+     "n": 3,
+     "main": 11.33,
+     "render": 8.26,
+     "mainMin": 11.31,
+     "mainMax": 11.36,
+     "renderMin": 8.09,
+     "renderMax": 8.55,
+     "present": 5.71,
+     "release": 2.07,
+     "interleaved": false
+    },
+    "baseKey": "rte4_gate_runs"
+   },
+   "demo": {
+    "after": {
+     "n": 3,
+     "main": 11.77,
+     "render": 6.42,
+     "mainMin": 11.71,
+     "mainMax": 11.82,
+     "renderMin": 6.26,
+     "renderMax": 6.66,
+     "present": 5.68,
+     "release": 1.71
+    },
+    "base": {
+     "n": 2,
+     "main": 11.73,
+     "render": 6.05,
+     "mainMin": 11.71,
+     "mainMax": 11.74,
+     "renderMin": 6.03,
+     "renderMax": 6.08,
+     "present": 5.7,
+     "release": 1.7,
+     "interleaved": true
+    },
+    "baseKey": "rte4_same_session"
+   },
+   "probe": null,
+   "evidence": "rt-r4a-simd-copies-parked-20261010.json"
+  },
+  {
+   "id": "R4b",
+   "label": "копии по 4 пикселя в тесных циклах",
+   "title": "R4b (render thread): four-pixel copies in tight loops",
+   "date": "2026-10-10",
+   "hash": "32d464c",
+   "time": "10-10 15:39",
+   "verdict": "kept",
+   "focus": "render",
+   "review": "nits",
+   "gates": {
+    "scenarios10": true,
+    "appkit": true,
+    "emulator": true,
+    "tsan": false
+   },
+   "vs": {
+    "after": {
+     "n": 3,
+     "main": 11.23,
+     "render": 7.59,
+     "mainMin": 11.16,
+     "mainMax": 11.32,
+     "renderMin": 7.49,
+     "renderMax": 7.68,
+     "present": 5.76,
+     "release": 2.08
+    },
+    "base": {
+     "n": 2,
+     "main": 11.13,
+     "render": 8.16,
+     "mainMin": 11.1,
+     "mainMax": 11.17,
+     "renderMin": 8.06,
+     "renderMax": 8.27,
+     "present": 5.75,
+     "release": 2.05,
+     "interleaved": true
+    },
+    "baseKey": "rte4_same_session"
+   },
+   "demo": {
+    "after": {
+     "n": 3,
+     "main": 11.73,
+     "render": 6.12,
+     "mainMin": 11.59,
+     "mainMax": 11.82,
+     "renderMin": 6.08,
+     "renderMax": 6.2,
+     "present": 5.65,
+     "release": 1.7
+    },
+    "base": {
+     "n": 2,
+     "main": 11.83,
+     "render": 6.01,
+     "mainMin": 11.81,
+     "mainMax": 11.85,
+     "renderMin": 6.01,
+     "renderMax": 6.02,
+     "present": 5.72,
+     "release": 1.74,
+     "interleaved": true
+    },
+    "baseKey": "rte4_same_session"
+   },
+   "probe": null,
+   "evidence": "rt-r4b-simd-copies-20261010.json"
+  },
+  {
+   "id": "R3b",
+   "label": "поток освобождения просыпается сам",
+   "title": "R3b (main thread): the release thread wakes on its own",
+   "date": "2026-10-10",
+   "hash": "03c06a0",
+   "time": "10-10 16:37",
+   "verdict": "less",
+   "focus": "main",
+   "review": "skipped",
+   "gates": {
+    "scenarios10": true,
+    "appkit": true,
+    "emulator": true,
+    "tsan": false
+   },
+   "vs": {
+    "after": {
+     "n": 3,
+     "main": 11.28,
+     "render": 7.62,
+     "mainMin": 11.19,
+     "mainMax": 11.32,
+     "renderMin": 7.51,
+     "renderMax": 7.82,
+     "present": 5.69,
+     "release": 1.96
+    },
+    "base": {
+     "n": 2,
+     "main": 11.25,
+     "render": 7.6,
+     "mainMin": 11.24,
+     "mainMax": 11.27,
+     "renderMin": 7.49,
+     "renderMax": 7.7,
+     "present": 5.77,
+     "release": 2.07,
+     "interleaved": true
+    },
+    "baseKey": "rtr4b_same_session"
+   },
+   "demo": {
+    "after": {
+     "n": 3,
+     "main": 11.69,
+     "render": 6.08,
+     "mainMin": 11.66,
+     "mainMax": 11.72,
+     "renderMin": 6.04,
+     "renderMax": 6.11,
+     "present": 5.64,
+     "release": 1.6
+    },
+    "base": {
+     "n": 2,
+     "main": 11.76,
+     "render": 6.39,
+     "mainMin": 11.75,
+     "mainMax": 11.77,
+     "renderMin": 6.22,
+     "renderMax": 6.56,
+     "present": 5.7,
+     "release": 1.71,
+     "interleaved": true
+    },
+    "baseKey": "rtr4b_same_session"
+   },
+   "probe": {
+    "what": "retire",
+    "before": 0.68,
+    "after": 0.11
+   },
+   "evidence": "rt-r3b-release-thread-polls-20261010.json"
+  },
+  {
+   "id": "e5",
+   "label": "emit забирает эффект, а не копирует",
+   "title": "e5 (main thread): `emit` takes its effect",
+   "date": "2026-10-10",
+   "hash": "5f9e5b9",
+   "time": "10-10 17:31",
+   "verdict": "less",
+   "focus": "main",
+   "review": "skipped",
+   "gates": {
+    "scenarios10": true,
+    "appkit": true,
+    "emulator": true,
+    "tsan": false
+   },
+   "vs": {
+    "after": {
+     "n": 3,
+     "main": 11.09,
+     "render": 7.55,
+     "mainMin": 11.04,
+     "mainMax": 11.19,
+     "renderMin": 7.52,
+     "renderMax": 7.58,
+     "present": 5.75,
+     "release": 1.94
+    },
+    "base": {
+     "n": 2,
+     "main": 11.14,
+     "render": 7.63,
+     "mainMin": 11.06,
+     "mainMax": 11.23,
+     "renderMin": 7.51,
+     "renderMax": 7.75,
+     "present": 5.73,
+     "release": 1.93,
+     "interleaved": true
+    },
+    "baseKey": "rtr3b_same_session"
+   },
+   "demo": {
+    "after": {
+     "n": 3,
+     "main": 11.62,
+     "render": 6.14,
+     "mainMin": 11.37,
+     "mainMax": 11.79,
+     "renderMin": 6.05,
+     "renderMax": 6.2,
+     "present": 5.45,
+     "release": 1.56
+    },
+    "base": {
+     "n": 2,
+     "main": 11.73,
+     "render": 6.07,
+     "mainMin": 11.72,
+     "mainMax": 11.73,
+     "renderMin": 6.02,
+     "renderMax": 6.13,
+     "present": 5.62,
+     "release": 1.62,
+     "interleaved": true
+    },
+    "baseKey": "rtr3b_same_session"
+   },
+   "probe": {
+    "what": "emit",
+    "before": 4.67,
+    "after": 3.66
+   },
+   "evidence": "rt-e5-emit-consumes-20261010.json"
+  },
+  {
+   "id": "F1",
+   "label": "поля кадров физики — на месте",
+   "title": "F1 (main thread): physics frame fields read in place — parked",
+   "date": "2026-10-10",
+   "hash": "acf8e1b",
+   "time": "10-10 17:50",
+   "verdict": "parked",
+   "focus": "main",
+   "review": "none",
+   "gates": {
+    "scenarios10": false,
+    "appkit": false,
+    "emulator": false,
+    "tsan": false
+   },
+   "vs": null,
+   "demo": null,
+   "probe": null,
+   "evidence": "rt-f1-frame-words-parked-20261010.json"
+  },
+  {
+   "id": "4ac",
+   "label": "macOS-приложение без проверок",
+   "title": "4ac: the macOS app build drops dynamic exclusivity checks",
+   "date": "2026-10-10",
+   "hash": "1035e40",
+   "time": "10-10 18:02",
+   "verdict": "build",
+   "focus": "build",
+   "review": "none",
+   "gates": {
+    "scenarios10": false,
+    "appkit": true,
+    "emulator": false,
+    "tsan": false
+   },
+   "vs": null,
+   "demo": null,
+   "probe": null,
+   "evidence": "rt-4ac-macos-app-unchecked-20261010.json"
+  },
+  {
+   "id": "4ad",
+   "label": "пакеты Linux, Windows, iOS без проверок",
+   "title": "4ad: the Linux, Windows and iOS packagers drop dynamic exclusivity checks",
+   "date": "2026-10-10",
+   "hash": "5b8e5d0",
+   "time": "10-10 18:26",
+   "verdict": "build",
+   "focus": "build",
+   "review": "none",
+   "gates": {
+    "scenarios10": false,
+    "appkit": false,
+    "emulator": false,
+    "tsan": false
+   },
+   "vs": null,
+   "demo": null,
+   "probe": null,
+   "evidence": "rt-4ad-packagers-unchecked-20261010.json"
+  }
+ ]
+}
