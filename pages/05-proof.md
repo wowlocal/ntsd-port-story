@@ -1,7 +1,7 @@
 ---
 layout: chapter
 num: 5
-total: 15
+total: 19
 kicker: Глава пятая
 dates: 22–27 сентября
 image: /img/menu-back-green-blue.jpg

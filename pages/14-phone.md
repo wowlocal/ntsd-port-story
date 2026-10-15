@@ -1,7 +1,7 @@
 ---
 layout: chapter
 num: 14
-total: 15
+total: 19
 kicker: Глава четырнадцатая
 dates: 5 — 7 октября
 image: /img/covers/ch14-phone.svg

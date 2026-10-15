@@ -1,11 +1,15 @@
 <script setup lang="ts">
-import data from '../data/xplat.json'
+import data from '../data/epilogue.json'
+import race from '../data/loading_race.json'
 
-// The project passport of chapter 10 (3 Oct 16:18, fc959db) against 7 Oct 08:23 (8840eb3), same definitions
-// (scripts/collect_xplat.py). Each tile: the new value, the old one, and a bar where the muted part is
-// what was there on 3 October and the accent part is what the four days added (or, for memory, kept).
+// The project passport of chapter 10 (3 Oct 16:18, fc959db) against 13 Oct 20:14 (5f5a8ee4), same definitions
+// (scripts/collect_epilogue.py). Each tile: the new value, the old one, and a bar where the muted part is
+// what was there before and the accent part is what the ten days added (or, for the phone, what was left).
+// Phone tiles: main thread per tick from data/rt2_steps.json (ch. 15: 24.6 on 7 Oct → 11.09 on 10 Oct),
+// launch-to-menu from data/loading_race.json and peak memory from data/loading_steps.json (ch. 16).
 const a = (data as any).passport.before
 const b = (data as any).passport.after
+const r = race as any
 interface Tile { label: string, before: number, after: number, show?: string, was?: string, unit?: string, down?: boolean, note?: string }
 const tiles: Tile[] = [
   { label: 'коммитов с 7 сентября', before: a.commits_since_sept, after: b.commits_since_sept },
@@ -13,11 +17,11 @@ const tiles: Tile[] = [
   { label: 'строк Swift в самой игре', before: a.swift_src_lines, after: b.swift_src_lines },
   { label: 'тестовых функций', before: a.test_functions, after: b.test_functions },
   { label: 'evidence-файлов', before: a.evidence_files, after: b.evidence_files },
-  { label: 'хостов, равных эталону', before: 1, after: 9, note: 'macOS → Linux, Windows, iPad, Android' },
-  { label: 'сценариев, равных эталону', before: 9, after: 90, note: 'на main запись падала и на Mac' },
-  { label: 'куча матча, ГБ', before: 3.9, after: 1.5, show: '1,5', was: '3,9', down: true, note: 'та же игра, те же кадры' },
-  { label: 'Galaxy A12, тиков в секунду', before: 0, after: 30.25, show: '30,25', was: 'убита на загрузке', note: 'темп оригинала — 30' },
-  { label: 'реплик человека за 84 часа', before: 0, after: 23, was: '—', note: '65 запусков /loop, 137 коммитов' },
+  { label: 'хостов, равных эталону', before: 1, after: 14, note: '5 окт — 9, ещё 5 в стендах и симуляторах' },
+  { label: 'главный поток A12, мс на тик', before: 24.6, after: 11.09, show: '11,09', was: '24,6 (7 окт)', down: true, note: '60 кадров/с — 16,67' },
+  { label: 'от иконки до меню на A12, с', before: r.before.total, after: r.after.total, show: r.after.total.toFixed(1).replace('.', ','), was: `${r.before.total.toFixed(1).replace('.', ',')} (10 окт)`, down: true, note: 'типичный прогон' },
+  { label: 'пик памяти на A12, МиБ', before: 1598, after: 577, show: '577', was: '1 598 (10 окт)', down: true, note: 'та же игра, те же кадры' },
+  { label: 'реплик человека за 241 час', before: 0, after: 56, was: '—', note: '164 запуска /loop' },
 ]
 const fmt = (n: number) => n.toLocaleString('ru-RU')
 const pct = (t: Tile) => {
@@ -48,7 +52,7 @@ const delta = (t: Tile) => {
           <i class="old" :style="{ width: `${pct(t).base}%` }" /><i class="acc" :style="{ width: `${pct(t).rest}%` }" />
         </template>
       </div>
-      <div class="was">3 окт: {{ t.was ?? fmt(t.before) }}<template v-if="t.note"> · {{ t.note }}</template></div>
+      <div class="was">{{ t.was && t.was.includes('(') ? 'было' : '3 окт:' }} {{ t.was ?? fmt(t.before) }}<template v-if="t.note"> · {{ t.note }}</template></div>
     </div>
   </div>
 </template>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-// The whole deck as one metro route: 15 chapters are stations. Line colour = who worked in that period:
+// The whole deck as one metro route: 19 chapters are stations. Line colour = who worked in that period:
 // blue — Codex (7–27 Sep), orange — Claude (from 28 Sep). Chapters 9–11 cover the whole project, so the blue
 // line runs alongside the orange there. The prologue (31 Mar) sits before the start, on a dotted pause.
 // `visited` fills the stations up to that chapter; `current` puts a glow and a "вы здесь" pin on one station.
@@ -14,7 +14,7 @@ const props = withDefaults(defineProps<{ visited?: number, current?: number, her
 })
 
 type Kind = 'pre' | 'codex' | 'transfer' | 'claude' | 'both'
-type Place = 'below' | 'below-start' | 'left' | 'right'
+type Place = 'below' | 'above' | 'above-end' | 'below-start' | 'left' | 'right'
 interface Station { n: number, title: string, sub: string, tip: string, kind: Kind, x: number, y: number, place: Place, cap?: { dx: number, dy: number } }
 
 const W = 900
@@ -27,7 +27,7 @@ const xR = 815 // right bend centre x
 const xL = 95 // left bend centre x
 const off = 8 // offset of the parallel blue line in the shared corridor (outer side of the left bend)
 
-// facts: chapter covers (num, kicker, dates, stats) of pages/02-prologue.md … pages/15-lessons.md
+// facts: chapter covers (num, kicker, dates, stats) of pages/02-prologue.md … pages/19-lessons.md
 const stations: Station[] = [
   { n: 1, title: 'Сначала был план', sub: '31 марта', tip: 'Пролог · 31 марта 2026 · 5 коммитов · потом 160 дней тишины', kind: 'pre', x: 44, y: yA, place: 'below-start' },
   { n: 2, title: 'Первый вечер', sub: '7 сентября', tip: 'Глава 2 · 7 сентября, 18:20–21:13 · 4 коммита практики · 1 разворот', kind: 'codex', x: 250, y: yA, place: 'below' },
@@ -40,14 +40,16 @@ const stations: Station[] = [
   { n: 9, title: 'Кунсткамера', sub: 'баги оригинала', tip: 'Глава 9 · что нашлось внутри EXE: баги оригинала, которые порт обязан повторить', kind: 'both', x: 310, y: yB, place: 'below', cap: { dx: 0, dy: -off } },
   { n: 10, title: 'В цифрах', sub: '463 коммита', tip: 'Глава 10 · 7 сентября — 3 октября · всё посчитано из git и evidence-файлов порта', kind: 'both', x: xL - r, y: yB + r, place: 'right', cap: { dx: -off, dy: 0 } },
   { n: 11, title: 'Под капотом агентов', sub: '6,3 млрд токенов', tip: 'Глава 11 · 34 сессии · 31 095 ответов моделей · 1 101 ход · 6,3 млрд токенов', kind: 'both', x: 205, y: yC, place: 'below', cap: { dx: 0, dy: off } },
-  { n: 12, title: 'Сообщество', sub: '2007 → 2026', tip: 'Глава 12 · 2007 → 3 октября 2026 · Discord · лента · релиз v0.4.0', kind: 'claude', x: 350, y: yC, place: 'below' },
-  { n: 13, title: 'Девять хостов', sub: '3–5 октября', tip: 'Глава 13 · 74 коммита за 30 часов · 9 хостов · 90 из 90 сценариев · баг компилятора Swift', kind: 'claude', x: 490, y: yC, place: 'below' },
-  { n: 14, title: 'Телефон 2008 года', sub: '5–7 октября', tip: 'Глава 14 · Galaxy A12 · память матча 3,9 → 1,5 ГБ · 30,25 тика в секунду', kind: 'claude', x: 630, y: yC, place: 'below' },
-  { n: 15, title: 'Уроки', sub: '7 октября', tip: 'Глава 15 · Эпилог · 84 часа одной сессии · паспорт 3 → 7 октября · десять уроков', kind: 'claude', x: 765, y: yC, place: 'below' },
+  { n: 12, title: 'Сообщество', sub: '2007 → 2026', tip: 'Глава 12 · 2007 → 3 октября 2026 · Discord · лента · релиз v0.4.0', kind: 'claude', x: 288, y: yC, place: 'above' },
+  { n: 13, title: 'Девять хостов', sub: '3–5 октября', tip: 'Глава 13 · 74 коммита за 30 часов · 9 хостов · 90 из 90 сценариев · баг компилятора Swift', kind: 'claude', x: 370, y: yC, place: 'below' },
+  { n: 14, title: 'Телефон 2008 года', sub: '5–7 октября', tip: 'Глава 14 · Galaxy A12 · память матча 3,9 → 1,5 ГБ · 30,25 тика в секунду', kind: 'claude', x: 453, y: yC, place: 'above' },
+  { n: 15, title: '16 миллисекунд', sub: '7–10 октября', tip: 'Глава 15 · перестройка ядра до 60 кадров в секунду на Galaxy A12', kind: 'claude', x: 535, y: yC, place: 'below' },
+  { n: 16, title: 'Загрузка за ночь', sub: '10–11 октября', tip: 'Глава 16 · загрузка на телефоне 124 с → 5,5 с за одну ночь', kind: 'claude', x: 618, y: yC, place: 'above' },
+  { n: 17, title: 'Браузер и ТВ', sub: '11–13 октября', tip: 'Глава 17 · Apple TV, WebAssembly в Chromium и WebKit, масштабируемое окно', kind: 'claude', x: 700, y: yC, place: 'below' },
+  { n: 18, title: 'Семь часов в меню', sub: '13 октября', tip: 'Глава 18 · утечка памяти в меню, джойстик на телефоне, подписанный релиз', kind: 'claude', x: 783, y: yC, place: 'above-end' },
+  { n: 19, title: 'Уроки', sub: '13 октября', tip: 'Глава 19 · Эпилог · 241 час одной сессии · неделя по темам · паспорт · десять уроков', kind: 'claude', x: 865, y: yC, place: 'below' },
 ]
-const planned = [
-  { name: '16 мс', x: 866 },
-]
+const planned: { name: string, x: number }[] = []
 
 const color: Record<Kind, string> = { pre: 'var(--muted)', codex: 'var(--s1)', transfer: 'var(--ink)', claude: 'var(--s2)', both: 'var(--ink-2)' }
 const pad = (n: number) => String(n).padStart(2, '0')
@@ -56,9 +58,9 @@ const pad = (n: number) => String(n).padStart(2, '0')
 const st = (n: number) => stations[n - 1]
 const routeDotted = `M${st(1).x},${yA} H${st(2).x}`
 const routeBlue = `M${st(2).x},${yA} H${xR} A${r},${r} 0 0 1 ${xR + r},${yA + r}`
-const routeOrange = `M${xR + r},${yA + r} A${r},${r} 0 0 1 ${xR},${yB} H${xL} A${r},${r} 0 0 0 ${xL - r},${yB + r} A${r},${r} 0 0 0 ${xL},${yC} H${st(15).x}`
+const routeOrange = `M${xR + r},${yA + r} A${r},${r} 0 0 1 ${xR},${yB} H${xL} A${r},${r} 0 0 0 ${xL - r},${yB + r} A${r},${r} 0 0 0 ${xL},${yC} H${st(19).x}`
 const corridor = `M${st(9).x},${yB - off} H${xL} A${r + off},${r + off} 0 0 0 ${xL - r - off},${yB + r} A${r + off},${r + off} 0 0 0 ${xL},${yC + off} H${st(11).x}`
-const routeFuture = `M${st(15).x},${yC} H${planned[planned.length - 1].x}`
+const routeFuture = `M${st(19).x},${yC} H${W - 6}`
 
 const nav = useNav()
 const active = useIsSlideActive()
@@ -73,6 +75,10 @@ const labelPos = (s: Station) => {
     return { x: s.x + 22, y: s.y - 2, anchor: 'start' }
   if (s.place === 'below-start')
     return { x: s.x - 11, y: s.y + 29 + capY, anchor: 'start' }
+  if (s.place === 'above')
+    return { x: s.x, y: s.y - 34, anchor: 'middle' }
+  if (s.place === 'above-end')
+    return { x: s.x + 14, y: s.y - 34, anchor: 'end' }
   return { x: s.x, y: s.y + 29 + capY, anchor: 'middle' }
 }
 const cur = computed(() => stations.find(s => s.n === props.current))
@@ -98,9 +104,8 @@ const cur = computed(() => stations.find(s => s.n === props.current))
       <path class="seg" style="--d: 1" :d="routeBlue" fill="none" stroke="var(--s1)" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" />
       <path class="seg" style="--d: 6" :d="routeOrange" fill="none" stroke="var(--s2)" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" />
       <path class="seg" style="--d: 9" :d="corridor" fill="none" stroke="var(--s1)" stroke-width="4.5" stroke-linecap="round" />
-      <g v-if="future" class="seg" style="--d: 15">
-        <path :d="routeFuture" fill="none" stroke="var(--s2)" stroke-width="5" stroke-dasharray="9 7" style="opacity: 0.75" />
-        <text class="pause" :x="(st(15).x + planned[planned.length - 1].x) / 2" :y="yC - 14" text-anchor="middle">что дальше</text>
+      <g v-if="future" class="seg" style="--d: 19">
+        <path :d="routeFuture" fill="none" stroke="var(--s2)" stroke-width="5" stroke-dasharray="6 6" style="opacity: 0.75"><title>что дальше: ветка exp/iphone, публикация веб-версии — решение автора</title></path>
         <g v-for="p in planned" :key="p.name">
           <circle :cx="p.x" :cy="yC" r="6.5" fill="var(--bg)" stroke="var(--s2)" stroke-width="2.5">
             <title>что дальше · ветка exp/core-realtime: ярус 16 мс на тик, ручная игра на телефоне, слияние</title>
@@ -210,7 +215,7 @@ const cur = computed(() => stations.find(s => s.n === props.current))
 }
 .play .here {
   animation: metro-in 0.4s ease both;
-  animation-delay: 1.2s;
+  animation-delay: 1.45s;
 }
 .play .glow {
   transform-box: fill-box;
