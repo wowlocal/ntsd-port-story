@@ -1,0 +1,300 @@
+{
+ "title": "Кто что делал 13 октября: сессии агентов и коммиты",
+ "source": "git log 5f5a8ee4 (коммиты 13 октября, трейлер Co-Authored-By) · git rev-list 8840eb3..5f5a8ee4 · ~/.codex/sessions/2026/10/13/*.jsonl (только session_meta, turn_context, отметки времени, имена инструментов, счётчики токенов) · ~/.claude/projects/…/1f9218ae….jsonl (только время сообщений)",
+ "caveat": "Автор в git у всех коммитов один — Michael: агенты коммитят под учёткой автора, отличает их только трейлер. То, что три коммита без трейлера сделал Codex, следует из совпадения времени с его сессией (14:24–15:28), из ветки и коммита в её метаданных и из plan.json релиза (owner: Codex); текст сессии не читался. Сессия Codex Desktop в 06:28 коммитов не оставила.",
+ "frozenAt": "состояние на 13 октября 2026, 20:14 (5f5a8ee4)",
+ "commits": [
+  {
+   "hash": "71e5243a",
+   "time": "00:10",
+   "subject": "Add the browser's original window (WINDOW_SCALING S2)",
+   "trailer": true
+  },
+  {
+   "hash": "b7cd16c6",
+   "time": "01:57",
+   "subject": "Make the macOS game window scalable (WINDOW_SCALING S3)",
+   "trailer": true
+  },
+  {
+   "hash": "d45fd928",
+   "time": "03:40",
+   "subject": "Make the SDL game window scalable (WINDOW_SCALING S4)",
+   "trailer": true
+  },
+  {
+   "hash": "f7aeada1",
+   "time": "04:18",
+   "subject": "Add the original window on Android and check the iPad (WINDOW_SCALING S5)",
+   "trailer": true
+  },
+  {
+   "hash": "df74758a",
+   "time": "04:48",
+   "subject": "Document the window flags in one place (WINDOW_SCALING S6)",
+   "trailer": true
+  },
+  {
+   "hash": "f0471f13",
+   "time": "06:21",
+   "subject": "Draw the game's text in the browser (TVOS_WEB W4)",
+   "trailer": true
+  },
+  {
+   "hash": "340b1a64",
+   "time": "08:15",
+   "subject": "Stop the game's memory from growing in menus (MENU_MEMORY)",
+   "trailer": true
+  },
+  {
+   "hash": "1c692c22",
+   "time": "08:15",
+   "subject": "Merge exp/menu-memory: stop the game's memory from growing in menus",
+   "trailer": true
+  },
+  {
+   "hash": "f340f1e2",
+   "time": "08:45",
+   "subject": "Add a separate iPhone build (PHONE_CONTROLLER C1)",
+   "trailer": true
+  },
+  {
+   "hash": "2c4db98b",
+   "time": "14:51",
+   "subject": "Prepare fresh platform packages and fix scaled X11 smoke input",
+   "trailer": false
+  },
+  {
+   "hash": "9c700dae",
+   "time": "14:59",
+   "subject": "Verify current Linux and Windows release packages in isolated harnesses",
+   "trailer": false
+  },
+  {
+   "hash": "0b5d4621",
+   "time": "15:28",
+   "subject": "Publish verified signed platform release and record Latest status",
+   "trailer": false
+  },
+  {
+   "hash": "d4619cbc",
+   "time": "19:03",
+   "subject": "Record the controller on a real phone (PHONE_CONTROLLER C2, Android)",
+   "trailer": true
+  },
+  {
+   "hash": "5f5a8ee4",
+   "time": "20:14",
+   "subject": "Give the game one joystick per controller on Android (PHONE_CONTROLLER C3)",
+   "trailer": true
+  }
+ ],
+ "since": {
+  "span": "8840eb3..5f5a8ee4",
+  "total": 155,
+  "merges": 1,
+  "withTrailer": 152,
+  "without": [
+   {
+    "hash": "0b5d4621",
+    "time": "13.10 15:28",
+    "subject": "Publish verified signed platform release and record Latest status",
+    "body": "пустое"
+   },
+   {
+    "hash": "9c700dae",
+    "time": "13.10 14:59",
+    "subject": "Verify current Linux and Windows release packages in isolated harnesses",
+    "body": "пустое"
+   },
+   {
+    "hash": "2c4db98b",
+    "time": "13.10 14:51",
+    "subject": "Prepare fresh platform packages and fix scaled X11 smoke input",
+    "body": "пустое"
+   }
+  ],
+  "authors": {
+   "Michael": 155
+  }
+ },
+ "claude": {
+  "id": "1f9218ae",
+  "model": "claude-opus-5-5",
+  "assistantMessages": 810,
+  "first": "02:00",
+  "last": "21:14",
+  "byHour": [
+   {
+    "hour": 2,
+    "messages": 117
+   },
+   {
+    "hour": 3,
+    "messages": 89
+   },
+   {
+    "hour": 4,
+    "messages": 73
+   },
+   {
+    "hour": 5,
+    "messages": 154
+   },
+   {
+    "hour": 6,
+    "messages": 98
+   },
+   {
+    "hour": 7,
+    "messages": 24
+   },
+   {
+    "hour": 8,
+    "messages": 74
+   },
+   {
+    "hour": 9,
+    "messages": 2
+   },
+   {
+    "hour": 18,
+    "messages": 49
+   },
+   {
+    "hour": 19,
+    "messages": 65
+   },
+   {
+    "hour": 20,
+    "messages": 62
+   },
+   {
+    "hour": 21,
+    "messages": 3
+   }
+  ],
+  "longestGap": {
+   "from": "09:14",
+   "to": "18:45",
+   "minutes": 571
+  }
+ },
+ "codex": [
+  {
+   "id": "01a13385",
+   "originator": "Codex Desktop",
+   "cli": "0.158.0-alpha.2.1",
+   "role": "main",
+   "branch": "exp/menu-memory",
+   "commit": "df74758a",
+   "cwd": "ntsd-2.4",
+   "file": "rollout-2026-10-13T06-28-40",
+   "start": "06:28:40",
+   "end": "06:44:47",
+   "model": [
+    "gpt-6-astra"
+   ],
+   "effort": [
+    "medium"
+   ],
+   "approval": [
+    "on-request"
+   ],
+   "sandbox": [
+    "workspace-write"
+   ],
+   "turns": 3,
+   "toolCalls": 68,
+   "tools": {
+    "exec": 47,
+    "js": 20,
+    "request_user_input_async": 1
+   },
+   "tokens": {
+    "total": 8481133,
+    "input": 8466499,
+    "cached": 8314240,
+    "output": 14634
+   }
+  },
+  {
+   "id": "01a13385",
+   "originator": "Codex Desktop",
+   "cli": "0.158.0-alpha.2.1",
+   "role": "guardian",
+   "branch": "exp/menu-memory",
+   "commit": "df74758a",
+   "cwd": "ntsd-2.4",
+   "file": "rollout-2026-10-13T06-29-22",
+   "start": "06:29:22",
+   "end": "06:44:30",
+   "model": [
+    "codex-auto-review"
+   ],
+   "effort": [
+    "low"
+   ],
+   "approval": [
+    "never"
+   ],
+   "sandbox": [
+    "read-only"
+   ],
+   "turns": 41,
+   "toolCalls": 0,
+   "tools": {},
+   "tokens": {
+    "total": 3009760,
+    "input": 3006311,
+    "cached": 2769664,
+    "output": 3449
+   }
+  },
+  {
+   "id": "01a13538",
+   "originator": "codex-tui",
+   "cli": "0.156.1-fork.1",
+   "role": "main",
+   "branch": "exp/iphone",
+   "commit": "f340f1e2",
+   "cwd": "ntsd-2.4",
+   "file": "rollout-2026-10-13T14-24-46",
+   "start": "14:24:46",
+   "end": "15:28:39",
+   "model": [
+    "gpt-6-astra"
+   ],
+   "effort": [
+    "medium"
+   ],
+   "approval": [
+    "never"
+   ],
+   "sandbox": [
+    "danger-full-access"
+   ],
+   "turns": 3,
+   "toolCalls": 251,
+   "tools": {
+    "exec": 154,
+    "js": 94,
+    "request_user_input_async": 3
+   },
+   "tokens": {
+    "total": 28742893,
+    "input": 28679931,
+    "cached": 28315392,
+    "output": 62962
+   }
+  }
+ ],
+ "user": {
+  "memory": "05:40",
+  "photo": "06:36",
+  "iphone": "06:40",
+  "caffeine": "18:45",
+  "pixel": "18:46",
+  "works": "18:58"
+ }
+}

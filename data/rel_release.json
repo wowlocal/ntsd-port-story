@@ -1,0 +1,498 @@
+{
+ "title": "Подписанный релиз на шесть платформ, 13 октября",
+ "source": "docs/evidence/release-refresh-20261013.json · docs/research/CURRENT_WORK.md · 2c4db98b · 9c700dae · 0b5d4621 · origin/release/native-preview-20261013 · тег native-preview-20261013 · папка артефактов из evidence: /Volumes/T7/ntsd-2.4-artifacts/releases-20261013 (published-digest-verification.json, latest-release.json, failures.json, plan.json, *.notary.json, *.spctl.txt)",
+ "caveat": "Размеры и время загрузки — из записи GitHub о релизе, сохранённой агентом после публикации (gh CLI сейчас не авторизован, перепроверить вживую нельзя). Пакетные проверки — в контейнерах, CrossOver, эмуляторе и браузерах; настоящие Windows, Linux-железо и телефон с этим APK не проверялись. Независимого ревью у релиза не было.",
+ "frozenAt": "состояние на 13 октября 2026, 20:14 (5f5a8ee4)",
+ "tag": "native-preview-20261013",
+ "tagCommit": "f340f1e2",
+ "tagInMain": false,
+ "releaseBranch": "release/native-preview-20261013",
+ "releaseBranchHead": "0b5d4621",
+ "nativeTree": "9db6dd702f0c",
+ "macVersion": "0.5.0",
+ "url": "https://github.com/wowlocal/ntsd-2.4/releases/tag/native-preview-20261013",
+ "status": "Published; latest normal release, all 13 GitHub stored-asset digests and sizes verified equal local",
+ "labelChange": "User requested Latest instead of pre-release; normal release and title updated; original source tag kept unchanged",
+ "publication": {
+  "name": "NTSD Native — platform release (2026-10-13)",
+  "id": 411674260,
+  "published": "15:22:12",
+  "updated": "15:26:11",
+  "prerelease": false,
+  "draft": false,
+  "latest": true,
+  "digestResult": "pass"
+ },
+ "macScenarios": [
+  {
+   "scenario": "vs",
+   "result": "pass"
+  },
+  {
+   "scenario": "mission",
+   "result": "pass"
+  },
+  {
+   "scenario": "demo",
+   "result": "pass"
+  },
+  {
+   "scenario": "war",
+   "result": "pass"
+  },
+  {
+   "scenario": "playback",
+   "result": "pass"
+  },
+  {
+   "scenario": "tournament",
+   "result": "pass"
+  },
+  {
+   "scenario": "altenter",
+   "result": "pass"
+  },
+  {
+   "scenario": "tournament-win",
+   "result": "pass"
+  },
+  {
+   "scenario": "team-tournament",
+   "result": "pass"
+  },
+  {
+   "scenario": "joystick",
+   "result": "pass"
+  }
+ ],
+ "signing": {
+  "macos": "Developer ID signed; app and DMG notarization Accepted; staple/validate and Gatekeeper Notarized Developer ID pass; hdiutil checksum valid. Resolved command-session keychain boundary using task-owned Aqua LaunchAgent with unchanged existing key/profile; terminal exit 0; agent unloaded.",
+  "android": "Existing PKCS12 release key; secret from login keychain directly into apksigner environment in Aqua LaunchAgent, never printed/stored; agent unloaded",
+  "androidCertSha256": "70194aaa0740d0376a91338af4b34c17fd99ff51629eb65fcc7f65ccfbf0d61d"
+ },
+ "notary": {
+  "app": {
+   "status": "Accepted",
+   "gatekeeper": "accepted",
+   "source": "Notarized Developer ID"
+  },
+  "dmg": {
+   "status": "Accepted",
+   "gatekeeper": "accepted",
+   "source": "Notarized Developer ID"
+  }
+ },
+ "platforms": [
+  {
+   "id": "macos",
+   "label": "macOS 14+ · Apple silicon",
+   "archive": "NTSD-Native-0.5.0.dmg",
+   "sha256": "361307cd6179b30878c7f2abd9778f13f925c7d893e4734b56bc2609573178bf",
+   "checks": null,
+   "signing": "Developer ID signed; app and DMG notarization Accepted; staple/validate and Gatekeeper Notarized Developer ID pass; hdiutil checksum valid. Resolved command-session keychain boundary using task-owned Aqua LaunchAgent with unchanged existing key/profile; terminal exit 0; agent unloaded.",
+   "boundaries": null,
+   "commit": "f340f1e"
+  },
+  {
+   "id": "android",
+   "label": "Android 9+ · ARM64",
+   "archive": "ntsd-android-arm64-9c700da.apk",
+   "sha256": "13aa89465a308fc0290b27fb90f1efd2a04fc69ad7cb71124d78b4e623d79a24",
+   "checks": "APFS packaging; every listed asset exists with exact size; signature verification and prior certificate match; all unsigned payloads unchanged; emulator install, cold launch and visible main menu pass",
+   "signing": "Existing PKCS12 release key; secret from login keychain directly into apksigner environment in Aqua LaunchAgent, never printed/stored; agent unloaded",
+   "boundaries": null,
+   "commit": "9c700da"
+  },
+  {
+   "id": "windows",
+   "label": "Windows x86-64",
+   "archive": "ntsd-windows-x86_64-2c4db98.zip",
+   "sha256": "87a7ca85e82e072946ab290eeafec98eeafbce43e4d2192495f35835d885ea46",
+   "checks": "1554 file hashes plus archive directory set verified; fresh task-owned CrossOver bottle ntsd-release-20261013 default launch with GDI SYSTEM_FONT and packaged music; VS equal (59.5 s)",
+   "signing": null,
+   "boundaries": "CrossOver harness only, real Windows untested",
+   "commit": "2c4db98"
+  },
+  {
+   "id": "linux-aarch64",
+   "label": "Linux ARM64",
+   "archive": "ntsd-linux-aarch64-f340f1e.tar.gz",
+   "sha256": "629f3f3f96265b918b35810e8f14dd0f71dbe6306f1181f3df98a1590fc733c4",
+   "checks": "archive members equal manifest; ldd/default music/font pass on APFS; corrected X11 smoke reaches gameplay and exits 0; VS round 4 equal (74.9 s)",
+   "signing": null,
+   "boundaries": "container only; prior failed runs retained (ExFAT sidecars and stale unscaled mouse coordinates)",
+   "commit": "f340f1e"
+  },
+  {
+   "id": "linux-x86_64",
+   "label": "Linux x86-64",
+   "archive": "ntsd-linux-x86_64-f340f1e.tar.gz",
+   "sha256": "3c6048dc34feab1e6ac16bb91790d6979e068fa78feae8c5ccd80d0b4098dea4",
+   "checks": "archive members equal manifest; clean Ubuntu amd64/Rosetta ldd/default music/font and X11 input-to-gameplay pass; VS equal (77.0 s)",
+   "signing": null,
+   "boundaries": null,
+   "commit": "f340f1e"
+  },
+  {
+   "id": "web",
+   "label": "Web · статический хостинг",
+   "archive": "ntsd-web-f340f1e.zip",
+   "sha256": "87c1956903f28a120e13803130bcdcc1c6c5c94b18d8f36e18c774f3c3e5d780",
+   "checks": "Chromium and WebKit fresh wasm VS each equal at 75.9s; control frame mismatchedPixels=0; gzip 1404 + brotli 1517 decoded forms equal; ZIP per-file hashes verified",
+   "signing": null,
+   "boundaries": null,
+   "commit": "f340f1e"
+  }
+ ],
+ "assets": [
+  {
+   "name": "ntsd-linux-aarch64-f340f1e.tar.gz",
+   "bytes": 218618558,
+   "sha256": "629f3f3f96265b918b35810e8f14dd0f71dbe6306f1181f3df98a1590fc733c4",
+   "kind": "package",
+   "uploaded": "14:54:43",
+   "result": "GitHub stored asset digest equals local"
+  },
+  {
+   "name": "ntsd-linux-x86_64-f340f1e.tar.gz",
+   "bytes": 218782434,
+   "sha256": "3c6048dc34feab1e6ac16bb91790d6979e068fa78feae8c5ccd80d0b4098dea4",
+   "kind": "package",
+   "uploaded": "14:56:44",
+   "result": "GitHub stored asset digest equals local"
+  },
+  {
+   "name": "ntsd-linux-aarch64-f340f1e.manifest.json",
+   "bytes": 325977,
+   "sha256": "09ad7ea16a3e6a4b56e29dfe39aba8f265477fa1b1c581f8fa3a252cc342f338",
+   "kind": "manifest",
+   "uploaded": "14:57:58",
+   "result": "GitHub stored asset digest equals local"
+  },
+  {
+   "name": "ntsd-linux-x86_64-f340f1e.manifest.json",
+   "bytes": 324436,
+   "sha256": "b561d99b93d8617ca55a3d66fbcb2bf9229bc78cd292f70c0381e1dff956f1ef",
+   "kind": "manifest",
+   "uploaded": "14:58:45",
+   "result": "GitHub stored asset digest equals local"
+  },
+  {
+   "name": "ntsd-windows-x86_64-2c4db98.zip",
+   "bytes": 218596530,
+   "sha256": "87a7ca85e82e072946ab290eeafec98eeafbce43e4d2192495f35835d885ea46",
+   "kind": "package",
+   "uploaded": "15:04:53",
+   "result": "GitHub stored asset digest equals local"
+  },
+  {
+   "name": "ntsd-windows-x86_64-2c4db98.manifest.json",
+   "bytes": 334609,
+   "sha256": "ac30a037715b3d37114fe6042391e1b923cb4a6655af2afd9c15ea8cfd32fb0d",
+   "kind": "manifest",
+   "uploaded": "15:07:13",
+   "result": "GitHub stored asset digest equals local"
+  },
+  {
+   "name": "ntsd-web-f340f1e.zip",
+   "bytes": 354813678,
+   "sha256": "87c1956903f28a120e13803130bcdcc1c6c5c94b18d8f36e18c774f3c3e5d780",
+   "kind": "package",
+   "uploaded": "15:12:50",
+   "result": "GitHub stored asset digest equals local"
+  },
+  {
+   "name": "ntsd-web-f340f1e.manifest.json",
+   "bytes": 760447,
+   "sha256": "05b3a0607ee151fb3d12457b2a1ecac90904e2e3010da0f49cb70d5c3d41adfb",
+   "kind": "manifest",
+   "uploaded": "15:14:30",
+   "result": "GitHub stored asset digest equals local"
+  },
+  {
+   "name": "NTSD-Native-0.5.0.dmg",
+   "bytes": 245355156,
+   "sha256": "361307cd6179b30878c7f2abd9778f13f925c7d893e4734b56bc2609573178bf",
+   "kind": "package",
+   "uploaded": "15:16:38",
+   "result": "GitHub stored asset digest equals local"
+  },
+  {
+   "name": "NTSD-Native-0.5.0.dmg.sha256",
+   "bytes": 88,
+   "sha256": "fc5856b899c54131478409ed58efab4317c6afee48370bdc1a2b96b6bf2bd300",
+   "kind": "sums",
+   "uploaded": "15:18:00",
+   "result": "GitHub stored asset digest equals local"
+  },
+  {
+   "name": "ntsd-android-arm64-9c700da.apk",
+   "bytes": 223285799,
+   "sha256": "13aa89465a308fc0290b27fb90f1efd2a04fc69ad7cb71124d78b4e623d79a24",
+   "kind": "package",
+   "uploaded": "15:19:21",
+   "result": "GitHub stored asset digest equals local"
+  },
+  {
+   "name": "ntsd-android-arm64-9c700da.manifest.json",
+   "bytes": 243796,
+   "sha256": "38b5d01d00a41ed8c547ae46c0c08ece27c04ac5ab8083b63e17cb6b123a8351",
+   "kind": "manifest",
+   "uploaded": "15:20:29",
+   "result": "GitHub stored asset digest equals local"
+  },
+  {
+   "name": "SHA256SUMS.txt",
+   "bytes": 1189,
+   "sha256": "5aefbf88244872fcd406f48413aa12b61c43a1d5bd6f9dcce1358e9a07b74c54",
+   "kind": "sums",
+   "uploaded": "15:21:29",
+   "result": "GitHub stored asset digest equals local"
+  }
+ ],
+ "failures": [
+  {
+   "n": 1,
+   "operation": "macOS signing round 1",
+   "platform": "macos",
+   "cause": "keychain",
+   "ru": "подпись macOS: связка ключей заперта",
+   "result": "codesign errSecInternalComponent; notary preflight keychainLocked",
+   "next": "waiting for login keychain unlock; no retry yet"
+  },
+  {
+   "n": 2,
+   "operation": "Android release round 1",
+   "platform": "android",
+   "cause": "keychain",
+   "ru": "подпись APK: секрет в связке ключей недоступен",
+   "result": "Compiled and packaged; security find-generic-password exit 36",
+   "next": "unsigned aligned.apk retained; waiting for keychain"
+  },
+  {
+   "n": 3,
+   "operation": "Linux ARM64 package check round 1",
+   "platform": "linux",
+   "cause": "appledouble",
+   "ru": "Linux: файлы ._ с диска ExFAT сломали запуск",
+   "result": "startup boundary Package composition or PE masks in offscreen and X11",
+   "next": "same archive and verifier in X5 APFS checks2 directory; preserve failed check directory"
+  },
+  {
+   "n": 4,
+   "operation": "Linux ARM64 package check round 2 (APFS)",
+   "platform": "linux",
+   "cause": "scaling",
+   "ru": "Linux: клик по координатам игры, а окно уже масштабируется",
+   "result": "ldd and default launch with packaged music/font passed; X11 smoke stayed in main menu",
+   "next": "Updated existing linux_x11_smoke.sh with the already-tested aspect-preserving coordinate mapping. Round 3 runs only corrected X11 smoke and outstanding vs; successful ldd/default launch reused."
+  },
+  {
+   "n": 5,
+   "operation": "Linux package mechanism round 3",
+   "platform": "linux",
+   "cause": "appledouble",
+   "ru": "Linux: матч VS отличился только файлами ._ в оверлее",
+   "result": "X11 smoke reached gameplay and exited 0. VS game result differs only in overlayFiles.",
+   "next": "macOS-created overlay directories on ExFAT have AppleDouble ._ sidecars; the unchanged comparator correctly includes these files. No gameplay files differ."
+  },
+  {
+   "n": 6,
+   "operation": "task-owned archived-cache cleanup preflight",
+   "platform": "linux",
+   "cause": "harness",
+   "ru": "очистка кэшей: проверка процессов дважды ошиблась — остановилась до удаления",
+   "result": "First process matcher incorrectly matched a sibling -checks path; second preflight parsed the ps header as PID. Both aborted before deletion. The shell after the first failure still started x86 checks; fixed matcher uses headerless ps, excludes own process/shell, and requires path boundary. Verified archived caches then removed.",
+   "next": "Last observed free before checks was 20.21 GiB; after correction 21.24 GiB. A temporary reserve breach during extraction is possible but not measured. No reserve was intentionally lowered, no historical evidence deleted. All subsequent multi-step commands must stop on failed preflight."
+  },
+  {
+   "n": 7,
+   "operation": "Web scenario invocation round 1",
+   "platform": "web",
+   "cause": "harness",
+   "ru": "Web: сценарий «VS» вместо «vs»",
+   "result": "KeyError: 'VS' before game execution",
+   "next": "Use registered lowercase vs scenario; separate web-checks2 output/log; reference/comparator unchanged"
+  },
+  {
+   "n": 8,
+   "operation": "security unlock-keychain -u existing login keychain",
+   "platform": "macos",
+   "cause": "keychain",
+   "ru": "открыть связку без пароля нельзя",
+   "result": "SecKeychainUnlock: User interaction is not allowed (exit 36)",
+   "next": "No password available; no credential/ACL changes"
+  },
+  {
+   "n": 9,
+   "operation": "launchctl asuser 501 notarytool history",
+   "platform": "macos",
+   "cause": "keychain",
+   "ru": "перейти в сеанс пользователя не дали",
+   "result": "Could not switch to audit session 0x186b9: 1: Operation not permitted",
+   "next": "No session switch occurred; no further attempt"
+  },
+  {
+   "n": 10,
+   "operation": "Android release package smoke",
+   "platform": "android",
+   "cause": "appledouble",
+   "ru": "APK: чёрный экран — файлы ._ в списке ассетов",
+   "result": "Signed APK installs, activity resumes but screen remains black; initial manifest launch-pass claim insufficient",
+   "next": "Preserve failed signed package; rebuild package on APFS with existing android_app.py and same native code; sign via Aqua job using existing key. Do not publish failed package."
+  },
+  {
+   "n": 11,
+   "operation": "Android Aqua signer initial run",
+   "platform": "android",
+   "cause": "keychain",
+   "ru": "подписчик в сеансе Aqua не нашёл Java",
+   "result": "Existing secret access succeeded; apksigner could not locate Java",
+   "next": "Reuse configured JAVA_HOME openjdk@17; next run verified original release certificate"
+  },
+  {
+   "n": 12,
+   "operation": "APK payload verification initial assertion",
+   "platform": "android",
+   "cause": "harness",
+   "ru": "проверка APK ждала точный список ZIP, а подпись добавляет файлы",
+   "result": "Signing adds META-INF signature files and omits empty lib directory entries; exact ZIP member list assertion failed",
+   "next": "Verify exact payload file set/bytes, separately require three expected signature entries; no comparator/reference changes"
+  },
+  {
+   "n": 13,
+   "operation": "Android adb invocation",
+   "platform": "android",
+   "cause": "harness",
+   "ru": "adb нет в PATH",
+   "result": "adb not on PATH (exit 127) before install",
+   "next": "Reuse configured full SDK platform-tools/adb path"
+  },
+  {
+   "n": 14,
+   "operation": "macOS Aqua job round 1",
+   "platform": "macos",
+   "cause": "keychain",
+   "ru": "задача в сеансе Aqua не стартовала с путями на внешнем диске",
+   "result": "EX_CONFIG 78 before execution with external-volume output paths",
+   "next": "Task-owned local APFS output and /tmp logs; round 2 exit 0, signing and notarization passed"
+  },
+  {
+   "n": 15,
+   "operation": "Public GitHub API download verifier, Python urllib",
+   "platform": "publish",
+   "cause": "harness",
+   "ru": "Python urllib: соединение закрыто — дальше через curl",
+   "result": "Remote end closed connection without response before downloading any asset",
+   "next": "Standard curl HTTPS with certificate validation succeeded; separate download-verify2 output; no credential or security changes"
+  }
+ ],
+ "plan": {
+  "time": "14:32:43",
+  "owner": "Codex",
+  "scope": [
+   "macOS arm64 signed notarized DMG",
+   "Android arm64 release APK",
+   "Linux aarch64/x86_64 packages",
+   "Windows x86_64 package",
+   "Web archive if current host packaging succeeds"
+  ],
+  "excluded": [
+   "iOS per user",
+   "tvOS simulator is not a distributable device build"
+  ],
+  "bounds": "One build/package attempt per platform; corrections within same mechanism (max three before diagnosis). Sequential fresh disposable build caches on X5; keep 20 GiB free X5/internal, 40 GiB T7. Up to 30 GiB artifacts T7; 2 hours initial run budget. No original execution or gameplay changes. Preserve prior captures and live jobs.",
+  "review": "Packaging/tool configuration only; independent review unavailable. Existing game reviews preserved."
+ },
+ "excluded": [
+  "iOS per user",
+  "tvOS simulator packages are not distributable device apps"
+ ],
+ "review": "No independent reviewer available; no game/numeric/comparator contract changed. Existing game evidence/reviews remain distinct from these package checks.",
+ "downloadBoundary": "Three manifests downloaded and hash-matched; large partial downloads preserved and stopped after all GitHub asset digests matched",
+ "androidFailedRound": "Initial ExFAT files.txt listed AppleDouble files omitted by aapt2, resulting in black screen; failed signed package retained, never uploaded. Corrected APFS package uses identical native sources. Physical-device validation of this package remains open.",
+ "totalBytes": 1481442697,
+ "matrix": {
+  "labels": {
+   "macos": "macOS 0.5.0",
+   "android": "Android ARM64",
+   "windows": "Windows x86-64",
+   "linux-aarch64": "Linux ARM64",
+   "linux-x86_64": "Linux x86-64",
+   "web": "Web"
+  },
+  "rows": [
+   {
+    "id": "macos",
+    "ids": [
+     "macos"
+    ],
+    "label": "macOS 0.5.0",
+    "pkg": "DMG",
+    "integrity": "hdiutil: образ цел",
+    "launch": "10 из 10 сценариев приложения из пакета",
+    "vs": "= эталон, в составе сценариев",
+    "signing": "Developer ID; нотаризация app и DMG: Accepted; staple; Gatekeeper: Notarized Developer ID",
+    "where": "этот Mac",
+    "boundary": null
+   },
+   {
+    "id": "android",
+    "ids": [
+     "android"
+    ],
+    "label": "Android ARM64",
+    "pkg": "APK",
+    "integrity": "ассеты — точный размер, содержимое не изменилось",
+    "launch": "эмулятор: установка, холодный старт, главное меню",
+    "vs": null,
+    "signing": "прежний release-ключ, сертификат тот же",
+    "where": "эмулятор",
+    "boundary": "на телефоне не запускали"
+   },
+   {
+    "id": "windows",
+    "ids": [
+     "windows"
+    ],
+    "label": "Windows x86-64",
+    "pkg": "ZIP",
+    "integrity": "хэши 1 554 файлов + набор каталогов",
+    "launch": "шрифт GDI SYSTEM_FONT, музыка из пакета",
+    "vs": "= эталон, 59,5 с",
+    "signing": null,
+    "where": "CrossOver",
+    "boundary": "настоящий Windows — нет"
+   },
+   {
+    "id": "linux",
+    "ids": [
+     "linux-aarch64",
+     "linux-x86_64"
+    ],
+    "label": "Linux ARM64 и x86-64",
+    "pkg": "2 × tar.gz",
+    "integrity": "члены архива = манифест",
+    "launch": "ldd, музыка, шрифт; ввод X11 доходит до матча",
+    "vs": "= эталон, 74,9 и 77,0 с",
+    "signing": null,
+    "where": "контейнеры Ubuntu; x86-64 — через Rosetta",
+    "boundary": "железо — нет"
+   },
+   {
+    "id": "web",
+    "ids": [
+     "web"
+    ],
+    "label": "Web",
+    "pkg": "ZIP",
+    "integrity": "хэши файлов; gzip 1 404 + brotli 1 517 форм",
+    "launch": "свежий wasm в Chromium и WebKit",
+    "vs": "= эталон, 75,9 с; контрольный кадр — 0 из 436 700 пикселей",
+    "signing": null,
+    "where": "Chromium + WebKit",
+    "boundary": "архив, не сайт"
+   }
+  ]
+ }
+}

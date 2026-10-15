@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1000" width="1200" height="1000">
+<title>Иллюстрация: окно монитора памяти — столбики растут семь часов и выравниваются после правки; перед ним условный контроллер для телефона. Не снимок экрана и не фото устройства.</title>
+<defs>
+<radialGradient id="glow" cx="0.6" cy="0.45" r="0.6"><stop offset="0" stop-color="#ff8a3d" stop-opacity="0.26"/><stop offset="0.55" stop-color="#3987e5" stop-opacity="0.09"/><stop offset="1" stop-color="#0a0d13" stop-opacity="0"/></radialGradient>
+<linearGradient id="win" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1d2230"/><stop offset="1" stop-color="#141821"/></linearGradient>
+<linearGradient id="bar" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff8a3d"/><stop offset="1" stop-color="#d95926"/></linearGradient>
+<linearGradient id="pad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2c3346"/><stop offset="1" stop-color="#171c27"/></linearGradient>
+<linearGradient id="scr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#10213a"/><stop offset="1" stop-color="#0b111c"/></linearGradient>
+</defs>
+<rect width="1200" height="1000" fill="url(#glow)"/>
+<g transform="rotate(-3 680.0 430.0)">
+<rect x="266" y="172" width="860" height="560" rx="22" fill="#000" opacity="0.45"/>
+<rect x="250" y="150" width="860" height="560" rx="22" fill="url(#win)" stroke="#3a4252" stroke-width="2"/>
+<path d="M272,150 H1088 Q1110,150 1110,172 V202 H250 V172 Q250,150 272,150 Z" fill="#262d3d"/>
+<circle cx="280" cy="176" r="7.5" fill="#ff5f57" opacity="0.9"/>
+<circle cx="304" cy="176" r="7.5" fill="#febc2e" opacity="0.9"/>
+<circle cx="328" cy="176" r="7.5" fill="#28c840" opacity="0.9"/>
+<rect x="580" y="166" width="70" height="20" rx="10" fill="#1f2533"/>
+<rect x="662" y="166" width="92" height="20" rx="10" fill="#3a4252"/>
+<rect x="766" y="166" width="70" height="20" rx="10" fill="#1f2533"/>
+<rect x="848" y="166" width="58" height="20" rx="10" fill="#1f2533"/>
+<rect x="918" y="166" width="62" height="20" rx="10" fill="#1f2533"/>
+<rect x="274" y="222" width="812" height="26" rx="6" fill="rgba(255,138,61,0.16)"/>
+<rect x="290" y="231" width="260" height="8" rx="4" fill="#4a5366"/>
+<rect x="950" y="231" width="110" height="8" rx="4" fill="#ff8a3d"/>
+<rect x="274" y="256" width="812" height="26" rx="6" fill="rgba(255,255,255,0.03)"/>
+<rect x="290" y="265" width="200" height="8" rx="4" fill="#4a5366"/>
+<rect x="950" y="265" width="70" height="8" rx="4" fill="#4a5366"/>
+<rect x="274" y="290" width="812" height="26" rx="6" fill="rgba(255,255,255,0.03)"/>
+<rect x="290" y="299" width="230" height="8" rx="4" fill="#4a5366"/>
+<rect x="950" y="299" width="80" height="8" rx="4" fill="#4a5366"/>
+<rect x="274" y="340" width="812" height="346" rx="12" fill="#0f131b" stroke="#252b37"/>
+<line x1="288" x2="1072" y1="599.5" y2="599.5" stroke="#252b37" stroke-width="1.5"/>
+<line x1="288" x2="1072" y1="513.0" y2="513.0" stroke="#252b37" stroke-width="1.5"/>
+<line x1="288" x2="1072" y1="426.5" y2="426.5" stroke="#252b37" stroke-width="1.5"/>
+<rect x="296.0" y="658.0" width="13.4" height="10.0" rx="2.5" fill="url(#bar)"/>
+<rect x="314.4" y="647.9" width="13.4" height="20.1" rx="2.5" fill="url(#bar)"/>
+<rect x="332.8" y="637.9" width="13.4" height="30.1" rx="2.5" fill="url(#bar)"/>
+<rect x="351.1" y="627.8" width="13.4" height="40.2" rx="2.5" fill="url(#bar)"/>
+<rect x="369.5" y="617.7" width="13.4" height="50.3" rx="2.5" fill="url(#bar)"/>
+<rect x="387.9" y="607.7" width="13.4" height="60.3" rx="2.5" fill="url(#bar)"/>
+<rect x="406.3" y="597.6" width="13.4" height="70.4" rx="2.5" fill="url(#bar)"/>
+<rect x="424.7" y="587.5" width="13.4" height="80.5" rx="2.5" fill="url(#bar)"/>
+<rect x="443.0" y="577.4" width="13.4" height="90.6" rx="2.5" fill="url(#bar)"/>
+<rect x="461.4" y="567.4" width="13.4" height="100.6" rx="2.5" fill="url(#bar)"/>
+<rect x="479.8" y="557.3" width="13.4" height="110.7" rx="2.5" fill="url(#bar)"/>
+<rect x="498.2" y="547.2" width="13.4" height="120.8" rx="2.5" fill="url(#bar)"/>
+<rect x="516.6" y="537.2" width="13.4" height="130.8" rx="2.5" fill="url(#bar)"/>
+<rect x="535.0" y="527.1" width="13.4" height="140.9" rx="2.5" fill="url(#bar)"/>
+<rect x="553.3" y="517.0" width="13.4" height="151.0" rx="2.5" fill="url(#bar)"/>
+<rect x="571.7" y="507.0" width="13.4" height="161.0" rx="2.5" fill="url(#bar)"/>
+<rect x="590.1" y="496.9" width="13.4" height="171.1" rx="2.5" fill="url(#bar)"/>
+<rect x="608.5" y="486.8" width="13.4" height="181.2" rx="2.5" fill="url(#bar)"/>
+<rect x="626.9" y="476.8" width="13.4" height="191.2" rx="2.5" fill="url(#bar)"/>
+<rect x="645.2" y="466.7" width="13.4" height="201.3" rx="2.5" fill="url(#bar)"/>
+<rect x="663.6" y="456.6" width="13.4" height="211.4" rx="2.5" fill="url(#bar)"/>
+<rect x="682.0" y="446.6" width="13.4" height="221.4" rx="2.5" fill="url(#bar)"/>
+<rect x="700.4" y="436.5" width="13.4" height="231.5" rx="2.5" fill="url(#bar)"/>
+<rect x="718.8" y="426.4" width="13.4" height="241.6" rx="2.5" fill="url(#bar)"/>
+<rect x="737.1" y="416.3" width="13.4" height="251.7" rx="2.5" fill="url(#bar)"/>
+<rect x="755.5" y="406.3" width="13.4" height="261.7" rx="2.5" fill="url(#bar)"/>
+<rect x="773.9" y="396.2" width="13.4" height="271.8" rx="2.5" fill="url(#bar)"/>
+<rect x="792.3" y="386.1" width="13.4" height="281.9" rx="2.5" fill="url(#bar)"/>
+<rect x="810.7" y="376.1" width="13.4" height="291.9" rx="2.5" fill="url(#bar)"/>
+<rect x="829.0" y="366.0" width="13.4" height="302.0" rx="2.5" fill="url(#bar)"/>
+<rect x="847.4" y="658.0" width="13.4" height="10.0" rx="2.5" fill="#3987e5"/>
+<rect x="865.8" y="658.0" width="13.4" height="10.0" rx="2.5" fill="#3987e5"/>
+<rect x="884.2" y="658.0" width="13.4" height="10.0" rx="2.5" fill="#3987e5"/>
+<rect x="902.6" y="658.0" width="13.4" height="10.0" rx="2.5" fill="#3987e5"/>
+<rect x="921.0" y="658.0" width="13.4" height="10.0" rx="2.5" fill="#3987e5"/>
+<rect x="939.3" y="658.0" width="13.4" height="10.0" rx="2.5" fill="#3987e5"/>
+<rect x="957.7" y="658.0" width="13.4" height="10.0" rx="2.5" fill="#3987e5"/>
+<rect x="976.1" y="658.0" width="13.4" height="10.0" rx="2.5" fill="#3987e5"/>
+<rect x="994.5" y="658.0" width="13.4" height="10.0" rx="2.5" fill="#3987e5"/>
+<rect x="1012.9" y="658.0" width="13.4" height="10.0" rx="2.5" fill="#3987e5"/>
+<rect x="1031.2" y="658.0" width="13.4" height="10.0" rx="2.5" fill="#3987e5"/>
+<rect x="1049.6" y="658.0" width="13.4" height="10.0" rx="2.5" fill="#3987e5"/>
+<line x1="843.9" x2="843.9" y1="358" y2="674" stroke="#f6f3ec" stroke-width="2.5" opacity="0.8"/>
+</g>
+<g transform="rotate(4 600 790)">
+<ellipse cx="600" cy="910" rx="430" ry="34" fill="#000" opacity="0.4"/>
+<rect x="350" y="698" width="500" height="200" rx="26" fill="#0b0e14" stroke="#3a4252" stroke-width="3"/>
+<rect x="364" y="710" width="472" height="176" rx="18" fill="url(#scr)"/>
+<path d="M400,840 L540,750 L560,810 L790,810" fill="none" stroke="#6cb6ff" stroke-width="5" stroke-linejoin="round" opacity="0.85"/>
+<path d="M360,690 Q250,678 175,730 Q130,820 160,910 Q190,960 260,940 Q330,920 360,900 Z" fill="url(#pad)" stroke="#4a5366" stroke-width="3"/>
+<path d="M840,690 Q950,678 1025,730 Q1070,820 1040,910 Q1010,960 940,940 Q870,920 840,900 Z" fill="url(#pad)" stroke="#4a5366" stroke-width="3"/>
+<circle cx="264" cy="762" r="38" fill="#11151d" stroke="#4a5366" stroke-width="3"/><circle cx="264" cy="762" r="22" fill="#2a3142"/>
+<path d="M290,818 h20 v24 h24 v20 h-24 v24 h-20 v-24 h-24 v-20 h24 Z" fill="#2a3142" stroke="#4a5366" stroke-width="2.5"/>
+<circle cx="930" cy="728" r="16" fill="#c98500" opacity="0.92" stroke="#0a0d13" stroke-width="3"/>
+<circle cx="964" cy="762" r="16" fill="#e66767" opacity="0.92" stroke="#0a0d13" stroke-width="3"/>
+<circle cx="896" cy="762" r="16" fill="#3987e5" opacity="0.92" stroke="#0a0d13" stroke-width="3"/>
+<circle cx="930" cy="796" r="16" fill="#199e70" opacity="0.92" stroke="#0a0d13" stroke-width="3"/>
+<circle cx="900" cy="868" r="34" fill="#11151d" stroke="#4a5366" stroke-width="3"/><circle cx="900" cy="868" r="19" fill="#2a3142"/>
+</g>
+</svg>

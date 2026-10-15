@@ -1,0 +1,449 @@
+{
+ "title": "Контроллер для телефона (PHONE_CONTROLLER C0–C3), 13 октября",
+ "source": "docs/research/PHONE_CONTROLLER.md · docs/evidence/phone-controller-c1/c2/c3-20261013.json · native/Sources/NTSDAndroid/NTSDAndroidGamepads.swift · data/control.txt оригинала (ресурс порта) · f340f1e2 · d4619cbc · 5f5a8ee4 · git show 5f5a8ee4",
+ "caveat": "Модель с фото C0 определил неверно; имя устройства — из его собственного USB-отчёта на Pixel 10. Счётчики событий — сырые события evdev за всю запись (нажатия и отпускания), не только за матч. Что игра получала второй джойстик от пустого интерфейса — вывод из кода и списка устройств: число джойстиков на Android не логируется. Проверка C3 на телефоне не проведена. Kishi V2 на Mac и iOS не наблюдался. Роли кнопок — значения control.txt по умолчанию для игрока 3 (джойстик 1); игрок может переназначить.",
+ "frozenAt": "состояние на 13 октября 2026, 20:14 (5f5a8ee4)",
+ "guess": "Backbone One (USB-C)",
+ "device": {
+  "name": "Razer Razer Kishi V2",
+  "vendor": "0x1532",
+  "product": "0x0712",
+  "phone": "Pixel 10",
+  "android": "17"
+ },
+ "interfaces": [
+  {
+   "interface": "input0",
+   "node": "event3",
+   "eventHubClasses": "KEYBOARD | GAMEPAD | JOYSTICK",
+   "controllerNumber": 1,
+   "abs": "X Y Z RZ GAS BRAKE 0..255 flat 15 (rest 0x80); HAT0X HAT0Y -1..1",
+   "keys": "BTN_SOUTH(GAMEPAD) EAST C NORTH WEST Z TL TR TL2 TR2 SELECT START MODE THUMBL THUMBR"
+  },
+  {
+   "interface": "input1",
+   "node": "event5",
+   "eventHubClasses": "TOUCH | TOUCH_MT | EXTERNAL",
+   "abs": "MT 2048x4096, 5 slots"
+  },
+  {
+   "interface": "input2",
+   "node": "event6",
+   "eventHubClasses": "KEYBOARD | GAMEPAD",
+   "controllerNumber": 0,
+   "keys": "the same 15 gamepad buttons, no axes"
+  },
+  {
+   "node": "event4",
+   "name": "Razer Razer Kishi V2 Consumer Control",
+   "keys": "VOLUMEDOWN VOLUMEUP POWER MENU SLEEP BACK HOMEPAGE APPSELECT"
+  },
+  {
+   "node": "event7",
+   "abs": "ABS_MISC 0..255"
+  }
+ ],
+ "androidDevices": [
+  {
+   "id": 4,
+   "sources": "KEYBOARD | GAMEPAD | JOYSTICK",
+   "controllerNum": 1,
+   "motionRanges": "X Y Z RZ -1..1 flat 0.118; LTRIGGER RTRIGGER GAS BRAKE 0..1; HAT_X HAT_Y -1..1"
+  },
+  {
+   "id": 5,
+   "sources": "KEYBOARD | GAMEPAD",
+   "controllerNum": 0
+  },
+  {
+   "id": 6,
+   "sources": "touch (the controller's input1)"
+  }
+ ],
+ "rawEvents": {
+  "SYN_REPORT": 1338,
+  "ABS_X": 311,
+  "ABS_Y": 315,
+  "ABS_Z": 170,
+  "ABS_RZ": 177,
+  "ABS_GAS": 184,
+  "ABS_BRAKE": 159,
+  "ABS_HAT0X": 57,
+  "ABS_HAT0Y": 96,
+  "BTN_SOUTH": 86,
+  "BTN_EAST": 36,
+  "BTN_NORTH": 20,
+  "BTN_WEST": 14,
+  "BTN_TL": 2,
+  "BTN_TL2": 6,
+  "BTN_TR2": 12,
+  "BTN_SELECT": 10,
+  "BTN_START": 4,
+  "BTN_MODE": 4
+ },
+ "consumerEvents": {
+  "KEY_POWER": 6,
+  "KEY_VOLUMEDOWN": 6
+ },
+ "samplingMs": 25,
+ "winmmButtons": {
+  "A": 1,
+  "B": 2,
+  "X": 3,
+  "Y": 4
+ },
+ "player3": {
+  "player": 3,
+  "device": 1,
+  "keys": [
+   36,
+   35,
+   46,
+   34,
+   103,
+   104,
+   105
+  ],
+  "buttons": {
+   "attack": 1,
+   "jump": 2,
+   "defend": 3
+  }
+ },
+ "players": [
+  {
+   "player": 1,
+   "device": 0,
+   "keys": [
+    87,
+    83,
+    65,
+    68,
+    74,
+    75,
+    76
+   ],
+   "buttons": {
+    "attack": 4,
+    "jump": 3,
+    "defend": 2
+   }
+  },
+  {
+   "player": 2,
+   "device": 0,
+   "keys": [
+    38,
+    40,
+    37,
+    39,
+    100,
+    101,
+    102
+   ],
+   "buttons": {
+    "attack": 4,
+    "jump": 1,
+    "defend": 3
+   }
+  },
+  {
+   "player": 3,
+   "device": 1,
+   "keys": [
+    36,
+    35,
+    46,
+    34,
+    103,
+    104,
+    105
+   ],
+   "buttons": {
+    "attack": 1,
+    "jump": 2,
+    "defend": 3
+   }
+  },
+  {
+   "player": 4,
+   "device": 2,
+   "keys": [
+    73,
+    188,
+    74,
+    76,
+    75,
+    32,
+    190
+   ],
+   "buttons": {
+    "attack": 1,
+    "jump": 2,
+    "defend": 4
+   }
+  }
+ ],
+ "keyOrder": [
+  "up",
+  "down",
+  "left",
+  "right",
+  "attack",
+  "jump",
+  "defend"
+ ],
+ "controls": [
+  {
+   "id": "ls",
+   "label": "левый стик",
+   "evdev": "ABS_X · ABS_Y (0–255, покой 0x80)",
+   "android": "AXIS_X · AXIS_Y (−1…1)",
+   "port": "оси X/Y WinMM, 0–65535; уступает крестовине",
+   "game": "движение ← → ↑ ↓ (игрок 3)",
+   "events": 626,
+   "kind": "axis"
+  },
+  {
+   "id": "dp",
+   "label": "крестовина",
+   "evdev": "ABS_HAT0X · ABS_HAT0Y (−1…1)",
+   "android": "AXIS_HAT_X · AXIS_HAT_Y",
+   "port": "оси X/Y WinMM — поверх стика",
+   "game": "движение ← → ↑ ↓ (игрок 3)",
+   "events": 153,
+   "kind": "axis"
+  },
+  {
+   "id": "a",
+   "label": "A",
+   "evdev": "BTN_SOUTH",
+   "android": "KEYCODE_BUTTON_A",
+   "port": "кнопка 1",
+   "game": "атака",
+   "events": 86,
+   "kind": "button"
+  },
+  {
+   "id": "b",
+   "label": "B",
+   "evdev": "BTN_EAST",
+   "android": "KEYCODE_BUTTON_B",
+   "port": "кнопка 2 (не «Назад»)",
+   "game": "прыжок",
+   "events": 36,
+   "kind": "button"
+  },
+  {
+   "id": "x",
+   "label": "X",
+   "evdev": "BTN_NORTH (= BTN_X)",
+   "android": "KEYCODE_BUTTON_X",
+   "port": "кнопка 3",
+   "game": "защита",
+   "events": 20,
+   "kind": "button"
+  },
+  {
+   "id": "y",
+   "label": "Y",
+   "evdev": "BTN_WEST (= BTN_Y)",
+   "android": "KEYCODE_BUTTON_Y",
+   "port": "кнопка 4",
+   "game": "не назначена у игрока 3",
+   "events": 14,
+   "kind": "button"
+  },
+  {
+   "id": "rs",
+   "label": "правый стик",
+   "evdev": "ABS_Z · ABS_RZ",
+   "android": "AXIS_Z · AXIS_RZ",
+   "port": "не читается",
+   "game": "—",
+   "events": 347,
+   "kind": "unused"
+  },
+  {
+   "id": "lb",
+   "label": "LB",
+   "evdev": "BTN_TL",
+   "android": "KEYCODE_BUTTON_L1",
+   "port": "поглощается, без роли",
+   "game": "—",
+   "events": 2,
+   "kind": "unused"
+  },
+  {
+   "id": "rb",
+   "label": "RB",
+   "evdev": "BTN_TR",
+   "android": "KEYCODE_BUTTON_R1",
+   "port": "поглощается, без роли",
+   "game": "—",
+   "events": 0,
+   "kind": "unused"
+  },
+  {
+   "id": "lt",
+   "label": "LT",
+   "evdev": "BTN_TL2 + ABS_BRAKE",
+   "android": "KEYCODE_BUTTON_L2 · AXIS_BRAKE",
+   "port": "без роли",
+   "game": "—",
+   "events": 165,
+   "kind": "unused"
+  },
+  {
+   "id": "rt",
+   "label": "RT",
+   "evdev": "BTN_TR2 + ABS_GAS",
+   "android": "KEYCODE_BUTTON_R2 · AXIS_GAS",
+   "port": "без роли",
+   "game": "—",
+   "events": 196,
+   "kind": "unused"
+  },
+  {
+   "id": "sel",
+   "label": "Select",
+   "evdev": "BTN_SELECT",
+   "android": "KEYCODE_BUTTON_SELECT",
+   "port": "без роли",
+   "game": "—",
+   "events": 10,
+   "kind": "unused"
+  },
+  {
+   "id": "start",
+   "label": "Start",
+   "evdev": "BTN_START",
+   "android": "KEYCODE_BUTTON_START",
+   "port": "без роли",
+   "game": "—",
+   "events": 4,
+   "kind": "unused"
+  },
+  {
+   "id": "mode",
+   "label": "кнопка Razer",
+   "evdev": "BTN_MODE",
+   "android": "KEYCODE_BUTTON_MODE",
+   "port": "без роли",
+   "game": "—",
+   "events": 4,
+   "kind": "unused"
+  }
+ ],
+ "runs": [
+  {
+   "pid": 19756,
+   "from": "18:51:26",
+   "to": "18:52:33",
+   "controllerAtLaunch": false
+  },
+  {
+   "pid": 20989,
+   "from": "18:52:36",
+   "to": "18:53:11",
+   "controllerAtLaunch": false,
+   "note": "controller attached at 18:52:54, during the run"
+  },
+  {
+   "pid": 21467,
+   "from": "18:53:18",
+   "to": "18:57:58",
+   "controllerAtLaunch": true,
+   "note": "the played test, about 4 min 40 s"
+  }
+ ],
+ "attached": [
+  "attached between the 18:51:28 and 18:51:46 samples, removed by 18:52:28",
+  "18:52:54 to 18:58:10"
+ ],
+ "attachedSpans": [
+  {
+   "earliest": "18:51:28",
+   "from": "18:51:46",
+   "to": "18:52:28",
+   "note": "подключён между опросами в 18:51:28 и 18:51:46, отключён к 18:52:28"
+  },
+  {
+   "from": "18:52:54",
+   "to": "18:58:10",
+   "note": "подключён всю игру"
+  }
+ ],
+ "played": {
+  "from": "18:53:18",
+  "to": "18:57:58",
+  "pid": 21467
+ },
+ "sigsegvMs": 94,
+ "iphone": {
+  "bundle": "local.ntsd.native.iphone",
+  "simulator": "iPhone 17 Pro",
+  "screenPt": [
+   874,
+   402
+  ],
+  "window": [
+   794,
+   550
+  ],
+  "toldMin": [
+   800,
+   600
+  ],
+  "firstRunStopped": 10,
+  "scenarios": 10,
+  "frames": 18088,
+  "screenshots": [
+   {
+    "screen": [
+     2622,
+     1206
+    ],
+    "box": [
+     440,
+     0,
+     2182,
+     1206
+    ],
+    "boxSize": [
+     1742,
+     1206
+    ],
+    "aspect": 1.4444
+   },
+   {
+    "screen": [
+     2532,
+     1170
+    ],
+    "box": [
+     421,
+     0,
+     2111,
+     1170
+    ],
+    "boxSize": [
+     1690,
+     1170
+    ],
+    "aspect": 1.4444
+   }
+  ]
+ },
+ "c3": {
+  "change": "NTSDAndroidGamepads.probe reads every SOURCE_GAMEPAD device's vendor and product ids and skips a node without SOURCE_JOYSTICK when a node with it has the same ids (not both zero); id order and the two-device limit are kept; one logcat line (tag NTSD) lists what it saw",
+  "emulator": {
+   "vs": "equal, no differences (62.8 s)",
+   "joystick": "equal, no differences (21.4 s)",
+   "note": "scripted runs take --joysticks and do not call the probe",
+   "normalLaunch": "main menu shown; logcat 'NTSD: gamepads at launch: []'"
+  },
+  "pixel": "installed on the Pixel 10 over adb Wi-Fi; the launch with the Kishi V2 attached is pending",
+  "harnessError": "the first run staged the APK on T7 (ExFAT): macOS AppleDouble ._ files entered files.txt (1585 entries), aapt2 left them out, the app's asset extraction failed and it stayed on a black screen until the scenario's 3600 s timeout; not a code result. Rerun staged on X5."
+ }
+}
