@@ -1,0 +1,3277 @@
+{
+ "title": "MEMORY_LOADING: каждая ступень — A/B прошлой и новой сборки в одной сессии",
+ "source": "docs/research/MEMORY_LOADING.md (Ledger) · docs/evidence/ml-*.json (поля phone, mac, review) · git log 0034e45..6b4bffd",
+ "caveat": "Galaxy A12 (SM-A125F), debuggable APK, сценарий vs по скрипту app_e2e на виртуальных часах, сеть выключена; до M5d звук выключен, с M5d эффекты микшируются, M8 и M9 — с музыкой. На телефоне 3 прогона новой сборки против 2 прошлой, вперемешку; на Mac — 3 на 3, headless-бинарник без проверок эксклюзивности. Медиана [мин, макс]. Сравнивать можно только пару внутри одного гейта: телефон дрейфует между сессиями.",
+ "units": "A12: VmRSS + VmSwap, кБ /proc ÷ 1024 (МиБ); Mac: phys_footprint_peak утилиты footprint (МБ)",
+ "frozen": "ntsd-2.4 на 5f5a8ee4 (13 окт 2026, 20:14); исследование MEMORY_LOADING — 0034e45..6b4bffd, ветка exp/memory-loading",
+ "families": {
+  "inplace": "на месте, без копий",
+  "parallel": "все ядра и железо",
+  "search": "поиск вместо перебора",
+  "convert": "меньше превращений",
+  "memory": "хранить меньше"
+ },
+ "commits": 34,
+ "tagged": 33,
+ "baseline": {
+  "a12": {
+   "load": [
+    123.915,
+    123.21,
+    124.62
+   ],
+   "loadNoiseRuns": [
+    122.1,
+    123.25,
+    122.87
+   ],
+   "startup": [
+    2.925,
+    2.92,
+    2.93
+   ],
+   "startToLoaded": [
+    132.705,
+    132.04,
+    133.37
+   ],
+   "peak": [
+    1598.0,
+    1595,
+    1601
+   ],
+   "mainCpuToLoaded": 130.96,
+   "startToLoadedProfiled": 135.3
+  },
+  "mac": {
+   "load": [
+    5.411,
+    5.365,
+    5.433
+   ],
+   "peak": [
+    2004,
+    1982,
+    2008
+   ]
+  },
+  "profileA12": {
+   "catalog session load": 49.1,
+   "object consume": 32.0,
+   "sheet finishing": 19.0,
+   "array copies in sheet finishing": 9.65,
+   "decodeDAT": 16.1,
+   "frame bodies": 9.45,
+   "catalog package load": 25.0,
+   "PortableSHA256": 14.9,
+   "Bitmap.init": 8.8,
+   "arena package": 2.45,
+   "sounds": 4.2
+  },
+  "profileSamples": 12757,
+  "data": "834 24-bit BMPs 638 MB, 58 other bitmaps 21 MB, 155 DAT 5.3 MB, 388 WAV 15 MB"
+ },
+ "steps": [
+  {
+   "id": "L1",
+   "hash": "17416cd",
+   "time": "2026-10-10T22:23",
+   "subject": "Change the loading-file streams in place (MEMORY_LOADING L1)",
+   "status": "done",
+   "family": "inplace",
+   "name": "Потоки файлов меняются на месте",
+   "how": "каждый прочитанный символ DAT-файла копировал весь Stream — четыре массива байтов — туда и обратно; ещё массив на каждый байт",
+   "evidence": "ml-l1-file-streams-in-place-20261010.json",
+   "review": "independent",
+   "reviewFinding": null,
+   "sounds": false,
+   "music": false,
+   "phone": {
+    "prev": {
+     "build": "ml-p0",
+     "runs": 2,
+     "load": [
+      123.915,
+      123.21,
+      124.62
+     ],
+     "startToLoaded": [
+      132.705,
+      132.04,
+      133.37
+     ],
+     "peak": [
+      1598.0,
+      1595,
+      1601
+     ],
+     "main": null,
+     "render": null
+    },
+    "new": {
+     "build": "ml-l1",
+     "runs": 3,
+     "load": [
+      101.81,
+      101.39,
+      102.42
+     ],
+     "startToLoaded": [
+      110.67,
+      110.11,
+      111.17
+     ],
+     "peak": [
+      1607,
+      1607,
+      1614
+     ],
+     "main": null,
+     "render": null
+    },
+    "loadGain": "measured",
+    "peakGain": "worse"
+   },
+   "mac": {
+    "prev": {
+     "build": "ml-p0",
+     "runs": 3,
+     "load": [
+      5.411,
+      5.365,
+      5.433
+     ],
+     "peak": [
+      2004,
+      1982,
+      2008
+     ]
+    },
+    "new": {
+     "build": "ml-l1",
+     "runs": 3,
+     "load": [
+      3.687,
+      3.668,
+      3.706
+     ],
+     "peak": [
+      1990,
+      1988,
+      2002
+     ]
+    },
+    "loadGain": "measured",
+    "peakGain": "overlap"
+   }
+  },
+  {
+   "id": "L2",
+   "hash": "5e1ec59",
+   "time": "2026-10-10T22:54",
+   "subject": "Mutate the loaders' resource arrays in place (MEMORY_LOADING L2)",
+   "status": "done",
+   "family": "inplace",
+   "name": "Массивы загрузчика — на месте",
+   "how": "запись в одну картинку копировала весь массив из ~1 800 загруженных: свойство было вычисляемым get/set, теперь _modify",
+   "evidence": "ml-l2-loader-arrays-in-place-20261010.json",
+   "review": "not delegated",
+   "reviewFinding": null,
+   "sounds": false,
+   "music": false,
+   "phone": {
+    "prev": {
+     "build": "ml-l1",
+     "runs": 2,
+     "load": [
+      102.34,
+      101.77,
+      102.91
+     ],
+     "startToLoaded": [
+      123.79,
+      111.75,
+      135.83
+     ],
+     "peak": [
+      1629.0,
+      1603,
+      1655
+     ],
+     "main": null,
+     "render": null
+    },
+    "new": {
+     "build": "ml-l2",
+     "runs": 3,
+     "load": [
+      78.98,
+      75.72,
+      79.4
+     ],
+     "startToLoaded": [
+      88.08,
+      87.78,
+      107.12
+     ],
+     "peak": [
+      1604,
+      1602,
+      1668
+     ],
+     "main": null,
+     "render": null
+    },
+    "loadGain": "measured",
+    "peakGain": "overlap"
+   },
+   "mac": {
+    "prev": {
+     "build": "ml-l1",
+     "runs": 3,
+     "load": [
+      3.454,
+      3.451,
+      3.912
+     ],
+     "peak": [
+      2002,
+      1985,
+      2004
+     ]
+    },
+    "new": {
+     "build": "ml-l2",
+     "runs": 3,
+     "load": [
+      3.098,
+      3.081,
+      3.327
+     ],
+     "peak": [
+      2010,
+      1987,
+      2041
+     ]
+    },
+    "loadGain": "measured",
+    "peakGain": "overlap"
+   }
+  },
+  {
+   "id": "L3",
+   "hash": "2e4d4dd",
+   "time": "2026-10-10T23:24",
+   "subject": "Read and verify package entries on all cores (MEMORY_LOADING L3)",
+   "status": "done",
+   "family": "parallel",
+   "name": "Пакеты — на всех ядрах",
+   "how": "записи пакетов читаются, проверяются SHA-256 и декодируются параллельно, а принимаются в порядке манифеста: первая ошибка та же",
+   "evidence": "ml-l3-packages-on-all-cores-20261010.json",
+   "review": "independent",
+   "reviewFinding": "ревью: подменённый огромный файл читался бы на всех ядрах до первой ошибки — размер теперь проверяется до чтения (в L4)",
+   "sounds": false,
+   "music": false,
+   "phone": {
+    "prev": {
+     "build": "ml-l2",
+     "runs": 2,
+     "load": [
+      78.985,
+      78.6,
+      79.37
+     ],
+     "startToLoaded": [
+      87.66,
+      87.15,
+      88.17
+     ],
+     "peak": [
+      1601.5,
+      1596,
+      1607
+     ],
+     "main": null,
+     "render": null
+    },
+    "new": {
+     "build": "ml-l3",
+     "runs": 3,
+     "load": [
+      48.35,
+      48.35,
+      48.71
+     ],
+     "startToLoaded": [
+      56.78,
+      56.71,
+      57.19
+     ],
+     "peak": [
+      1596,
+      1593,
+      1597
+     ],
+     "main": null,
+     "render": null
+    },
+    "loadGain": "measured",
+    "peakGain": "overlap"
+   },
+   "mac": {
+    "prev": {
+     "build": "ml-l2",
+     "runs": 3,
+     "load": [
+      3.101,
+      3.077,
+      3.508
+     ],
+     "peak": [
+      2001,
+      1974,
+      2016
+     ]
+    },
+    "new": {
+     "build": "ml-l3",
+     "runs": 3,
+     "load": [
+      2.097,
+      2.085,
+      2.378
+     ],
+     "peak": [
+      1975,
+      1971,
+      1988
+     ]
+    },
+    "loadGain": "measured",
+    "peakGain": "overlap"
+   }
+  },
+  {
+   "id": "L4",
+   "hash": "5c3a5a4",
+   "time": "2026-10-11T00:07",
+   "subject": "Validate bitmaps at load without decoding them (MEMORY_LOADING L4)",
+   "status": "done",
+   "family": "convert",
+   "name": "Картинки проверяются без декодирования",
+   "how": "те же проверки декодера в том же порядке, но без раскодированных массивов; заголовки — прямо из байтов",
+   "evidence": "ml-l4-bitmap-validation-20261011.json",
+   "review": "independent",
+   "reviewFinding": "ревью: первая версия проверки размера меняла ошибку для нечитаемого файла — исправлено до гейта",
+   "sounds": false,
+   "music": false,
+   "phone": {
+    "prev": {
+     "build": "ml-l3",
+     "runs": 2,
+     "load": [
+      48.13,
+      47.71,
+      48.55
+     ],
+     "startToLoaded": [
+      77.65,
+      76.41,
+      78.89
+     ],
+     "peak": [
+      1585.0,
+      1580,
+      1590
+     ],
+     "main": null,
+     "render": null
+    },
+    "new": {
+     "build": "ml-l4b",
+     "runs": 3,
+     "load": [
+      46.19,
+      45.99,
+      46.38
+     ],
+     "startToLoaded": [
+      54.63,
+      54.04,
+      77.57
+     ],
+     "peak": [
+      1565,
+      1564,
+      1567
+     ],
+     "main": null,
+     "render": null
+    },
+    "loadGain": "measured",
+    "peakGain": "measured"
+   },
+   "mac": {
+    "prev": {
+     "build": "ml-l3",
+     "runs": 3,
+     "load": [
+      2.229,
+      2.214,
+      2.458
+     ],
+     "peak": [
+      1962,
+      1921,
+      1984
+     ]
+    },
+    "new": {
+     "build": "ml-l4b",
+     "runs": 3,
+     "load": [
+      2.094,
+      2.091,
+      2.12
+     ],
+     "peak": [
+      2022,
+      2007,
+      2045
+     ]
+    },
+    "loadGain": "measured",
+    "peakGain": "worse"
+   }
+  },
+  {
+   "id": "M1",
+   "hash": "8aceb53",
+   "time": "2026-10-11T01:10",
+   "subject": "Keep sprite-sheet bytes compressed in memory (MEMORY_LOADING M1)",
+   "status": "done",
+   "family": "memory",
+   "name": "Спрайт-листы хранятся сжатыми",
+   "how": "байты листов от 64 КиБ — в LZ4 (~13×); распаковка, когда поверхности впервые нужны пиксели: 77 чтений за матч",
+   "evidence": "ml-m1-bitmap-bytes-compressed-20261011.json",
+   "review": "independent",
+   "reviewFinding": null,
+   "sounds": false,
+   "music": false,
+   "phone": {
+    "prev": {
+     "build": "ml-l4b",
+     "runs": 2,
+     "load": [
+      46.295,
+      46.02,
+      46.57
+     ],
+     "startToLoaded": [
+      63.91,
+      55.24,
+      72.58
+     ],
+     "peak": [
+      1570.0,
+      1567,
+      1573
+     ],
+     "main": null,
+     "render": null
+    },
+    "new": {
+     "build": "ml-m1c",
+     "runs": 3,
+     "load": [
+      46.39,
+      46.24,
+      46.71
+     ],
+     "startToLoaded": [
+      54.62,
+      54.48,
+      54.99
+     ],
+     "peak": [
+      975,
+      971,
+      989
+     ],
+     "main": null,
+     "render": null
+    },
+    "loadGain": "overlap",
+    "peakGain": "measured"
+   },
+   "mac": {
+    "prev": {
+     "build": "ml-l4b",
+     "runs": 3,
+     "load": [
+      2.007,
+      1.986,
+      2.163
+     ],
+     "peak": [
+      2049,
+      2036,
+      2082
+     ]
+    },
+    "new": {
+     "build": "ml-m1c",
+     "runs": 3,
+     "load": [
+      2.0,
+      2.0,
+      2.017
+     ],
+     "peak": [
+      1466,
+      1459,
+      1507
+     ]
+    },
+    "loadGain": "overlap",
+    "peakGain": "measured"
+   }
+  },
+  {
+   "id": "M2",
+   "hash": "c4223e5",
+   "time": "2026-10-11T01:39",
+   "subject": "Keep frame-record words in slots (MEMORY_LOADING M2)",
+   "status": "done",
+   "family": "memory",
+   "name": "Слова кадров — в 94 слотах",
+   "how": "вместо словаря [String: Int32] на каждую из 54 800 записей кадров — слоты с маской присутствия; то же равенство и JSON",
+   "evidence": "ml-m2-compact-frame-words-20261011.json",
+   "review": "independent",
+   "reviewFinding": null,
+   "sounds": false,
+   "music": false,
+   "phone": {
+    "prev": {
+     "build": "ml-m1c",
+     "runs": 2,
+     "load": [
+      46.3,
+      46.28,
+      46.32
+     ],
+     "startToLoaded": [
+      54.505,
+      54.32,
+      54.69
+     ],
+     "peak": [
+      970.0,
+      969,
+      971
+     ],
+     "main": null,
+     "render": null
+    },
+    "new": {
+     "build": "ml-m2",
+     "runs": 3,
+     "load": [
+      43.65,
+      43.23,
+      43.89
+     ],
+     "startToLoaded": [
+      51.78,
+      51.09,
+      51.84
+     ],
+     "peak": [
+      834,
+      834,
+      838
+     ],
+     "main": null,
+     "render": null
+    },
+    "loadGain": "measured",
+    "peakGain": "measured"
+   },
+   "mac": {
+    "prev": {
+     "build": "ml-m1c",
+     "runs": 3,
+     "load": [
+      2.024,
+      2.006,
+      2.083
+     ],
+     "peak": [
+      1447,
+      1443,
+      1502
+     ]
+    },
+    "new": {
+     "build": "ml-m2",
+     "runs": 3,
+     "load": [
+      1.754,
+      1.753,
+      1.781
+     ],
+     "peak": [
+      1368,
+      1336,
+      1381
+     ]
+    },
+    "loadGain": "measured",
+    "peakGain": "measured"
+   }
+  },
+  {
+   "id": "L5",
+   "hash": "1016ca7",
+   "time": "2026-10-11T02:07",
+   "subject": "Apply bitmap effects in place (MEMORY_LOADING L5)",
+   "status": "done",
+   "family": "inplace",
+   "name": "Эффекты картинок — на месте",
+   "how": "каждый эффект копировал таблицы картинок, поверхностей и DC; теперь он бросает ошибку только до первого изменения",
+   "evidence": "ml-l5-bitmap-effects-in-place-20261011.json",
+   "review": "independent",
+   "reviewFinding": null,
+   "sounds": false,
+   "music": false,
+   "phone": {
+    "prev": {
+     "build": "ml-m2",
+     "runs": 2,
+     "load": [
+      43.67,
+      43.38,
+      43.96
+     ],
+     "startToLoaded": [
+      51.6,
+      51.08,
+      52.12
+     ],
+     "peak": [
+      832.0,
+      829,
+      835
+     ],
+     "main": null,
+     "render": null
+    },
+    "new": {
+     "build": "ml-l5",
+     "runs": 3,
+     "load": [
+      31.36,
+      31.14,
+      31.51
+     ],
+     "startToLoaded": [
+      38.93,
+      38.6,
+      39.44
+     ],
+     "peak": [
+      834,
+      831,
+      845
+     ],
+     "main": null,
+     "render": null
+    },
+    "loadGain": "measured",
+    "peakGain": "overlap"
+   },
+   "mac": {
+    "prev": {
+     "build": "ml-m2",
+     "runs": 3,
+     "load": [
+      1.772,
+      1.757,
+      1.851
+     ],
+     "peak": [
+      1332,
+      1321,
+      1371
+     ]
+    },
+    "new": {
+     "build": "ml-l5",
+     "runs": 3,
+     "load": [
+      1.588,
+      1.564,
+      1.627
+     ],
+     "peak": [
+      1318,
+      1312,
+      1347
+     ]
+    },
+    "loadGain": "measured",
+    "peakGain": "overlap"
+   }
+  },
+  {
+   "id": "L6",
+   "hash": "e12472a",
+   "time": "2026-10-11T02:36",
+   "subject": "Find frame-heap allocations by binary search (MEMORY_LOADING L6)",
+   "status": "done",
+   "family": "search",
+   "name": "Куча кадров — двоичным поиском",
+   "how": "каждое выделение, запись и поиск перебирали все ~15 000 выделений; теперь поиск по порядку адресов",
+   "evidence": "ml-l6-frame-heap-index-20261011.json",
+   "review": "independent",
+   "reviewFinding": null,
+   "sounds": false,
+   "music": false,
+   "phone": {
+    "prev": {
+     "build": "ml-l5",
+     "runs": 2,
+     "load": [
+      31.255,
+      31.01,
+      31.5
+     ],
+     "startToLoaded": [
+      38.725,
+      38.53,
+      38.92
+     ],
+     "peak": [
+      845.0,
+      831,
+      859
+     ],
+     "main": null,
+     "render": null
+    },
+    "new": {
+     "build": "ml-l6",
+     "runs": 3,
+     "load": [
+      26.73,
+      26.53,
+      26.78
+     ],
+     "startToLoaded": [
+      34.08,
+      33.9,
+      34.7
+     ],
+     "peak": [
+      840,
+      836,
+      843
+     ],
+     "main": null,
+     "render": null
+    },
+    "loadGain": "measured",
+    "peakGain": "overlap"
+   },
+   "mac": {
+    "prev": {
+     "build": "ml-l5",
+     "runs": 3,
+     "load": [
+      1.601,
+      1.588,
+      1.691
+     ],
+     "peak": [
+      1351,
+      1311,
+      1352
+     ]
+    },
+    "new": {
+     "build": "ml-l6",
+     "runs": 3,
+     "load": [
+      1.551,
+      1.544,
+      1.585
+     ],
+     "peak": [
+      1363,
+      1344,
+      1368
+     ]
+    },
+    "loadGain": "measured",
+    "peakGain": "overlap"
+   }
+  },
+  {
+   "id": "L7",
+   "hash": "961cd99",
+   "time": "2026-10-11T03:04",
+   "subject": "Convert Latin-1 text without building Strings by scalar (MEMORY_LOADING L7)",
+   "status": "done",
+   "family": "convert",
+   "name": "Текст Latin-1 без String по символу",
+   "how": "разобранные файлы и токены переводятся в строки сразу, а не скаляр за скаляром; строки и байты те же",
+   "evidence": "ml-l7-latin1-text-20261011.json",
+   "review": "independent",
+   "reviewFinding": null,
+   "sounds": false,
+   "music": false,
+   "phone": {
+    "prev": {
+     "build": "ml-l6",
+     "runs": 2,
+     "load": [
+      26.535,
+      26.39,
+      26.68
+     ],
+     "startToLoaded": [
+      33.965,
+      33.77,
+      34.16
+     ],
+     "peak": [
+      834.5,
+      830,
+      839
+     ],
+     "main": null,
+     "render": null
+    },
+    "new": {
+     "build": "ml-l7",
+     "runs": 3,
+     "load": [
+      22.97,
+      22.9,
+      23.0
+     ],
+     "startToLoaded": [
+      30.62,
+      30.51,
+      30.72
+     ],
+     "peak": [
+      837,
+      835,
+      843
+     ],
+     "main": null,
+     "render": null
+    },
+    "loadGain": "measured",
+    "peakGain": "overlap"
+   },
+   "mac": {
+    "prev": {
+     "build": "ml-l6",
+     "runs": 3,
+     "load": [
+      1.591,
+      1.569,
+      1.694
+     ],
+     "peak": [
+      1325,
+      1319,
+      1351
+     ]
+    },
+    "new": {
+     "build": "ml-l7",
+     "runs": 3,
+     "load": [
+      1.123,
+      1.11,
+      1.15
+     ],
+     "peak": [
+      1335,
+      1295,
+      1348
+     ]
+    },
+    "loadGain": "measured",
+    "peakGain": "overlap"
+   }
+  },
+  {
+   "id": "L8",
+   "hash": "e68da21",
+   "time": "2026-10-11T03:36",
+   "subject": "Read each sound's bytes once when converting it (MEMORY_LOADING L8)",
+   "status": "done",
+   "family": "inplace",
+   "name": "Байты звука читаются один раз",
+   "how": "перевод WAV во float копировал запись звука на каждый прочитанный байт",
+   "evidence": "ml-l8-sound-bytes-once-20261011.json",
+   "review": "not delegated",
+   "reviewFinding": null,
+   "sounds": false,
+   "music": false,
+   "phone": {
+    "prev": {
+     "build": "ml-l7",
+     "runs": 2,
+     "load": [
+      22.625,
+      22.55,
+      22.7
+     ],
+     "startToLoaded": [
+      30.18,
+      30.15,
+      30.21
+     ],
+     "peak": [
+      843.0,
+      837,
+      849
+     ],
+     "main": null,
+     "render": null
+    },
+    "new": {
+     "build": "ml-l8",
+     "runs": 3,
+     "load": [
+      19.42,
+      19.38,
+      19.53
+     ],
+     "startToLoaded": [
+      27.03,
+      26.87,
+      27.34
+     ],
+     "peak": [
+      861,
+      843,
+      862
+     ],
+     "main": null,
+     "render": null
+    },
+    "loadGain": "measured",
+    "peakGain": "overlap"
+   },
+   "mac": {
+    "prev": {
+     "build": "ml-l7",
+     "runs": 3,
+     "load": [
+      1.225,
+      1.219,
+      1.255
+     ],
+     "peak": [
+      1335,
+      1320,
+      1358
+     ]
+    },
+    "new": {
+     "build": "ml-l8",
+     "runs": 3,
+     "load": [
+      0.914,
+      0.888,
+      0.949
+     ],
+     "peak": [
+      1295,
+      1280,
+      1307
+     ]
+    },
+    "loadGain": "measured",
+    "peakGain": "measured"
+   }
+  },
+  {
+   "id": "M3",
+   "hash": "1e8006d",
+   "time": "2026-10-11T04:07",
+   "subject": "Keep compressed sprite sheets at their own size (MEMORY_LOADING M3)",
+   "status": "done",
+   "family": "memory",
+   "name": "Сжатые листы — по своему размеру",
+   "how": "буфер компрессора сохранял резерв: 130 МБ выделено под 52 МБ сжатых данных",
+   "evidence": "ml-m3-compressed-sheets-trimmed-20261011.json",
+   "review": "not delegated",
+   "reviewFinding": null,
+   "sounds": false,
+   "music": false,
+   "phone": {
+    "prev": {
+     "build": "ml-l8",
+     "runs": 2,
+     "load": [
+      19.19,
+      18.97,
+      19.41
+     ],
+     "startToLoaded": [
+      26.49,
+      26.36,
+      26.62
+     ],
+     "peak": [
+      854.0,
+      850,
+      858
+     ],
+     "main": null,
+     "render": null
+    },
+    "new": {
+     "build": "ml-m3",
+     "runs": 3,
+     "load": [
+      19.38,
+      19.31,
+      19.41
+     ],
+     "startToLoaded": [
+      26.74,
+      26.68,
+      26.97
+     ],
+     "peak": [
+      791,
+      789,
+      792
+     ],
+     "main": null,
+     "render": null
+    },
+    "loadGain": "overlap",
+    "peakGain": "measured"
+   },
+   "mac": {
+    "prev": {
+     "build": "ml-l8",
+     "runs": 3,
+     "load": [
+      0.927,
+      0.913,
+      0.952
+     ],
+     "peak": [
+      1319,
+      1290,
+      1356
+     ]
+    },
+    "new": {
+     "build": "ml-m3",
+     "runs": 3,
+     "load": [
+      0.922,
+      0.89,
+      0.926
+     ],
+     "peak": [
+      1254,
+      1239,
+      1315
+     ]
+    },
+    "loadGain": "overlap",
+    "peakGain": "overlap"
+   }
+  },
+  {
+   "id": "L9",
+   "hash": "58d17b6",
+   "time": "2026-10-11T04:50",
+   "subject": "Keep new surfaces' source colours implicit (MEMORY_LOADING L9)",
+   "status": "done",
+   "family": "convert",
+   "name": "Новые поверхности — без массивов",
+   "how": "пока пиксели не прочитаны и не записаны, поверхность — «всё неизвестно на нулях», без двух выделенных и обнулённых массивов",
+   "evidence": "ml-l9-implicit-unknown-surfaces-20261011.json",
+   "review": "independent",
+   "reviewFinding": null,
+   "sounds": false,
+   "music": false,
+   "phone": {
+    "prev": {
+     "build": "ml-m3",
+     "runs": 2,
+     "load": [
+      19.365,
+      19.32,
+      19.41
+     ],
+     "startToLoaded": [
+      26.605,
+      26.52,
+      26.69
+     ],
+     "peak": [
+      791.5,
+      775,
+      808
+     ],
+     "main": null,
+     "render": null
+    },
+    "new": {
+     "build": "ml-l9",
+     "runs": 3,
+     "load": [
+      18.7,
+      18.46,
+      19.19
+     ],
+     "startToLoaded": [
+      25.06,
+      24.45,
+      44.61
+     ],
+     "peak": [
+      791,
+      788,
+      796
+     ],
+     "main": null,
+     "render": null
+    },
+    "loadGain": "measured",
+    "peakGain": "overlap"
+   },
+   "mac": {
+    "prev": {
+     "build": "ml-m3",
+     "runs": 3,
+     "load": [
+      0.841,
+      0.824,
+      0.95
+     ],
+     "peak": [
+      1254,
+      1253,
+      1256
+     ]
+    },
+    "new": {
+     "build": "ml-l9",
+     "runs": 3,
+     "load": [
+      0.811,
+      0.809,
+      0.815
+     ],
+     "peak": [
+      927,
+      921,
+      928
+     ]
+    },
+    "loadGain": "measured",
+    "peakGain": "measured"
+   }
+  },
+  {
+   "id": "L10",
+   "hash": "0cdf24c",
+   "time": "2026-10-11T05:21",
+   "subject": "Translate text-mode writes into one array (MEMORY_LOADING L10)",
+   "status": "done",
+   "family": "convert",
+   "name": "Текстовый режим — в один массив",
+   "how": "flatMap строил массив на каждый байт; теперь CR LF дописываются в один заранее выделенный массив",
+   "evidence": "ml-l10-text-translation-20261011.json",
+   "review": "not delegated",
+   "reviewFinding": null,
+   "sounds": false,
+   "music": false,
+   "phone": {
+    "prev": {
+     "build": "ml-l9",
+     "runs": 2,
+     "load": [
+      18.915,
+      18.79,
+      19.04
+     ],
+     "startToLoaded": [
+      24.655,
+      24.55,
+      24.76
+     ],
+     "peak": [
+      790.0,
+      784,
+      796
+     ],
+     "main": null,
+     "render": null
+    },
+    "new": {
+     "build": "ml-l10",
+     "runs": 3,
+     "load": [
+      17.35,
+      17.23,
+      17.66
+     ],
+     "startToLoaded": [
+      23.1,
+      23.01,
+      23.24
+     ],
+     "peak": [
+      786,
+      785,
+      810
+     ],
+     "main": null,
+     "render": null
+    },
+    "loadGain": "measured",
+    "peakGain": "overlap"
+   },
+   "mac": {
+    "prev": {
+     "build": "ml-l9",
+     "runs": 3,
+     "load": [
+      0.812,
+      0.804,
+      0.935
+     ],
+     "peak": [
+      932,
+      885,
+      941
+     ]
+    },
+    "new": {
+     "build": "ml-l10",
+     "runs": 3,
+     "load": [
+      0.716,
+      0.707,
+      0.717
+     ],
+     "peak": [
+      920,
+      918,
+      929
+     ]
+    },
+    "loadGain": "measured",
+    "peakGain": "overlap"
+   }
+  },
+  {
+   "id": "L11",
+   "hash": "643ae9f",
+   "time": "2026-10-11T05:49",
+   "subject": "Hash packaged inputs with the CPU's SHA-2 instructions on Android (MEMORY_LOADING L11)",
+   "status": "done",
+   "family": "parallel",
+   "name": "SHA-256 инструкциями процессора",
+   "how": "на Android нет CryptoKit: ~700 МБ хешировал переносимый Swift-код. Теперь блок считают инструкции ARMv8 SHA-2 — и только если на 12 входах дайджесты равны Swift",
+   "evidence": "ml-l11-hardware-sha256-20261011.json",
+   "review": "independent",
+   "reviewFinding": null,
+   "sounds": false,
+   "music": false,
+   "phone": {
+    "prev": {
+     "build": "ml-l10",
+     "runs": 2,
+     "load": [
+      17.455,
+      17.41,
+      17.5
+     ],
+     "startToLoaded": [
+      23.135,
+      23.13,
+      23.14
+     ],
+     "peak": [
+      786.5,
+      783,
+      790
+     ],
+     "main": null,
+     "render": null
+    },
+    "new": {
+     "build": "ml-l11",
+     "runs": 3,
+     "load": [
+      15.48,
+      15.47,
+      15.73
+     ],
+     "startToLoaded": [
+      21.32,
+      21.05,
+      21.33
+     ],
+     "peak": [
+      792,
+      783,
+      800
+     ],
+     "main": null,
+     "render": null
+    },
+    "loadGain": "measured",
+    "peakGain": "overlap"
+   },
+   "mac": {
+    "prev": {
+     "build": "ml-l10",
+     "runs": 3,
+     "load": [
+      0.714,
+      0.701,
+      0.822
+     ],
+     "peak": [
+      933,
+      921,
+      949
+     ]
+    },
+    "new": {
+     "build": "ml-l11",
+     "runs": 3,
+     "load": [
+      0.706,
+      0.704,
+      0.707
+     ],
+     "peak": [
+      957,
+      939,
+      960
+     ]
+    },
+    "loadGain": "overlap",
+    "peakGain": "overlap"
+   }
+  },
+  {
+   "id": "L12",
+   "hash": "72e9fcc",
+   "time": "2026-10-11T06:17",
+   "subject": "Load the packages on every core on Android (MEMORY_LOADING L12)",
+   "status": "done",
+   "family": "parallel",
+   "name": "Восемь ядер вместо четырёх",
+   "how": "воркеры Dispatch наследовали привязку главного потока к ядрам 0–3; у загрузчика теперь свои потоки на всех ядрах",
+   "evidence": "ml-l12-package-loads-every-core-20261011.json",
+   "review": "independent",
+   "reviewFinding": "ревью: если поток не стартует, done.wait() повиснет навсегда — переписано до гейта",
+   "sounds": false,
+   "music": false,
+   "phone": {
+    "prev": {
+     "build": "ml-l11",
+     "runs": 2,
+     "load": [
+      15.455,
+      15.38,
+      15.53
+     ],
+     "startToLoaded": [
+      55.22,
+      47.89,
+      62.55
+     ],
+     "peak": [
+      772.0,
+      769,
+      775
+     ],
+     "main": null,
+     "render": null
+    },
+    "new": {
+     "build": "ml-l12",
+     "runs": 3,
+     "load": [
+      14.52,
+      14.18,
+      14.71
+     ],
+     "startToLoaded": [
+      45.54,
+      42.71,
+      53.07
+     ],
+     "peak": [
+      780,
+      769,
+      802
+     ],
+     "main": null,
+     "render": null
+    },
+    "loadGain": "measured",
+    "peakGain": "overlap"
+   },
+   "mac": {
+    "prev": {
+     "build": "ml-l11",
+     "runs": 3,
+     "load": [
+      0.718,
+      0.711,
+      0.782
+     ],
+     "peak": [
+      950,
+      927,
+      956
+     ]
+    },
+    "new": {
+     "build": "ml-l12",
+     "runs": 3,
+     "load": [
+      0.713,
+      0.71,
+      0.726
+     ],
+     "peak": [
+      961,
+      959,
+      967
+     ]
+    },
+    "loadGain": "overlap",
+    "peakGain": "worse"
+   }
+  },
+  {
+   "id": "L13",
+   "hash": "4615465",
+   "time": "2026-10-11T07:12",
+   "subject": "Read the loading packages ahead during the menu (MEMORY_LOADING L13)",
+   "status": "done",
+   "family": "parallel",
+   "name": "Пакеты читаются заранее, во время меню",
+   "how": "главный поток ~4 с ждал пакеты после повторного чтения стартового; теперь пять пакетов читаются в фоне с конца старта",
+   "evidence": "ml-l13-read-ahead-20261011.json",
+   "review": "independent",
+   "reviewFinding": null,
+   "sounds": false,
+   "music": false,
+   "phone": {
+    "prev": {
+     "build": "ml-l12",
+     "runs": 2,
+     "load": [
+      14.63,
+      14.13,
+      15.13
+     ],
+     "startToLoaded": [
+      31.58,
+      20.9,
+      42.26
+     ],
+     "peak": [
+      795.5,
+      793,
+      798
+     ],
+     "main": null,
+     "render": null
+    },
+    "new": {
+     "build": "ml-l13",
+     "runs": 3,
+     "load": [
+      10.88,
+      10.64,
+      10.94
+     ],
+     "startToLoaded": [
+      17.35,
+      17.11,
+      40.47
+     ],
+     "peak": [
+      778,
+      769,
+      789
+     ],
+     "main": null,
+     "render": null
+    },
+    "loadGain": "measured",
+    "peakGain": "measured"
+   },
+   "mac": {
+    "prev": {
+     "build": "ml-l12",
+     "runs": 3,
+     "load": [
+      0.743,
+      0.713,
+      0.84
+     ],
+     "peak": [
+      955,
+      925,
+      956
+     ]
+    },
+    "new": {
+     "build": "ml-l13",
+     "runs": 3,
+     "load": [
+      0.564,
+      0.549,
+      0.566
+     ],
+     "peak": [
+      947,
+      938,
+      951
+     ]
+    },
+    "loadGain": "measured",
+    "peakGain": "overlap"
+   }
+  },
+  {
+   "id": "M5a",
+   "hash": "cb426f7",
+   "time": "2026-10-11T07:42",
+   "subject": "Keep one record of each sound's PCM (MEMORY_LOADING M5a)",
+   "status": "done",
+   "family": "memory",
+   "name": "Одна запись PCM на звук",
+   "how": "временная копия звука, занимающая весь буфер, — это и есть запись: два равных набора по 17 МБ стали одним",
+   "evidence": "ml-m5a-sound-records-20261011.json",
+   "review": "independent",
+   "reviewFinding": null,
+   "sounds": false,
+   "music": false,
+   "phone": {
+    "prev": {
+     "build": "ml-l13",
+     "runs": 2,
+     "load": [
+      10.495,
+      10.46,
+      10.53
+     ],
+     "startToLoaded": [
+      33.77,
+      17.36,
+      50.18
+     ],
+     "peak": [
+      775.0,
+      768,
+      782
+     ],
+     "main": null,
+     "render": null
+    },
+    "new": {
+     "build": "ml-m5a",
+     "runs": 3,
+     "load": [
+      9.81,
+      9.69,
+      9.86
+     ],
+     "startToLoaded": [
+      38.28,
+      16.18,
+      46.39
+     ],
+     "peak": [
+      730,
+      730,
+      735
+     ],
+     "main": null,
+     "render": null
+    },
+    "loadGain": "measured",
+    "peakGain": "measured"
+   },
+   "mac": {
+    "prev": {
+     "build": "ml-l13",
+     "runs": 3,
+     "load": [
+      0.571,
+      0.563,
+      0.582
+     ],
+     "peak": [
+      942,
+      916,
+      959
+     ]
+    },
+    "new": {
+     "build": "ml-m5a",
+     "runs": 3,
+     "load": [
+      0.514,
+      0.514,
+      0.519
+     ],
+     "peak": [
+      896,
+      875,
+      912
+     ]
+    },
+    "loadGain": "measured",
+    "peakGain": "measured"
+   }
+  },
+  {
+   "id": "M6",
+   "hash": "5b35a9a",
+   "time": "2026-10-11T08:12",
+   "subject": "Page the Stage slots over one shared backing (MEMORY_LOADING M6)",
+   "status": "done",
+   "family": "memory",
+   "name": "60 слотов Stage — страницами",
+   "how": "запись-сторож делала 60 плоских копий (87 МБ); теперь слоты делят страницы, а заполненный становится плоским",
+   "evidence": "ml-m6-paged-stage-slots-20261011.json",
+   "review": "independent",
+   "reviewFinding": "ревью: маленькая страничная запись, перезаписанная в составную, — риск устранён до гейта",
+   "sounds": false,
+   "music": false,
+   "phone": {
+    "prev": {
+     "build": "ml-m5a",
+     "runs": 2,
+     "load": [
+      9.925,
+      9.9,
+      9.95
+     ],
+     "startToLoaded": [
+      16.425,
+      16.29,
+      16.56
+     ],
+     "peak": [
+      736.5,
+      731,
+      742
+     ],
+     "main": null,
+     "render": null
+    },
+    "new": {
+     "build": "ml-m6",
+     "runs": 3,
+     "load": [
+      10.06,
+      10.04,
+      10.42
+     ],
+     "startToLoaded": [
+      16.6,
+      16.53,
+      17.22
+     ],
+     "peak": [
+      685,
+      680,
+      731
+     ],
+     "main": null,
+     "render": null
+    },
+    "loadGain": "worse",
+    "peakGain": "overlap"
+   },
+   "mac": {
+    "prev": {
+     "build": "ml-m5a",
+     "runs": 3,
+     "load": [
+      0.531,
+      0.508,
+      0.552
+     ],
+     "peak": [
+      876,
+      866,
+      928
+     ]
+    },
+    "new": {
+     "build": "ml-m6",
+     "runs": 3,
+     "load": [
+      0.539,
+      0.513,
+      0.546
+     ],
+     "peak": [
+      837,
+      836,
+      841
+     ]
+    },
+    "loadGain": "overlap",
+    "peakGain": "measured"
+   }
+  },
+  {
+   "id": "L14+15",
+   "hash": "fa06d04",
+   "time": "2026-10-11T08:41",
+   "subject": "Register sounds in place and pack definedness eight bytes at a time (MEMORY_LOADING L14, L15)",
+   "status": "done",
+   "family": "inplace",
+   "name": "Звуки на месте, маска по 8 байт",
+   "how": "регистрация звука копировала оба словаря всех прежних звуков ради отката, который уже есть снаружи; маска определённости — по 8 байт за шаг",
+   "evidence": "ml-l14-l15-sounds-in-place-defined-bits-20261011.json",
+   "review": "independent",
+   "reviewFinding": null,
+   "sounds": false,
+   "music": false,
+   "phone": {
+    "prev": {
+     "build": "ml-m6",
+     "runs": 2,
+     "load": [
+      10.16,
+      10.05,
+      10.27
+     ],
+     "startToLoaded": [
+      16.61,
+      16.27,
+      16.95
+     ],
+     "peak": [
+      689.5,
+      685,
+      694
+     ],
+     "main": null,
+     "render": null
+    },
+    "new": {
+     "build": "ml-l15",
+     "runs": 3,
+     "load": [
+      8.82,
+      8.74,
+      8.93
+     ],
+     "startToLoaded": [
+      14.9,
+      14.82,
+      15.46
+     ],
+     "peak": [
+      698,
+      692,
+      704
+     ],
+     "main": null,
+     "render": null
+    },
+    "loadGain": "measured",
+    "peakGain": "overlap"
+   },
+   "mac": {
+    "prev": {
+     "build": "ml-m6",
+     "runs": 3,
+     "load": [
+      0.529,
+      0.523,
+      0.536
+     ],
+     "peak": [
+      853,
+      842,
+      862
+     ]
+    },
+    "new": {
+     "build": "ml-l15",
+     "runs": 3,
+     "load": [
+      0.451,
+      0.45,
+      0.453
+     ],
+     "peak": [
+      857,
+      854,
+      859
+     ]
+    },
+    "loadGain": "measured",
+    "peakGain": "overlap"
+   }
+  },
+  {
+   "id": "L16",
+   "hash": "5aa5250",
+   "time": "2026-10-11T09:08",
+   "subject": "Load catalog objects without rollback copies (MEMORY_LOADING L16)",
+   "status": "done",
+   "family": "inplace",
+   "name": "Объекты без копий для отката",
+   "how": "первое выделение каждого объекта копировало все прежние (~15 000), хотя любая ошибка всё равно обрывает загрузку каталога",
+   "evidence": "ml-l16-objects-in-place-20261011.json",
+   "review": "independent",
+   "reviewFinding": null,
+   "sounds": false,
+   "music": false,
+   "phone": {
+    "prev": {
+     "build": "ml-l15",
+     "runs": 2,
+     "load": [
+      8.725,
+      8.72,
+      8.73
+     ],
+     "startToLoaded": [
+      14.82,
+      14.79,
+      14.85
+     ],
+     "peak": [
+      682.5,
+      680,
+      685
+     ],
+     "main": null,
+     "render": null
+    },
+    "new": {
+     "build": "ml-l16",
+     "runs": 3,
+     "load": [
+      6.69,
+      6.66,
+      6.85
+     ],
+     "startToLoaded": [
+      12.92,
+      12.81,
+      12.97
+     ],
+     "peak": [
+      712,
+      684,
+      722
+     ],
+     "main": null,
+     "render": null
+    },
+    "loadGain": "measured",
+    "peakGain": "overlap"
+   },
+   "mac": {
+    "prev": {
+     "build": "ml-l15",
+     "runs": 3,
+     "load": [
+      0.447,
+      0.44,
+      0.467
+     ],
+     "peak": [
+      827,
+      824,
+      871
+     ]
+    },
+    "new": {
+     "build": "ml-l16",
+     "runs": 3,
+     "load": [
+      0.389,
+      0.384,
+      0.392
+     ],
+     "peak": [
+      780,
+      777,
+      827
+     ]
+    },
+    "loadGain": "measured",
+    "peakGain": "overlap"
+   }
+  },
+  {
+   "id": "L17",
+   "hash": "d5fee4d",
+   "time": "2026-10-11T09:37",
+   "subject": "Check packaged files with lstat on Linux and Android (MEMORY_LOADING L17)",
+   "status": "done",
+   "family": "convert",
+   "name": "lstat вместо resourceValues",
+   "how": "проверка каждого файла строила словарь атрибутов — ~1,8 мс на файл на Android",
+   "evidence": "ml-l17-posix-file-facts-20261011.json",
+   "review": "independent",
+   "reviewFinding": "ревью: lstat и старый API по-разному переводят ENAMETOOLONG — ошибки отданы старому API",
+   "sounds": false,
+   "music": false,
+   "phone": {
+    "prev": {
+     "build": "ml-l16",
+     "runs": 2,
+     "load": [
+      7.045,
+      6.79,
+      7.3
+     ],
+     "startToLoaded": [
+      13.075,
+      12.91,
+      13.24
+     ],
+     "peak": [
+      689.5,
+      685,
+      694
+     ],
+     "main": null,
+     "render": null
+    },
+    "new": {
+     "build": "ml-l17",
+     "runs": 3,
+     "load": [
+      6.46,
+      6.43,
+      6.53
+     ],
+     "startToLoaded": [
+      12.35,
+      12.18,
+      12.41
+     ],
+     "peak": [
+      707,
+      688,
+      734
+     ],
+     "main": null,
+     "render": null
+    },
+    "loadGain": "measured",
+    "peakGain": "overlap"
+   },
+   "mac": {
+    "prev": {
+     "build": "ml-l16",
+     "runs": 3,
+     "load": [
+      0.399,
+      0.384,
+      0.399
+     ],
+     "peak": [
+      811,
+      783,
+      829
+     ]
+    },
+    "new": {
+     "build": "ml-l17",
+     "runs": 3,
+     "load": [
+      0.397,
+      0.385,
+      0.399
+     ],
+     "peak": [
+      809,
+      807,
+      820
+     ]
+    },
+    "loadGain": "overlap",
+    "peakGain": "overlap"
+   }
+  },
+  {
+   "id": "L18+19",
+   "hash": "97423ae",
+   "time": "2026-10-11T10:05",
+   "subject": "Check allocation overlaps by binary search and share unwritten Frame slots (MEMORY_LOADING L18, L19)",
+   "status": "done",
+   "family": "search",
+   "name": "Пересечения — двоичным поиском",
+   "how": "проверка пересечения выделений перебирала все прежние диапазоны; пустые слоты кадров делят одну запись",
+   "evidence": "ml-l18-l19-ranges-shared-frame-slots-20261011.json",
+   "review": "independent",
+   "reviewFinding": null,
+   "sounds": false,
+   "music": false,
+   "phone": {
+    "prev": {
+     "build": "ml-l17",
+     "runs": 2,
+     "load": [
+      6.435,
+      6.43,
+      6.44
+     ],
+     "startToLoaded": [
+      12.515,
+      12.48,
+      12.55
+     ],
+     "peak": [
+      683.0,
+      681,
+      685
+     ],
+     "main": null,
+     "render": null
+    },
+    "new": {
+     "build": "ml-l19",
+     "runs": 3,
+     "load": [
+      5.24,
+      5.2,
+      5.28
+     ],
+     "startToLoaded": [
+      11.77,
+      11.03,
+      31.74
+     ],
+     "peak": [
+      656,
+      643,
+      680
+     ],
+     "main": null,
+     "render": null
+    },
+    "loadGain": "measured",
+    "peakGain": "measured"
+   },
+   "mac": {
+    "prev": {
+     "build": "ml-l17",
+     "runs": 3,
+     "load": [
+      0.388,
+      0.387,
+      0.397
+     ],
+     "peak": [
+      806,
+      771,
+      812
+     ]
+    },
+    "new": {
+     "build": "ml-l19",
+     "runs": 3,
+     "load": [
+      0.332,
+      0.332,
+      0.337
+     ],
+     "peak": [
+      783,
+      777,
+      793
+     ]
+    },
+    "loadGain": "measured",
+    "peakGain": "overlap"
+   }
+  },
+  {
+   "id": "S2",
+   "hash": "1e0b93e",
+   "time": "2026-10-11T10:41",
+   "subject": "Extract the APK's assets on every core (MEMORY_LOADING S2)",
+   "status": "done",
+   "family": "parallel",
+   "name": "Распаковка APK на всех ядрах",
+   "how": "первый запуск после установки копировал 726 МБ ресурсов по одному файлу кусками по 64 КБ",
+   "evidence": "ml-s2-parallel-asset-extraction-20261011.json",
+   "review": "independent",
+   "reviewFinding": "ревью: при ошибке распаковки может быть назван другой файл — записано как риск",
+   "sounds": false,
+   "music": false,
+   "phone": {
+    "prev": {
+     "build": "ml-l19",
+     "runs": 2,
+     "load": [
+      5.22,
+      5.17,
+      5.27
+     ],
+     "startToLoaded": [
+      11.155,
+      11.08,
+      11.23
+     ],
+     "peak": [
+      660.5,
+      645,
+      676
+     ],
+     "main": null,
+     "render": null
+    },
+    "new": {
+     "build": "ml-s2",
+     "runs": 3,
+     "load": [
+      5.33,
+      5.28,
+      5.41
+     ],
+     "startToLoaded": [
+      11.24,
+      11.19,
+      25.75
+     ],
+     "peak": [
+      650,
+      644,
+      688
+     ],
+     "main": null,
+     "render": null
+    },
+    "loadGain": "worse",
+    "peakGain": "overlap"
+   },
+   "mac": {
+    "prev": {
+     "build": "ml-l19",
+     "runs": 3,
+     "load": [
+      0.336,
+      0.329,
+      0.338
+     ],
+     "peak": [
+      775,
+      752,
+      791
+     ]
+    },
+    "new": {
+     "build": "ml-s2",
+     "runs": 3,
+     "load": [
+      0.332,
+      0.33,
+      0.334
+     ],
+     "peak": [
+      773,
+      769,
+      787
+     ]
+    },
+    "loadGain": "overlap",
+    "peakGain": "overlap"
+   }
+  },
+  {
+   "id": "M5b",
+   "hash": "ec84abd",
+   "time": "2026-10-11T11:27",
+   "subject": "Drop the sound path's remaining copies (MEMORY_LOADING M5b)",
+   "status": "done",
+   "family": "memory",
+   "name": "Остальные копии звука",
+   "how": "копии без кэша целых массивов, журналы запросов звука (их читают только тесты) выключены в игре",
+   "evidence": "ml-m5b-sound-copies-20261011.json",
+   "review": "independent",
+   "reviewFinding": null,
+   "sounds": false,
+   "music": false,
+   "phone": {
+    "prev": {
+     "build": "ml-s2",
+     "runs": 2,
+     "load": [
+      6.025,
+      5.82,
+      6.23
+     ],
+     "startToLoaded": [
+      32.7,
+      32.67,
+      32.73
+     ],
+     "peak": [
+      657.0,
+      649,
+      665
+     ],
+     "main": null,
+     "render": null
+    },
+    "new": {
+     "build": "ml-m5b",
+     "runs": 3,
+     "load": [
+      5.84,
+      5.23,
+      8.15
+     ],
+     "startToLoaded": [
+      27.75,
+      14.4,
+      49.84
+     ],
+     "peak": [
+      587,
+      585,
+      598
+     ],
+     "main": null,
+     "render": null
+    },
+    "loadGain": "overlap",
+    "peakGain": "measured"
+   },
+   "mac": {
+    "prev": {
+     "build": "ml-s2",
+     "runs": 3,
+     "load": [
+      0.356,
+      0.342,
+      0.363
+     ],
+     "peak": [
+      758,
+      752,
+      773
+     ]
+    },
+    "new": {
+     "build": "ml-m5b",
+     "runs": 3,
+     "load": [
+      0.355,
+      0.349,
+      0.357
+     ],
+     "peak": [
+      679,
+      673,
+      692
+     ]
+    },
+    "loadGain": "overlap",
+    "peakGain": "measured"
+   }
+  },
+  {
+   "id": "M7a",
+   "hash": "49bf0bf",
+   "time": "2026-10-11T12:02",
+   "subject": "Release closed file streams' contents after the catalog load (MEMORY_LOADING M7a)",
+   "status": "done",
+   "family": "memory",
+   "name": "Закрытые потоки без содержимого",
+   "how": "загруженное меню держало массивы всех закрытых файлов весь матч, хотя их никто не читает",
+   "evidence": "ml-m7a-closed-stream-contents-20261011.json",
+   "review": "independent",
+   "reviewFinding": null,
+   "sounds": false,
+   "music": false,
+   "phone": {
+    "prev": {
+     "build": "ml-m5b",
+     "runs": 2,
+     "load": [
+      5.68,
+      5.47,
+      5.89
+     ],
+     "startToLoaded": [
+      12.465,
+      12.2,
+      12.73
+     ],
+     "peak": [
+      606.5,
+      598,
+      615
+     ],
+     "main": null,
+     "render": null
+    },
+    "new": {
+     "build": "ml-m7a",
+     "runs": 3,
+     "load": [
+      5.56,
+      5.31,
+      5.72
+     ],
+     "startToLoaded": [
+      13.12,
+      12.63,
+      26.9
+     ],
+     "peak": [
+      589,
+      561,
+      592
+     ],
+     "main": null,
+     "render": null
+    },
+    "loadGain": "overlap",
+    "peakGain": "measured"
+   },
+   "mac": {
+    "prev": {
+     "build": "ml-m5b",
+     "runs": 3,
+     "load": [
+      0.34,
+      0.337,
+      0.354
+     ],
+     "peak": [
+      699,
+      662,
+      709
+     ]
+    },
+    "new": {
+     "build": "ml-m7a",
+     "runs": 3,
+     "load": [
+      0.337,
+      0.336,
+      0.34
+     ],
+     "peak": [
+      686,
+      681,
+      700
+     ]
+    },
+    "loadGain": "overlap",
+    "peakGain": "overlap"
+   }
+  },
+  {
+   "id": "M5c",
+   "hash": "b8d1c9b",
+   "time": "2026-10-11T12:30",
+   "subject": "Keep sound buffers as PCM and convert while mixing (MEMORY_LOADING M5c)",
+   "status": "done",
+   "family": "memory",
+   "name": "PCM вместо float — перевод в микшере",
+   "how": "буферы хранят 8/16-битный PCM (16 МБ вместо 32), микшер переводит сэмпл при чтении",
+   "evidence": "ml-m5c-pcm-samples-20261011.json",
+   "review": "independent",
+   "reviewFinding": null,
+   "sounds": false,
+   "music": false,
+   "phone": {
+    "prev": {
+     "build": "ml-m7a",
+     "runs": 2,
+     "load": [
+      6.71,
+      5.83,
+      7.59
+     ],
+     "startToLoaded": [
+      13.865,
+      12.8,
+      14.93
+     ],
+     "peak": [
+      568.5,
+      562,
+      575
+     ],
+     "main": null,
+     "render": null
+    },
+    "new": {
+     "build": "ml-m5c",
+     "runs": 3,
+     "load": [
+      5.41,
+      5.05,
+      5.87
+     ],
+     "startToLoaded": [
+      12.45,
+      12.34,
+      12.59
+     ],
+     "peak": [
+      557,
+      546,
+      564
+     ],
+     "main": null,
+     "render": null
+    },
+    "loadGain": "overlap",
+    "peakGain": "overlap"
+   },
+   "mac": {
+    "prev": {
+     "build": "ml-m7a",
+     "runs": 3,
+     "load": [
+      0.334,
+      0.333,
+      0.345
+     ],
+     "peak": [
+      671,
+      668,
+      694
+     ]
+    },
+    "new": {
+     "build": "ml-m5c",
+     "runs": 3,
+     "load": [
+      0.322,
+      0.32,
+      0.328
+     ],
+     "peak": [
+      675,
+      643,
+      676
+     ]
+    },
+    "loadGain": "measured",
+    "peakGain": "overlap"
+   }
+  },
+  {
+   "id": "M5d",
+   "hash": "ef7a6b7",
+   "time": "2026-10-11T15:22",
+   "subject": "Mix PCM through the buffer's address, mono read once; gate frame time (MEMORY_LOADING M5d)",
+   "status": "done",
+   "family": "inplace",
+   "name": "Микшер через адрес буфера",
+   "how": "PCM читается по указателю там, где индексы доказуемо в буфере; моно-голос читает кадр один раз на оба канала",
+   "evidence": "ml-m5d-mixer-raw-mono-20261011.json",
+   "review": "independent",
+   "reviewFinding": "ревью: отрицательный шаг (хосты его не дают) пошёл бы по быстрому пути — исправлено до гейта",
+   "sounds": true,
+   "music": false,
+   "phone": {
+    "prev": {
+     "build": "ml-m5c",
+     "runs": 2,
+     "load": [
+      5.19,
+      5.18,
+      5.2
+     ],
+     "startToLoaded": [
+      12.65,
+      12.63,
+      12.67
+     ],
+     "peak": [
+      550.5,
+      548,
+      553
+     ],
+     "main": [
+      10.39,
+      10.35,
+      10.43
+     ],
+     "render": [
+      7.375,
+      7.08,
+      7.67
+     ]
+    },
+    "new": {
+     "build": "ml-m5d",
+     "runs": 3,
+     "load": [
+      5.78,
+      5.6,
+      8.09
+     ],
+     "startToLoaded": [
+      12.5,
+      12.49,
+      15.51
+     ],
+     "peak": [
+      566,
+      551,
+      567
+     ],
+     "main": [
+      10.29,
+      10.27,
+      10.38
+     ],
+     "render": [
+      7.03,
+      6.93,
+      7.09
+     ]
+    },
+    "loadGain": "worse",
+    "peakGain": "overlap"
+   },
+   "mac": {
+    "prev": {
+     "build": "ml-m5c",
+     "runs": 3,
+     "load": [
+      0.326,
+      0.325,
+      0.333
+     ],
+     "peak": [
+      676,
+      639,
+      681
+     ]
+    },
+    "new": {
+     "build": "ml-m5d",
+     "runs": 3,
+     "load": [
+      0.327,
+      0.325,
+      0.328
+     ],
+     "peak": [
+      674,
+      652,
+      686
+     ]
+    },
+    "loadGain": "overlap",
+    "peakGain": "overlap"
+   }
+  },
+  {
+   "id": "L20",
+   "hash": "e184b10",
+   "time": "2026-10-11T17:00",
+   "subject": "Change the menu's bitmap inputs in place (MEMORY_LOADING L20)",
+   "status": "done",
+   "family": "inplace",
+   "name": "Битмапы меню — на месте",
+   "how": "каждый запрос битмапа в меню копировал таблицы картинок, поверхностей и DC до двух раз",
+   "evidence": "ml-l20-menu-bitmap-inputs-in-place-20261011.json",
+   "review": "independent",
+   "reviewFinding": null,
+   "sounds": true,
+   "music": false,
+   "phone": {
+    "prev": {
+     "build": "ml-m5d",
+     "runs": 2,
+     "load": [
+      5.535,
+      5.49,
+      5.58
+     ],
+     "startToLoaded": [
+      12.575,
+      12.54,
+      12.61
+     ],
+     "peak": [
+      558.0,
+      552,
+      564
+     ],
+     "main": [
+      10.36,
+      10.29,
+      10.43
+     ],
+     "render": [
+      7.12,
+      7.08,
+      7.16
+     ]
+    },
+    "new": {
+     "build": "ml-l20",
+     "runs": 3,
+     "load": [
+      6.18,
+      5.38,
+      6.27
+     ],
+     "startToLoaded": [
+      12.8,
+      12.72,
+      12.92
+     ],
+     "peak": [
+      577,
+      576,
+      589
+     ],
+     "main": [
+      10.37,
+      10.36,
+      10.48
+     ],
+     "render": [
+      7.31,
+      7.08,
+      7.49
+     ]
+    },
+    "loadGain": "overlap",
+    "peakGain": "worse"
+   },
+   "mac": {
+    "prev": {
+     "build": "ml-m5d",
+     "runs": 3,
+     "load": [
+      0.325,
+      0.324,
+      0.326
+     ],
+     "peak": [
+      674,
+      667,
+      674
+     ]
+    },
+    "new": {
+     "build": "ml-l20",
+     "runs": 3,
+     "load": [
+      0.329,
+      0.32,
+      0.342
+     ],
+     "peak": [
+      681,
+      674,
+      688
+     ]
+    },
+    "loadGain": "overlap",
+    "peakGain": "overlap"
+   }
+  },
+  {
+   "id": "L21",
+   "hash": "9ed8f6c",
+   "time": "2026-10-11T17:38",
+   "subject": "Record L21 as rejected; profile off-CPU time and memory at a window's end (MEMORY_LOADING)",
+   "status": "rejected",
+   "family": "convert",
+   "name": "Файлы пакетов сразу в массив — отклонено",
+   "how": "поведение равно, выигрыша нет ни на A12, ни на Mac, а кода больше — откат, дифф сохранён",
+   "evidence": "ml-l21-posix-file-bytes-rejected-20261011.json",
+   "review": "independent",
+   "reviewFinding": null,
+   "sounds": true,
+   "music": false,
+   "phone": {
+    "prev": {
+     "build": "ml-l20",
+     "runs": 2,
+     "load": [
+      5.78,
+      5.77,
+      5.79
+     ],
+     "startToLoaded": [
+      12.695,
+      12.6,
+      12.79
+     ],
+     "peak": [
+      560.5,
+      549,
+      572
+     ],
+     "main": [
+      10.35,
+      10.27,
+      10.43
+     ],
+     "render": [
+      7.03,
+      6.96,
+      7.1
+     ]
+    },
+    "new": {
+     "build": "ml-l21",
+     "runs": 3,
+     "load": [
+      5.98,
+      5.49,
+      6.06
+     ],
+     "startToLoaded": [
+      12.56,
+      12.54,
+      12.6
+     ],
+     "peak": [
+      572,
+      554,
+      574
+     ],
+     "main": [
+      10.39,
+      10.37,
+      10.42
+     ],
+     "render": [
+      7.07,
+      7.06,
+      7.15
+     ]
+    },
+    "loadGain": "overlap",
+    "peakGain": "overlap"
+   },
+   "mac": {
+    "prev": {
+     "build": "ml-l20",
+     "runs": 3,
+     "load": [
+      0.325,
+      0.318,
+      0.33
+     ],
+     "peak": [
+      647,
+      642,
+      658
+     ]
+    },
+    "new": {
+     "build": "ml-l21",
+     "runs": 3,
+     "load": [
+      0.328,
+      0.326,
+      0.33
+     ],
+     "peak": [
+      656,
+      639,
+      676
+     ]
+    },
+    "loadGain": "overlap",
+    "peakGain": "overlap"
+   }
+  },
+  {
+   "id": "M8",
+   "hash": "d90472a",
+   "time": "2026-10-11T19:05",
+   "subject": "Hold M8 for the user's decision; count CPU since launch (MEMORY_LOADING)",
+   "status": "held",
+   "family": "memory",
+   "name": "Музыка потоком — ждёт решения",
+   "how": "трек декодируется по мере игры, а не целиком: −50 МиБ на пике, но поток музыки +0,5 мс на тик",
+   "evidence": "ml-m8-streaming-music-20261011.json",
+   "review": "independent",
+   "reviewFinding": null,
+   "sounds": true,
+   "music": true,
+   "phone": {
+    "prev": {
+     "build": "ml-l20",
+     "runs": 2,
+     "load": [
+      5.665,
+      5.52,
+      5.81
+     ],
+     "startToLoaded": [
+      12.84,
+      12.78,
+      12.9
+     ],
+     "peak": [
+      618.0,
+      615,
+      621
+     ],
+     "main": [
+      10.73,
+      10.72,
+      10.74
+     ],
+     "render": [
+      7.045,
+      7.03,
+      7.06
+     ]
+    },
+    "new": {
+     "build": "ml-m8b",
+     "runs": 3,
+     "load": [
+      5.61,
+      5.54,
+      5.65
+     ],
+     "startToLoaded": [
+      12.68,
+      12.62,
+      12.77
+     ],
+     "peak": [
+      568,
+      560,
+      573
+     ],
+     "main": [
+      10.67,
+      10.66,
+      10.72
+     ],
+     "render": [
+      6.98,
+      6.96,
+      7.13
+     ]
+    },
+    "loadGain": "overlap",
+    "peakGain": "measured"
+   },
+   "mac": {
+    "prev": {
+     "build": "ml-l20",
+     "runs": 3,
+     "load": [
+      0.317,
+      0.31,
+      0.332
+     ],
+     "peak": [
+      680,
+      664,
+      682
+     ]
+    },
+    "new": {
+     "build": "ml-m8b",
+     "runs": 3,
+     "load": [
+      0.322,
+      0.321,
+      0.331
+     ],
+     "peak": [
+      677,
+      675,
+      685
+     ]
+    },
+    "loadGain": "overlap",
+    "peakGain": "overlap"
+   }
+  },
+  {
+   "id": "M9",
+   "hash": "6b4bffd",
+   "time": "2026-10-11T19:43",
+   "subject": "Stop the memory/loading loop: decline M8, park M9 (MEMORY_LOADING)",
+   "status": "parked",
+   "family": "memory",
+   "name": "Общие однородные страницы — отложено",
+   "how": "A12 −36–40 МиБ PSS, но на Mac footprint вырос на 65–90 МиБ: malloc держал освобождённое грязным",
+   "evidence": "ml-m9-shared-uniform-pages-parked-20261011.json",
+   "review": "independent",
+   "reviewFinding": null,
+   "sounds": true,
+   "music": true,
+   "phone": {
+    "prev": {
+     "build": "ml-l20",
+     "runs": 2,
+     "load": [
+      6.175,
+      5.84,
+      6.51
+     ],
+     "startToLoaded": [
+      13.08,
+      12.89,
+      13.27
+     ],
+     "peak": [
+      612.5,
+      599,
+      626
+     ],
+     "main": [
+      10.695,
+      10.69,
+      10.7
+     ],
+     "render": [
+      7.11,
+      7.11,
+      7.11
+     ]
+    },
+    "new": {
+     "build": "ml-m9",
+     "runs": 3,
+     "load": [
+      5.85,
+      5.31,
+      6.17
+     ],
+     "startToLoaded": [
+      12.82,
+      12.75,
+      12.99
+     ],
+     "peak": [
+      591,
+      588,
+      593
+     ],
+     "main": [
+      10.71,
+      10.63,
+      10.82
+     ],
+     "render": [
+      7.13,
+      7.03,
+      7.62
+     ]
+    },
+    "loadGain": "overlap",
+    "peakGain": "measured"
+   },
+   "mac": {
+    "prev": {
+     "build": "ml-l20",
+     "runs": 3,
+     "load": [
+      0.319,
+      0.319,
+      0.322
+     ],
+     "peak": [
+      673,
+      671,
+      679
+     ]
+    },
+    "new": {
+     "build": "ml-m9",
+     "runs": 3,
+     "load": [
+      0.317,
+      0.313,
+      0.323
+     ],
+     "peak": [
+      705,
+      699,
+      706
+     ]
+    },
+    "loadGain": "overlap",
+    "peakGain": "worse"
+   }
+  }
+ ],
+ "waterfall": {
+  "load": [
+   {
+    "id": "L1",
+    "family": "inplace",
+    "seconds": 22.105,
+    "gain": "measured"
+   },
+   {
+    "id": "L2",
+    "family": "inplace",
+    "seconds": 23.36,
+    "gain": "measured"
+   },
+   {
+    "id": "L3",
+    "family": "parallel",
+    "seconds": 30.635,
+    "gain": "measured"
+   },
+   {
+    "id": "L4",
+    "family": "convert",
+    "seconds": 1.94,
+    "gain": "measured"
+   },
+   {
+    "id": "M2",
+    "family": "memory",
+    "seconds": 2.65,
+    "gain": "measured"
+   },
+   {
+    "id": "L5",
+    "family": "inplace",
+    "seconds": 12.31,
+    "gain": "measured"
+   },
+   {
+    "id": "L6",
+    "family": "search",
+    "seconds": 4.525,
+    "gain": "measured"
+   },
+   {
+    "id": "L7",
+    "family": "convert",
+    "seconds": 3.565,
+    "gain": "measured"
+   },
+   {
+    "id": "L8",
+    "family": "inplace",
+    "seconds": 3.205,
+    "gain": "measured"
+   },
+   {
+    "id": "L9",
+    "family": "convert",
+    "seconds": 0.665,
+    "gain": "measured"
+   },
+   {
+    "id": "L10",
+    "family": "convert",
+    "seconds": 1.565,
+    "gain": "measured"
+   },
+   {
+    "id": "L11",
+    "family": "parallel",
+    "seconds": 1.975,
+    "gain": "measured"
+   },
+   {
+    "id": "L12",
+    "family": "parallel",
+    "seconds": 0.935,
+    "gain": "measured"
+   },
+   {
+    "id": "L13",
+    "family": "parallel",
+    "seconds": 3.75,
+    "gain": "measured"
+   },
+   {
+    "id": "M5a",
+    "family": "memory",
+    "seconds": 0.685,
+    "gain": "measured"
+   },
+   {
+    "id": "L14+15",
+    "family": "inplace",
+    "seconds": 1.34,
+    "gain": "measured"
+   },
+   {
+    "id": "L16",
+    "family": "inplace",
+    "seconds": 2.035,
+    "gain": "measured"
+   },
+   {
+    "id": "L17",
+    "family": "convert",
+    "seconds": 0.585,
+    "gain": "measured"
+   },
+   {
+    "id": "L18+19",
+    "family": "search",
+    "seconds": 1.195,
+    "gain": "measured"
+   }
+  ],
+  "memory": [
+   {
+    "id": "L4",
+    "family": "convert",
+    "mib": 20.0,
+    "gain": "measured"
+   },
+   {
+    "id": "M1",
+    "family": "memory",
+    "mib": 595.0,
+    "gain": "measured"
+   },
+   {
+    "id": "M2",
+    "family": "memory",
+    "mib": 136.0,
+    "gain": "measured"
+   },
+   {
+    "id": "M3",
+    "family": "memory",
+    "mib": 63.0,
+    "gain": "measured"
+   },
+   {
+    "id": "L13",
+    "family": "parallel",
+    "mib": 17.5,
+    "gain": "measured"
+   },
+   {
+    "id": "M5a",
+    "family": "memory",
+    "mib": 45.0,
+    "gain": "measured"
+   },
+   {
+    "id": "L18+19",
+    "family": "search",
+    "mib": 27.0,
+    "gain": "measured"
+   },
+   {
+    "id": "M5b",
+    "family": "memory",
+    "mib": 70.0,
+    "gain": "measured"
+   },
+   {
+    "id": "M7a",
+    "family": "memory",
+    "mib": 17.5,
+    "gain": "measured"
+   }
+  ],
+  "loadEnd": {
+   "id": "L18+19",
+   "time": "2026-10-11T10:05",
+   "load": [
+    5.24,
+    5.2,
+    5.28
+   ]
+  },
+  "note": "только ступени, у которых диапазон новой сборки целиком ниже прошлой; остальное — шум и дрейф между сессиями"
+ },
+ "final": {
+  "a12": {
+   "build": "ml-l20",
+   "commit": "e184b10",
+   "runs": 7,
+   "load": [
+    5.88,
+    5.38,
+    6.27
+   ],
+   "startToLoaded": [
+    12.71,
+    12.54,
+    12.92
+   ],
+   "startup": [
+    1.65,
+    1.53,
+    1.86
+   ],
+   "peakAudit": [
+    565,
+    555,
+    581
+   ],
+   "peakAuditNote": "RAM-аудит 11 окт, HEAD = L20, vs, звук эффектов включён, музыка выключена (MiB)",
+   "firstLaunch": {
+    "before": [
+     24.69,
+     22.75,
+     26.63
+    ],
+    "after": [
+     16.78,
+     16.75,
+     18.61
+    ]
+   }
+  },
+  "mac": {
+   "build": "ml-l20",
+   "load": [
+    0.329,
+    0.32,
+    0.342
+   ],
+   "peak": [
+    681,
+    674,
+    688
+   ]
+  },
+  "cardSummary": "A12 load ~124 s → ~5.5 s, peak footprint ~1.6 GB → ~565 MiB (sounds on, music off), launch to loaded ~12.6 s on the day's phone; Mac load 5.4 → 0.32 s, peak 2.0 GB → ~675 MB; frame time unchanged"
+ }
+}

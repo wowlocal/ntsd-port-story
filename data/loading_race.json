@@ -1,0 +1,28 @@
+{
+ "title": "От запуска до загруженного меню на Galaxy A12: один типичный прогон до и после",
+ "source": "ml-baseline-20261010.json (phoneRuns), ml-l1-…json (ml-p0), ml-l20-…json (phone.runs, extraPhoneAB.ml-l20-ab4)",
+ "caveat": "Медианный по «запуск → загружено» прогон из всех прогонов сборки: до — ml-p0 (0034e45), 5 прогонов без звука; после — ml-l20 (e184b10), 7 прогонов со звуком эффектов. Фаза «меню» = всего − старт − загрузка.",
+ "frozen": "ntsd-2.4 на 5f5a8ee4 (13 окт 2026, 20:14); исследование MEMORY_LOADING — 0034e45..6b4bffd, ветка exp/memory-loading",
+ "before": {
+  "label": "ml-p0-noise-ml-p0-2",
+  "startup": 2.93,
+  "load": 123.25,
+  "total": 131.92,
+  "menu": 5.74,
+  "sounds": false,
+  "build": "ml-p0",
+  "commit": "0034e45",
+  "runs": 5
+ },
+ "after": {
+  "label": "ml-l20-ab4-05-ml-l20",
+  "startup": 1.58,
+  "load": 5.83,
+  "total": 12.71,
+  "menu": 5.3,
+  "sounds": true,
+  "build": "ml-l20",
+  "commit": "e184b10",
+  "runs": 7
+ }
+}

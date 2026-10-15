@@ -1,0 +1,342 @@
+{
+ "title": "Как цикл мерил: шум, прогрев, дрейф телефона, время кадра, звук",
+ "source": "docs/research/MEMORY_LOADING.md (Metrics, Comparison protocol, Gates, Method notes, Ledger) · ml-baseline, ml-menu-phase-check, ml-frame-time-audit, ml-m5d, ml-ram-audit, ml-m8, ml-m9 (docs/evidence)",
+ "caveat": "Один телефон (Galaxy A12), debuggable APK; времена в МиБ и секундах как в evidence; запуск → загружено зависит от памяти телефона в этот час.",
+ "frozen": "ntsd-2.4 на 5f5a8ee4 (13 окт 2026, 20:14); исследование MEMORY_LOADING — 0034e45..6b4bffd, ветка exp/memory-loading",
+ "noiseFloor": {
+  "a12Load": 0.6,
+  "a12Startup": 0.03,
+  "a12Footprint": 10,
+  "macLoad": 0.2,
+  "macFootprint": 30,
+  "a12PeakRunToRun": 25
+ },
+ "warmupFirstRunWaits": [
+  3.13,
+  1.44,
+  1.4
+ ],
+ "drift": {
+  "rows": [
+   {
+    "view": "ledger",
+    "when": "10:41",
+    "gate": "S2",
+    "build": "S2",
+    "s": 11.24
+   },
+   {
+    "view": "ledger",
+    "when": "10:41",
+    "gate": "S2",
+    "build": "S2",
+    "s": 11.19
+   },
+   {
+    "view": "ledger",
+    "when": "12:30",
+    "gate": "M5c",
+    "build": "M5c",
+    "s": 12.45
+   },
+   {
+    "view": "ledger",
+    "when": "12:30",
+    "gate": "M5c",
+    "build": "M5c",
+    "s": 12.34
+   },
+   {
+    "view": "ledger",
+    "when": "12:30",
+    "gate": "M5c",
+    "build": "M5c",
+    "s": 12.59
+   },
+   {
+    "view": "session",
+    "when": "15:30",
+    "gate": "check",
+    "build": "M5B",
+    "s": 12.7
+   },
+   {
+    "view": "session",
+    "when": "15:30",
+    "gate": "check",
+    "build": "S2",
+    "s": 12.75
+   },
+   {
+    "view": "session",
+    "when": "15:30",
+    "gate": "check",
+    "build": "M5B",
+    "s": 12.66
+   },
+   {
+    "view": "session",
+    "when": "15:30",
+    "gate": "check",
+    "build": "S2",
+    "s": 12.73
+   },
+   {
+    "view": "session",
+    "when": "15:30",
+    "gate": "check",
+    "build": "M5B",
+    "s": 12.62
+   },
+   {
+    "view": "session",
+    "when": "15:30",
+    "gate": "check",
+    "build": "S2",
+    "s": 12.71
+   }
+  ],
+  "phone": "idle, top shows no busy process; zram swap 1.34 GB used of 3.0 GB, 630 MB free; battery 100%, 26.9 C; 2.6 GB free storage",
+  "reading": "S2 12,71–12,75 с против M5b 12,62–12,70 с в одной сессии: те же; +1,2 с — это телефон после полудня"
+ },
+ "surfaces": {
+  "total": 891,
+  "allocatedGB": 1.14,
+  "touched": [
+   65,
+   77
+  ],
+  "touchedMB": [
+   55,
+   61
+  ],
+  "pixelReads": 77,
+  "sheetBytesMB": 678,
+  "compressedHeldMB": 130,
+  "compressedMB": 52,
+  "source": "MEMORY_LOADING.md, Ledger: Attribution probe (not committed), M1, M3"
+ },
+ "frameAudit": {
+  "what": "A12, android_speed.py, начало ветки (ml-p0) против HEAD (ml-m5c), vs и Demo, 3 раунда вперемешку, звук выключен",
+  "vsMain": [
+   [
+    11.05,
+    11.03,
+    11.26
+   ],
+   [
+    11.27,
+    11.15,
+    11.27
+   ]
+  ],
+  "vsRender": [
+   [
+    7.51,
+    7.5,
+    7.66
+   ],
+   [
+    7.6,
+    7.6,
+    8.07
+   ]
+  ],
+  "demoMain": [
+   [
+    11.71,
+    11.7,
+    11.81
+   ],
+   [
+    11.72,
+    11.71,
+    11.74
+   ]
+  ],
+  "demoRender": [
+   [
+    6.08,
+    6.06,
+    6.19
+   ],
+   [
+    6.15,
+    6.15,
+    6.23
+   ]
+  ]
+ },
+ "mixer": {
+  "beforeM5c": [
+   37.2,
+   36.74,
+   37.26
+  ],
+  "m5c": [
+   48.72,
+   48.58,
+   48.73
+  ],
+  "raw": [
+   42.75,
+   42.67,
+   42.8
+  ],
+  "m5d": [
+   36.2,
+   36.15,
+   36.21
+  ],
+  "setup": "A12, обратный вызов 192 кадра, 8 голосов, выход 48 кГц; выходы побитно равны",
+  "extraMsPerSecond": 4.423
+ },
+ "m5dInPlay": {
+  "note": "First gate with frame-time windows (--ticks 600,1500) and sounds mixed (--sounds). Phone load: M5d 5.60-8.09 s (first run 8.09 with a 3.13 s read-ahead wait) against M5c 5.18-5.20; a 4+4 A/B with sounds (ml-m5d-snd) and a 3+3 muted control (ml-m5d-mute, where the mixer never runs) overlap once each sequence's first run is set aside (5.42-5.86 against 5.27-5.86; 5.53-5.66 against 5.36-5.65): the fi"
+ },
+ "ramAudit": {
+  "build": "HEAD native = L20 (e184b10; L21 reverted), APK ml-l20; sounds mixed (--sounds) unless stated; media volume held at 0",
+  "peakVs": [
+   565,
+   555,
+   581
+  ],
+  "peakDemo": [
+   566,
+   551,
+   579
+  ],
+  "nativeAllocated": 1597,
+  "nativeDirty": [
+   405,
+   450
+  ],
+  "allocatorFree": [
+   19,
+   46
+  ],
+  "musicOnPeak": [
+   607,
+   630
+  ],
+  "musicOffPeak": [
+   536,
+   567
+  ],
+  "matchGrowth": [
+   24,
+   38
+  ],
+  "candidates": [
+   {
+    "name": "M8 streaming music on Android",
+    "saving": "24-34 MiB PSS in a match, 40-94 MiB at the peak (music on)",
+    "complexity": "medium (packet decode on demand; identical samples)",
+    "risk": "decode moves onto the music stream's callback: audio thread time to measure with music on"
+   },
+   {
+    "name": "Uniform pages shared (replay recording)",
+    "saving": "~15 MiB",
+    "complexity": "low",
+    "risk": "one copy-on-write page per written page"
+   },
+   {
+    "name": "Mixer PCM through the wave storage records",
+    "saving": "~16 MiB",
+    "complexity": "medium",
+    "risk": "the M5d mixer path"
+   },
+   {
+    "name": "Journal copies (M7b and the session levels)",
+    "saving": "20-40 MiB",
+    "complexity": "high: every commit walks the journal",
+    "risk": "tick"
+   },
+   {
+    "name": "Stage page dedupe",
+    "saving": "unmeasured",
+    "complexity": "medium",
+    "risk": "paged reads in Stage mode"
+   }
+  ],
+  "decision": "Continue: a justified reserve of ~55-90 MiB at reasonable complexity (music, uniform pages, mixer PCM); one mechanism per gate, music first."
+ },
+ "m8": {
+  "peakWith": [
+   568,
+   560,
+   573
+  ],
+  "peakWithout": [
+   618.0,
+   615,
+   621
+  ],
+  "main": [
+   [
+    10.73,
+    10.72,
+    10.74
+   ],
+   [
+    10.67,
+    10.66,
+    10.72
+   ]
+  ],
+  "musicThreadMs": {
+   "without": [
+    1.16,
+    1.22
+   ],
+   "with": [
+    1.69,
+    1.72
+   ]
+  }
+ },
+ "m9": {
+  "a12EndPss": {
+   "with": [
+    504,
+    510
+   ],
+   "without": [
+    545,
+    592
+   ]
+  },
+  "macLoaded": {
+   "with": [
+    670,
+    682
+   ],
+   "without": [
+    556,
+    598
+   ]
+  }
+ },
+ "reviewsFound": [
+  "L3",
+  "L4",
+  "L12",
+  "M6",
+  "L17",
+  "S2",
+  "M5d"
+ ],
+ "reviews": 27,
+ "notDelegated": [
+  "L2",
+  "L8",
+  "M3",
+  "L10"
+ ],
+ "testOnlyFailures": [
+  "M6",
+  "L17",
+  "M5b",
+  "L6"
+ ]
+}
