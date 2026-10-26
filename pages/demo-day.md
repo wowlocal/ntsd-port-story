@@ -477,89 +477,78 @@ iPhone — экран 874×402 точки меньше окна игры 794×55
 
 ---
 
-<DemoPhase at="results" />
-
-<Kicker>результаты · где доверие ломалось — и что это поймало</Kicker>
-
-# Агент ошибался. Важно, кто это замечал
-
-<div class="brk mt-1">
-<div class="hd">ошибка</div><div class="hd">кто поймал</div>
-<div class="e"><b>Контрольная сумма каталога</b> совпадала с оракулом — и была неверной: оба разделяли одну модель CRT</div><div class="c w">целый матч против оригинала под CrossOver</div>
-<div class="e"><b>Пропуск F8</b>: агент заменил известное поведение EXE «объявленным пропуском»</div><div class="c r">независимое ревью — «its slot word is not unknown»</div>
-<div class="e"><b>Девять стендов</b> не заметили лишних 2,5 ГБ памяти</div><div class="c h">настоящий телефон: Galaxy A12 убил игру на загрузке</div>
-<div class="e"><b>Браузерная версия</b> на стенде грузилась за 5,6 с, на живом сайте — 46,5 с: стенд не моделировал задержку CDN</div><div class="c h">автор открыл живой сайт</div>
-<div class="e"><b>Контроллер по фото</b> агент опознал как Backbone One</div><div class="c h">USB-отчёт самого устройства: Razer Kishi V2</div>
-<div class="e"><b>Коммит «только документация»</b> захватил чужие <code>git mv</code> — дерево не собиралось 22 минуты</div><div class="c a">сам агент, следующим коммитом</div>
-</div>
-
-<div class="leg"><span><i class="w" />рантайм оригинала</span><span><i class="r" />ревьюер только для чтения</span><span><i class="h" />железо и человек</span><span><i class="a" />сам агент</span></div>
-
-<div class="card punch mt-3"><span class="pixel hl">1 из 6</span><span>Сам агент заметил только одну ошибку — и то после того, как хук уже отправил её на GitHub. Остальные пять поймали слои, которые от агента не зависят. Доверие здесь — не вера в безошибочность, а уверенность, что ошибку заметит кто-то другой.</span></div>
-
-
-<style>
-.brk { display: grid; grid-template-columns: 1.35fr 1fr; gap: .32rem .8rem; }
-.brk .hd { font-family: var(--font-pixel); font-size: .6rem; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
-.brk .e { font-size: .68rem; line-height: 1.38; color: var(--ink-2); background: var(--surface); border: 1px solid var(--hair); border-radius: 8px; padding: .32rem .6rem; }
-.brk .e b { color: var(--ink); }
-.brk .e code { font-size: .58rem !important; }
-.brk .c { font-size: .66rem; line-height: 1.35; color: var(--ink); border-radius: 8px; padding: .32rem .6rem; display: flex; align-items: center; border-left: 4px solid; background: rgba(255,255,255,.03); }
-.brk .c.w, .leg i.w { border-color: var(--s2); }
-.brk .c.r, .leg i.r { border-color: var(--s7); }
-.brk .c.h, .leg i.h { border-color: var(--s1); }
-.brk .c.a, .leg i.a { border-color: var(--s3); }
-.leg { display: flex; gap: 1.1rem; margin-top: .5rem; font-size: .62rem; color: var(--ink-2); }
-.punch { display: flex; align-items: center; gap: 1rem; font-size: .74rem; line-height: 1.42; color: var(--ink); border-color: rgba(255,138,61,.5); }
-.punch .pixel { font-size: 1.5rem; white-space: nowrap; }
-.leg i { display: inline-block; width: 12px; height: 12px; border-left: 4px solid; margin-right: .35rem; vertical-align: -2px; }
-</style>
-
-<!--
-≈ 60 секунд. Доверие здесь — не вера в то, что агент не ошибается. Он ошибался регулярно. Доверие — это уверенность, что ошибку поймает слой, который от агента не зависит: рантайм оригинала, отдельный ревьюер только для чтения, железо, человек.
-
-Обратите внимание на правую колонку: сам агент поймал только git-ошибку — и то после того, как хук post-commit уже отправил её на GitHub. Всё остальное поймали независимые слои. Поэтому их и нужно строить с первого дня.
--->
-
----
-
 <DemoPhase at="lessons" />
 
-<Kicker>уроки · что из этого факт, а что — ощущение</Kicker>
+<Kicker>вывод · моя позиция</Kicker>
 
-# Что я унёс
+# LLM — компилятор намерений в машинный код
 
-<div class="les mt-1">
-<div class="l f"><span class="tg">факт</span><div><b>Доверие строится на независимых слоях, а не на вере в агента.</b> Пять из шести ошибок поймали оригинал, ревьюер, железо и человек, и только одну — сам агент.</div></div>
-<div class="l f"><span class="tg">факт</span><div><b>Целое — не сумма частей.</b> 692 теста и 215 оракулов не заметили ошибки, которую поймал первый же обмен записями целого матча.</div></div>
-<div class="l f"><span class="tg">факт</span><div><b>Механизмы проверки агент строит сам — и сам находит, где остановиться.</b> Правило коммита он записал через 2 минуты после запуска петли и по нему же остановился на 11,1 мс.</div></div>
-<div class="l f"><span class="tg">факт</span><div><b>Рамку задаёт человек.</b> Без правила «проверенное — сразу в приложение» с 14 по 27 сентября только 1 коммит из 115 дошёл до кода игры.</div></div>
-<div class="l f"><span class="tg">факт</span><div><b>Стенд — не железо.</b> Девять стендов не заметили лишних 2,5 ГБ памяти, локальный сервер — задержки CDN.</div></div>
-<div class="l v"><span class="tg">вайб</span><div><b>«Правильно обученная модель и есть харнесс».</b> Здесь модель написала харнесс сама, но методологию разделения ролей принёс человек. Где граница — моё ощущение, не замер.</div></div>
-<div class="l v"><span class="tg">вайб</span><div><b>Сколько токенов «достаточно» — открытый вопрос.</b> От v0.4.0 до стены — 221 коммит и +43,7 тыс. строк; на сам путь 30,4 → 11,1 мс — 140 коммитов и +4,8 тыс. строк Swift. Стоит ли — зависит от цели.</div></div>
+<div class="cmp mt-3">
+<div class="st in">
+<span class="pixel">исходник</span>
+<b>намерение</b>
+<i>«та самая игра, как я её помню» — и чем проверить, что это она</i>
+<em>≈ 240 моих сообщений</em>
+</div>
+<span class="ar">→</span>
+<div class="st cc">
+<span class="pixel">компилятор</span>
+<b>LLM + харнесс</b>
+<i>Codex и Claude; оракул, петлю и правило остановки агент собрал сам</i>
+<em>больше 10 млрд токенов · 756 коммитов</em>
+</div>
+<span class="ar">→</span>
+<div class="st out">
+<span class="pixel">машинный код</span>
+<b>игра на 9 платформах</b>
+<i>58 тыс. строк Swift — их никто не обязан читать</i>
+<em>macOS · Linux · Windows · Android · iOS · браузер</em>
+</div>
 </div>
 
+<div class="tests mt-3"><span class="pixel">тесты компилятора</span><span>сам оригинал: <b>58 из 58</b> матчей совпали, <b>18 088</b> кадров одинаковы на всех платформах</span></div>
+
+<div class="mine mt-5">
+<div class="mh pixel">что остаётся человеку</div>
+<div class="mr">
+<div><span class="n">1</span>сформулировать задачу — что значит «правильно» и чем это проверить</div>
+<div><span class="n">2</span>дать достаточно токенов</div>
+<div><span class="n">3</span>решать на развилках, куда агенту не положено</div>
+</div>
+</div>
 
 <style>
-.les { display: flex; flex-direction: column; gap: .32rem; }
-.les .l { display: grid; grid-template-columns: 3.4rem 1fr; gap: .6rem; align-items: start; background: var(--surface); border: 1px solid var(--hair); border-radius: 10px; padding: .36rem .65rem; font-size: .68rem; line-height: 1.36; color: var(--ink-2); }
-.les b { color: var(--ink); }
-.les .tg { font-family: var(--font-pixel); font-size: .6rem; text-align: center; border-radius: 999px; padding: .08rem 0; margin-top: .1rem; }
-.les .f .tg { color: var(--good); border: 1px solid rgba(12,163,12,.6); }
-.les .v .tg { color: var(--warning); border: 1px solid rgba(250,178,25,.6); }
-.les .v { border-color: rgba(250,178,25,.3); }
+.cmp { display: grid; grid-template-columns: 1fr auto 1.15fr auto 1fr; gap: .7rem; align-items: stretch; }
+.cmp .st { display: flex; flex-direction: column; gap: .25rem; background: var(--surface); border: 1px solid var(--hair); border-radius: 14px; padding: .75rem .9rem; }
+.cmp .st.cc { border-color: rgba(255,138,61,.6); background: rgba(255,138,61,.07); }
+.cmp .pixel { font-size: .62rem; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
+.cmp .cc .pixel { color: var(--naruto); }
+.cmp b { font-family: var(--font-display); font-size: 1.15rem; color: var(--ink); line-height: 1.15; }
+.cmp i { font-style: normal; font-size: .74rem; line-height: 1.38; color: var(--ink-2); flex: 1; }
+.cmp em { font-style: normal; font-family: var(--font-mono); font-size: .62rem; color: var(--muted); }
+.cmp .ar { align-self: center; font-family: var(--font-display); font-size: 1.6rem; color: var(--naruto); }
+.tests { display: flex; align-items: baseline; gap: 1rem; font-size: .8rem; color: var(--ink-2); border: 1px dashed var(--axis); border-radius: 12px; padding: .45rem .9rem; }
+.tests .pixel { font-size: .62rem; color: var(--good); text-transform: uppercase; letter-spacing: .06em; white-space: nowrap; }
+.tests b { color: var(--ink); }
+.mine .mh { font-size: .66rem; color: var(--chakra); text-transform: uppercase; letter-spacing: .06em; margin-bottom: .45rem; }
+.mine .mr { display: grid; grid-template-columns: repeat(3, 1fr); gap: .8rem; }
+.mine .mr div { display: flex; gap: .6rem; align-items: baseline; font-size: .86rem; line-height: 1.38; color: var(--ink); }
+.mine .n { font-family: var(--font-display); font-weight: 700; font-size: 1.5rem; color: var(--chakra); line-height: 1; }
 </style>
 
 <!--
-≈ 75 секунд. Организаторы просят явно отделять факты от вайба — поэтому метки слева.
+≈ 75 секунд. Это вывод автора — позиция, а не замер; на слайде так и подписано.
 
-1. Пять из шести — таблица с предыдущего слайда: контрольная сумма (рантайм оригинала), пропуск F8 (ревьюер), память (телефон), загрузка в браузере (человек на живом сайте), контроллер (USB-отчёт); сам агент — только коммит, захвативший чужие git mv.
-2. Контрольная сумма каталога: оракул и порт опирались на одну модель CRT.
-3. Правило коммита — 6 октября в 03:48, реплика автора «start the core redesign loop» — в 03:46, правила в ней нет. Стена — 0034e45c, 10 октября.
-4. 1 коммит из 115 менял native/Sources с 14 по 27 сентября; правила прогресса записаны 27 сентября по указанию автора, и на следующий день игра собралась.
-5. Девять стендов — глава 13; Galaxy A12 убил игру на загрузке (глава 14); живой сайт — 46,5 с до всех данных против 5,6 с на стенде без задержки.
-6. Моя гипотеза «модель и есть харнесс» — вайб. Наблюдение в её пользу: оракул, исходы, харнесс замеров и правило остановки агент придумал сам. Против: разделение исполнителя и ревьюера пришло из чужой методологии (ReAgent), которую принёс человек.
-7. Цифры «221 коммит и +43 тыс. строк» — это весь диапазон v0.4.0..0034e45c: в него входят девять хостов, память и ~20,6 тыс. строк JSON с доказательствами. Сам путь скорости, 109304a..0034e45c: 140 коммитов, native/Sources +4 824 / −816.
+Аналогия. Компилятор берёт исходник и выдаёт машинный код; его вывод никто не читает построчно — ему доверяют, потому что есть тесты. Здесь исходник — намерение: «та самая игра, как я её помню» плюс то, чем это проверить. Компилятор — LLM вместе с харнессом, который агент построил сам: оракул на коде оригинала, петля замеров на телефоне, правило коммита и остановки. Выход — 58 146 строк Swift (на 13 октября) и нативная игра на девяти платформах. Тесты компилятора — сам оригинал: 58 из 58 целых матчей совпали, 18 088 кадров одинаковы на всех платформах.
+
+Цифры. ≈ 240 сообщений человека — сумма по основным сессиям: 163 у Codex (7–27 сентября), 25 и 56 у Claude (28 сентября — 3 октября и 3–13 октября). Токены: 6,3 млрд до релиза 3 октября плюс 4,6 млрд, прочитанных одной сессией Claude 3–13 октября, — больше 10 млрд. 756 коммитов с 7 сентября по 13 октября.
+
+Что остаётся человеку — три пункта, и все три видны в истории:
+1. Сформулировать задачу. Тут больше работы, чем кажется: «так же, а не похоже», исходная игра как единственный эталон, правила прогресса после 19 коммитов мимо приложения, методология ReAgent с отдельным ревьюером, вопрос «у нас же есть windows через crossover?».
+2. Дать токенов. Три недели без видимой картинки — 3,4 млрд токенов; без этого не было бы дня, когда игра собралась целиком.
+3. Решать на развилках: снять проверки эксклюзивности Swift (агент ждал ответа девять часов), остановить чужой движок L2DF, остановиться у «стены» и переключить петлю на память и загрузку.
+
+Если спросят про слабые места аналогии: компилятор детерминирован, а LLM — нет; поэтому и нужен харнесс — он превращает недетерминированную генерацию в проверенный результат. И «тесты» здесь были роскошью: эталон — сам оригинал, бит в бит. Для задач без такого эталона формулировка «чем проверить» — самая трудная часть.
 -->
 
 ---
@@ -571,8 +560,8 @@ shade: 0.7
 
 <div class="flex flex-col items-center">
 <Kicker>спасибо · вопросы</Kicker>
-<h1 class="cover-title">Делегируйте «как».<br><span class="hl">Оставьте себе «зачем».</span></h1>
-<p class="small ink" style="max-width: 40rem; margin-top: -0.3rem">Агент построил оракул, харнесс и правило остановки сам. Человек задал рамку и принимал решения на развилках. Остальное проверяли слои, которые от агента не зависят.</p>
+<h1 class="cover-title">Сформулируй задачу.<br><span class="hl">Дай токенов.</span></h1>
+<p class="small ink" style="max-width: 40rem; margin-top: -0.3rem">LLM переводит намерение в машинный код. Человеку остаётся сказать, что значит «правильно», и не жалеть токенов.</p>
 <p class="small ink2" style="max-width: 40rem">Игра в браузере: <span class="mono">ntsd-web-ashy.vercel.app</span> · порт: <span class="mono">github.com/wowlocal/ntsd-2.4</span> · полная версия доклада — 195 слайдов: <span class="mono">github.com/wowlocal/ntsd-port-story</span></p>
 </div>
 
@@ -581,7 +570,7 @@ shade: 0.7
 </style>
 
 <!--
-Финальная мысль — одной фразой: доверять агенту можно настолько, насколько независимы слои, которые проверяют его работу. Механизмы он строит сам; цель и развилки — ваши.
+Финальная мысль — одной фразой: LLM — компилятор намерений в машинный код; задача человека — правильно сформулировать задачу, включая то, чем проверить результат, и дать достаточно токенов.
 -->
 
 ---
