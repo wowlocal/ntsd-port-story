@@ -76,11 +76,7 @@ clicks: 0
 </div>
 </div>
 
-<div class="grid grid-cols-3 gap-3 mt-3 hx">
-<div class="card-soft"><span class="pixel hl">215</span>скриптов-оракулов, 17 из них поднимают свою VM с кодом оригинала</div>
-<div class="card-soft"><span class="pixel hl">567</span>карточек исследований: план замораживается до запуска, не больше 3 раундов на механизм</div>
-<div class="card-soft"><span class="pixel hl">75</span>строк реестра петли на телефоне: у каждой свой evidence-файл, замер A/B и ревью</div>
-</div>
+<DemoVolume class="mt-3" />
 
 <div class="moral mt-2"><b>Что делегировали:</b> как проверять и когда остановиться. <b>Что оставили себе:</b> цель, рамку и развилки, где нужен вкус или риск.</div>
 
@@ -109,6 +105,8 @@ clicks: 0
 Правило коммита петли: «Commit an increment only when every gate passes and it is either measurably faster or strictly less work without added complexity; otherwise record the result here and revert.» Его агент записал в карточку 6 октября в 03:48 — через две минуты после реплики автора «make an experimental branch and do core redesign for real time play on slow phones like A12… start the core redesign loop». В реплике автора правила нет.
 
 Оракул: в первом коммите 7 сентября «Movement matches 8,506 reference ticks» — про Unicorn в репликах человека не было ни слова.
+
+Объём внизу — на origin/main 19 октября, одна строка = перевод строки в файле (пустые и комментарии тоже, как в паспорте полной деки). Игра: Swift модулей, которые уходят игроку, — 47 471 строка, плюс браузерный хост (JS/HTML) — 1 549; всего ≈ 49 тыс. Харнесс ≈ 154 тыс.: тесты Swift 52 958, оракулы на коде оригинала (215 скриптов tools/oracle_*.py) 37 088, сверочные программы Swift 12 171, прочие инструменты — остальной Python, shell и JS — 52 231. В 3,2 раза больше кода, чем сама игра. Не считались вендорные C-библиотеки (zlib 1.1.4, ALAC, обвязки — 9 632 строки). Рядом с кодом — 598 карточек исследований (≈ 610 тыс. слов) и 1 055 файлов доказательств (39,4 МБ JSON). Всё это написали агенты.
 -->
 
 ---
