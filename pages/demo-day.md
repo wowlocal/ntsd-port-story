@@ -86,7 +86,6 @@ clicks: 0
 <span class="lg"><i class="h" />163 сообщения человека <i class="g" />383 автопродолжения /goal</span>
 </div>
 
-<div class="source">полная дека: главы 3, 4, 11 · data/sessions.json · data/tokens.json · data/epilogue.json</div>
 
 <style>
 .ctx .card { font-size: .7rem; line-height: 1.42; color: var(--ink-2); padding: .65rem .8rem; }
@@ -147,7 +146,6 @@ clicks: 0
 
 <div class="moral mt-2"><b>Что делегировали:</b> как проверять и когда остановиться. <b>Что оставили себе:</b> цель, рамку и развилки, где нужен вкус или риск.</div>
 
-<div class="source">журналы сессий Codex (7, 12 сен) и Claude Code (2, 6 окт) — только реплики автора и время · ffe16f4 · 007c007 · 0034e45c · docs/research/WORKFLOW.md · полная дека, главы 2–5, 8, 14–15</div>
 
 <style>
 .who2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
@@ -196,7 +194,6 @@ clicks: 3
 <div class="card-soft"><b>Масштаб.</b> 215 скриптов-оракулов; VM создают 17, остальные наследуют её цепочкой: игра грузится, проходит меню и играет такты в одной VM.</div>
 </div>
 
-<div class="source">tools/oracle_*.py · полная дека, глава 3 «Оригинал исполняется рядом — в Unicorn»</div>
 
 <style>
 .orc .card-soft { font-size: .66rem; line-height: 1.4; color: var(--ink-2); }
@@ -232,7 +229,6 @@ Unicorn — эмулятор процессора (ядро QEMU как библ
 <div class="card-soft bm"><b>Решение агента, 8 сентября:</b> «Не ускоряем видимый прогресс добавлением персонажей и техник на неполной основе… тренировочное окно некоторое время может выглядеть прежним».</div>
 </div>
 
-<div class="source">data/tokens.json (журналы сессий) · data/app_lines.json · ~/.codex/sessions: сессия-аудит 8 сентября · полная дека, глава 5</div>
 
 <style>
 .bm { font-size: .7rem; line-height: 1.42; color: var(--ink-2); }
@@ -278,7 +274,6 @@ Unicorn — эмулятор процессора (ядро QEMU как библ
 </div>
 </div>
 
-<div class="source">3313088 · 53bc59e · docs/research/APPLICATION_CATALOG_CHECKSUM.md · docs/evidence/crossplay-*.json · полная дека, глава 8</div>
 
 <style>
 .wh ul { margin-top: .35rem; }
@@ -336,7 +331,6 @@ Unicorn — эмулятор процессора (ядро QEMU как библ
 </div>
 </div>
 
-<div class="source">полная дека, главы 14–15 · docs/research/CORE_REALTIME.md (Gates, Ledger) · data/rt2_loop.json · data/perf_*.json</div>
 
 <style>
 .stairs { display: flex; flex-direction: column; gap: .4rem; }
@@ -375,7 +369,6 @@ Unicorn — эмулятор процессора (ядро QEMU как библ
 
 <div class="wl mt-1"><b class="hl mono">0034e45c:</b> «…none meets the commit rule» <span class="muted">→</span> <b class="hl">автор, 21:23:</b> «you did good. we reached the wall… now lets do the loop for optimizing memory footprint and loading times»</div>
 
-<div class="source">0034e45c · docs/research/CORE_REALTIME_TIER3.md · data/rt2_wall.json · сессия Claude Code 1f9218ae · полная дека, глава 15 «Стена»</div>
 
 <style>
 .wl { font-size: .62rem; line-height: 1.35; color: var(--ink); }
@@ -413,7 +406,6 @@ Unicorn — эмулятор процессора (ядро QEMU как библ
 </div>
 </div>
 
-<div class="source">docs/media/demo-side-by-side.mp4 · tools/crossover_drive/demo_frames.py · tools/app_e2e.py · ntsd-web-ashy.vercel.app (W5, 17 октября)</div>
 
 <style>
 .steps { display: flex; flex-direction: column; gap: .5rem; }
@@ -453,7 +445,6 @@ Unicorn — эмулятор процессора (ядро QEMU как библ
 <div class="card"><div class="h pixel">сколько стоило</div>Две подписки по $200 в месяц. По номиналу Codex съел ≈ $266 на порт; работа Claude за первые 6 дней по ценам API стоила бы ≈ $797. 756 коммитов за 37 дней; человек — пара строк в день.</div>
 </div>
 
-<div class="source">полная дека: главы 8, 13–17, 19 · data/evidence/crossplay-matches.json · data/xplat.json · data/rt2_steps.json · data/loading_race.json · data/tokens.json</div>
 
 <style>
 .res .card { font-size: .68rem; line-height: 1.42; color: var(--ink-2); padding: .65rem .8rem; }
@@ -489,7 +480,6 @@ Unicorn — эмулятор процессора (ядро QEMU как библ
 
 <div class="card punch mt-3"><span class="pixel hl">1 из 6</span><span>Сам агент заметил только одну ошибку — и то после того, как хук уже отправил её на GitHub. Остальные пять поймали слои, которые от агента не зависят. Доверие здесь — не вера в безошибочность, а уверенность, что ошибку заметит кто-то другой.</span></div>
 
-<div class="source">полная дека: главы 7, 8, 13, 14, 18, 19 · 698f76a · 3313088 · 2f5e707 · d4619cbc · tw-w5-web-packed-loading-20261017.json</div>
 
 <style>
 .brk { display: grid; grid-template-columns: 1.35fr 1fr; gap: .32rem .8rem; }
@@ -532,7 +522,6 @@ Unicorn — эмулятор процессора (ядро QEMU как библ
 <div class="l v"><span class="tg">вайб</span><div><b>Сколько токенов «достаточно» — открытый вопрос.</b> От v0.4.0 до стены — 221 коммит и +43,7 тыс. строк; на сам путь 30,4 → 11,1 мс — 140 коммитов и +4,8 тыс. строк Swift. Стоит ли — зависит от цели.</div></div>
 </div>
 
-<div class="source">полная дека: главы 5, 8, 13–15, 20 · git v0.4.0..0034e45c и 109304a..0034e45c (--shortstat; native/Sources отдельно) · журнал сессии 1f9218ae (6 окт, 03:46 и 03:48)</div>
 
 <style>
 .les { display: flex; flex-direction: column; gap: .32rem; }
