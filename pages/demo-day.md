@@ -80,26 +80,12 @@ clicks: 0
 </div>
 </div>
 
-<div class="ent mt-3">
-<span class="lb">Codex, 7–27 сен</span>
-<div class="sq"><i v-for="n in 163" :key="`h${n}`" class="h" /><i v-for="n in 383" :key="`g${n}`" class="g" /></div>
-<span class="lg"><i class="h" />163 сообщения человека <i class="g" />383 автопродолжения /goal</span>
-</div>
-
 
 <style>
 .ctx .card { font-size: .7rem; line-height: 1.42; color: var(--ink-2); padding: .65rem .8rem; }
 .ctx .h { font-size: .66rem; color: var(--naruto); text-transform: uppercase; letter-spacing: .06em; margin-bottom: .3rem; }
 .ctx b, .terms b { color: var(--ink); }
 .ctx code, .terms code { font-size: .62rem !important; }
-.ent { display: grid; grid-template-columns: 7.2rem 1fr; column-gap: .8rem; row-gap: .3rem; align-items: center; }
-.ent .lb { font-size: .64rem; color: var(--ink-2); }
-.ent .sq { display: grid; grid-template-rows: repeat(6, 6px); grid-auto-flow: column; grid-auto-columns: 6px; gap: 2px; }
-.ent .sq i, .ent .lg i { display: block; border-radius: 1.5px; }
-.ent .h { background: var(--ink-2); }
-.ent .g { background: var(--s1); }
-.ent .lg { grid-column: 2; display: flex; align-items: center; gap: .35rem; font-size: .6rem; color: var(--muted); }
-.ent .lg i { display: inline-block; width: 8px; height: 8px; margin-left: .5rem; }
 .terms p { font-size: .68rem; line-height: 1.4; color: var(--ink-2); margin: .25rem 0 !important; }
 </style>
 
