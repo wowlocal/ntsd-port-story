@@ -1,7 +1,7 @@
 ---
 layout: chapter
 num: 13
-total: 19
+total: 20
 kicker: Глава тринадцатая
 dates: 3 — 5 октября
 image: /img/covers/ch13-nine-hosts.jpg

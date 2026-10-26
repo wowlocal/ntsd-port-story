@@ -1,7 +1,7 @@
 ---
 layout: chapter
 num: 16
-total: 19
+total: 20
 kicker: Глава шестнадцатая
 dates: 10 — 11 октября
 image: /img/covers/ch16-loading.svg

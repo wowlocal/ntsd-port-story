@@ -1,7 +1,7 @@
 ---
 layout: chapter
 num: 6
-total: 19
+total: 20
 kicker: Глава шестая
 dates: 28 сентября
 image: /img/screens/16-character-ai-ko.png

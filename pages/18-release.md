@@ -1,7 +1,7 @@
 ---
 layout: chapter
 num: 18
-total: 19
+total: 20
 kicker: Глава восемнадцатая
 dates: 13 октября
 image: /img/covers/ch18-menu.svg

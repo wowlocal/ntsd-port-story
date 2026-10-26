@@ -1,7 +1,7 @@
 ---
 layout: chapter
 num: 12
-total: 19
+total: 20
 kicker: Сообщество
 dates: 2007 → 3 октября 2026
 image: /img/covers/ch12-collage.jpg

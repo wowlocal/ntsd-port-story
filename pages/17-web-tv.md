@@ -1,7 +1,7 @@
 ---
 layout: chapter
 num: 17
-total: 19
+total: 20
 kicker: Глава семнадцатая
 dates: 11 — 13 октября
 image: /img/covers/ch17-tv-browser.svg

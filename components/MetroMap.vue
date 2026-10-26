@@ -1,5 +1,5 @@
 <script setup lang="ts">
-// The whole deck as one metro route: 19 chapters are stations. Line colour = who worked in that period:
+// The whole deck as one metro route: 20 chapters are stations. Line colour = who worked in that period:
 // blue — Codex (7–27 Sep), orange — Claude (from 28 Sep). Chapters 9–11 cover the whole project, so the blue
 // line runs alongside the orange there. The prologue (31 Mar) sits before the start, on a dotted pause.
 // `visited` fills the stations up to that chapter; `current` puts a glow and a "вы здесь" pin on one station.
@@ -27,7 +27,7 @@ const xR = 815 // right bend centre x
 const xL = 95 // left bend centre x
 const off = 8 // offset of the parallel blue line in the shared corridor (outer side of the left bend)
 
-// facts: chapter covers (num, kicker, dates, stats) of pages/02-prologue.md … pages/19-lessons.md
+// facts: chapter covers (num, kicker, dates, stats) of pages/02-prologue.md … pages/20-lessons.md
 const stations: Station[] = [
   { n: 1, title: 'Сначала был план', sub: '31 марта', tip: 'Пролог · 31 марта 2026 · 5 коммитов · потом 160 дней тишины', kind: 'pre', x: 44, y: yA, place: 'below-start' },
   { n: 2, title: 'Первый вечер', sub: '7 сентября', tip: 'Глава 2 · 7 сентября, 18:20–21:13 · 4 коммита практики · 1 разворот', kind: 'codex', x: 250, y: yA, place: 'below' },
@@ -40,14 +40,15 @@ const stations: Station[] = [
   { n: 9, title: 'Кунсткамера', sub: 'баги оригинала', tip: 'Глава 9 · что нашлось внутри EXE: баги оригинала, которые порт обязан повторить', kind: 'both', x: 310, y: yB, place: 'below', cap: { dx: 0, dy: -off } },
   { n: 10, title: 'В цифрах', sub: '463 коммита', tip: 'Глава 10 · 7 сентября — 3 октября · всё посчитано из git и evidence-файлов порта', kind: 'both', x: xL - r, y: yB + r, place: 'right', cap: { dx: -off, dy: 0 } },
   { n: 11, title: 'Под капотом агентов', sub: '6,3 млрд токенов', tip: 'Глава 11 · 34 сессии · 31 095 ответов моделей · 1 101 ход · 6,3 млрд токенов', kind: 'both', x: 205, y: yC, place: 'below', cap: { dx: 0, dy: off } },
-  { n: 12, title: 'Сообщество', sub: '2007 → 2026', tip: 'Глава 12 · 2007 → 3 октября 2026 · Discord · лента · релиз v0.4.0', kind: 'claude', x: 288, y: yC, place: 'above' },
-  { n: 13, title: 'Девять хостов', sub: '3–5 октября', tip: 'Глава 13 · 74 коммита за 30 часов · 9 хостов · 90 из 90 сценариев · баг компилятора Swift', kind: 'claude', x: 370, y: yC, place: 'below' },
-  { n: 14, title: 'Телефон 2008 года', sub: '5–7 октября', tip: 'Глава 14 · Galaxy A12 · память матча 3,9 → 1,5 ГБ · 30,25 тика в секунду', kind: 'claude', x: 453, y: yC, place: 'above' },
-  { n: 15, title: '16 миллисекунд', sub: '7–10 октября', tip: 'Глава 15 · перестройка ядра до 60 кадров в секунду на Galaxy A12', kind: 'claude', x: 535, y: yC, place: 'below' },
-  { n: 16, title: 'Загрузка за ночь', sub: '10–11 октября', tip: 'Глава 16 · загрузка на телефоне 124 с → 5,5 с за одну ночь', kind: 'claude', x: 618, y: yC, place: 'above' },
-  { n: 17, title: 'Браузер и ТВ', sub: '11–13 октября', tip: 'Глава 17 · Apple TV, WebAssembly в Chromium и WebKit, масштабируемое окно', kind: 'claude', x: 700, y: yC, place: 'below' },
-  { n: 18, title: 'Семь часов в меню', sub: '13 октября', tip: 'Глава 18 · утечка памяти в меню, джойстик на телефоне, подписанный релиз', kind: 'claude', x: 783, y: yC, place: 'above-end' },
-  { n: 19, title: 'Уроки', sub: '13 октября', tip: 'Глава 19 · Эпилог · 241 час одной сессии · неделя по темам · паспорт · десять уроков', kind: 'claude', x: 865, y: yC, place: 'below' },
+  { n: 12, title: 'Сообщество', sub: '2007 → 2026', tip: 'Глава 12 · 2007 → 3 октября 2026 · Discord · лента · релиз v0.4.0', kind: 'claude', x: 278, y: yC, place: 'above' },
+  { n: 13, title: 'Девять хостов', sub: '3–5 октября', tip: 'Глава 13 · 74 коммита за 30 часов · 9 хостов · 90 из 90 сценариев · баг компилятора Swift', kind: 'claude', x: 352, y: yC, place: 'below' },
+  { n: 14, title: 'Телефон 2008 года', sub: '5–7 октября', tip: 'Глава 14 · Galaxy A12 · память матча 3,9 → 1,5 ГБ · 30,25 тика в секунду', kind: 'claude', x: 425, y: yC, place: 'above' },
+  { n: 15, title: '16 миллисекунд', sub: '7–10 октября', tip: 'Глава 15 · перестройка ядра до 60 кадров в секунду на Galaxy A12', kind: 'claude', x: 498, y: yC, place: 'below' },
+  { n: 16, title: 'Загрузка за ночь', sub: '10–11 октября', tip: 'Глава 16 · загрузка на телефоне 124 с → 5,5 с за одну ночь', kind: 'claude', x: 572, y: yC, place: 'above' },
+  { n: 17, title: 'Браузер и ТВ', sub: '11–13 октября', tip: 'Глава 17 · Apple TV, WebAssembly в Chromium и WebKit, масштабируемое окно', kind: 'claude', x: 645, y: yC, place: 'below' },
+  { n: 18, title: 'Семь часов в меню', sub: '13 октября', tip: 'Глава 18 · утечка памяти в меню, джойстик на телефоне, подписанный релиз', kind: 'claude', x: 718, y: yC, place: 'above' },
+  { n: 19, title: 'Игра у игроков', sub: '16–19 октября', tip: 'Глава 19 · 31 коммит в main · Steam Deck из Game Mode · кнопки от игрока из Discord · релиз 0.6.0', kind: 'claude', x: 792, y: yC, place: 'below' },
+  { n: 20, title: 'Уроки', sub: '13 октября', tip: 'Глава 20 · Эпилог · 241 час одной сессии · неделя по темам · паспорт · десять уроков', kind: 'claude', x: 865, y: yC, place: 'above-end' },
 ]
 const planned: { name: string, x: number }[] = []
 
@@ -58,9 +59,9 @@ const pad = (n: number) => String(n).padStart(2, '0')
 const st = (n: number) => stations[n - 1]
 const routeDotted = `M${st(1).x},${yA} H${st(2).x}`
 const routeBlue = `M${st(2).x},${yA} H${xR} A${r},${r} 0 0 1 ${xR + r},${yA + r}`
-const routeOrange = `M${xR + r},${yA + r} A${r},${r} 0 0 1 ${xR},${yB} H${xL} A${r},${r} 0 0 0 ${xL - r},${yB + r} A${r},${r} 0 0 0 ${xL},${yC} H${st(19).x}`
+const routeOrange = `M${xR + r},${yA + r} A${r},${r} 0 0 1 ${xR},${yB} H${xL} A${r},${r} 0 0 0 ${xL - r},${yB + r} A${r},${r} 0 0 0 ${xL},${yC} H${st(20).x}`
 const corridor = `M${st(9).x},${yB - off} H${xL} A${r + off},${r + off} 0 0 0 ${xL - r - off},${yB + r} A${r + off},${r + off} 0 0 0 ${xL},${yC + off} H${st(11).x}`
-const routeFuture = `M${st(19).x},${yC} H${W - 6}`
+const routeFuture = `M${st(20).x},${yC} H${W - 6}`
 
 const nav = useNav()
 const active = useIsSlideActive()
@@ -82,6 +83,7 @@ const labelPos = (s: Station) => {
   return { x: s.x, y: s.y + 29 + capY, anchor: 'middle' }
 }
 const cur = computed(() => stations.find(s => s.n === props.current))
+const pinBelow = computed(() => !!cur.value && cur.value.place.startsWith('above'))
 </script>
 
 <template>
@@ -104,8 +106,8 @@ const cur = computed(() => stations.find(s => s.n === props.current))
       <path class="seg" style="--d: 1" :d="routeBlue" fill="none" stroke="var(--s1)" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" />
       <path class="seg" style="--d: 6" :d="routeOrange" fill="none" stroke="var(--s2)" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" />
       <path class="seg" style="--d: 9" :d="corridor" fill="none" stroke="var(--s1)" stroke-width="4.5" stroke-linecap="round" />
-      <g v-if="future" class="seg" style="--d: 19">
-        <path :d="routeFuture" fill="none" stroke="var(--s2)" stroke-width="5" stroke-dasharray="6 6" style="opacity: 0.75"><title>что дальше: ветка exp/iphone, публикация веб-версии — решение автора</title></path>
+      <g v-if="future" class="seg" style="--d: 20">
+        <path :d="routeFuture" fill="none" stroke="var(--s2)" stroke-width="5" stroke-dasharray="6 6" style="opacity: 0.75"><title>что дальше: правка C3 для Kishi V2, которой нет в main, и NTSD 2.8.3.3 — решение автора</title></path>
         <g v-for="p in planned" :key="p.name">
           <circle :cx="p.x" :cy="yC" r="6.5" fill="var(--bg)" stroke="var(--s2)" stroke-width="2.5">
             <title>что дальше · ветка exp/core-realtime: ярус 16 мс на тик, ручная игра на телефоне, слияние</title>
@@ -117,9 +119,10 @@ const cur = computed(() => stations.find(s => s.n === props.current))
       <!-- highlight of the current station -->
       <g v-if="cur" class="here">
         <circle class="glow" :cx="cur.x" :cy="cur.y" r="21" fill="var(--naruto)" style="opacity: 0.22" />
-        <g :transform="`translate(${cur.x}, ${cur.y - 33})`">
-          <rect x="-34" y="-10" width="68" height="17" rx="3" fill="var(--naruto)" />
-          <path d="M-5,7 L0,12 L5,7 Z" fill="var(--naruto)" />
+        <!-- the pin goes under a station whose label is above it -->
+        <g :transform="`translate(${pinBelow ? cur.x + 5 : cur.x}, ${pinBelow ? cur.y + 38 : cur.y - 33})`">
+          <rect :x="pinBelow ? -30 : -34" y="-10" :width="pinBelow ? 60 : 68" height="17" rx="3" fill="var(--naruto)" />
+          <path :d="pinBelow ? 'M-10,-10 L-5,-15 L0,-10 Z' : 'M-5,7 L0,12 L5,7 Z'" fill="var(--naruto)" />
           <text class="pin" x="0" y="3.2" text-anchor="middle">{{ here.toUpperCase() }}</text>
         </g>
       </g>

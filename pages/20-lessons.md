@@ -1,7 +1,7 @@
 ---
 layout: chapter
-num: 19
-total: 19
+num: 20
+total: 20
 kicker: Эпилог
 dates: 3 — 13 октября
 image: /img/stage-1-1-background.jpg
@@ -127,16 +127,16 @@ stats: 241 час одной сессии · 155 коммитов за неде�
 
 ---
 
-<Kicker>весь маршрут · 31 марта — 13 октября</Kicker>
+<Kicker>весь маршрут · 31 марта — 19 октября</Kicker>
 
 # Маршрут пройден
 
-<MetroMap class="mt-2" :visited="19" :current="19" />
+<MetroMap class="mt-2" :visited="20" :current="20" />
 
 <div class="source">даты и цифры — с обложек глав · цвет линии — автор коммитов: git log, трейлер Co-Authored-By</div>
 
 <!--
-Та же карта, что в начале: все девятнадцать станций пройдены. Пунктир дальше — то, что ждёт решения автора: ветка exp/iphone и публикация веб-версии.
+Та же карта, что в начале: все двадцать станций пройдены. Пунктир дальше — то, что ждёт решения автора: правка C3 для Kishi V2, которой нет в main, и следующая версия игры, 2.8.3.3.
 -->
 
 ---
@@ -153,8 +153,8 @@ shade: 0.7
 </div>
 <Kicker>конец · спасибо</Kicker>
 <h1 class="cover-title">Один EXE.<br><span class="hl">Одна и та же игра.</span></h1>
-<p class="small ink" style="max-width: 40rem; margin-top: -0.3rem">На Mac, Linux, Windows, iPad и Android — с одними эталонами.</p>
-<p class="small ink2" style="max-width: 40rem">Порт и релиз v0.4.0: <span class="mono">github.com/wowlocal/ntsd-2.4</span> · эта презентация: <span class="mono">github.com/wowlocal/ntsd-port-story</span></p>
+<p class="small ink" style="max-width: 40rem; margin-top: -0.3rem">На Mac, Linux, Steam Deck, Windows, iPad, Android и в браузере — с одними эталонами.</p>
+<p class="small ink2" style="max-width: 40rem">Порт и релизы от v0.4.0 до 0.6.0: <span class="mono">github.com/wowlocal/ntsd-2.4</span> · эта презентация: <span class="mono">github.com/wowlocal/ntsd-port-story</span></p>
 <p class="xsmall muted" style="max-width: 38rem"><i>Naruto: The Setting Dawn</i> — фанатская игра её авторов на движке <i>Little Fighter 2</i> Марти Вонга и Старски Вонга. Права на контент принадлежат авторам; изображения использованы для рассказа о проекте сохранения игры. Оригинал в эталонных проверках — под CrossOver; отдельные функции — в Unicorn Engine.</p>
 </div>
 

@@ -1,7 +1,7 @@
 ---
 layout: chapter
 num: 11
-total: 19
+total: 20
 kicker: Глава одиннадцатая
 dates: журналы сессий
 image: /img/covers/ch11-context-breath.jpg

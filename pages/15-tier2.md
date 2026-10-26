@@ -1,7 +1,7 @@
 ---
 layout: chapter
 num: 15
-total: 19
+total: 20
 kicker: Глава пятнадцатая
 dates: 7 — 10 октября
 image: /img/covers/ch15-ticks.svg
