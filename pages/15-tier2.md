@@ -150,6 +150,53 @@ stats: 84 коммита · главный поток 24,6 → 11,1 мс · ре
 -->
 
 ---
+clicks: 4
+---
+
+<Kicker>8 — 13 октября · от ответа автора до релиза</Kicker>
+
+# Страховку сняли — и в релизе
+
+<p class="lead">Ответ автора — «Unchecked in shipping builds». За пять дней он дошёл от APK до всех пакетов релиза; тесты и ворота проверки сохранили.</p>
+
+<CExclusivityMatrix stepwise />
+
+<div class="xfacts">
+<div><b style="color: var(--naruto)">3,5–4 %</b><span>главного потока A12 стоили проверки, ≈ 0,6 мс на тик</span></div>
+<div><b style="color: var(--naruto)">3 306 → 0</b><span>точек проверок: бинарник ворот → релизное приложение macOS</span></div>
+<div><b>2 164</b><span>остались в статически слинкованном Foundation (Linux arm64 — 2 170)</span></div>
+<div><b style="color: var(--good)">60 fps</b><span>на A12 и после 4ab, в обоих сценариях</span></div>
+</div>
+
+<div class="source">тела коммитов 3d8935d · 7c02b7f · 0dd7740 · 1035e40d · 5b8e5d02 · rt-4aa-unchecked-exclusivity-60fps-20261008.json · release-refresh-20261013.json на 0b5d4621</div>
+
+<style>
+.lead { margin: -0.45rem 0 0.5rem !important; font-size: 0.8rem; line-height: 1.4; color: var(--ink-2); max-width: 54rem; }
+.xfacts { display: grid; grid-template-columns: repeat(4, 1fr); gap: .5rem; margin-top: .5rem; }
+.xfacts > div { background: var(--surface); border: 1px solid var(--hair); border-radius: 10px; padding: .28rem .55rem .32rem; display: flex; align-items: baseline; gap: .45rem; }
+.xfacts b { font-family: var(--font-display); font-size: .88rem; color: var(--ink); white-space: nowrap; font-weight: 700; }
+.xfacts span { font-size: .58rem; line-height: 1.3; color: var(--ink-2); }
+</style>
+
+<!--
+Клики открывают по одному шагу; в экспорте видны все пять столбцов. Оранжевая рамка — клетка, которая изменилась на этом шаге.
+
+Вопрос был узким: проверки эксклюзивности Swift — swift_beginAccess, swift_endAccess и их thread-local состояние — стоили 3,5–4 % главного потока телефона, около 0,6 мс на тик. Ответ — «Unchecked in shipping builds»: релизные сборки без динамических проверок, тестовые бандлы с ними. Статические диагностики компилятора остаются, правильный код работает так же; меняется только то, что ошибка одновременного доступа стала бы тихим неопределённым поведением, а не падением.
+
+4aa (8 октября, 19:48): Package.swift добавляет -enforce-exclusivity=unchecked только в release и только при NTSD_UNCHECKED_EXCLUSIVITY=1; переменную ставит сборщик APK. Тест-сторож падает, если тестовый бандл собран без проверок. Это и есть 60 fps и тег rt-60fps-a12.
+
+4ab (20:46 того же дня): ревью 4aa нашло, что модуль NTSDFreeTypeText — часть APK — сохранил проверки, а хосты SDL и iOS вообще не могли включить флаг. После правки в библиотеке APK в наших модулях нет ни одной точки проверки; 2 164 оставшиеся принадлежат статически слинкованному Foundation тулчейна. Телефон по-прежнему на 60 fps в обоих сценариях. То же ревью предложило: бинарники ворот оставить с проверками, чтобы динамические проверки ловили ошибку на каждом проверяемом пути, плюс один прогон без проверок — для конфигурации, которая уходит игрокам.
+
+4ac (10 октября, 18:02): build-native.sh экспортирует флаг для релизной сборки приложения macOS. В релизном NTSDNative точек проверки нет, в бинарнике ворот — 3 306; сценарии vs и playback равны, кадры идентичны, 20 из 20 запусков чистые.
+
+4ad (18:26): package_linux.py, package_windows.py и ios_app.py передают флаг своим релизным сборкам. Linux arm64 — проверка пакета проходит, в наших модулях вызовов нет (2 170 — в Foundation); симулятор iOS — vs равен; Windows x86_64 — проверка пакета в свежей бутылке CrossOver. Коммит сам называет это проверками упаковщиков, а не приёмкой на устройствах.
+
+Релиз 13 октября (глава 18): macOS 0.5.0 записан как «fresh release NTSDNative, unchecked exclusivity as existing shipping policy»; APK, Windows и Linux собраны теми же упаковщиками с флагом. iOS в релиз не вошёл по просьбе автора. Веб-сборку в этой цепочке не трогали: в web_app.py на 0b5d4621 переменной нет.
+
+Вывод для зрителя: решение «снять страховку» не осталось экспериментом ветки — оно стало политикой поставки, и это записано в evidence релиза.
+-->
+
+---
 
 <Kicker>что двигало стрелку · vs, против прежней сборки</Kicker>
 
@@ -193,6 +240,82 @@ P0 — главный поток закрепляется за ядрами бы
 После этого R2 вернулся — с presenter, закреплённым на медленных ядрах: рендер Demo 10,59 → 5,90 мс. И той же дорогой пошёл R3: освобождение мёртвых значений (≈ 10 % работы главного потока — целые копии State, освобождаемые поэлементно) ушло в поток release, тоже на медленные ядра.
 
 Урок для петли: «отложено» — не «выброшено». Запарковка с записанной причиной и патчем позволила вернуться, когда условие изменилось.
+-->
+
+---
+
+<Kicker>10 октября, 10:12 и 12:18 · шаги L4b и R3</Kicker>
+
+# Компилятор ошибся ещё дважды
+
+<p class="lead">Через шесть дней после <code>#92905</code> — снова Swift, и снова на одной ветке: два случая за два часа. Оба поймали сборка и тесты, игроку не досталось ни одного.</p>
+
+<div class="cc">
+<div class="ccard">
+<div class="ch"><span class="pixel">упал сам оптимизатор</span><span class="mono">10:12 · 7091da10 · L4b</span></div>
+<pre class="err">signal 6 · PerfInliner
+Assertion isLoadableOrOpaque
+  in SILBuilder createLoad</pre>
+<p>Релизная сборка тестов, rtl4b и rtl4bt. Новый тест передавал постоянное замыкание в ещё обобщённый <code>standaloneCursor</code>, и оптимизатор, специализируя его, падал.</p>
+<pre class="sw"><i>/// Hides a constant closure from the release optimizer</i>
+@inline(never) private func opaque&lt;T&gt;(_ value: T) -> T { value }</pre>
+<div class="out">сборки игры — headless, AppKit, APK — не затронуты</div>
+</div>
+
+<div class="ccard">
+<div class="ch"><span class="pixel">массив освобождён дважды</span><span class="mono">12:18 · d342f740 · R3</span></div>
+<pre class="err">NTSD.release · _swift_release_dealloc
+debug-сборка теста загрузки · 2 падения
+журнал типов: Array&lt;Batch&gt;</pre>
+<p>Уже после правок ревью: <code>retire(consume drained)</code> внутри <code>defer</code>. По записи evidence, компилятор всё равно освобождал переменную в конце области — второй раз.</p>
+<pre class="sw"><i>// после цикла, не в defer</i>
+if !drained.isEmpty { …retire(consume drained) }
+<i>/// Never `consume` a variable declared outside a `defer`</i>
+<i>/// from inside it … A binding made inside the `defer` is fine.</i></pre>
+<div class="out">7 тестов загрузки в debug прошли; запрет записан в комментарии к <code>retire</code></div>
+</div>
+</div>
+
+<div class="three">
+<span class="th pixel">три раза Swift</span>
+<div class="tc"><b>4 окт · a72ae97</b>Static Linux SDK выбрасывал запись в слот перед <code>isKnownUniquelyReferenced</code> → отчёт #92905, исправлен в 6.4.x</div>
+<div class="tc now"><b>10 окт · 7091da10</b>оптимизатор падает на тесте → замыкание через <code>@inline(never)</code></div>
+<div class="tc now"><b>10 окт · d342f740</b><code>consume</code> из <code>defer</code> → двойное освобождение → передача после цикла</div>
+</div>
+
+<div class="source">тела коммитов 7091da10 · d342f740 · rt-a3-l4b-driverless-idle-20261010.json (compiler) · rt-r3-release-thread-20261010.json (crash_found_and_fixed) · swiftlang/swift#92905</div>
+
+<style>
+.lead { margin: -0.45rem 0 0.6rem !important; font-size: 0.8rem; line-height: 1.4; color: var(--ink-2); max-width: 54rem; }
+.lead code { font-size: .7rem !important; }
+.cc { display: grid; grid-template-columns: 1fr 1fr; gap: .7rem; }
+.ccard { background: var(--surface); border: 1px solid rgba(208,59,59,.45); border-radius: 12px; padding: .45rem .7rem .5rem; display: flex; flex-direction: column; gap: .3rem; }
+.ch { display: flex; justify-content: space-between; align-items: baseline; gap: .5rem; }
+.ch .pixel { color: #f08a8a; font-size: .86rem; }
+.ch .mono { font-size: .54rem; color: var(--muted); white-space: nowrap; }
+.ccard pre { margin: 0; font-family: var(--font-mono); white-space: pre-wrap; border-radius: 7px; padding: .3rem .5rem; }
+.ccard pre.err { font-size: .58rem; line-height: 1.45; color: #f6c0c0; background: rgba(208,59,59,.12); }
+.ccard pre.sw { font-size: .55rem; line-height: 1.45; color: var(--ink); background: #0c1017; border: 1px solid var(--hair); }
+.ccard pre i { font-style: normal; color: var(--muted); }
+.ccard p { font-size: .64rem; line-height: 1.38; color: var(--ink-2); margin: 0 !important; }
+.ccard p code, .out code, .tc code { font-size: .56rem !important; }
+.out { font-size: .6rem; color: var(--ink); border-top: 1px dashed var(--axis); padding-top: .22rem; margin-top: auto; }
+.out::before { content: '→ '; color: var(--good); }
+.three { display: grid; grid-template-columns: auto 1fr 1fr 1fr; gap: 10px; align-items: stretch; margin-top: .6rem; }
+.three .th { font-size: .66rem; color: var(--naruto); align-self: center; width: 5.6rem; line-height: 1.25; }
+.three .tc { font-size: .6rem; line-height: 1.35; color: var(--ink-2); background: rgba(255,255,255,.03); border: 1px solid var(--hair); border-radius: 10px; padding: .32rem .55rem; }
+.three .tc b { display: block; color: var(--ink); font-weight: 600; font-size: .58rem; margin-bottom: .05rem; }
+.three .tc.now { border-color: rgba(217,89,38,.55); }
+</style>
+
+<!--
+Оба случая — в тот же день, что медленные ядра и поток release, на ветке exp/core-realtime.
+
+L4b (7091da10, 10:12) — первый холостой проход шага без драйвера и обмена: главный поток vs 12,07 → 11,82 мс на тик. Для него написан юнит-тест, который передаёт постоянное замыкание в ещё обобщённый standaloneCursor. Первые две релизные сборки тестов (rtl4b и rtl4bt) уронили оптимизатор Swift: signal 6, PerfInliner, «Assertion isLoadableOrOpaque in SILBuilder createLoad». Это падение самого компилятора при специализации замыкания. Обход — пропустить замыкание через тождественную функцию с @inline(never); комментарий в тесте называет логи сборок. Сборки игры — headless, AppKit, APK — не затронуты.
+
+R3 (d342f740, 12:18) — освобождение мёртвых значений на отдельном потоке NTSD.release. Ревью одобрило с мелкими замечаниями; при их применении функция retire стала брать значение как consuming, и вызов retire(consume drained) оказался внутри defer. В debug-сборке тест загрузки дважды упал в _swift_release_dealloc на потоке NTSD.release, журнал типов показал Array<Batch>. Запись в evidence: «the compiler still released the consumed variable at the scope's end». Передачу перенесли после цикла выборки; 7 тестов загрузки прошли в debug; в комментарии к retire теперь запрет: не делать consume переменной, объявленной снаружи defer, изнутри него — а привязка, сделанная внутри defer, допустима. Прогон ThreadSanitizer тестов потока release и загрузки — чистый.
+
+Сравнение с #92905 (глава 13): там ошибку нашла матрица целых сценариев, и отчёт ушёл в Swift с разрешения автора. Здесь обе ошибки поймали собственные тесты шага, до коммита: в первом случае страдала только сборка теста, во втором — debug-сборка. В evidence записаны обходы и правило; отдельных отчётов в Swift по ним в репозитории нет.
 -->
 
 ---

@@ -150,6 +150,36 @@ stats: 74 коммита за 30 часов · 9 хостов · 90 из 90 сц
 
 ---
 
+<Kicker>3 — 4 октября · ошибка не в игре и не в ядре</Kicker>
+
+# Хосту тоже пришлось подстраиваться
+
+<p class="lead">Ядро не менялось, но хост обязан отвечать так, как отвечала Windows. Пять мест за те же 30 часов, где он отвечал иначе.</p>
+
+<CHostQuirks />
+
+<div class="source">тела коммитов edccfde · 9d63735 · db3e341 · 7c504a6 · 503af05 · OriginalRuntimeTouchMouse.swift · crossplatform-p7-music-20261004.json (byteOrder)</div>
+
+<style>
+.lead { margin: -0.45rem 0 0.55rem !important; font-size: 0.8rem; line-height: 1.4; color: var(--ink-2); max-width: 54rem; }
+</style>
+
+<!--
+Наведите на карточку или на метку на полосе — они подсветятся парой. Полоса — те же 30 часов, что на предыдущем слайде.
+
+Главная — iPad. В симуляторе хост отдавал игре курсор в 0,0, а тап приходил как нажатие и отпускание в один момент. Оригинал выбирает пункт меню под курсором и смотрит на левую кнопку на протяжении нескольких тиков — так держит кнопку и игрок, и сами скриптовые клики оригинала (10–15 итераций цикла). Тапы просто не попадали. Правка — общий помощник OriginalRuntimeTouchMouse для хостов без мыши: касание сначала двигает курсор (WM_MOUSEMOVE, 0x200), через 80 мс нажимает (0x201) и отпускает (0x202) не раньше чем через 150 мс после нажатия. Шкала на схеме — в этих миллисекундах.
+
+Ещё одна — тоже iPad, но про клавиатуру: iPadOS отменяет нажатия, которые забирает себе (например, во время переключателя приложений), и без правки игра видела клавишу зажатой. Хост теперь считает отмену отпусканием. Утром 5 октября человек на настоящем iPad Pro написал «taps on the keyboard worked».
+
+Linux aarch64: декодер ALAC — эталонный код Apple (Apache-2.0, 13 файлов, взяты без изменений) — узнаёт порядок байт из TargetConditionals.h или макросов x86. На aarch64 Linux он пропускал перестановку байт, и первый же прогон упал на «packet at 8192». Package.swift определяет TARGET_RT_LITTLE_ENDIAN=1 для Linux, Android и Windows; файлы вендора не тронуты. Каждый трек декодируется ровно в PCM манифеста — кадры, байты, SHA-256 — на macOS и на Linux.
+
+Wayland: под безголовым Weston вся сцена рисовалась со сдвигом на отступ центрированного окна — Wayland не сообщает программам позицию их окна, и хост SDL теперь сам говорит игре, куда поставил окно. Заодно хост пишет, какие драйверы видео и звука выбрал SDL: CrossOver, например, не передаёт переменные SDL_*.
+
+Тесты: четыре теста находили родительский случай через NSDictionary.isEqual. На Darwin JSON true равен 1 (оба — NSNumber), в swift-corelibs-foundation Bool и Int различаются, и на Linux поиск не находил случая. sameJSONObject оставляет NSDictionary на Darwin и воспроизводит его ответ на других платформах; на 18 случаях JSON в Linux-контейнере он совпал с Darwin. Это ошибка не игры, а сравнения в тестах.
+-->
+
+---
+
 <Kicker>4 октября, 05:14 · ошибка не в игре</Kicker>
 
 # Баг компилятора, который нашла матрица
@@ -308,6 +338,101 @@ clicks: 1
 
 <!--
 Цитаты — дословно, с опечатками. Отчёт с iPad — наблюдение человека на настоящем устройстве (iPad Pro 11, M4): клавиатура работает. Он не инструментирован: ни журнала событий, ни кадров. Касания и звук на устройстве отдельно не проверялись.
+-->
+
+---
+
+<Kicker>3 — 6 октября · агент коммитит сам, хук пушит сразу</Kicker>
+
+# Ошибки, которые сразу уходят на GitHub
+
+<div class="push">
+<span class="st"><span class="i-pixelarticons-git-commit" />агент: <code>git commit</code></span><i>→</i>
+<span class="st"><span class="i-pixelarticons-terminal" /><code>.githooks/post-commit</code><em>с 10 сентября · 029e590a</em></span><i>→</i>
+<span class="st"><span class="i-pixelarticons-cloud-upload" /><code>git push</code></span><i>→</i>
+<span class="st"><span class="i-pixelarticons-github" />github.com/wowlocal/ntsd-2.4</span>
+<span class="nb">Переписать уже нельзя: ошибку исправляют новым коммитом и записывают, что случилось.</span>
+</div>
+
+<div class="slips">
+<div class="slip">
+<div class="sh"><span class="pixel">архив на T7</span><span class="mono">3 окт</span></div>
+<div class="gl mono"><span>22:00</span><b>b154778</b><em>Move build/research into verified archives on T7</em></div>
+<div class="gl mono bad"><span>22:01</span><b>a4c48a6</b><em>Skip git-tracked entries when archiving to T7</em></div>
+<p>Перенос 132 ГБ — 3 703 записи в 159 архивах PAX — захватил и <b>66 мелких файлов под git</b>: в дереве они стали удалёнными. Их вернули из HEAD.</p>
+<div class="chip"><span class="i-pixelarticons-archive" />внутренний том: 22 → 118 GiB свободно</div>
+<div class="rule">инструмент пропускает отслеживаемые файлы, если не сказано <code>--include-tracked</code></div>
+</div>
+
+<div class="slip">
+<div class="sh"><span class="pixel">чужой индекс</span><span class="mono">4 окт</span></div>
+<div class="gl mono bad"><span>02:45</span><b>414a2aa</b><em>Record the Linux run: 581 portable tests pass</em></div>
+<div class="gl mono"><span>03:07</span><b>706dc65</b><em>Move the menu and loading runtimes into NTSDRuntime</em></div>
+<div class="gl mono"><span>03:07</span><b>2f5e707</b><em>Note that 414a2aa does not build</em></div>
+<div class="idx mono"><span>R100</span> NTSDMacPlatform → NTSDRuntime/OriginalMacRuntimeLoading.swift<br><span>R100</span> NTSDMacPlatform → NTSDRuntime/OriginalMacRuntimeMenu.swift</div>
+<p>Коммит «только документация» забрал два <code>git mv</code>, подготовленные для следующего шага: 22 минуты дерево не собиралось. <span lang="en" class="q">«Both are pushed, so history stays as is»</span>.</p>
+<div class="rule">цикл проверяет индекс перед каждым коммитом</div>
+</div>
+
+<div class="slip">
+<div class="sh"><span class="pixel">чужая правка</span><span class="mono">6 окт</span></div>
+<div class="gl mono"><span>10:01</span><b>fb61dbb</b><em>Record the test phone's swipe lock…</em></div>
+<div class="gl mono bad"><span>10:03</span><b>0b8a6b3</b><em>Restore the speed harness's file mode</em></div>
+<div class="gl mono"><span>10:03</span><b>46a0d59</b><em>Return the other session's busy-seconds edit</em></div>
+<p>Правка одного режима файла, 100755 → 100644: <code>update-index</code> перечитал файл и закоммитил <b>двухстрочную правку другой сессии</b>, оставленную в том же дереве.</p>
+<div class="chip"><span class="i-pixelarticons-users" />в одном рабочем дереве — две сессии агента</div>
+<div class="rule">содержимое fb61dbb вернули, а правка осталась в дереве незакоммиченной — <span lang="en">«for its owner»</span></div>
+</div>
+</div>
+
+<div class="card-soft mt-2 xsmall ink2 flex items-center gap-4">
+<span class="pixel hl" style="font-size: 1.1rem; white-space: nowrap">3 из 3</span>
+<span>git коммитит то, что лежит в дереве и индексе, а не то, что агент собирался закоммитить. Все три исправлены следующими коммитами в течение получаса, и ошибки, и исправления остались в истории main.</span>
+</div>
+
+<div class="source">029e590a (.githooks/post-commit: git push после каждого коммита) · b154778 · a4c48a6 · 414a2aa (git show --name-status: R100 ×2) · 706dc65 · 2f5e707 · fb61dbb · 0b8a6b3 · 46a0d59 · tools/archive_to_t7.py · docs/research/CROSS_PLATFORM.md</div>
+
+<style>
+.push { display: flex; flex-wrap: wrap; align-items: center; gap: .3rem .4rem; margin: -0.3rem 0 .6rem; font-size: .66rem; color: var(--ink-2); }
+.push .st { display: inline-flex; align-items: center; gap: .3rem; background: var(--surface); border: 1px solid var(--hair); border-radius: 8px; padding: .16rem .5rem; }
+.push .st > span { width: .85rem; height: .85rem; color: var(--naruto); }
+.push .st em { font-style: normal; font-size: .56rem; color: var(--muted); margin-left: .2rem; }
+.push code { font-size: .6rem !important; }
+.push > i { font-style: normal; color: var(--naruto); }
+.push .nb { flex-basis: 100%; font-size: .62rem; color: var(--muted); margin-top: .1rem; }
+.slips { display: grid; grid-template-columns: repeat(3, 1fr); gap: .55rem; }
+.slip { background: var(--surface); border: 1px solid var(--hair); border-radius: 10px; padding: .4rem .6rem .45rem; display: flex; flex-direction: column; gap: .2rem; }
+.sh { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: .1rem; }
+.sh .pixel { color: var(--naruto); font-size: .8rem; }
+.sh .mono { font-size: .56rem; color: var(--muted); }
+.gl { display: grid; grid-template-columns: 2rem 3.3rem 1fr; gap: .3rem; font-size: .55rem; line-height: 1.5; background: #0c1017; border-radius: 5px; padding: 0 .35rem; }
+.gl span { color: var(--muted); }
+.gl b { color: #febc2e; font-weight: 400; }
+.gl em { font-style: normal; color: var(--ink-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.gl.bad { box-shadow: inset 2px 0 0 var(--critical); }
+.gl.bad em { color: var(--ink); }
+.idx { font-size: .5rem; line-height: 1.45; color: var(--ink-2); border: 1px dashed rgba(208,59,59,.55); border-radius: 5px; padding: .12rem .35rem; }
+.idx span { color: #f08a8a; }
+.slip p { font-size: .63rem; line-height: 1.36; color: var(--ink-2); margin: .15rem 0 0 !important; flex: 1; }
+.slip p b { color: var(--ink); }
+.slip p code, .rule code { font-size: .56rem !important; }
+.slip .q { color: var(--ink); }
+.rule { font-size: .6rem; line-height: 1.3; color: var(--ink); border-top: 1px dashed var(--axis); padding-top: .2rem; }
+.chip { display: inline-flex; align-self: flex-start; align-items: center; gap: .3rem; font-size: .58rem; color: var(--ink-2); background: var(--surface-2); border-radius: 999px; padding: .08rem .55rem; margin-bottom: .2rem; }
+.chip > span { width: .75rem; height: .75rem; color: var(--chakra); }
+.rule::before { content: '→ '; color: var(--naruto); }
+</style>
+
+<!--
+С 10 сентября в репозитории стоит хук .githooks/post-commit (029e590a): после каждого коммита он делает git push текущей ветки в её upstream на GitHub. Удобно — история никогда не застревает на одной машине. Но это значит, что ошибочный коммит через секунду уже на GitHub, и в этих трёх случаях агент историю не переписывал: каждую ошибку исправлял новым коммитом и описывал в его теле.
+
+Первый случай — в 22:00 3 октября агент по просьбе автора перенёс build/research на диск T7: 3 703 записи, 132 ГБ, 159 архивов PAX, каждый член сверен с устройства по имени, типу, режиму, времени и SHA-256 до удаления источника; свободное место на внутреннем томе выросло с 22 до 118 GiB. Но в архив попали и 66 мелких файлов, которые отслеживает git, — после удаления источника они показались удалёнными. Через минуту — коммит a4c48a6: файлы восстановлены из HEAD, инструмент теперь пропускает записи с отслеживаемыми файлами без флага --include-tracked.
+
+Второй — ночью 4 октября, посреди переноса рантайма в NTSDRuntime. Коммит 414a2aa должен был только записать прогон на Linux: 251 переносимый набор, 581 тест прошёл. Но в индексе уже лежали два git mv для следующего шага — меню и загрузка из NTSDMacPlatform в NTSDRuntime, — и коммит забрал их тоже. Без остальной части шага NTSDRuntime получил импорты AppKit и не собирался до 706dc65 в 03:07. В 03:07 же — 2f5e707: «Both are pushed, so history stays as is; the loop now checks the index before each commit».
+
+Третий — 6 октября, второй день телефона. fb61dbb по ошибке записал android_speed.py с режимом 100755. Правка режима (0b8a6b3) через update-index перечитала файл — и заодно закоммитила две строки, которые оставила в том же рабочем дереве другая сессия (описание busy seconds как времени занятости игрового потока, округление до двух знаков). Через минуту 46a0d59 вернул содержимое fb61dbb с режимом 100644, а чужую правку оставил в дереве незакоммиченной — «for its owner». Это ещё и свидетельство: в одном рабочем дереве в тот момент работали две сессии.
+
+Время — локальное, как записал git.
 -->
 
 ---

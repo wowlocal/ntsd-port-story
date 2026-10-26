@@ -233,6 +233,52 @@ return Int32(bitPattern: negative ? 0 &- value : value)
 <div class="source">9bb48f6 · docs/research/LIB_RUNTIME.md</div>
 
 ---
+clicks: 1
+---
+
+<Kicker>9 сентября · что задела lib.dll</Kicker>
+
+# Такт за сутки — и пять заплаток в нём
+
+<p class="lead">9 сентября агент перенёс такт по частям и в 23:07 сверил с оригиналом 16 вызовов подряд. Через 2 ч 21 мин нашлась <code>lib.dll</code>; по клику — куда легли её заплатки.</p>
+
+<ATickDay />
+
+<div class="kpis">
+<div><b>44</b><span>коммита за 9 сентября</span></div>
+<div><b class="o">16</b><span>вызовов такта подряд = оригинал · <code>c65f9a8</code>, без нажатий</span></div>
+<div><b class="g">zlib 1.1.4</b><span>внутри записи повтора: 815 из 815 вызовов</span></div>
+<div><b class="r">5 из 13</b><span>заплаток lib.dll — в стадиях этого дня · <code>5a28b0a</code></span></div>
+</div>
+
+<div class="source">git log fc959db, 9–10 сентября · git show --numstat -- native/Sources · CONTINUOUS_GAMEPLAY_CAPTURE.md · REPLAY_COMPRESSION.md · ACTIVE_LIB_IMPACT.md · docs/evidence/active-lib-impact.json · LIB_RUNTIME.md</div>
+
+<style>
+.lead { margin: -0.45rem 0 0.2rem !important; font-size: 0.78rem; line-height: 1.4; color: var(--ink-2); max-width: 58rem; }
+.lead code { font-size: 0.72rem !important; }
+.kpis { display: grid; grid-template-columns: 0.8fr 1.25fr 1.15fr 1.2fr; gap: 8px; margin-top: 0.25rem; }
+.kpis > div { display: flex; align-items: center; gap: 0.55rem; background: var(--surface); border: 1px solid var(--hair); border-radius: 10px; padding: 0.3rem 0.6rem; }
+.kpis b { font-family: var(--font-display); font-size: 1.05rem; line-height: 1; color: var(--ink); white-space: nowrap; }
+.kpis b.o { color: var(--naruto); }
+.kpis b.g { color: var(--s3); font-size: 0.9rem; }
+.kpis b.r { color: var(--s8); }
+.kpis span { font-size: 0.58rem; line-height: 1.3; color: var(--ink-2); }
+.kpis code { font-size: 0.52rem !important; }
+</style>
+
+<!--
+Наведите на точку — внизу появится коммит: время, хэш, заголовок и сколько строк он добавил в native/Sources. По клику появляются красные кольца — пять заплаток lib.dll.
+
+День по часам git (+0300). Ночью — вход в матч и управление (eb26182 … e2f20ce), в 03:44 — вся физика Actor и мира (71b74a2), к 06:24 — контакты, удары, предметы, cpoint. Утром камера, фон и вся отрисовка World и Actor (30be76e, e3c220f), потом точность x87 — это предыдущий слайд про 53 бита. Днём — планировщик кадров Actor (fcf9cd1) и весь post-draw, HUD (22175e3) и уведомления. Вечером — запись повтора: сжатие — это настоящий zlib 1.1.4 2002 года из официального архива: 8 из 10 вендорённых файлов побайтно совпадают с ним по SHA-256, правлены только zutil.h и zconf.h (c674066; поэтому точка такая большая — 5 049 строк, в основном исходники zlib), затем буфер потока и весь писатель файла записи (248f7e5). К ночи — запись результата и вывод, тело такта собрано атомарно (f98c5ab), и в 23:07 — c65f9a8: «Both initialized variants now match sixteen successive native loaded calls».
+
+Что это значило и чего ещё нет — по самой карточке CONTINUOUS_GAMEPLAY_CAPTURE: шестнадцать вызовов такта на собственном сохранённом состоянии, без единого нажатия (клавиатура нейтральна), фазы чередуются 0/1, счётчик повтора идёт 2..17. Дословно: «The real outer 43e9a0 loop and its clock pacing remain a necessary separate join. Neutral keyboard memory does not prove keyboard-device acquisition, input latency, wall-clock animation cadence, audio timing or a complete match.»
+
+Через 2 ч 21 мин, в 01:28, — 9bb48f6: настоящая точка входа грузит lib.dll (предыдущий слайд). В 01:39 агент сделал аудит только для чтения (5a28b0a, ACTIVE_LIB_IMPACT): из тринадцати мест, куда пишет установщик DLL, пять пересекаются с инструкциями двух принятых контролей по 48 вызовов — управление 41408b, контакты 4176ac (в 11 вызовах из 48), жизненный цикл post-draw 41f5fc, команды post-draw 4214d7 и текст 401290 (импульсы post-draw и итоговый вывод). Кольца стоят на коммитах, которые перенесли эти стадии; это пересечение байтов кода, а не число исполнений и не исход: «It does not establish which DLL branches will run or how the resulting game state will differ».
+
+Ничего не стёрли: прежние сравнения остались «immutable, useful controls», но перестали доказывать поведение приложения с библиотекой. Красные точки справа — та же ночь: в 02:13 управление Actor с установленным переходом 41408b → 10001125 (0a7c7a6, 7 168 вызовов), в 02:37 фильтры контактов, в 04:08 эффекты ударов — уже поверх библиотеки.
+-->
+
+---
 
 <Kicker>10–12 сентября</Kicker>
 

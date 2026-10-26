@@ -14,6 +14,159 @@ stats: 47 из 47 случайных матчей равны · 156 730 свер
 
 ---
 
+<Kicker>2 октября, 06:59 — 07:02 · офлайн-приёмка и сверка объёма</Kicker>
+
+# Перепроверить на чистом дереве
+
+<div class="grid grid-cols-[0.9fr_1.3fr] gap-5 mt-1">
+<div class="trees">
+
+<div class="tr dirty">
+<div class="th"><span class="i-pixelarticons-git-branch ti" /><b>рабочее дерево main</b><span class="tag">грязное</span></div>
+<div class="tt">Лежат <b>15 незакоммиченных файлов</b> — 14 изменённых и 1 новый: отложенная автором сеть N2 и чужие правки документов. Проверки слова попадания вечером 1 октября (<code>7d592f9</code>) собраны вместе с ними.</div>
+</div>
+
+<div class="arr"><span>«Earlier dirty-tree results do not transfer» — прогнать заново, один раз</span></div>
+
+<div class="tr clean">
+<div class="th"><span class="i-pixelarticons-git-commit ti" /><b>кандидат <code>2d6a7e5</code></b><span class="tag">отдельный worktree на X5</span></div>
+<div class="tt">LFS — <b>3 025 из 3 025</b> объектов из локального хранилища, без сети. <code>build-native.sh</code> — 166,7 с, бинарник <code>ec5afcc1…</code>, ad-hoc подпись цела.</div>
+</div>
+
+<div class="grid grid-cols-3 gap-2 mt-2">
+<StatTile :value="38" label="тестов" sub="попадания, физика, слот" size="sm" accent="var(--good)" />
+<StatTile :value="7845" label="целых пулов" sub="корпус попаданий" size="sm" accent="var(--good)" />
+<StatTile value="10 / 10" label="сценариев e2e" sub="на бандле кандидата" size="sm" accent="var(--good)" />
+</div>
+
+</div>
+<div>
+
+<div class="sh">07:02 · 18 критериев полного объёма из CONTINUE_GOAL — у каждого класс и свежее доказательство</div>
+
+<BScopeStrip />
+
+</div>
+</div>
+
+<div class="verdict"><span class="i-pixelarticons-flag vi" /><span><span class="q">«The only implementation gap is network play, which the user has deferred.»</span> Остальные недостающие проверки упираются во внешнее: проснувшийся экран, Windows, устройство, чистый Mac.</span></div>
+
+<div class="source">3d36966 · 0356f06 · docs/evidence/application-offline-acceptance-20261002.json · docs/research/APPLICATION_PACKAGING.md (offline follow-up) · SCOPE_RECONCILIATION_2026-10-02.md</div>
+
+<style>
+.trees { display: flex; flex-direction: column; }
+.tr { background: var(--surface); border: 1px solid var(--hair); border-radius: 12px; padding: 0.42rem 0.65rem 0.48rem; }
+.tr.dirty { border-color: rgba(250, 178, 25, 0.5); }
+.tr.clean { border-color: rgba(12, 163, 12, 0.5); }
+.th { display: flex; align-items: center; gap: 0.4rem; font-size: 0.7rem; color: var(--ink); }
+.th code { font-size: 0.64rem !important; }
+.th .tag { margin-left: auto; font-size: 0.54rem; }
+.ti { width: 1rem; height: 1rem; color: var(--naruto); flex: none; }
+.tt { font-size: 0.62rem; line-height: 1.38; color: var(--ink-2); margin-top: 0.2rem; }
+.tt b { color: var(--ink); }
+.tt code { font-size: 0.56rem !important; }
+.arr { display: flex; justify-content: center; margin: 0.1rem 0; }
+.arr span { position: relative; font-size: 0.56rem; color: var(--muted); padding: 0.28rem 0 0.28rem 1rem; }
+.arr span::before { content: '↓'; position: absolute; left: 0; top: 0.12rem; color: var(--naruto); font-size: 0.85rem; }
+.sh { font-size: 0.6rem; color: var(--muted); margin-bottom: 0.3rem; }
+.verdict { display: flex; align-items: center; gap: 0.6rem; margin-top: 0.55rem; font-size: 0.66rem; line-height: 1.38; color: var(--ink-2); background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(208, 59, 59, 0.45); border-radius: 12px; padding: 0.4rem 0.75rem; }
+.verdict .q { color: var(--ink); font-family: var(--font-mono); font-size: 0.6rem; }
+.vi { width: 1.2rem; height: 1.2rem; color: var(--critical); flex: none; }
+</style>
+
+<!--
+Утро перед сверкой с оригиналом. Ночью 1 октября агент закрыл слово попадания (7d592f9), но в коммите честно записал: прогон шёл на рабочем дереве, где лежат отложенные автором незакоммиченные сетевые правки. Значит, эти результаты относятся к другому бинарнику.
+
+Офлайн-приёмка (3d36966, 06:59). Кандидат — detached worktree коммита 2d6a7e5 (в нём уже есть 7d592f9) на диске X5, на отведённых задаче 40 ГиБ. Объекты LFS — 3 025 из 3 025 — взяты из локального хранилища без сети. Отложенная работа N2 и чужие правки документов в основном дереве не тронуты: 14 изменённых файлов и 1 новый перечислены в evidence с хэшами. Сборка tools/build-native.sh — 166,7 с, бинарник 15,6 МБ, sha256 ec5afcc1…, ad-hoc подпись действительна. Прошли 38 тестов попаданий, физики, игрового тела и слота запросов, корпус попаданий (7 845 целых пулов) и все десять e2e-сценариев на исполняемом файле бандла: vs, mission, demo, war, playback, tournament, altenter, tournament-win, team-tournament, joystick. Длинные soak-прогоны (War 60 000, Demo 100 000, Stage 4-1 100 000 тел) шли на том же грязном бинарнике и не повторялись: гейт их не требовал, они остаются доказательством для своих входов. Оригинал не запускался, сеть не использовалась.
+
+Сверка объёма (0356f06, 07:02). Каждый из 18 критериев полного объёма из CONTINUE_GOAL получил класс: V — проверено сравнением или проверками приложения; M — реализовано, но не хватает конкретной проверки; G — пробел реализации; E — препятствие снаружи, с доказательством. Наведите на плитку — внизу появится, чего не хватает. Единственный G — ONLINE GAME: N1 закоммичен, N2 — незакоммиченный WIP, автор отложил сеть 1 октября, отказ модели на сетевой интеграции открыт. Звук и полный экран macOS — M: звук не с чем сравнить без Windows, а переход AppKit не видел никто — 1 и 2 октября дисплей спал. Единственная разрешённая конкретная проверка, которую нашла сверка, — F1, F2, F3, F5, F6 и F9 в бою VS на офлайн-кандидате; прошла без остановки, игра показала своё «Function Keys Locked». Заодно исправлена устаревшая строка карты: «Default launch is still Practice». Независимый ревьюер в этих сессиях недоступен, ревью всех карточек открыто.
+
+Итог карточки: других разрешённых задач нет, пока автор не снимет отсрочку сети или не станет доступна одна из внешних проверок. Через десять часов автор спросит, какой процент кода реализован, — следующий слайд.
+-->
+
+---
+
+<Kicker>2 октября, 17:07 → 23:26 · реплики автора — из журнала сессии Claude</Kicker>
+
+# «чтобы на 100% покрыть всё»
+
+<div class="asks">
+<div class="ask"><span class="t mono">17:07</span>«какой процент кода проанализирован и exactly реализован?»</div>
+<div class="ask"><span class="t mono">18:15</span>«у нас же есть windows через crossover?»</div>
+<div class="ask hot"><span class="t mono">18:18</span>«…составь доку с планом по добивке игры. чтобы на 100% покрыть всё. запиши в docs/GOAL_100.md»</div>
+</div>
+
+<div class="grid grid-cols-[1.25fr_1fr] gap-6 mt-2">
+<div>
+
+<div class="sh">18:34 · <code>a8bbb84</code> · docs/GOAL_100.md — восемь измерений и где проект на 2 октября</div>
+
+<div class="dims">
+<div class="dm part"><i>1</i><b>Код EXE</b><span>51,4 % инструкций исполнено в записях; 157 из 174 функций с корпусами — 92,4 % инструкций</span></div>
+<div class="dm part"><i>2</i><b>Поведение</b><span>10 e2e-сценариев, все режимы; известный пробел — финал Stage <em class="p0">P0</em></span></div>
+<div class="dm open"><i>3</i><b>Длинная эквивалентность</b><span>не измерялась: целые матчи потиково не сравнивались. План P1b — повторы через CrossOver, <q>нужно участие пользователя у экрана</q></span></div>
+<div class="dm open"><i>4</i><b>Windows</b><span>ответы, которых EXE не фиксирует, объявлены; на Windows ничего не наблюдалось</span></div>
+<div class="dm none"><i>5</i><b>Данные</b><span>строки состояния нет; в работах — hit_Fa 11, его не использует ни один DAT дистрибутива</span></div>
+<div class="dm part"><i>6</i><b>Приложение и устройство</b><span>хост-проверки пройдены; полный экран macOS, контроллер, чистый Mac — ждут</span></div>
+<div class="dm open"><i>7</i><b>Сеть</b><span>N1 в main, N2 у параллельного агента; отказ модели 1 октября открыт</span></div>
+<div class="dm open"><i>8</i><b>Приёмка</b><span>независимого ревьюера нет — ревью всех карточек открыто</span></div>
+</div>
+
+</div>
+<div>
+
+<div class="sh">P0 · 23:26 · <code>996d2c0</code> · экран ENDING, до которого порт не доходил</div>
+
+<BEnding />
+
+<div class="grid grid-cols-3 gap-2 mt-2">
+<StatTile :value="581" label="случай Unicorn" sub="все совпали" size="sm" accent="var(--good)" />
+<StatTile :value="7171" label="вызов" sub="по порядку" size="sm" accent="var(--s1)" />
+<StatTile :value="39186" label="байт записано" sub="ничего лишнего" size="sm" accent="var(--s1)" />
+</div>
+
+<div class="lim">Живое приложение до меню 300 ещё не доходило: нужен пройденный Stage 5 или его запись.</div>
+
+</div>
+</div>
+
+<div class="source">сессия Claude Code 7ea5b99f, 2 октября (UTC+2) · a8bbb84 · 996d2c0 · docs/GOAL_100.md · docs/research/STAGE_ENDING.md · ресурс ENDING из NTSD 2.4.exe</div>
+
+<style>
+.asks { display: flex; gap: 0.5rem; margin-top: -0.2rem; }
+.ask { font-size: 0.62rem; line-height: 1.32; color: var(--ink); background: rgba(57, 135, 229, 0.16); border: 1px solid rgba(57, 135, 229, 0.45); border-radius: 12px; border-top-right-radius: 4px; padding: 0.3rem 0.55rem; }
+.ask.hot { border-color: rgba(255, 138, 61, 0.65); flex: 1.5; }
+.ask .t { display: block; font-size: 0.5rem; color: var(--muted); margin-bottom: 0.05rem; }
+.sh { font-size: 0.6rem; color: var(--muted); margin-bottom: 0.3rem; line-height: 1.3; }
+.sh code { font-size: 0.54rem !important; }
+.dims { display: flex; flex-direction: column; gap: 3px; }
+.dm { display: grid; grid-template-columns: 1.1rem 8.4rem 1fr; gap: 0.4rem; align-items: baseline; font-size: 0.6rem; line-height: 1.3; color: var(--ink-2); background: var(--surface); border: 1px solid var(--hair); border-left: 3px solid var(--muted); border-radius: 8px; padding: 0.22rem 0.5rem; }
+.dm i { font-style: normal; font-family: var(--font-pixel); color: var(--muted); }
+.dm b { color: var(--ink); font-weight: 650; }
+.dm.part { border-left-color: var(--warning); }
+.dm.open { border-left-color: var(--serious); }
+.dm.none { border-left-color: var(--axis); }
+.dm q { color: var(--ink); quotes: '«' '»'; }
+.p0 { font-style: normal; font-family: var(--font-mono); font-size: 0.52rem; color: #0a0d13; background: var(--naruto); border-radius: 4px; padding: 0 0.3rem; }
+.lim { font-size: 0.58rem; color: var(--muted); margin-top: 0.35rem; line-height: 1.35; }
+</style>
+
+<!--
+Реплики автора — дословно из журнала сессии Claude (время UTC+2); ответы агента здесь не цитируем. Между ними были ещё две: в 17:10 «посчитай глубокую оценку» и в 18:11 «ветку пушни с исследованием; и скажи мне что имеет смысл сделать дальше. нет ли темных мест которые стоило бы дальше поииследовать или потестить на предмет совпадения». Ответ на вопрос о проценте — измерение покрытия EXE на отдельной ветке, слайд «Сколько EXE на самом деле проверено» в конце главы.
+
+GOAL_100.md (a8bbb84, 18:34). Документ определяет, что значит «покрыть игру на 100 %»: восемь измерений, и каждое закрывается отдельно — одно не заменяет другое. Левая колонка — его же таблица «Где мы сейчас», цвет полосы — моя оценка по её словам: жёлтое — частично, оранжевое — не начато или открыто. У «Данных» в таблице состояния строки нет; в работах есть hit_Fa 11 (0x406a20) — его не использует ни один DAT дистрибутива, но «для 100 % совместимости с данными» его тоже надо перенести и сверить на синтетическом DAT.
+
+План P1b — длинная эквивалентность двумя способами: перекрёстное воспроизведение повторов через CrossOver и Unicorn lockstep на тысячи тиков. Про первый в плане прямо сказано: «Нужно участие пользователя у экрана». Поэтому через минуту после этого коммита, в 18:35, агент и попросил человека посидеть у экрана — следующий слайд. В 21:23 — девять целых матчей в обеих программах.
+
+P0 — финал Stage. После последней группы стадий логика пишет меню 300 (это сверено в корпусе Mission), а экран 437220, который диспетчер вызывает для этого значения, не был разобран: порт останавливался на «Other menu dispatcher». В 23:26 (996d2c0) экран перенесён: страницы листа ENDING с открывающей и закрывающей шторкой из 13 полос, страницу закрывает Attack любого места, стрелка в углу мигает, после четвёртой страницы — меню 10 через сброс ввода 431c70. Все 581 случай настоящих 437220/431c70 под Unicorn совпали: 7 171 вызов по порядку и 39 186 записанных байт, и больше ничего не записано.
+
+Анимация справа — по описанию из карточки: кадры листа ENDING из самого EXE, прямоугольники — статические константы, которые 424b45..424c98 пишут при старте; темп анимации наш, не замер. Переключатель сложности: на Easy и Normal (450c30 = 2 и 1) первая страница — «Congratulations on finishing Mission Mode. Now see if you accomplish it at a higher level…», на Difficult и CRAZY! её место занимает «Sorry, but there is no password for the Demo Version». Дальше у всех — «Thanks for playing!», прощальное письмо zxcv («I'll be retiring and focusing more time on my studies») и «special thanks to all our fans — The NTSDII Team».
+
+Граница карточки: живое приложение в прогоне до меню 300 не доходило — для этого нужен пройденный Stage 5 или его запись; подключение идёт через тот же диспетчер и путь отрисовки, что у проверенных экранов.
+-->
+
+---
+
 <Kicker>2 октября, 18:35–21:23 · из журнала сессии Claude</Kicker>
 
 # Агент попросил человека посидеть у экрана
