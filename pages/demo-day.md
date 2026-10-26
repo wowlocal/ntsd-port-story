@@ -51,53 +51,6 @@ clicks: 0
 
 ---
 
-<DemoPhase at="context" />
-
-<Kicker>контекст · ограничения и термины</Kicker>
-
-# Что было на руках
-
-<div class="grid grid-cols-3 gap-4 mt-3 ctx">
-<div class="card"><span class="big">1 exe</span><span class="cap">движок Little Fighter 2 и годы доработок сообщества поверх него — без исходников</span></div>
-<div class="card"><span class="big">0 Windows</span><span class="cap">эталон — сам оригинал: игра целиком и её функции по одной</span></div>
-<div class="card"><span class="big">163 : 383</span><span class="cap">моих сообщений против продолжений, которые агент запускал сам, — за 20 дней</span></div>
-</div>
-
-<div class="gl mt-6">
-<div><b>харнесс</b><span>всё вокруг модели, что проверяет её работу</span></div>
-<div><b>оракул</b><span>эталон, который исполняют рядом с портом и сравнивают ответы</span></div>
-<div><b>ворота</b><span>проверки, без которых шаг не принимается</span></div>
-</div>
-
-<div class="agents mt-5"><span>Codex · GPT-6 Astra</span><i>7–27 сентября</i><span class="arr">→</span><span>Claude Code · Opus 5.5</span><i>с 28 сентября</i></div>
-
-<style>
-.ctx .card { display: flex; flex-direction: column; gap: .55rem; padding: 1.1rem 1.1rem 1.15rem; }
-.ctx .big { font-family: var(--font-display); font-weight: 700; font-size: 2.05rem; line-height: 1; color: var(--naruto); white-space: nowrap; }
-.ctx .cap { font-size: .82rem; line-height: 1.4; color: var(--ink-2); }
-.gl { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-.gl div { border-top: 2px solid var(--axis); padding-top: .45rem; }
-.gl b { display: block; font-family: var(--font-pixel); font-size: .78rem; color: var(--chakra); letter-spacing: .04em; margin-bottom: .15rem; }
-.gl span { font-size: .78rem; line-height: 1.38; color: var(--ink-2); }
-.agents { display: flex; align-items: baseline; gap: .55rem; font-size: .8rem; color: var(--ink); }
-.agents i { font-style: normal; font-size: .7rem; color: var(--muted); }
-.agents .arr { color: var(--naruto); margin: 0 .4rem; }
-</style>
-
-<!--
-≈ 45 секунд. Три цифры и три термина — их хватит для следующих слайдов.
-
-0 Windows: настоящей Windows-машины в проекте так и не появилось. Эталонов два: вся игра-оригинал, запущенная на Mac через слой совместимости с Windows (CrossOver), и отдельные функции оригинала — в эмуляторе процессора, по одной.
-
-Агенты и бюджет: 7–27 сентября — Codex, GPT-6 Astra, режим /goal (одна цель, автопродолжения часами); с 28 сентября — Claude Code, Opus 5.5, режим /loop (агент сам будит себя по расписанию). Подписки ChatGPT Pro и Claude Max: 6,3 млрд токенов до релиза 3 октября, ещё 4,6 млрд прочитала одна сессия Claude 3–13 октября.
-
-Что за доработки. Exe — это движок Little Fighter 2 (Марти и Старски Вонги), поверх которого сообщество NTSD строило игру без исходников. Первый слой — правки байтов прямо в exe; в 2009 году моддеры писали: «the mods for LF2 include more than 1000 hex edits». Второй — lib.dll, 6 КБ, собрана в 2011 году, автор не установлен: точка входа exe уводится в пустое место кода и грузит DLL, а та переписывает 62 байта в 13 местах — 12 переходов и одна двухбайтовая правка (превращения, попадания, экран загрузки). Сама библиотека — не доработанный exe, а заплатка к нему. Без неё порт был бы портом другой игры: агент нашёл её 10 сентября и проверил, какие уже сверенные куски она задевает.
-
-Человек: у Codex на одно сообщение человека приходилось около 2,3 автопродолжения /goal; у Claude 241-часовая сессия, 56 реплик человека за десять дней. Остальное агент делал сам.
--->
-
----
-
 <DemoPhase at="solution" />
 
 <Kicker>решение · кто что построил</Kicker>
@@ -231,138 +184,88 @@ Unicorn — эмулятор процессора (ядро QEMU как библ
 -->
 
 ---
-clicks: 6
----
 
 <DemoPhase at="solution" />
 
-<Kicker>решение · слой 2 · как агент не обманывает сам себя</Kicker>
+<Kicker>решение · слой 2 · петля на настоящем телефоне · 7–10 октября</Kicker>
 
-# План замораживают до запуска
+# Замер → правка → проверки → решение
 
-<Pipeline class="mt-3" stepwise :steps="[
-  { name: 'PLAN', ru: 'план', desc: 'вопрос, входы и критерии приёмки — коммит до запуска' },
-  { name: 'PREFLIGHT', ru: 'разведка', desc: 'только чтение: найти разрывы заранее' },
-  { name: 'CANDIDATE', ru: 'кандидат', desc: 'код в изолированной копии' },
-  { name: 'VALIDATION', ru: 'проверка', desc: 'свежая сборка против эталона, каждый исход записан', accent: true },
-  { name: 'CORRECTION', ru: 'исправление', desc: 'новый запуск; старый провал остаётся провалом' },
-  { name: 'COMPLETION', ru: 'перенос', desc: 'регрессии, ворота — и только потом в игру' },
-]" loop-label="не больше трёх раундов на механизм" :loop-from="3" :loop-to="4" />
+<DemoLoop class="mt-1" />
 
-<div class="grid grid-cols-3 gap-4 mt-5 disc">
-<div class="card"><span class="big">202</span><span class="cap">плана закоммичены до запуска: цель и критерии не поправить задним числом</span></div>
-<div class="card"><span class="big">0</span><span class="cap">эталонов переписано под код — расхождение всегда ошибка порта, а не эталона</span></div>
-<div class="card q"><span class="mono">«This is an incomplete resource-limited run, not a successful comparison»</span><span class="cap">так агент записал тест, упавший по памяти, — не «прошло» и не «упало»</span></div>
-</div>
+<div class="rule-l mt-3"><span class="pixel hl">правило агента</span><span>коммит — только если стало быстрее или строго меньше работы без усложнения; иначе откат и запись в журнал</span></div>
 
 <style>
-.disc .card { display: flex; flex-direction: column; gap: .45rem; padding: .85rem 1rem; }
-.disc .big { font-family: var(--font-display); font-weight: 700; font-size: 2.2rem; line-height: 1; color: var(--naruto); }
-.disc .cap { font-size: .74rem; line-height: 1.4; color: var(--ink-2); }
-.disc .q { border-color: rgba(255,138,61,.5); }
-.disc .q .mono { font-size: .72rem; line-height: 1.4; color: var(--ink); }
+.rule-l { display: flex; align-items: baseline; gap: 1rem; font-size: .86rem; line-height: 1.4; color: var(--ink); background: rgba(255,138,61,.08); border: 1px solid rgba(255,138,61,.45); border-radius: 12px; padding: .5rem .9rem; }
+.rule-l .pixel { font-size: .66rem; text-transform: uppercase; letter-spacing: .06em; white-space: nowrap; }
 </style>
 
 <!--
-≈ 60 секунд. Это ответ на «а не подгонит ли агент результат под себя». Каждый шаг — карточка исследования с шестью стадиями; агент сам довёл этот процесс до такой формы (стадии и карточки в docs/research, WORKFLOW.md), разделение исполнителя и ревьюера пришло из ReAgent.
+≈ 75 секунд.
 
-Клики открывают стадии по одной. Главное — первая и пятая: план коммитится до запуска и больше не правится (уточнение — отдельный amendment, который описывает только различие); провал не перезаписывается — исправление получает новый run ID, старый провал остаётся в истории. Не больше трёх раундов на механизм, и переименование не обнуляет счётчик.
+Слева — что происходит за один оборот. Автор запустил /loop одной фразой («start the core redesign loop») и задал цели 33 / 16 / 8 мс; дальше агент сам: замер на настоящем Galaxy A12 (бюджетный телефон 2020 года, 2,8 ГБ памяти), одна правка, проверки — 10 сценариев с кадрами, равными эталону, приложение на Mac, эмулятор, отдельный ревьюер только для чтения, — и решение. За 3 дня — 75 оборотов: 37 быстрее, 19 «строго меньше работы», 2 отката, 6 отложено, остальное — доработки после ревью, тесты и сборки. 480 прогонов на телефоне, ≈ 31 час матчей, 47 независимых ревью.
 
-202 плана и 27 исправлений — на 3 октября, в docs/research 567 карточек. «Ни одно expected не переписывали под код» — первый урок полной деки; на новых платформах правило звучало так: «A difference on a new platform is a recorded mismatch, never a regenerated expected value».
+Справа — работа главного потока на один тик после каждого оборота (сценарий vs, среднее 2–4 прогонов): 24,6 мс в начале петли 7 октября → 11,1 мс 10 октября. Зелёная пунктирная линия — 16,7 мс, бюджет кадра при 60 кадрах в секунду; её пересекли 8 октября (тег rt-60fps-a12). Красные кольца — замер был, но шаг откатили или отложили. Телефон «плывёт» между сессиями, поэтому прежнюю сборку гоняли вперемешку с новой в той же сессии; разрешение — около ±0,25 мс на прогон.
 
-Цитата — из карточки APPLICATION_HOST_LOADING_CORRECTION1 (22 сентября): тест №28 упал не на логике игры, а на XCTAssertNotNil, который рекурсивно печатал огромное значение — пик 13,2 ГБ. Агент записал это как третий исход: «This is an incomplete resource-limited run, not a successful comparison or an assertion mismatch». Всего исходов семь — среди них «оригинал упал» и «сломался сам стенд», — и ни один не схлопывается в «прошло».
+Правило коммита — дословно: «Commit an increment only when every gate passes and it is either measurably faster or strictly less work without added complexity; otherwise record the result here and revert». Агент записал его 6 октября в 03:48 — через две минуты после реплики автора, где этого правила нет.
 
-Если спросят про самый поучительный провал: контрольная сумма каталога. Десятки функций совпадали с эмулятором, но записями матчей с оригиналом обменяться было нельзя — оба опирались на одну неверную модель стандартной библиотеки (lookahead в fscanf/feof VC80 считал последний токен файла дважды). Поймал целый матч против оригинала; после правки — 58 из 58 матчей равны.
+Если спросят про хитрости:
+1. Запись состояния тика — одним буфером (S2b): копирование массивов в профиле главного потока 9,40 → 4,96 %. По дороге прогон тестов встал на два часа: проверки, читавшие целые массивы в цикле, стали квадратичными.
+2. Пиксели — в свой поток: рендер отделён от логики тика, вывод на экран Android — ещё в отдельный поток.
+3. Динамические проверки эксклюзивности Swift стоили 3,5–4 % главного потока; снять их в релизе решил автор — агент спросил и девять часов ждал ответа.
+
+До петли, 5 октября, первый доигранный матч на телефоне шёл 5,4 тика в секунду (≈ 185 мс на тик на часах харнесса, включая сон самой игры) — это другая мера, на график её не ставим.
 -->
 
 ---
 
 <DemoPhase at="solution" />
 
-<Kicker>решение · слой 3 · петля на настоящем телефоне</Kicker>
+<Kicker>решение · где остановиться · 10 октября</Kicker>
 
-# Замер → правка → ворота → решение
+# Петля остановилась сама
 
-<div class="grid grid-cols-[1.25fr_1fr] gap-5 mt-1">
+<div class="grid grid-cols-[1.15fr_1fr] gap-7 mt-2 items-center">
 <div>
 
-<div class="stairs">
-<div class="st"><span class="d mono">5 окт</span><div class="bar" style="width: 100%"><b>≈ 185 мс</b> на тик · 5,4 тика/с, первый доигранный матч</div></div>
-<div class="st"><span class="d mono">6 окт</span><div class="bar" style="width: 53.5%"><b>≈ 99 мс</b> · 10,07 тика/с после 8 правок</div></div>
-<div class="st"><span class="d mono">7 окт</span><div class="bar" style="width: 16.4%"><b>30,4 мс</b></div><span class="nt">главный поток · ярус 33 мс: темп оригинала</span></div>
-<div class="st"><span class="d mono">8 окт</span><div class="bar" style="width: 9%"><b>16,7</b></div><span class="nt">60 fps · тег <code>rt-60fps-a12</code></span></div>
-<div class="st"><span class="d mono">10 окт</span><div class="bar good" style="width: 6%"><b>11,1</b></div><span class="nt">главный поток · рендер 7,6 мс в своём потоке</span></div>
-</div>
-<div class="xsmall muted mt-1">Samsung Galaxy A12 — бюджетный телефон 2020 года, 2,8 ГБ памяти. До 6 октября — тики в секунду на часах харнесса, дальше — время работы потока на тик.</div>
+<div class="wh-h">шесть оставшихся идей — сколько каждая сэкономила бы, мс на тик</div>
 
-<div class="grid grid-cols-3 gap-2 mt-3 mech">
-<div class="card-soft"><b>Пиксели — в свой поток.</b> Тик игры больше не ждёт отрисовку: шаг 1e дал +17 % тиков в секунду.</div>
-<div class="card-soft"><b>Один буфер вместо копий.</b> Запись состояния тика стала одним буфером: копирование массивов 9,40 → 4,96 % главного потока.</div>
-<div class="card-soft"><b>Без проверок эксклюзивности.</b> Динамические проверки Swift стоили 3,5–4 % — сняли в релизе по решению автора.</div>
-</div>
+<DemoWall />
+
+<div class="wh-c">Все шесть — меньше погрешности замера, и каждая добавила бы второй путь в коде. По правилу коммитить нельзя.</div>
 
 </div>
-<div class="loop-r">
+<div class="wr">
 
-<div class="card-soft rule"><span class="pixel hl xsmall">правило коммита — агент записал сам, 6 окт 03:48</span><span class="mono">«Commit an increment only when every gate passes and it is either measurably faster or strictly less work without added complexity; otherwise record the result here and revert.»</span></div>
+<PhoneChat :messages="[
+  { who: 'agent', time: '18:27', text: 'всё, что осталось, — ниже разрешения телефона; дальше нужны ответы автора на четыре вопроса', gloss: 'последний коммит петли, 0034e45c — пересказ' },
+  { who: 'human', time: '21:23', text: 'you did good. we reached the wall. performance is now close to optimal', gloss: 'хорошая работа, это стена — производительность близка к оптимальной', hot: true },
+]" />
 
-<div class="grid grid-cols-2 gap-2 mt-2">
-<StatTile :value="480" label="прогонов на телефоне" sub="≈ 31 час матчей" size="sm" accent="var(--s1)" />
-<StatTile :value="47" label="независимых ревью" sub="агент только для чтения" size="sm" accent="var(--s7)" />
-<StatTile :value="37" label="ступеней быстрее" sub="из 75 строк реестра" size="sm" accent="var(--good)" />
-<StatTile :value="8" label="не закоммичено" sub="2 отката, 6 отложено" size="sm" accent="var(--serious)" />
+<div class="fc mt-3">
+<div><span class="pixel">прогноз · 8 окт</span><b>≈ 11 мс</b><i>написал отдельный агент-планировщик за 44 часа до конца</i></div>
+<div><span class="pixel">факт · 10 окт</span><b>11,09 мс</b><i>последний замер петли</i></div>
 </div>
 
 </div>
 </div>
-
 
 <style>
-.stairs { display: flex; flex-direction: column; gap: .4rem; }
-.st { display: grid; grid-template-columns: 3.4rem 1fr; align-items: center; gap: .5rem; position: relative; }
-.st .d { font-size: .62rem; color: var(--muted); }
-.st .bar { height: 1.55rem; background: linear-gradient(90deg, rgba(217,89,38,.85), rgba(217,89,38,.55)); border-radius: 5px; display: flex; align-items: center; padding: 0 .5rem; font-size: .64rem; color: var(--ink); white-space: nowrap; overflow: visible; min-width: 2.6rem; }
-.st .bar.good { background: var(--good); }
-.st .bar b { margin-right: .35rem; }
-.st .nt { position: absolute; left: calc(3.4rem + .5rem + 18%); font-size: .62rem; color: var(--ink-2); }
-.st .nt code { font-size: .56rem !important; }
-.mech .card-soft { font-size: .62rem; line-height: 1.38; color: var(--ink-2); padding: .4rem .55rem; }
-.mech b { color: var(--ink); }
-.rule { display: flex; flex-direction: column; gap: .3rem; font-size: .66rem; line-height: 1.4; color: var(--ink); }
+.wh-h { font-size: .74rem; color: var(--ink-2); margin-bottom: .3rem; }
+.wh-c { font-size: .86rem; line-height: 1.42; color: var(--ink); margin-top: .5rem; }
+.fc { display: grid; grid-template-columns: 1fr 1fr; gap: .6rem; }
+.fc div { display: flex; flex-direction: column; gap: .15rem; background: var(--surface); border: 1px solid var(--hair); border-radius: 12px; padding: .55rem .7rem; }
+.fc .pixel { font-size: .6rem; color: var(--naruto); text-transform: uppercase; letter-spacing: .06em; }
+.fc b { font-family: var(--font-display); font-size: 1.5rem; color: var(--ink); }
+.fc i { font-style: normal; font-size: .64rem; line-height: 1.35; color: var(--ink-2); }
 </style>
 
 <!--
-≈ 75 секунд. Тут можно копнуть в механизмы — аудитории это нравится. Три хитрости, которые агент нашёл сам:
-1. Запись состояния одним буфером (S2b): копирование массивов в профиле главного потока упало с 9,40 до 4,96 %. По дороге первый прогон тестов встал на два часа: проверки, читавшие целые массивы в цикле, стали квадратичными.
-2. Пиксели — в свой поток: рендер отделён от логики тика, вывод кадра на экран Android — ещё в отдельный поток presenter.
-3. Проверки эксклюзивности Swift (exclusivity checks) стоили 3,5–4 % главного потока; снять их в релизных сборках решил автор, агент только спросил — и девять часов ждал ответа.
+≈ 60 секунд. Ответ на вопрос «где плато и сколько токенов тратить». Здесь его дал не человек: правило коммита запрещает шаги, выигрыш которых меньше разрешения замера (около ±0,25 мс на прогон) или которые добавляют второй путь кода. Слева — шесть идей, которые не требовали решений автора, с оценками самого плана: от 0,04 до 0,15 мс. Все внутри серой полосы шума.
 
-Как устроена петля: автор запустил /loop с одним текстом; каждый оборот — одна механика, одна строка реестра и один evidence-файл. Телефон «плывёт» между сессиями, поэтому прежнюю сборку гоняли вперемешку с новой в той же сессии; разрешение — около ±0,25 мс на прогон.
+Последний коммит петли (0034e45c), дословно: «Every remaining decision-free item is below the phone's resolution and would add a second code path, so none meets the commit rule; the copies left are the transactional ones. The input needed is the user's answers to Q1-Q4 (TIER3).» Четыре вопроса — о том, что можно менять в поведении игры после внутреннего сбоя; с ответами план обещал ≈ 9–10 мс. Автор на них не ответил и перевёл агента на память и загрузку: «you did good. we reached the wall. performance is now close to optimal. now lets do the loop for optimizing memory footprint and loading times».
 
-Оговорка о метрике: 185 мс — это 1 / 5,4 тика в секунду на часах харнесса, когда весь тик шёл в одном потоке. 11,1 мс — работа главного потока на тик, рендер к этому времени уже в своём потоке. Сравнивать как «во сколько раз» нечестно, как путь — честно.
--->
-
----
-
-<DemoPhase at="solution" />
-
-<Kicker>решение · где остановиться · 10 октября, 18:27</Kicker>
-
-# Плато нашёл агент — по своему же правилу
-
-<Rt2Wall class="mt-1" />
-
-<div class="wl mt-1"><b class="hl mono">0034e45c:</b> «…none meets the commit rule» <span class="muted">→</span> <b class="hl">автор, 21:23:</b> «you did good. we reached the wall… now lets do the loop for optimizing memory footprint and loading times»</div>
-
-
-<style>
-.wl { font-size: .62rem; line-height: 1.35; color: var(--ink); }
-</style>
-
-<!--
-≈ 60 секунд. Ответ на вопрос «где плато и сколько токенов тратить». В этом проекте его дал не человек: правило коммита запрещает шаги ниже разрешения замера и шаги, которые добавляют второй путь кода. Когда таких шагов не осталось, петля остановилась и задала автору четыре вопроса — что можно менять в поведении после сбоя.
-
-Самое неожиданное: план яруса 3 писал отдельный агент только для чтения вечером 8 октября, когда главный поток был на 16,25 мс: «без решений — около 11 мс на главном потоке и около 8 на рендере». Через 44 часа последний замер дал 11,09 и 7,55. Путь был другим, а стена оказалась там, где её нарисовали.
+Прогноз: план яруса 3 писал отдельный агент только для чтения вечером 8 октября, когда главный поток был на 16,25 мс: «без решений — около 11 мс на главном потоке и около 8 на рендере». Через 44 часа последний замер дал 11,09 и 7,55. Путь был другим, а стена оказалась там, где её нарисовали.
 -->
 
 ---

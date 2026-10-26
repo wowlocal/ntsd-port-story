@@ -1,10 +1,9 @@
 <script setup lang="ts">
 // Demo-day deck: the five-part arc the organisers ask for, with the current part lit.
 // Sits in the top right corner of a slide; `at` is the part's key.
-const props = defineProps<{ at: 'problem' | 'context' | 'solution' | 'demo' | 'results' | 'lessons' }>()
+const props = defineProps<{ at: 'problem' | 'solution' | 'demo' | 'results' | 'lessons' }>()
 const parts = [
-  { key: 'problem', label: 'проблема' },
-  { key: 'context', label: 'контекст' },
+  { key: 'problem', label: 'проблема и контекст' },
   { key: 'solution', label: 'решение' },
   { key: 'demo', label: 'демо' },
   { key: 'results', label: 'результаты' },
