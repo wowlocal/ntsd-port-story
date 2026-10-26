@@ -272,44 +272,44 @@ Unicorn — эмулятор процессора (ядро QEMU как библ
 
 <DemoPhase at="demo" />
 
-<Kicker>демо · 2–3 минуты</Kicker>
+<Kicker>демо · одна игра на Swift — на всех платформах</Kicker>
 
-# Живьём: та же игра — против оригинала
+# Ядро почти не тронуто
 
-<div class="grid grid-cols-[1.25fr_1fr] gap-5 mt-1">
-<div>
+<CoreWaffle class="mt-1" />
 
-<WindowFrame video="/media/demo-side-by-side.mp4" poster="/media/demo-poster.jpg" title="слева — нативное Swift-приложение · справа — оригинальный NTSD 2.4.exe под CrossOver" />
-<div class="xsmall muted mt-1">Режим Demo, восемь бойцов, один и тот же сид: кадры совпадают тик в тик. Запасной вариант, если живая демка не поедет.</div>
-
-</div>
-<div class="steps">
-
-<div class="sp"><span class="n pixel">1</span><div><b>Браузер, холодный визит</b><code>ntsd-web-ashy.vercel.app</code><span>меню через ≈ 2 с, сыграть VS 20 секунд: Swift в WebAssembly, те же 18 088 кадров эталона</span></div></div>
-
-<div class="sp"><span class="n pixel">2</span><div><b>Харнесс за работой</b><code>python3 tools/app_e2e.py --scenario vs</code><span>целый матч на виртуальных часах; вехи, кадры и повтор сравниваются с замороженным эталоном</span></div></div>
-
-<div class="sp"><span class="n pixel">3</span><div><b>Если сеть подведёт</b><code>видео слева</code><span>режим Demo: Mac и оригинал рядом, один сид, кадры тик в тик</span></div></div>
-
-</div>
+<div class="pf mt-4">
+<span class="on">macOS</span><span class="on">Linux</span><span class="on">Steam Deck</span><span class="on">Android</span><span class="on">браузер</span><span>Windows</span><span>iPad</span><span>iPhone</span><span>Apple TV</span>
+<i class="lg"><b class="on" />на настоящем устройстве <b />пока в симуляторе или под эмуляцией</i>
 </div>
 
+<div class="live mt-3"><span class="pixel hl">живьём</span><code>ntsd-web-ashy.vercel.app</code><span>та же игра в браузере — меню через ≈ 2 с</span></div>
 
 <style>
-.steps { display: flex; flex-direction: column; gap: .5rem; }
-.sp { display: grid; grid-template-columns: 1.7rem 1fr; gap: .5rem; background: var(--surface); border: 1px solid var(--hair); border-radius: 12px; padding: .45rem .6rem; }
-.sp .n { display: flex; align-items: center; justify-content: center; width: 1.5rem; height: 1.5rem; border-radius: 50%; background: rgba(255,138,61,.18); color: var(--naruto); font-size: .8rem; }
-.sp b { display: block; font-size: .74rem; color: var(--ink); }
-.sp code { display: inline-block; font-size: .6rem !important; margin: .15rem 0; }
-.sp span:last-child { display: block; font-size: .62rem; line-height: 1.38; color: var(--ink-2); }
+.pf { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem; }
+.pf span { font-size: .78rem; color: var(--ink-2); border: 1px dashed var(--axis); border-radius: 999px; padding: .12rem .7rem; }
+.pf span.on { color: var(--ink); border: 1px solid var(--naruto); background: rgba(255,138,61,.1); }
+.pf .lg { font-style: normal; font-size: .62rem; color: var(--muted); margin-left: .6rem; display: inline-flex; align-items: center; gap: .35rem; }
+.pf .lg b { display: inline-block; width: 10px; height: 10px; border-radius: 50%; border: 1px dashed var(--axis); margin-left: .4rem; }
+.pf .lg b.on { border: 1px solid var(--naruto); background: rgba(255,138,61,.35); }
+.pt .card-soft { display: flex; flex-direction: column; gap: .2rem; padding: .55rem .8rem; }
+.pt .big { font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; color: var(--naruto); }
+.pt .cap { font-size: .74rem; line-height: 1.38; color: var(--ink-2); }
+.live { display: flex; align-items: baseline; gap: .8rem; font-size: .8rem; color: var(--ink-2); }
+.live .pixel { font-size: .66rem; text-transform: uppercase; letter-spacing: .06em; }
+.live code { font-size: .74rem !important; }
 </style>
 
 <!--
-Демо — после цикла «проблема → контекст → решение», до результатов, как просят организаторы.
+≈ 2–3 минуты вместе с живой демкой.
 
-1. Открыть в браузере с чистым профилем: меню через ~2 секунды (до 17 октября — 9,3 с и 46,5 с до всех данных). Выбрать VS, Наруто против Саске, сыграть несколько секунд.
-2. Если есть время и собрано приложение: запустить e2e-сценарий vs — он сам выбирает режим и бойцов, доигрывает матч и сверяет вехи с эталоном. Занимает около минуты; показать вывод «equal».
-3. Если сеть подведёт — видео слева: режим Demo, Mac и оригинал рядом, кадры совпадают.
+Квадраты — строки Swift в коде игры на 5 октября, вечер, когда игра шла на девяти «хостах» (один квадрат — 100 строк): ядро — правила, ИИ, режимы, записи; общий рантайм; по тонкому адаптеру на платформу. Оранжевые квадраты в ядре — изменённые при переезде строки: 223 добавлено, 26 удалено в 11 файлах. Самое большое — свой SHA-256 вместо системной библиотеки Apple. Поведение игры не менялось. Пунктирный контур — сколько занимал Mac-слой до переезда: он похудел на 4 504 строки, окно, звук, ввод и сеть ушли в общий рантайм.
+
+Проверка: на девяти хостах — 90 из 90 сценариев с кадрами, равными эталонам Mac. Потом добавились Apple TV, браузер (Swift в WebAssembly, Chromium и WebKit), iPhone — те же 18 088 кадров эталона. Steam Deck запускает Linux-сборку из Game Mode.
+
+Честно о «настоящем железе»: macOS, Android (Galaxy A12, Pixel 10), Steam Deck и браузер — настоящие устройства. Linux, кроме Deck, проверялся в контейнерах; Windows — только под CrossOver, настоящую Windows не пробовали; iPad, iPhone и Apple TV — в симуляторах.
+
+Живая демка: открыть ntsd-web-ashy.vercel.app в браузере с чистым профилем — меню через ~2 секунды. Выбрать VS, Наруто против Саске, сыграть несколько секунд. Если сеть подведёт — показать видео из полной деки: Mac и оригинал рядом в режиме Demo, кадры совпадают тик в тик.
 -->
 
 ---
