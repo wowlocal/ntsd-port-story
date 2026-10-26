@@ -5,7 +5,7 @@
 // ticks 513–879, 10 frames per second (every 3rd tick, the game's own speed). Frames of both programs at the same tick
 // look the same, so the cut is invisible except for the caption. Under the video a strip shows which program is playing.
 // Export shows a still with both programs side by side at tick 513 (the cut) instead of the video.
-import { onBeforeUnmount, ref, watch } from 'vue'
+import { onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { useIsSlideActive, useNav } from '@slidev/client'
 
 const nav = useNav()
@@ -20,18 +20,17 @@ function tick() {
   raf = requestAnimationFrame(tick)
 }
 watch(active, (a) => {
-  cancelAnimationFrame(raf)
   if (!video.value)
     return
   if (a) {
     video.value.currentTime = 0
     video.value.play().catch(() => {})
-    raf = requestAnimationFrame(tick)
   }
   else {
     video.value.pause()
   }
 })
+onMounted(() => { raf = requestAnimationFrame(tick) })
 onBeforeUnmount(() => cancelAnimationFrame(raf))
 </script>
 
