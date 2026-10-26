@@ -537,3 +537,35 @@ shade: 0.7
 <!--
 Финальная мысль — одной фразой: доверять агенту можно настолько, насколько независимы слои, которые проверяют его работу. Механизмы он строит сам; цель и развилки — ваши.
 -->
+
+---
+
+<Kicker>лента X и YouTube · 30 сентября — 3 октября 2026</Kicker>
+
+# Не я один
+
+<div class="trend grid grid-cols-3 gap-3 mt-2">
+<figure><img src="/img/trend/cydonix-skyrim-tarkov-spiderman.jpg" alt=""><figcaption><b>Skyrim × Tarkov × Spider-Man</b> · 1 окт · 2,5 млн просмотров. Tarkov-в-Skyrim, по Kotaku, сделали «за несколько часов»</figcaption></figure>
+<figure><img src="/img/trend/tobynjacobs-elden-ring-mac.jpg" alt=""><figcaption><b>Minecraft в Elden Ring на Mac</b>: исходный пост — 20,7 млн просмотров, открытый клон появился через два дня</figcaption></figure>
+<figure><img src="/img/trend/chasm-wow-bevy.jpg" alt=""><figcaption><b>«WoW 1.12.1 переписан на Bevy/Rust»</b> — это benilla. Community Note: «does not make private servers legal»</figcaption></figure>
+<figure><img src="/img/trend/smallzero-cs16.jpg" alt=""><figcaption><b>CS 1.6 в браузере, 16 игроков</b> · «all vibe coded by AI» · 51 тыс.</figcaption></figure>
+<figure class="col-span-2 wide"><img src="/img/trend/chasm-videos.jpg" alt=""><figcaption><b>chasm</b>: MW2 × Skate 3 × Minecraft поверх трёх Rust-переписок, «basically 100% vibe coded». «Modding has Change FOREVER…» — 1,5 млн просмотров за два дня</figcaption></figure>
+</div>
+
+<style>
+.trend figure { margin: 0; background: var(--surface); border: 1px solid var(--hair); border-radius: 10px; overflow: hidden; }
+.trend img { display: block; width: 100%; height: 136px; object-fit: cover; object-position: top; }
+.trend .wide img { height: 136px; object-fit: contain; background: #0f0f0f; }
+.trend figcaption { font-size: 0.6rem; color: var(--ink-2); padding: 0.3rem 0.55rem 0.35rem; line-height: 1.3; }
+.trend figcaption b { color: var(--ink); font-weight: 600; }
+</style>
+
+<!--
+Последний слайд, после «спасибо» — можно оставить на экране на время вопросов. Слайд из полной деки (глава 12), без изменений.
+
+Пока шёл порт, лента автора 30 сентября — 3 октября заполнилась такими же историями: старые игры, переписанные или смешанные с помощью ИИ. Skyrim × Tarkov × Spider-Man (по Kotaku — «за несколько часов»), Minecraft в Elden Ring на Mac (20,7 млн просмотров, открытый клон через два дня), World of Warcraft 1.12.1 на Bevy/Rust — проект benilla, 553 из 559 коммитов с Claude, три месяца; CS 1.6 в браузере на 16 игроков; мэшапы chasm поверх трёх Rust-переписок.
+
+Мысль для финала: переписывание старых игр с ИИ — уже тренд. Разница в том, чем проверяют результат: у benilla в методе те же правила — «The reference client is the spec», «Measure, never eyeball».
+
+Источники: скриншоты ленты автора 3 октября 2026; Kotaku, MakeUseOf, heldgames.com, Community Note; data/evidence/ai-game-rewrites-2026.json.
+-->
