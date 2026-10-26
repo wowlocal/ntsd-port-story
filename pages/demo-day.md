@@ -276,7 +276,27 @@ Unicorn — эмулятор процессора (ядро QEMU как библ
 
 # Платформы — за часы, телефон — за неделю
 
-<DemoPorting class="mt-2" />
+<DemoPorting class="mt-1" />
+
+<div class="wz mt-1">
+<span class="wh">WebAssembly против натива<i>мс на тик, одинаковые условия</i></span>
+<div class="wb"><span class="n">Mac</span><b style="width: 38%" class="mac" /><span class="v">1,91</span></div>
+<div class="wb"><span class="n">Chromium</span><b style="width: 44.8%" /><span class="v">2,24 · ×1,17</span></div>
+<div class="wb"><span class="n">WebKit — движок Safari</span><b style="width: 65.4%" /><span class="v">3,27 · ×1,71</span></div>
+<span class="wn">даже на WebKit — в 5 раз быстрее кадра на 60 fps (16,7 мс)</span>
+</div>
+
+<style>
+.wz { display: grid; grid-template-columns: 11.5rem repeat(3, 1fr) 12rem; gap: .9rem; align-items: center; background: rgba(255,255,255,.03); border: 1px solid var(--hair); border-radius: 12px; padding: .35rem .8rem; }
+.wz .wh { font-family: var(--font-pixel); font-size: .64rem; color: var(--naruto); text-transform: uppercase; letter-spacing: .05em; line-height: 1.3; }
+.wz .wh i { display: block; font-family: var(--font-sans); font-style: normal; text-transform: none; letter-spacing: 0; font-size: .6rem; color: var(--muted); margin-top: .1rem; }
+.wb { display: flex; flex-direction: column; gap: .15rem; }
+.wb .n { font-size: .66rem; color: var(--ink-2); }
+.wb b { display: block; height: .55rem; border-radius: 3px; background: var(--s1); }
+.wb b.mac { background: var(--ink-2); }
+.wb .v { font-family: var(--font-mono); font-size: .64rem; color: var(--ink); }
+.wz .wn { font-size: .66rem; line-height: 1.35; color: var(--ink-2); }
+</style>
 
 <!--
 ≈ 60 секунд. После релиза для Mac 3 октября агент переносил игру на другие платформы. Полосы — от первого до последнего коммита каждой работы, время местное.
@@ -284,6 +304,8 @@ Unicorn — эмулятор процессора (ядро QEMU как библ
 Простая часть — сами платформы: Linux, Windows, iPad и Android встали за 30 часов (3 октября 20:11 → 5 октября 02:01), девять «хостов» дали одно состояние, 90 из 90 сценариев. Подводные камни здесь — мелкие: компилятор Swift для Linux выбрасывал запись в слот перед проверкой уникальности ссылки (поймал прогон всей матрицы; отчёт swiftlang/swift#92905 закрыт исправлением); на iPad тап приходил как нажатие и отпускание в один момент, а оригинал смотрит на кнопку несколько тиков; Android от первого запуска до текста, звука и музыки — 22 минуты.
 
 Сложная часть — настоящее железо. Galaxy A12 убил игру на загрузке: ей нужно было 4 ГБ, у телефона 2,8. Дальше шесть с половиной дней: память матча 4 → 1,5 ГБ, скорость 5,4 тика в секунду → 60 кадров в секунду, от иконки до меню 131,9 → 12,7 с.
+
+Скорость WebAssembly против натива (внизу слайда): автор спросил «хромиум wasm быстрее чем нативная mac версия?», агент ответил «Нет, нативная Mac-версия быстрее» и признал, что его первая таблица сравнивала разное. Честное сравнение — тот же бинарник Mac с отрисовкой в игровом потоке (--synchronous-render), как в браузере: 1,91 мс на тик против 2,24 в Chromium (×1,17) и 3,27 в WebKit (×1,71); Node WASI — 3,67 (×1,92). Медианы трёх прогонов, сценарий VS, один хост за раз на этом Mac, 12 октября. Дорого не исполнение, а старт: от запуска до загрузки 5,6 с в Chromium против 0,63 с на Mac; линейная память модуля — 1 617 МиБ.
 
 Браузер — свои особенности. Игра — это Swift, собранный в WebAssembly; данные игры — 1 521 файл. Сначала первый визит качал 881,5 МБ — сжатие довело до 99,5 МБ. Но на живом сайте каждый файл — отдельный запрос к CDN с задержкой 0,2–0,35 с, и данные шли 46,5 с при любом интернете. Решение 17 октября: файлы упакованы в 12 сжатых пачек в порядке, в котором игра их читает, и сохраняются в приватном хранилище браузера (OPFS) — 46,5 → 4,6 с, повторный визит не качает ничего.
 
