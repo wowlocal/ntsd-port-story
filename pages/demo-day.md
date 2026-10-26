@@ -11,9 +11,9 @@ clicks: 0
 <div class="grid grid-cols-[1fr_1.05fr] gap-6 mt-1">
 <div class="pb">
 
-<div class="card-soft"><b>Задача.</b> Windows-игра 2008 года — <i>Naruto: The Setting Dawn 2.4</i> на движке Little Fighter 2. Исходников нет: только <code>NTSD 2.4.exe</code>. Нужна нативная игра для macOS, а потом и для остальных платформ.</div>
+<div class="card-soft"><b>Задача.</b> Windows-игра 2008 года — <i>Naruto: The Setting Dawn 2.4</i> на движке Little Fighter 2. Исходников нет — только скомпилированный exe. Нужна нативная игра для macOS, а потом и для остальных платформ.</div>
 
-<div class="card-soft"><b>«Так же», а не «похоже».</b> Запись матча <code>.lfr</code> хранит не видео, а только нажатия игроков — 10 байт на тик; сетевая партия тоже передаёт только ввод. Матч каждая программа пересчитывает сама. Разойдутся ГСЧ или физика хоть на одном тике — запись из оригинала проиграется в порте иначе, а сетевая партия порта с оригиналом разъедется.</div>
+<div class="card-soft"><b>«Так же», а не «похоже».</b> Повтор матча в игре хранит не видео, а только нажатия кнопок; по сети игроки тоже обмениваются только нажатиями. Остальное каждая копия игры досчитывает сама. Если случайные числа или физика порта хоть раз разойдутся с оригиналом, повтор покажет другой бой, а сетевая партия развалится.</div>
 
 <div class="card-soft"><b>Почему это вопрос доверия.</b> «Похоже» и «так же» выглядят одинаково — справа Mac и оригинал. Десятки тысяч строк человек не прочитает. А видимого прогресса может не быть неделями.</div>
 
@@ -22,7 +22,7 @@ clicks: 0
 </div>
 <div>
 
-<BeforeAfter before="/img/compare/summary-mac.jpg" after="/img/compare/summary-original.jpg" before-label="порт на Mac" after-label="оригинал под CrossOver" height="19.5rem" :start="50" />
+<BeforeAfter before="/img/compare/summary-mac.jpg" after="/img/compare/summary-original.jpg" before-label="порт на Mac" after-label="оригинал для Windows" height="19.5rem" :start="50" />
 <div class="xsmall muted mt-1">Таблица итогов одного и того же матча. Тяните ползунок — различий нет: их и не должно быть.</div>
 
 </div>
