@@ -9,15 +9,15 @@
 // that work is not on this Mac, so no duration). Releases: v0.4.0 3 Oct 16:45, native-preview 13 Oct 15:22, 0.6.0 19 Oct 15:11.
 interface Row { name: string, from: string, to: string, hard: string, hot?: boolean, span: string, point?: boolean }
 const rows: Row[] = [
-  { name: 'Linux, Windows', from: '10-03T20:11', to: '10-04T20:54', span: '≈ 1 сутки', hard: 'баг компилятора Swift' },
-  { name: 'iPad', from: '10-04T13:20', to: '10-04T22:43', span: '9 ч', hard: 'тап короче, чем ждёт игра' },
-  { name: 'Android', from: '10-04T21:12', to: '10-05T02:01', span: '5 ч', hard: '22 минуты до звука' },
-  { name: 'телефон Galaxy A12', from: '10-05T07:42', to: '10-11T19:43', span: '6,5 дня', hot: true, hard: 'нужно 4 ГБ, есть 2,8' },
-  { name: 'Apple TV, браузер', from: '10-11T20:12', to: '10-13T06:21', span: '34 ч', hard: 'Swift → WebAssembly' },
+  { name: 'Linux, Windows', from: '10-03T20:11', to: '10-04T20:54', span: '≈ 1 сутки', hard: 'компилятор Swift терял запись в память' },
+  { name: 'iPad', from: '10-04T13:20', to: '10-04T22:43', span: '9 ч', hard: 'тап мгновенный, игра ждёт удержания' },
+  { name: 'Android', from: '10-04T21:12', to: '10-05T02:01', span: '5 ч', hard: '22 минуты до звука и музыки' },
+  { name: 'телефон Galaxy A12', from: '10-05T07:42', to: '10-11T19:43', span: '6,5 дня', hot: true, hard: 'нужно 4 ГБ, есть 2,8 · 5,4 тика/с' },
+  { name: 'Apple TV, браузер', from: '10-11T20:12', to: '10-13T06:21', span: '34 ч', hard: 'Swift → WebAssembly, 881 МБ данных' },
   { name: 'iPhone', from: '10-13T06:40', to: '10-13T08:45', span: '2 ч', hard: 'экран меньше окна игры' },
-  { name: 'Steam Deck', from: '10-16T19:31', to: '10-17T05:27', span: '10 ч', hard: 'меню только для мыши' },
-  { name: 'браузер, живой сайт', from: '10-17T13:50', to: '10-17T16:21', span: '2,5 ч', hard: '1 521 файл → 12 пачек' },
-  { name: 'кнопки на экране', from: '10-19T14:06', to: '10-19T14:11', span: '19 окт', point: true, hard: 'водили не того игрока' },
+  { name: 'Steam Deck', from: '10-16T19:31', to: '10-17T05:27', span: '10 ч', hard: 'меню оригинала только для мыши' },
+  { name: 'браузер, живой сайт', from: '10-17T13:50', to: '10-17T16:21', span: '2,5 ч', hard: '1 521 файл → 12 пачек: 46 → 4,6 с' },
+  { name: 'кнопки на экране', from: '10-19T14:06', to: '10-19T14:11', span: '19 окт', point: true, hard: 'сначала водили не того игрока' },
 ]
 const t0 = Date.parse('2026-10-03T12:00:00')
 const t1 = Date.parse('2026-10-20T00:00:00')
@@ -62,7 +62,7 @@ const rel = [
 
 <style scoped>
 .dp { display: flex; flex-direction: column; gap: 2px; }
-.hd, .row, .ft { display: grid; grid-template-columns: 9.5rem 1fr 14rem; gap: .9rem; align-items: center; }
+.hd, .row, .ft { display: grid; grid-template-columns: 9rem 1fr 17.5rem; gap: .9rem; align-items: center; }
 .axis { position: relative; height: 1.1rem; }
 .tk { position: absolute; transform: translateX(-50%); font-family: var(--font-mono); font-size: .58rem; color: var(--muted); white-space: nowrap; }
 .hh { font-family: var(--font-pixel); font-size: .6rem; color: var(--naruto); text-transform: uppercase; letter-spacing: .06em; }
@@ -72,7 +72,7 @@ const rel = [
 .rl { position: absolute; top: -4px; bottom: -4px; width: 0; border-left: 1px dashed var(--axis); }
 .bar { position: absolute; top: .3rem; height: .9rem; border-radius: 4px; background: var(--s1); }
 .sp { position: absolute; top: .22rem; font-family: var(--font-mono); font-size: .62rem; color: var(--ink-2); white-space: nowrap; }
-.hard { font-size: .8rem; line-height: 1.3; color: var(--ink); }
+.hard { font-size: .74rem; line-height: 1.3; color: var(--ink); }
 .pt { position: absolute; top: .38rem; width: .75rem; height: .75rem; margin-left: -.375rem; border-radius: 50%; background: var(--s1); }
 .row.hot .bar { background: var(--naruto); box-shadow: 0 0 12px rgba(255, 138, 61, .45); }
 .row.hot .nm, .row.hot .hard { color: var(--ink); }

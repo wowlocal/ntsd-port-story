@@ -11,9 +11,9 @@ clicks: 0
 <div class="grid grid-cols-[0.8fr_1.2fr] gap-7 mt-2 items-center">
 <div class="beats">
 
-<div class="bt"><span class="big">0</span><div><b>строк исходников</b><span>ни у игры, ни у движка</span></div></div>
+<div class="bt"><span class="big">0</span><div><b>строк исходников</b><span>ни у игры 2008 года, ни у её движка — только бинарники</span></div></div>
 
-<div class="bt"><span class="big">=</span><div><b>та самая игра</b><span>какой я её помню</span></div></div>
+<div class="bt"><span class="big">=</span><div><b>так же, а не похоже</b><span>та самая игра, какой я её помню; совместимость с оригиналом — бонус</span></div></div>
 
 </div>
 <div>
@@ -60,23 +60,25 @@ clicks: 0
 <div class="who2 mt-2">
 <div class="col">
 <div class="ch"><span class="pixel">человек</span></div>
-<div class="it"><span class="d mono">7 сен</span><span>только исходная игра</span></div>
-<div class="it"><span class="d mono">12 сен</span><span>методология ReAgent</span></div>
-<div class="it"><span class="d mono">27 сен</span><span>правила прогресса</span></div>
-<div class="it"><span class="d mono">2 окт</span><span>сверка через CrossOver</span></div>
-<div class="it"><span class="d mono">6 окт</span><span>петля на телефоне</span></div>
+<div class="it"><span class="d mono">7 сен</span><span>только исходная игра <i>— единственный эталон</i></span></div>
+<div class="it"><span class="d mono">12 сен</span><span>методология ReAgent <i>— отдельный ревьюер</i></span></div>
+<div class="it"><span class="d mono">27 сен</span><span>правила прогресса <i>— проверенное сразу в игру</i></span></div>
+<div class="it"><span class="d mono">2 окт</span><span>сверка через CrossOver <i>— целыми матчами</i></span></div>
+<div class="it"><span class="d mono">6 окт</span><span>петля на телефоне <i>— цели 33 / 16 / 8 мс</i></span></div>
 </div>
 <div class="col ag">
 <div class="ch"><span class="pixel">агент</span></div>
-<div class="it"><span class="d mono">7 сен</span><span>оракул на коде оригинала</span></div>
-<div class="it"><span class="d mono">9 сен</span><span>семь исходов вместо «прошло / упало»</span></div>
-<div class="it"><span class="d mono">сен</span><span>защита от ложных совпадений</span></div>
-<div class="it"><span class="d mono">6 окт</span><span>правило коммита</span></div>
-<div class="it"><span class="d mono">10 окт</span><span>остановка у «стены»</span></div>
+<div class="it"><span class="d mono">7 сен</span><span>оракул на коде оригинала <i>— в первом же коммите</i></span></div>
+<div class="it"><span class="d mono">9 сен</span><span>исходы вместо «прошло / упало» <i>— падение тоже результат</i></span></div>
+<div class="it"><span class="d mono">сен</span><span>защита от ложных совпадений <i>— канарейки, маски</i></span></div>
+<div class="it"><span class="d mono">6 окт</span><span>правило коммита <i>— через 2 минуты после запуска петли</i></span></div>
+<div class="it"><span class="d mono">10 окт</span><span>остановка у «стены» <i>— и четыре вопроса мне</i></span></div>
 </div>
 </div>
 
-<DemoVolume class="mt-4" />
+<DemoVolume class="mt-3" />
+
+<div class="moral mt-2"><b>Делегировали:</b> как проверять и когда остановиться. <b>Оставили себе:</b> цель, рамку и развилки.</div>
 
 <style>
 .who2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
@@ -86,7 +88,8 @@ clicks: 0
 .who2 .ch .pixel { font-size: .72rem; color: var(--chakra); text-transform: uppercase; letter-spacing: .06em; }
 .who2 .ag .ch .pixel { color: var(--naruto); }
 .who2 .ch .muted { font-size: .62rem; }
-.who2 .it { display: grid; grid-template-columns: 3.6rem 1fr; gap: .4rem; font-size: .9rem; line-height: 1.3; color: var(--ink); }
+.who2 .it { display: grid; grid-template-columns: 3.6rem 1fr; gap: .4rem; font-size: .8rem; line-height: 1.3; color: var(--ink); }
+.who2 .it i { font-style: normal; color: var(--ink-2); }
 .who2 .it .d { font-size: .62rem; color: var(--muted); padding-top: .25rem; }
 .who2 b { color: var(--ink); }
 .who2 code { font-size: .56rem !important; }
@@ -115,7 +118,7 @@ clicks: 0
 
 <DemoPhase at="solution" />
 
-<Kicker>решение · 12 сентября</Kicker>
+<Kicker>решение · 12 сентября · после ложных срабатываний фильтра безопасности</Kicker>
 
 # Методология из чужого репозитория
 
@@ -188,8 +191,14 @@ clicks: 3
   { title: 'та же функция на Swift', out: 'байты после вызова', color: 'var(--s1)', tag: 'порт' },
 ]" verdict="совпало побайтно" />
 
+<div class="grid grid-cols-3 gap-3 mt-4 orc">
+<div class="card-soft"><b>Канарейки.</b> Вызов засчитан, только если стек и регистры-ловушки целы.</div>
+<div class="card-soft"><b>Падение — тоже поведение.</b> Упал оригинал — порт обязан упасть так же.</div>
+<div class="card-soft"><b>215 оракулов.</b> Игра грузится, проходит меню и играет такты прямо в эмуляторе.</div>
+</div>
+
 <style>
-.orc .card-soft { font-size: .66rem; line-height: 1.4; color: var(--ink-2); }
+.orc .card-soft { font-size: .8rem; line-height: 1.4; color: var(--ink-2); }
 .orc b { color: var(--ink); }
 .orc code { font-size: .58rem !important; }
 </style>
@@ -220,10 +229,10 @@ Unicorn — эмулятор процессора (ядро QEMU как библ
 </div>
 <div>
 
-<Meter :value="0.924" label="сверено с оригиналом" />
-<Meter :value="0.514" label="выполнено в прогонах эмулятора" />
+<Meter :value="0.924" label="сверено с оригиналом" sub="157 из 174 функций игрового кода" />
+<Meter :value="0.514" label="выполнено в прогонах эмулятора" sub="остальное в прогоны не попало" />
 
-<div class="aud mt-4"><span class="i-pixelarticons-warning-box" />аудит другого агента: эту метрику за готовность не выдавать</div>
+<div class="aud mt-4"><span class="i-pixelarticons-warning-box" />на следующий день другой агент проверил метрику: засчитала лишнее, за готовность её не выдавать</div>
 
 </div>
 </div>
@@ -258,7 +267,15 @@ Unicorn — эмулятор процессора (ядро QEMU как библ
 
 # Три недели без картинки — и игра за день
 
-<BlindMonth class="mt-2" />
+<BlindMonth class="mt-1" />
+
+<div class="grid grid-cols-[1fr_1.4fr] gap-4 mt-1">
+<div class="grid grid-cols-2 gap-2">
+<StatTile value="801 → 801" label="строк в приложении" sub="21 день подряд" size="sm" accent="var(--s2)" />
+<StatTile value="5 ч 44 мин" label="28 сен: до матча с KO" sub="от первого коммита Claude" size="sm" accent="var(--good)" />
+</div>
+<div class="card-soft bm"><b>Агент, 8 сентября:</b> «Не ускоряем видимый прогресс… тренировочное окно некоторое время может выглядеть прежним».</div>
+</div>
 
 <style>
 .bm { font-size: .7rem; line-height: 1.42; color: var(--ink-2); }
@@ -292,7 +309,7 @@ Unicorn — эмулятор процессора (ядро QEMU как библ
 <div class="wb"><span class="n">Mac</span><b style="width: 38%" class="mac" /><span class="v">1,91</span></div>
 <div class="wb"><span class="n">Chromium</span><b style="width: 44.8%" /><span class="v">2,24 · ×1,17</span></div>
 <div class="wb"><span class="n">WebKit — движок Safari</span><b style="width: 65.4%" /><span class="v">3,27 · ×1,71</span></div>
-<span class="wn">кадр на 60 fps — 16,7 мс</span>
+<span class="wn">даже WebKit в 5 раз быстрее кадра на 60 fps</span>
 </div>
 
 <style>
@@ -333,11 +350,18 @@ iPhone — экран 874×402 точки меньше окна игры 794×55
 
 <CoreWaffle lite class="mt-2" />
 
-<div class="pf mt-4">
+<div class="lgc mt-1"><span><i style="background: #4c5466" />ядро без изменений</span><span><i style="background: var(--s2)" />изменено при переезде</span><span><i style="background: var(--s1)" />общий рантайм</span><span><i style="background: var(--s3)" />хост платформы</span><span class="muted">один квадрат — 100 строк</span></div>
+
+<div class="pf mt-3">
 <span class="on">macOS</span><span class="on">Linux</span><span class="on">Steam Deck</span><span class="on">Android</span><span class="on">браузер</span><span>Windows</span><span>iPad</span><span>iPhone</span><span>Apple TV</span>
+<i class="lg"><b class="on" />на устройстве <b />в симуляторе или эмуляции</i>
 </div>
 
+<div class="live mt-3"><span class="pixel hl">живьём</span><code>ntsd-web-ashy.vercel.app</code><span>меню через ≈ 2 с</span></div>
+
 <style>
+.lgc { display: flex; flex-wrap: wrap; gap: .2rem 1.1rem; font-size: .66rem; color: var(--ink-2); }
+.lgc i { display: inline-block; width: 9px; height: 9px; border-radius: 2px; margin-right: .35rem; vertical-align: -1px; }
 .pf { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem; }
 .pf span { font-size: .78rem; color: var(--ink-2); border: 1px dashed var(--axis); border-radius: 999px; padding: .12rem .7rem; }
 .pf span.on { color: var(--ink); border: 1px solid var(--naruto); background: rgba(255,138,61,.1); }
@@ -374,9 +398,15 @@ iPhone — экран 874×402 точки меньше окна игры 794×55
 
 # Одна сетевая партия — четыре системы
 
-<DemoOnline class="mt-3" />
+<DemoOnline class="mt-1" />
 
-<div class="hon2 mt-4">пока всё — на одном Mac</div>
+<div class="nf grid grid-cols-3 gap-5 mt-2">
+<div class="it"><span class="pixel hl">как это работает</span>по сети ходят только нажатия — все копии обязаны совпадать бит в бит</div>
+<div class="it"><span class="pixel hl">целый матч</span>два приложения на Mac: <b>1 070 тиков</b>, мир совпадал на каждом</div>
+<div class="it"><span class="pixel hl">между системами</span>все пары получили <b>одну и ту же</b> таблицу случайных чисел</div>
+</div>
+
+<div class="hon2 mt-3">пока всё — на одном Mac: CrossOver, эмулятор, контейнер</div>
 
 <style>
 .nf .it { font-size: .72rem; line-height: 1.42; color: var(--ink-2); }
@@ -474,11 +504,19 @@ iPhone — экран 874×402 точки меньше окна игры 794×55
 
 <div class="grid grid-cols-[1.25fr_1fr] gap-8 mt-3 items-center">
 <div>
+<div class="wh-h">шесть оставшихся идей — сколько сэкономила бы каждая, мс на тик</div>
 <DemoWall />
+<div class="wh-c">все шесть — внутри шума замера, по правилу коммитить нельзя</div>
 </div>
-<div class="fc">
+<div>
+<PhoneChat :messages="[
+  { who: 'agent', time: '18:27', text: 'всё, что осталось, — ниже разрешения телефона' },
+  { who: 'human', time: '21:23', text: 'you did good. we reached the wall', hot: true },
+]" />
+<div class="fc mt-3">
 <div><span class="pixel">прогноз · 8 окт</span><b>≈ 11 мс</b></div>
 <div><span class="pixel">факт · 10 окт</span><b>11,09 мс</b></div>
+</div>
 </div>
 </div>
 
@@ -514,23 +552,35 @@ iPhone — экран 874×402 точки меньше окна игры 794×55
 <div class="st in">
 <span class="pixel">исходник</span>
 <b>намерение</b>
+<i>«та самая игра, как я её помню» — и чем это проверить</i>
 <em>≈ 240 моих сообщений</em>
 </div>
 <span class="ar">→</span>
 <div class="st cc">
 <span class="pixel">компилятор</span>
 <b>LLM + харнесс</b>
+<i>оракул, петлю и правило остановки агент собрал сам</i>
 <em>больше 10 млрд токенов</em>
 </div>
 <span class="ar">→</span>
 <div class="st out">
 <span class="pixel">машинный код</span>
 <b>игра на 9 платформах</b>
+<i>код, который никто не обязан читать</i>
 <em>58 тыс. строк Swift</em>
 </div>
 </div>
 
-<div class="tests mt-4"><span class="pixel">тесты</span><span>сам оригинал: <b>58 из 58</b> матчей</span></div>
+<div class="tests mt-3"><span class="pixel">тесты</span><span>сам оригинал: <b>58 из 58</b> матчей, <b>18 088</b> одинаковых кадров</span></div>
+
+<div class="mine mt-4">
+<div class="mh pixel">что остаётся человеку</div>
+<div class="mr">
+<div><span class="n">1</span>сформулировать задачу и чем её проверить</div>
+<div><span class="n">2</span>дать достаточно токенов</div>
+<div><span class="n">3</span>решать на развилках</div>
+</div>
+</div>
 
 <style>
 .cmp { display: grid; grid-template-columns: 1fr auto 1.15fr auto 1fr; gap: .7rem; align-items: stretch; }
@@ -578,6 +628,7 @@ shade: 0.7
 <div class="flex flex-col items-center">
 <Kicker>спасибо · вопросы</Kicker>
 <h1 class="cover-title">Делегируйте «как».<br><span class="hl">Оставьте себе «зачем».</span></h1>
+<p class="small ink" style="max-width: 40rem; margin-top: -0.3rem">Механизмы агент строит сам. Цель, рамка и развилки — ваши.</p>
 <p class="small ink2" style="max-width: 40rem">порт: <span class="mono">github.com/wowlocal/ntsd-2.4</span></p>
 </div>
 
@@ -596,11 +647,11 @@ shade: 0.7
 # Не я один
 
 <div class="trend grid grid-cols-3 gap-3 mt-2">
-<figure><img src="/img/trend/cydonix-skyrim-tarkov-spiderman.jpg" alt=""><figcaption><b>Skyrim × Tarkov × Spider-Man</b></figcaption></figure>
-<figure><img src="/img/trend/tobynjacobs-elden-ring-mac.jpg" alt=""><figcaption><b>Minecraft в Elden Ring на Mac</b></figcaption></figure>
-<figure><img src="/img/trend/chasm-wow-bevy.jpg" alt=""><figcaption><b>WoW 1.12.1 на Rust</b></figcaption></figure>
-<figure><img src="/img/trend/smallzero-cs16.jpg" alt=""><figcaption><b>CS 1.6 в браузере</b></figcaption></figure>
-<figure class="col-span-2 wide"><img src="/img/trend/chasm-videos.jpg" alt=""><figcaption><b>MW2 × Skate 3 × Minecraft</b></figcaption></figure>
+<figure><img src="/img/trend/cydonix-skyrim-tarkov-spiderman.jpg" alt=""><figcaption><b>Skyrim × Tarkov × Spider-Man</b> · «за несколько часов»</figcaption></figure>
+<figure><img src="/img/trend/tobynjacobs-elden-ring-mac.jpg" alt=""><figcaption><b>Minecraft в Elden Ring на Mac</b> · 20,7 млн просмотров</figcaption></figure>
+<figure><img src="/img/trend/chasm-wow-bevy.jpg" alt=""><figcaption><b>WoW 1.12.1 на Rust</b> · benilla, 3 месяца с Claude</figcaption></figure>
+<figure><img src="/img/trend/smallzero-cs16.jpg" alt=""><figcaption><b>CS 1.6 в браузере</b> · 16 игроков</figcaption></figure>
+<figure class="col-span-2 wide"><img src="/img/trend/chasm-videos.jpg" alt=""><figcaption><b>MW2 × Skate 3 × Minecraft</b> · «basically 100% vibe coded»</figcaption></figure>
 </div>
 
 <style>
