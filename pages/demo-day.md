@@ -140,6 +140,8 @@ clicks: 0
 <div><span class="lb2">AGENTS.md</span><b>4 954</b><i>→</i><b class="hl">153</b><span class="lb2">строки</span></div>
 </div>
 
+<div class="noghidra mt-5"><span class="i-pixelarticons-close-box" /><div><b>Взяли методологию, но не инструменты: Ghidra в порте не запускали ни разу.</b> Агент обошёлся дизассемблером из Xcode (<code>llvm-objdump</code>), библиотекой Capstone и эмулятором Unicorn — и написал на них 215 своих оракулов.</div></div>
+
 <style>
 .ra { display: grid; grid-template-columns: 1fr auto 1.1fr; gap: 1.4rem; align-items: center; }
 .ra .src { background: var(--surface); border: 1px solid var(--hair); border-radius: 14px; padding: 1rem 1.1rem; }
@@ -153,6 +155,10 @@ clicks: 0
 .ra .took { display: flex; flex-direction: column; gap: .7rem; }
 .ra .took div { display: flex; align-items: center; gap: .7rem; font-size: 1rem; color: var(--ink); background: rgba(255,138,61,.07); border: 1px solid rgba(255,138,61,.4); border-radius: 12px; padding: .55rem .8rem; }
 .ra .took span { flex: none; width: 1.4rem; height: 1.4rem; color: var(--naruto); }
+.noghidra { display: flex; align-items: center; gap: .8rem; font-size: .84rem; line-height: 1.4; color: var(--ink-2); background: rgba(255,255,255,.03); border: 1px dashed var(--axis); border-radius: 12px; padding: .6rem .9rem; }
+.noghidra > span { flex: none; width: 1.5rem; height: 1.5rem; color: var(--chakra); }
+.noghidra b { color: var(--ink); }
+.noghidra code { font-size: .74rem !important; }
 .shrink { display: flex; align-items: baseline; justify-content: center; gap: 1.6rem; }
 .shrink > div:first-child { display: flex; align-items: baseline; gap: .8rem; }
 .shrink b { font-family: var(--font-display); font-size: 2.6rem; line-height: 1; color: var(--ink); }
@@ -171,6 +177,8 @@ clicks: 0
 Что взяли (дословно из WORKFLOW.md, раздел «Основания изменений»): «ограниченные задачи, разделение исполнителя и reviewer и сохранение промежуточных результатов». Чего не взяли: ReAgent не устанавливали и модель не меняли; его сравнение сопоставляет JSON-наблюдения, подготовленные самим проектом, — свои компараторы порта остались.
 
 Что получилось в том же коммите: AGENTS.md сжат с 4 954 до 153 строк — до этого 167 из 175 коммитов дописывали туда журнал «что сделано», правил было ~90 строк. Старый файл сохранён как неизменяемый архив AGENTS_HISTORY_2026-09-12.md, рядом — WORKFLOW.md (методология v1: пакет доказательств до запуска, протокол отказов модели) и шаблон задачи. Отсюда же выросли карточки исследований с замороженным планом и не больше трёх раундов на механизм, и отдельные ревьюеры только для чтения — потом их было 47 только в петле на телефоне.
+
+Инструменты: Ghidra, IDA, radare2, Binary Ninja в порте не использовались — ни один скрипт или карточка их не вызывает; Ghidra всплыла только 7 сентября, когда Codex прочитал в вебе её документацию про декомпиляцию. Вместо этого: xcrun llvm-objdump из Xcode — листинг exe (23 скрипта, xcrun вызывали 58 раз); Capstone — разбор инструкций в Python (23 скрипта); Unicorn — эмулятор для оракулов (208 скриптов, из них 215 oracle_*.py); свой разбор PE (tools/inspect_original.py, без pefile); winedbg — точки останова в живом оригинале под CrossOver (16 файлов). Декомпиляции в C не было: агент читал ассемблер, писал сразу Swift и сверял с исполнением оригинала.
 
 Помогло ли с ложными срабатываниями — в самом документе честно: «снижение числа ложных срабатываний этой методологией пока не измерено и не гарантируется».
 -->
