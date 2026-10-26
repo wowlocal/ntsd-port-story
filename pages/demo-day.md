@@ -28,8 +28,6 @@ clicks: 0
 </div>
 </div>
 
-<div class="source">README порта · pages/08-crosscheck.md полной деки (Mac пишет матч, оригинал его проигрывает) · снимки: public/img/compare</div>
-
 <style>
 .pb { display: flex; flex-direction: column; gap: .5rem; }
 .pb .card-soft { font-size: .72rem; line-height: 1.42; color: var(--ink-2); padding: .5rem .75rem; }
