@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import data from '../data/xplat.json'
 
+// `lite` (demo-day deck) hides the module sublabels, the callout's second line and the key, leaving the picture.
+const props = withDefaults(defineProps<{ lite?: boolean }>(), { lite: false })
+
 // One square = 100 lines of Swift in native/Sources at 2fe64be (5 Oct, nine-host baseline).
 // Blocks stand on one baseline like a skyline: the core, the new shared runtime, one adapter per host.
 // Orange squares: core lines changed since main (74be317). Dashed box: the Mac layer on main.
@@ -83,7 +86,7 @@ const fmt = (n: number) => n.toLocaleString('ru-RU')
       <path :d="`M${hi.x + S / 2},${hi.y - 3} V${top - 9} H0`" fill="none" stroke="var(--s2)" />
       <circle :cx="hi.x + S / 2" :cy="hi.y - 3" r="2" fill="var(--s2)" />
       <text class="call" x="0" :y="top - 30">изменено {{ fmt(changed) }} строк из {{ fmt(nine.core) }}</text>
-      <text class="callsub" x="0" :y="top - 15">+{{ cd.added }} / −{{ cd.deleted }} в {{ cd.files.length }} файлах ядра — переносимость, а не поведение</text>
+      <text v-if="!props.lite" class="callsub" x="0" :y="top - 15">+{{ cd.added }} / −{{ cd.deleted }} в {{ cd.files.length }} файлах ядра — переносимость, а не поведение</text>
 
       <!-- values above host blocks -->
       <template v-for="{ b } in all" :key="`v${b.key}`">
@@ -94,7 +97,7 @@ const fmt = (n: number) => n.toLocaleString('ru-RU')
       <line x1="0" x2="884" :y1="base + 1.5" :y2="base + 1.5" stroke="var(--axis)" />
       <template v-for="{ b } in all" :key="`n${b.key}`">
         <text class="nm" :x="b.x" :y="base + 17">{{ b.name }}<tspan v-if="b.wide" class="nmv" dx="6">{{ fmt(b.lines) }}</tspan></text>
-        <text v-if="b.sub" class="sub" :x="b.x" :y="base + 30">{{ b.sub }}</text>
+        <text v-if="b.sub && !props.lite" class="sub" :x="b.x" :y="base + 30">{{ b.sub }}</text>
       </template>
 
       <g class="br">
@@ -106,7 +109,7 @@ const fmt = (n: number) => n.toLocaleString('ru-RU')
         <text :x="(blocks[2].x + 880) / 2" :y="base + 60" text-anchor="middle">хост — сотни строк на платформу</text>
       </g>
     </svg>
-    <div class="key">
+    <div v-if="!props.lite" class="key">
       <span><i style="background: var(--core)" />ядро без изменений</span>
       <span><i style="background: var(--s2)" />изменённые строки ядра</span>
       <span><i style="background: var(--s1)" />общий рантайм</span>

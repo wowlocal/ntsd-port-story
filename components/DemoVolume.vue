@@ -36,7 +36,6 @@ const ratio = (sum(harness) / sum(game)).toLocaleString('ru-RU', { maximumFracti
     <div class="lg">
       <span class="u">один квадрат — 1 000 строк</span>
       <span v-for="h in harness" :key="h.k"><i :style="{ background: h.color }" />{{ h.label }} {{ fmt(h.lines) }}</span>
-      <span class="plus">и рядом — 598 карточек исследований (610 тыс. слов) и 1 055 файлов доказательств</span>
     </div>
   </div>
 </template>

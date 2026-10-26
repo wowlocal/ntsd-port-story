@@ -11,9 +11,9 @@ clicks: 0
 <div class="grid grid-cols-[0.8fr_1.2fr] gap-7 mt-2 items-center">
 <div class="beats">
 
-<div class="bt"><span class="big">0</span><div><b>строк исходников</b><span>ни у игры 2008 года, ни у её движка — только бинарники</span></div></div>
+<div class="bt"><span class="big">0</span><div><b>строк исходников</b><span>ни у игры, ни у движка</span></div></div>
 
-<div class="bt"><span class="big">=</span><div><b>так же, а не похоже</b><span>та самая игра, какой я её помню; совместимость с оригиналом — бонус</span></div></div>
+<div class="bt"><span class="big">=</span><div><b>та самая игра</b><span>какой я её помню</span></div></div>
 
 </div>
 <div>
@@ -57,40 +57,37 @@ clicks: 0
 
 # Человек — рамку, агент — механизмы
 
-<div class="who2 mt-1">
+<div class="who2 mt-2">
 <div class="col">
-<div class="ch"><span class="pixel">человек · пара строк</span><span class="muted">что и зачем</span></div>
-<div class="it"><span class="d mono">7 сен</span><span>«ориентируйся исключительно на исходную игру под windows»</span></div>
-<div class="it"><span class="d mono">12 сен</span><span>принёс методологию ReAgent: ограниченные задачи, отдельный ревьюер, промежуточные результаты на диск → <code>AGENTS.md</code> 4 954 → 153 строки</span></div>
-<div class="it"><span class="d mono">27 сен</span><span>правила прогресса: проверенное сразу переносить в приложение</span></div>
-<div class="it"><span class="d mono">2 окт</span><span>«у нас же есть windows через crossover?» → сверка целыми матчами</span></div>
-<div class="it"><span class="d mono">6 окт</span><span>«start the core redesign loop» — цели 33 / 16 / 8 мс на телефоне</span></div>
+<div class="ch"><span class="pixel">человек</span></div>
+<div class="it"><span class="d mono">7 сен</span><span>только исходная игра</span></div>
+<div class="it"><span class="d mono">12 сен</span><span>методология ReAgent</span></div>
+<div class="it"><span class="d mono">27 сен</span><span>правила прогресса</span></div>
+<div class="it"><span class="d mono">2 окт</span><span>сверка через CrossOver</span></div>
+<div class="it"><span class="d mono">6 окт</span><span>петля на телефоне</span></div>
 </div>
 <div class="col ag">
-<div class="ch"><span class="pixel">агент · сам</span><span class="muted">как и когда остановиться</span></div>
-<div class="it"><span class="d mono">7 сен</span><span><b>оракул в эмуляторе процессора</b> — уже в первом коммите: ходьба совпала на 8 506 тиках кода оригинала</span></div>
-<div class="it"><span class="d mono">9–10 сен</span><span><b>исходы вместо «прошло / упало»</b>: падение оригинала — <code>sourceFault</code>, сломанный стенд — <code>harness error</code></span></div>
-<div class="it"><span class="d mono">сен</span><span><b>защиту оракула от ложных совпадений</b>: канарейки, куча <code>0xA5</code>, маски записей из самих инструкций копирования</span></div>
-<div class="it"><span class="d mono">6 окт</span><span><b>правило коммита</b> — через 2 минуты после запуска петли; <b>харнесс телефона</b>: schedstat, A/B вперемешку, прогрев</span></div>
-<div class="it"><span class="d mono">10 окт</span><span><b>остановка у «стены»</b> по своему правилу и четыре вопроса автору</span></div>
+<div class="ch"><span class="pixel">агент</span></div>
+<div class="it"><span class="d mono">7 сен</span><span>оракул на коде оригинала</span></div>
+<div class="it"><span class="d mono">9 сен</span><span>семь исходов вместо «прошло / упало»</span></div>
+<div class="it"><span class="d mono">сен</span><span>защита от ложных совпадений</span></div>
+<div class="it"><span class="d mono">6 окт</span><span>правило коммита</span></div>
+<div class="it"><span class="d mono">10 окт</span><span>остановка у «стены»</span></div>
 </div>
 </div>
 
-<DemoVolume class="mt-3" />
-
-<div class="moral mt-2"><b>Что делегировали:</b> как проверять и когда остановиться. <b>Что оставили себе:</b> цель, рамку и развилки, где нужен вкус или риск.</div>
-
+<DemoVolume class="mt-4" />
 
 <style>
 .who2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-.who2 .col { background: var(--surface); border: 1px solid var(--hair); border-radius: 12px; padding: .5rem .7rem .55rem; display: flex; flex-direction: column; gap: .32rem; }
+.who2 .col { background: var(--surface); border: 1px solid var(--hair); border-radius: 12px; padding: .6rem .9rem .7rem; display: flex; flex-direction: column; gap: .45rem; }
 .who2 .col.ag { border-color: rgba(255,138,61,.5); }
 .who2 .ch { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: .1rem; }
 .who2 .ch .pixel { font-size: .72rem; color: var(--chakra); text-transform: uppercase; letter-spacing: .06em; }
 .who2 .ag .ch .pixel { color: var(--naruto); }
 .who2 .ch .muted { font-size: .62rem; }
-.who2 .it { display: grid; grid-template-columns: 3.6rem 1fr; gap: .4rem; font-size: .66rem; line-height: 1.36; color: var(--ink-2); }
-.who2 .it .d { font-size: .58rem; color: var(--muted); padding-top: .1rem; }
+.who2 .it { display: grid; grid-template-columns: 3.6rem 1fr; gap: .4rem; font-size: .9rem; line-height: 1.3; color: var(--ink); }
+.who2 .it .d { font-size: .62rem; color: var(--muted); padding-top: .25rem; }
 .who2 b { color: var(--ink); }
 .who2 code { font-size: .56rem !important; }
 .hx .card-soft { display: flex; align-items: baseline; gap: .6rem; font-size: .66rem; line-height: 1.38; color: var(--ink-2); }
@@ -100,6 +97,11 @@ clicks: 0
 </style>
 
 <!--
+Что было на слайде раньше — говорить словами.
+Человек: 7 сен — «ориентируйся исключительно на исходную игру под windows»; 12 сен — принёс методологию ReAgent (ограниченные задачи, отдельный ревьюер, промежуточные результаты на диск) → AGENTS.md 4 954 → 153 строки; 27 сен — правила прогресса: проверенное сразу переносить в приложение; 2 окт — «у нас же есть windows через crossover?» → сверка целыми матчами; 6 окт — «start the core redesign loop», цели 33 / 16 / 8 мс на телефоне.
+Агент: 7 сен — оракул в эмуляторе процессора уже в первом коммите (ходьба совпала на 8 506 тиках кода оригинала); 9–10 сен — исходы вместо «прошло / упало» (падение оригинала — sourceFault, сломанный стенд — harness error); защита оракула от ложных совпадений — канарейки, куча 0xA5, маски записей из самих инструкций копирования; 6 окт — правило коммита через 2 минуты после запуска петли и харнесс телефона (schedstat, A/B вперемешку, прогрев); 10 окт — остановка у «стены» по своему правилу и четыре вопроса автору.
+Итог: делегировали «как проверять и когда остановиться», себе оставили цель, рамку и развилки.
+
 ≈ 75 секунд. Центральный слайд доклада — и честная поправка к его заголовку. «Агент сам выстроил методологию» верно наполовину: механизмы проверки, харнесс замеров и правило остановки — его. Рамку задавал человек короткими репликами: исходная игра как единственный эталон, чужая методология ReAgent (разделение исполнителя и ревьюера), правила прогресса после 19 коммитов мимо приложения, вопрос про CrossOver, запуск петель и цели по миллисекундам.
 
 Правило коммита петли: «Commit an increment only when every gate passes and it is either measurably faster or strictly less work without added complexity; otherwise record the result here and revert.» Его агент записал в карточку 6 октября в 03:48 — через две минуты после реплики автора «make an experimental branch and do core redesign for real time play on slow phones like A12… start the core redesign loop». В реплике автора правила нет.
@@ -107,6 +109,68 @@ clicks: 0
 Оракул: в первом коммите 7 сентября «Movement matches 8,506 reference ticks» — про Unicorn в репликах человека не было ни слова.
 
 Объём внизу — на origin/main 19 октября, одна строка = перевод строки в файле (пустые и комментарии тоже, как в паспорте полной деки). Игра: Swift модулей, которые уходят игроку, — 47 471 строка, плюс браузерный хост (JS/HTML) — 1 549; всего ≈ 49 тыс. Харнесс ≈ 154 тыс.: тесты Swift 52 958, оракулы на коде оригинала (215 скриптов tools/oracle_*.py) 37 088, сверочные программы Swift 12 171, прочие инструменты — остальной Python, shell и JS — 52 231. В 3,2 раза больше кода, чем сама игра. Не считались вендорные C-библиотеки (zlib 1.1.4, ALAC, обвязки — 9 632 строки). Рядом с кодом — 598 карточек исследований (≈ 610 тыс. слов) и 1 055 файлов доказательств (39,4 МБ JSON). Всё это написали агенты.
+-->
+
+---
+
+<DemoPhase at="solution" />
+
+<Kicker>решение · 12 сентября</Kicker>
+
+# Методология из чужого репозитория
+
+<div class="ra mt-4">
+<div class="src">
+<div class="nm2"><span class="i-pixelarticons-github" />ReAgent</div>
+<div class="sub2">агент для реверс-инжиниринга: Ghidra + LLM</div>
+<div class="cyc"><span>реверсер</span><i>→</i><span>проверяющий</span><i>→</i><span>правка</span></div>
+</div>
+<span class="ar2">→</span>
+<div class="took">
+<div><span class="i-pixelarticons-crop" />задача с границами</div>
+<div><span class="i-pixelarticons-users" />исполнитель и ревьюер — разные агенты</div>
+<div><span class="i-pixelarticons-save" />всё промежуточное — на диск</div>
+</div>
+</div>
+
+<div class="shrink mt-6">
+<div><span class="lb2">AGENTS.md</span><b>4 954</b><i>→</i><b class="hl">153</b><span class="lb2">строки</span></div>
+<div class="when">через 14 минут после просьбы</div>
+</div>
+
+<style>
+.ra { display: grid; grid-template-columns: 1fr auto 1.1fr; gap: 1.4rem; align-items: center; }
+.ra .src { background: var(--surface); border: 1px solid var(--hair); border-radius: 14px; padding: 1rem 1.1rem; }
+.ra .nm2 { display: flex; align-items: center; gap: .55rem; font-family: var(--font-display); font-weight: 700; font-size: 1.6rem; color: var(--ink); }
+.ra .nm2 span { width: 1.6rem; height: 1.6rem; color: var(--ink-2); }
+.ra .sub2 { font-size: .82rem; color: var(--ink-2); margin: .3rem 0 .8rem; }
+.ra .cyc { display: flex; align-items: center; gap: .45rem; font-size: .8rem; }
+.ra .cyc span { background: var(--surface-2); border-radius: 8px; padding: .2rem .55rem; color: var(--ink); }
+.ra .cyc i { font-style: normal; color: var(--naruto); }
+.ra .ar2 { font-family: var(--font-display); font-size: 2rem; color: var(--naruto); }
+.ra .took { display: flex; flex-direction: column; gap: .7rem; }
+.ra .took div { display: flex; align-items: center; gap: .7rem; font-size: 1rem; color: var(--ink); background: rgba(255,138,61,.07); border: 1px solid rgba(255,138,61,.4); border-radius: 12px; padding: .55rem .8rem; }
+.ra .took span { flex: none; width: 1.4rem; height: 1.4rem; color: var(--naruto); }
+.shrink { display: flex; align-items: baseline; justify-content: center; gap: 1.6rem; }
+.shrink > div:first-child { display: flex; align-items: baseline; gap: .8rem; }
+.shrink b { font-family: var(--font-display); font-size: 2.6rem; line-height: 1; color: var(--ink); }
+.shrink i { font-style: normal; font-size: 1.6rem; color: var(--naruto); }
+.shrink .lb2 { font-family: var(--font-mono); font-size: .85rem; color: var(--ink-2); }
+.shrink .when { font-size: .85rem; color: var(--muted); }
+</style>
+
+<!--
+≈ 60 секунд. Деталь к пункту «методология ReAgent» с прошлого слайда.
+
+Что случилось. К 12 сентября агент Codex раз за разом упирался в ложные срабатывания фильтра кибербезопасности (cyber_policy): работа с бинарником и эмулятором похожа на взлом. Автор нашёл открытый проект ReAgent (github.com/Dryxio/reagent) и в 08:31 по местному времени спросил: «как думаешь использование методологии отсюда … и переключение на более слабую модель даст нам то же качество и меньше срабатываний конкретно в нашем проекте?». В 08:35: «давай докрутим нашу методологию позаимствовав хорошие идеи из проекта который я тебе скинул и уменьшив риск ложного срабатывания сайбер полиси. я смогу запустить новый goal с обновленной методологией». В 08:49 — коммит ffe16f4.
+
+Что такое ReAgent: открытый агент для реверс-инжиниринга — Ghidra и LLM (Claude, Codex) восстанавливают функции C/C++ из скомпилированного бинарника. Внутри — цикл реверсер → проверяющий → правка с ограниченным числом раундов, независимые модели-реверсер и модель-проверяющий, ворота сборки и тестов, журналы и чекпойнты каждого раунда.
+
+Что взяли (дословно из WORKFLOW.md, раздел «Основания изменений»): «ограниченные задачи, разделение исполнителя и reviewer и сохранение промежуточных результатов». Чего не взяли: ReAgent не устанавливали и модель не меняли; его сравнение сопоставляет JSON-наблюдения, подготовленные самим проектом, — свои компараторы порта остались.
+
+Что получилось в том же коммите: AGENTS.md сжат с 4 954 до 153 строк — до этого 167 из 175 коммитов дописывали туда журнал «что сделано», правил было ~90 строк. Старый файл сохранён как неизменяемый архив AGENTS_HISTORY_2026-09-12.md, рядом — WORKFLOW.md (методология v1: пакет доказательств до запуска, протокол отказов модели) и шаблон задачи. Отсюда же выросли карточки исследований с замороженным планом и не больше трёх раундов на механизм, и отдельные ревьюеры только для чтения — потом их было 47 только в петле на телефоне.
+
+Помогло ли с ложными срабатываниями — в самом документе честно: «снижение числа ложных срабатываний этой методологией пока не измерено и не гарантируется».
 -->
 
 ---
@@ -119,17 +183,10 @@ clicks: 3
 
 # Код оригинала исполняется рядом с портом
 
-<FlowDiagram stepwise class="mt-1" input="одни и те же входы" input-sub="состояние, аргументы, байты DAT" :lanes="[
-  { title: 'Код оригинала в эмуляторе процессора', sub: 'Unicorn исполняет машинный код exe; вызовы Windows подменены заглушками', out: 'байты после вызова + маска записей, вызовы ГСЧ, события ресурсов', color: 'var(--s2)', tag: 'эталон' },
-  { title: 'Swift-порт той же функции', sub: 'свои аллокации, свой откат', out: 'байты после вызова, вызовы ГСЧ, события', color: 'var(--s1)', tag: 'порт' },
-]" verdict="совпало побайтно" verdict-sub="только там, где байт определён маской" />
-
-<div class="grid grid-cols-3 gap-3 mt-2 orc">
-<div class="card-soft"><b>Канарейки.</b> Регистры заполнены <code>0x11223344…</code>, куча — <code>0xA5</code>. Вызов засчитан, только если EIP дошёл до STOP, а стек и канарейки целы.</div>
-<div class="card-soft"><b>Падение — тоже поведение.</b> Если оригинал упал, это исход <code>sourceFault</code>, а не «совпало». Порт обязан упасть так же — или объявить границу.</div>
-<div class="card-soft"><b>Масштаб.</b> 215 скриптов-оракулов; VM создают 17, остальные наследуют её цепочкой: игра грузится, проходит меню и играет такты в одной VM.</div>
-</div>
-
+<FlowDiagram stepwise class="mt-4" input="одни и те же входы" :lanes="[
+  { title: 'оригинал в эмуляторе процессора', out: 'байты после вызова', color: 'var(--s2)', tag: 'эталон' },
+  { title: 'та же функция на Swift', out: 'байты после вызова', color: 'var(--s1)', tag: 'порт' },
+]" verdict="совпало побайтно" />
 
 <style>
 .orc .card-soft { font-size: .66rem; line-height: 1.4; color: var(--ink-2); }
@@ -138,6 +195,8 @@ clicks: 3
 </style>
 
 <!--
+Что было на слайде раньше: эталон — Unicorn исполняет машинный код exe, вызовы Windows подменены заглушками; на выходе байты после вызова плюс маска записей, вызовы ГСЧ, события ресурсов. Порт — та же функция на Swift со своими аллокациями и откатом. «Совпало» — только там, где байт определён маской. Канарейки: регистры 0x11223344…, куча 0xA5; вызов засчитан, только если EIP дошёл до STOP, а стек и канарейки целы. Падение оригинала — исход sourceFault, а не «совпало»: порт обязан упасть так же или объявить границу. 215 скриптов-оракулов; VM создают 17, остальные наследуют её цепочкой.
+
 ≈ 60 секунд. Это механизм, на котором держится всё доверие первых трёх недель.
 
 Unicorn — эмулятор процессора (ядро QEMU как библиотека). Агент грузит в него секции настоящего EXE по их адресам, импорты Windows подменяет страницей-заглушкой: Python-обработчик снимает аргументы со стека и отвечает. Одни и те же входы подаются в функцию оригинала и в её Swift-порт, байты после вызова сравниваются по маске — только те, что функция реально записала.
@@ -155,33 +214,31 @@ Unicorn — эмулятор процессора (ядро QEMU как библ
 
 # Сколько exe на самом деле проверено
 
-<div class="grid grid-cols-[1.55fr_1fr] gap-6 mt-1">
+<div class="grid grid-cols-[1.55fr_1fr] gap-7 mt-2 items-center">
 <div>
 <ExeTreemap />
-<div class="tm-cap">каждый прямоугольник — функция игрового кода, площадь — сколько в ней инструкций</div>
 </div>
 <div>
 
-<Meter :value="0.924" label="кода — в функциях, сверенных с оригиналом" sub="157 из 174 функций: есть прогон оригинала или набор сравнённых входов" />
-<Meter :value="0.514" label="кода оригинала выполнилось в сохранённых прогонах эмулятора" sub="остальное в эти прогоны не попало" />
-<Meter :value="0.978" label="кода описано в исследованиях или перенесено" sub="160 функций" />
+<Meter :value="0.924" label="сверено с оригиналом" />
+<Meter :value="0.514" label="выполнено в прогонах эмулятора" />
 
-<div class="card-soft mt-3 audit">
-<div class="flex items-center gap-2"><span class="i-pixelarticons-warning-box audit-ico" /><b>Аудит на следующий день</b> <span class="muted">· другой агент</span></div>
-<div class="mt-1">Метрика засчитала лишнее и пропустила часть кода — например, обработчик окна. Вывод аудита: процент готовности по ней объявлять нельзя. Новый так и не объявили.</div>
-</div>
+<div class="aud mt-4"><span class="i-pixelarticons-warning-box" />аудит другого агента: эту метрику за готовность не выдавать</div>
 
 </div>
 </div>
 
 <style>
-.tm-cap { font-size: .64rem; color: var(--muted); margin-top: .25rem; }
+.aud { display: flex; align-items: center; gap: .5rem; font-size: .8rem; line-height: 1.35; color: var(--ink); }
+.aud span { flex: none; width: 1.3rem; height: 1.3rem; color: var(--naruto); }
 .audit { font-size: 0.72rem; line-height: 1.42; color: var(--ink-2); padding: 0.6rem 0.8rem; }
 .audit b { color: var(--ink); }
 .audit-ico { width: 1.1rem; height: 1.1rem; color: var(--naruto); flex: none; }
 </style>
 
 <!--
+Что было на слайде раньше: подпись к карте — каждый прямоугольник — функция игрового кода, площадь — число инструкций. 92,4 % кода — в функциях, сверенных с оригиналом (157 из 174: есть прогон оригинала или набор сравнённых входов); 51,4 % кода оригинала выполнилось в сохранённых прогонах эмулятора; 97,8 % описано в исследованиях или перенесено (160 функций). Аудит на следующий день, другой агент: метрика засчитала лишнее и пропустила часть кода (например, обработчик окна) — процент готовности по ней объявлять нельзя; новый так и не объявили.
+
 ≈ 45 секунд. Слайд из полной деки (глава 8), формулировки упрощены.
 
 Карта — 174 функции игрового кода оригинального exe, площадь прямоугольника — число инструкций. Синие — есть записи исполнения или сравнённый корпус входов (157 функций), зелёные — перенесены и исполняются внутри уже сравнённых вызывающих (6), оранжевые — режимы разработчика и функции без установленной достижимости (11).
@@ -201,16 +258,7 @@ Unicorn — эмулятор процессора (ядро QEMU как библ
 
 # Три недели без картинки — и игра за день
 
-<BlindMonth class="mt-1" />
-
-<div class="grid grid-cols-[1fr_1.2fr] gap-4 mt-1">
-<div class="grid grid-cols-2 gap-2">
-<StatTile value="801 → 801" label="строк в приложении" sub="21 день подряд" size="sm" accent="var(--s2)" />
-<StatTile value="5 ч 44 мин" label="28 сен: до матча с KO" sub="от первого коммита Claude" size="sm" accent="var(--good)" />
-</div>
-<div class="card-soft bm"><b>Решение агента, 8 сентября:</b> «Не ускоряем видимый прогресс добавлением персонажей и техник на неполной основе… тренировочное окно некоторое время может выглядеть прежним».</div>
-</div>
-
+<BlindMonth class="mt-2" />
 
 <style>
 .bm { font-size: .7rem; line-height: 1.42; color: var(--ink-2); }
@@ -218,6 +266,8 @@ Unicorn — эмулятор процессора (ядро QEMU как библ
 </style>
 
 <!--
+Что было на слайде раньше: 801 → 801 строк в слое приложения 21 день подряд; 28 сентября от первого коммита Claude до матча с KO — 5 ч 44 мин. Решение агента 8 сентября: «Не ускоряем видимый прогресс добавлением персонажей и техник на неполной основе… тренировочное окно некоторое время может выглядеть прежним».
+
 ≈ 50 секунд. Здесь — суть доверия: 55 % всех токенов проекта ушло до первого матча в приложении. Снаружи это выглядело как сжигание денег: в окне — тренировочная сцена 7 сентября. Внутри росли ядро, оракулы и эталоны.
 
 28 сентября Claude получил проект в 13:31: в 15:50 — матч Наруто против Саске в приложении, в 18:15 — первый KO, в 19:15 — повтор и Summary, к полуночи — 30 тиков в секунду. Это не скорость Claude: 39 300 строк, 81 % итогового кода, уже были написаны и сверены; в тот же день сменились и агент, и правила прогресса, их вклад по отдельности не измерен.
@@ -237,12 +287,12 @@ Unicorn — эмулятор процессора (ядро QEMU как библ
 
 <DemoPorting class="mt-1" />
 
-<div class="wz mt-1">
-<span class="wh">WebAssembly против натива<i>мс на тик, одинаковые условия</i></span>
+<div class="wz mt-2">
+<span class="wh">WebAssembly против натива<i>мс на тик</i></span>
 <div class="wb"><span class="n">Mac</span><b style="width: 38%" class="mac" /><span class="v">1,91</span></div>
 <div class="wb"><span class="n">Chromium</span><b style="width: 44.8%" /><span class="v">2,24 · ×1,17</span></div>
 <div class="wb"><span class="n">WebKit — движок Safari</span><b style="width: 65.4%" /><span class="v">3,27 · ×1,71</span></div>
-<span class="wn">даже на WebKit — в 5 раз быстрее кадра на 60 fps (16,7 мс)</span>
+<span class="wn">кадр на 60 fps — 16,7 мс</span>
 </div>
 
 <style>
@@ -281,14 +331,11 @@ iPhone — экран 874×402 точки меньше окна игры 794×55
 
 # Ядро почти не тронуто
 
-<CoreWaffle class="mt-1" />
+<CoreWaffle lite class="mt-2" />
 
 <div class="pf mt-4">
 <span class="on">macOS</span><span class="on">Linux</span><span class="on">Steam Deck</span><span class="on">Android</span><span class="on">браузер</span><span>Windows</span><span>iPad</span><span>iPhone</span><span>Apple TV</span>
-<i class="lg"><b class="on" />на настоящем устройстве <b />пока в симуляторе или под эмуляцией</i>
 </div>
-
-<div class="live mt-3"><span class="pixel hl">живьём</span><code>ntsd-web-ashy.vercel.app</code><span>та же игра в браузере — меню через ≈ 2 с</span></div>
 
 <style>
 .pf { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem; }
@@ -306,6 +353,8 @@ iPhone — экран 874×402 точки меньше окна игры 794×55
 </style>
 
 <!--
+Что было на слайде раньше: легенда квадратов (ядро без изменений, изменённые строки ядра, общий рантайм, адаптер хоста, Mac-слой на main; один квадрат — 100 строк Swift); подписи модулей NTSDCore и NTSDRuntime; «+223 / −26 в 11 файлах ядра — переносимость, а не поведение». Плашки платформ: залитые — на настоящем устройстве (macOS, Linux, Steam Deck, Android, браузер), контурные — пока в симуляторе или под эмуляцией (Windows через CrossOver, iPad, iPhone, Apple TV). Живая демка: ntsd-web-ashy.vercel.app — меню через ≈ 2 с.
+
 ≈ 2–3 минуты вместе с живой демкой.
 
 Квадраты — строки Swift в коде игры на 5 октября, вечер, когда игра шла на девяти «хостах» (один квадрат — 100 строк): ядро — правила, ИИ, режимы, записи; общий рантайм; по тонкому адаптеру на платформу. Оранжевые квадраты в ядре — изменённые при переезде строки: 223 добавлено, 26 удалено в 11 файлах. Самое большое — свой SHA-256 вместо системной библиотеки Apple. Поведение игры не менялось. Пунктирный контур — сколько занимал Mac-слой до переезда: он похудел на 4 504 строки, окно, звук, ввод и сеть ушли в общий рантайм.
@@ -325,28 +374,21 @@ iPhone — экран 874×402 точки меньше окна игры 794×55
 
 # Одна сетевая партия — четыре системы
 
-<DemoOnline class="mt-1" />
+<DemoOnline class="mt-3" />
 
-<div class="nf grid grid-cols-3 gap-5 mt-2">
-
-<div class="it"><span class="pixel hl">как это работает</span>По сети ходят только нажатия кнопок. Остальное каждая копия игры считает сама, поэтому все копии обязаны совпадать бит в бит.</div>
-
-<div class="it"><span class="pixel hl">целый матч</span>Два приложения на Mac сыграли бой Наруто против Саске: <b>1 070 тиков, 836 пакетов</b> в каждую сторону — мир игры у обеих сторон совпадал на каждом тике.</div>
-
-<div class="it"><span class="pixel hl">между системами</span>Каждая пара прошла меню сетевой игры оригинала и получила <b>одну и ту же</b> таблицу случайных чисел — с неё матч у всех идёт одинаково.</div>
-
-</div>
-
-<div class="hon mt-3">Пока всё — на одном Mac: Windows через CrossOver, Android в эмуляторе, Linux в контейнере. Двух устройств в настоящей сети и партии с оригинальной игрой ещё не было.</div>
+<div class="hon2 mt-4">пока всё — на одном Mac</div>
 
 <style>
 .nf .it { font-size: .72rem; line-height: 1.42; color: var(--ink-2); }
 .nf .it .pixel { display: block; font-size: .62rem; text-transform: uppercase; letter-spacing: .06em; margin-bottom: .15rem; }
 .nf b { color: var(--ink); }
+.hon2 { font-size: .8rem; color: var(--muted); text-align: center; }
 .hon { font-size: .74rem; line-height: 1.4; color: var(--ink-2); border-left: 3px solid var(--warning); padding: .3rem .8rem; background: rgba(250,178,25,.06); border-radius: 0 10px 10px 0; }
 </style>
 
 <!--
+Что было на слайде раньше. Как это работает: по сети ходят только нажатия кнопок, остальное каждая копия игры считает сама — поэтому все копии обязаны совпадать бит в бит. Целый матч: два приложения на Mac сыграли бой Наруто против Саске — 1 070 тиков, 836 пакетов в каждую сторону, мир игры у обеих сторон совпадал на каждом тике. Между системами: каждая пара прошла меню сетевой игры оригинала и получила одну и ту же таблицу случайных чисел. Оговорка: всё на одном Mac — Windows через CrossOver, Android в эмуляторе, Linux в контейнере; двух устройств в настоящей сети и партии с оригинальной игрой ещё не было.
+
 ≈ 45 секунд. Продолжение истории про платформы и тот самый «бонус» со второго слайда.
 
 Как работает сеть оригинала: протокол без изменений — TCP-порт 12345, хост отдаёт клиенту таблицу случайных чисел на 3 001 байт, дальше 22 байта на тик — только ввод. Каждая сторона пересчитывает матч сама (lockstep), поэтому любое расхождение в физике или случайных числах разваливает партию.
@@ -368,7 +410,7 @@ iPhone — экран 874×402 точки меньше окна игры 794×55
 
 <DemoResults class="mt-2" />
 
-<div class="cost mt-4"><span><b>37</b> дней</span><span><b>756</b> коммитов</span><span><b>2</b> подписки по $200 в месяц</span><span>от меня — пара строк в день</span></div>
+<div class="cost mt-4"><span><b>37</b> дней</span><span><b>756</b> коммитов</span><span><b>2</b> подписки по $200</span></div>
 
 <style>
 .cost { display: flex; gap: 2rem; align-items: baseline; font-size: .8rem; color: var(--ink-2); border-top: 1px solid var(--axis); padding-top: .55rem; }
@@ -398,7 +440,7 @@ iPhone — экран 874×402 точки меньше окна игры 794×55
 
 <DemoLoop class="mt-1" />
 
-<div class="rule-l mt-3"><span class="pixel hl">правило агента</span><span>коммит — только если стало быстрее или строго меньше работы без усложнения; иначе откат и запись в журнал</span></div>
+<div class="rule-l mt-3"><span class="pixel hl">правило агента</span><span>быстрее — коммит, иначе откат</span></div>
 
 <style>
 .rule-l { display: flex; align-items: baseline; gap: 1rem; font-size: .86rem; line-height: 1.4; color: var(--ink); background: rgba(255,138,61,.08); border: 1px solid rgba(255,138,61,.45); border-radius: 12px; padding: .5rem .9rem; }
@@ -430,28 +472,13 @@ iPhone — экран 874×402 точки меньше окна игры 794×55
 
 # Петля остановилась сама
 
-<div class="grid grid-cols-[1.15fr_1fr] gap-7 mt-2 items-center">
+<div class="grid grid-cols-[1.25fr_1fr] gap-8 mt-3 items-center">
 <div>
-
-<div class="wh-h">шесть оставшихся идей — сколько каждая сэкономила бы, мс на тик</div>
-
 <DemoWall />
-
-<div class="wh-c">Все шесть — меньше погрешности замера, и каждая добавила бы второй путь в коде. По правилу коммитить нельзя.</div>
-
 </div>
-<div class="wr">
-
-<PhoneChat :messages="[
-  { who: 'agent', time: '18:27', text: 'всё, что осталось, — ниже разрешения телефона; дальше нужны ответы автора на четыре вопроса', gloss: 'последний коммит петли, 0034e45c — пересказ' },
-  { who: 'human', time: '21:23', text: 'you did good. we reached the wall. performance is now close to optimal', gloss: 'хорошая работа, это стена — производительность близка к оптимальной', hot: true },
-]" />
-
-<div class="fc mt-3">
-<div><span class="pixel">прогноз · 8 окт</span><b>≈ 11 мс</b><i>написал отдельный агент-планировщик за 44 часа до конца</i></div>
-<div><span class="pixel">факт · 10 окт</span><b>11,09 мс</b><i>последний замер петли</i></div>
-</div>
-
+<div class="fc">
+<div><span class="pixel">прогноз · 8 окт</span><b>≈ 11 мс</b></div>
+<div><span class="pixel">факт · 10 окт</span><b>11,09 мс</b></div>
 </div>
 </div>
 
@@ -466,6 +493,8 @@ iPhone — экран 874×402 точки меньше окна игры 794×55
 </style>
 
 <!--
+Что было на слайде раньше: шесть оставшихся идей и сколько каждая сэкономила бы (мс на тик); все шесть меньше погрешности замера и добавили бы второй путь в коде — по правилу коммитить нельзя. Диалог: агент в 18:27 (последний коммит петли 0034e45c, пересказ) — «всё, что осталось, ниже разрешения телефона; дальше нужны ответы автора на четыре вопроса»; автор в 21:23 — «you did good. we reached the wall. performance is now close to optimal». Прогноз ≈ 11 мс написал отдельный агент-планировщик за 44 часа до конца; факт — 11,09 мс.
+
 ≈ 60 секунд. Ответ на вопрос «где плато и сколько токенов тратить». Здесь его дал не человек: правило коммита запрещает шаги, выигрыш которых меньше разрешения замера (около ±0,25 мс на прогон) или которые добавляют второй путь кода. Слева — шесть идей, которые не требовали решений автора, с оценками самого плана: от 0,04 до 0,15 мс. Все внутри серой полосы шума.
 
 Последний коммит петли (0034e45c), дословно: «Every remaining decision-free item is below the phone's resolution and would add a second code path, so none meets the commit rule; the copies left are the transactional ones. The input needed is the user's answers to Q1-Q4 (TIER3).» Четыре вопроса — о том, что можно менять в поведении игры после внутреннего сбоя; с ответами план обещал ≈ 9–10 мс. Автор на них не ответил и перевёл агента на память и загрузку: «you did good. we reached the wall. performance is now close to optimal. now lets do the loop for optimizing memory footprint and loading times».
@@ -481,39 +510,27 @@ iPhone — экран 874×402 точки меньше окна игры 794×55
 
 # LLM — компилятор намерений в машинный код
 
-<div class="cmp mt-3">
+<div class="cmp mt-4">
 <div class="st in">
 <span class="pixel">исходник</span>
 <b>намерение</b>
-<i>«та самая игра, как я её помню» — и чем проверить, что это она</i>
 <em>≈ 240 моих сообщений</em>
 </div>
 <span class="ar">→</span>
 <div class="st cc">
 <span class="pixel">компилятор</span>
 <b>LLM + харнесс</b>
-<i>Codex и Claude; оракул, петлю и правило остановки агент собрал сам</i>
-<em>больше 10 млрд токенов · 756 коммитов</em>
+<em>больше 10 млрд токенов</em>
 </div>
 <span class="ar">→</span>
 <div class="st out">
 <span class="pixel">машинный код</span>
 <b>игра на 9 платформах</b>
-<i>58 тыс. строк Swift — их никто не обязан читать</i>
-<em>macOS · Linux · Windows · Android · iOS · браузер</em>
+<em>58 тыс. строк Swift</em>
 </div>
 </div>
 
-<div class="tests mt-3"><span class="pixel">тесты компилятора</span><span>сам оригинал: <b>58 из 58</b> матчей совпали, <b>18 088</b> кадров одинаковы на всех платформах</span></div>
-
-<div class="mine mt-5">
-<div class="mh pixel">что остаётся человеку</div>
-<div class="mr">
-<div><span class="n">1</span>сформулировать задачу — что значит «правильно» и чем это проверить</div>
-<div><span class="n">2</span>дать достаточно токенов</div>
-<div><span class="n">3</span>решать на развилках, куда агенту не положено</div>
-</div>
-</div>
+<div class="tests mt-4"><span class="pixel">тесты</span><span>сам оригинал: <b>58 из 58</b> матчей</span></div>
 
 <style>
 .cmp { display: grid; grid-template-columns: 1fr auto 1.15fr auto 1fr; gap: .7rem; align-items: stretch; }
@@ -535,6 +552,8 @@ iPhone — экран 874×402 точки меньше окна игры 794×55
 </style>
 
 <!--
+Что было на слайде раньше: исходник — «та самая игра, как я её помню» и чем проверить, что это она; компилятор — Codex и Claude, оракул, петлю и правило остановки агент собрал сам, 756 коммитов; выход — 58 тыс. строк Swift, читать которые никто не обязан, macOS · Linux · Windows · Android · iOS · браузер; тесты компилятора — 58 из 58 матчей, 18 088 кадров одинаковы на всех платформах. Что остаётся человеку: 1) сформулировать задачу — что значит «правильно» и чем это проверить; 2) дать достаточно токенов; 3) решать на развилках, куда агенту не положено.
+
 ≈ 75 секунд. Это вывод автора — позиция, а не замер; на слайде так и подписано.
 
 Аналогия. Компилятор берёт исходник и выдаёт машинный код; его вывод никто не читает построчно — ему доверяют, потому что есть тесты. Здесь исходник — намерение: «та самая игра, как я её помню» плюс то, чем это проверить. Компилятор — LLM вместе с харнессом, который агент построил сам: оракул на коде оригинала, петля замеров на телефоне, правило коммита и остановки. Выход — 58 146 строк Swift (на 13 октября) и нативная игра на девяти платформах. Тесты компилятора — сам оригинал: 58 из 58 целых матчей совпали, 18 088 кадров одинаковы на всех платформах.
@@ -559,7 +578,6 @@ shade: 0.7
 <div class="flex flex-col items-center">
 <Kicker>спасибо · вопросы</Kicker>
 <h1 class="cover-title">Делегируйте «как».<br><span class="hl">Оставьте себе «зачем».</span></h1>
-<p class="small ink" style="max-width: 40rem; margin-top: -0.3rem">Агент построил оракул, харнесс и правило остановки сам. Человек задал рамку и принимал решения на развилках. Остальное проверяли слои, которые от агента не зависят.</p>
 <p class="small ink2" style="max-width: 40rem">порт: <span class="mono">github.com/wowlocal/ntsd-2.4</span></p>
 </div>
 
@@ -578,11 +596,11 @@ shade: 0.7
 # Не я один
 
 <div class="trend grid grid-cols-3 gap-3 mt-2">
-<figure><img src="/img/trend/cydonix-skyrim-tarkov-spiderman.jpg" alt=""><figcaption><b>Skyrim × Tarkov × Spider-Man</b> · 1 окт · 2,5 млн просмотров. Tarkov-в-Skyrim, по Kotaku, сделали «за несколько часов»</figcaption></figure>
-<figure><img src="/img/trend/tobynjacobs-elden-ring-mac.jpg" alt=""><figcaption><b>Minecraft в Elden Ring на Mac</b>: исходный пост — 20,7 млн просмотров, открытый клон появился через два дня</figcaption></figure>
-<figure><img src="/img/trend/chasm-wow-bevy.jpg" alt=""><figcaption><b>«WoW 1.12.1 переписан на Bevy/Rust»</b> — это benilla. Community Note: «does not make private servers legal»</figcaption></figure>
-<figure><img src="/img/trend/smallzero-cs16.jpg" alt=""><figcaption><b>CS 1.6 в браузере, 16 игроков</b> · «all vibe coded by AI» · 51 тыс.</figcaption></figure>
-<figure class="col-span-2 wide"><img src="/img/trend/chasm-videos.jpg" alt=""><figcaption><b>chasm</b>: MW2 × Skate 3 × Minecraft поверх трёх Rust-переписок, «basically 100% vibe coded». «Modding has Change FOREVER…» — 1,5 млн просмотров за два дня</figcaption></figure>
+<figure><img src="/img/trend/cydonix-skyrim-tarkov-spiderman.jpg" alt=""><figcaption><b>Skyrim × Tarkov × Spider-Man</b></figcaption></figure>
+<figure><img src="/img/trend/tobynjacobs-elden-ring-mac.jpg" alt=""><figcaption><b>Minecraft в Elden Ring на Mac</b></figcaption></figure>
+<figure><img src="/img/trend/chasm-wow-bevy.jpg" alt=""><figcaption><b>WoW 1.12.1 на Rust</b></figcaption></figure>
+<figure><img src="/img/trend/smallzero-cs16.jpg" alt=""><figcaption><b>CS 1.6 в браузере</b></figcaption></figure>
+<figure class="col-span-2 wide"><img src="/img/trend/chasm-videos.jpg" alt=""><figcaption><b>MW2 × Skate 3 × Minecraft</b></figcaption></figure>
 </div>
 
 <style>

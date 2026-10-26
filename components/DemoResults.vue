@@ -11,8 +11,8 @@
 //    menu — 131.9 → 12.7 s from the icon (chapter 16, typical run).
 const ram = 2.8
 const rows = [
-  { k: 'speed', title: 'скорость игры', unit: 'тиков в секунду', cap: 30, capLabel: 'нужно 30 — темп оригинала', before: 5.4, after: 30.25, bLabel: '5,4 — замедленная съёмка', aLabel: '30 — как в оригинале, с запасом на 60 кадров/с', max: 30 },
-  { k: 'mem', title: 'память', unit: 'ГБ', cap: ram, capLabel: 'в телефоне 2,8 ГБ', before: 4, after: 0.565, bLabel: '4 ГБ — не влезает, игра падает', aLabel: '0,57 ГБ в пике', max: 4.2 },
+  { k: 'speed', title: 'скорость игры', unit: 'тиков в секунду', cap: 30, capLabel: 'нужно 30', before: 5.4, after: 30.25, bLabel: '5,4', aLabel: '30 и запас на 60 fps', max: 30 },
+  { k: 'mem', title: 'память', unit: 'ГБ', cap: ram, capLabel: 'в телефоне 2,8 ГБ', before: 4, after: 0.565, bLabel: '4 ГБ — не влезает', aLabel: '0,57 ГБ', max: 4.2 },
   { k: 'load', title: 'от иконки до меню', unit: 'секунд', cap: 0, capLabel: '', before: 131.9, after: 12.7, bLabel: '2 мин 12 с', aLabel: '13 с', max: 132 },
 ]
 const pct = (v: number, max: number) => `${Math.min(100, (v / max) * 100)}%`
@@ -27,8 +27,6 @@ const pct = (v: number, max: number) => `${Math.min(100, (v / max) * 100)}%`
         <span class="l">Mac</span><span class="r">оригинал</span>
       </div>
       <div class="big"><b>58 из 58</b> матчей</div>
-      <div class="cap">запись матча с Mac проигрывается в оригинальной игре — таблица итогов та же до последней цифры</div>
-      <div class="cap2"><b>18 088</b> кадров одинаковы на всех платформах</div>
     </div>
     <div class="col">
       <div class="h pixel">Galaxy A12 — телефон 2020 года</div>
