@@ -8,32 +8,30 @@ clicks: 0
 
 # Глазами не проверить, кодом не прочитать
 
-<div class="grid grid-cols-[1fr_1.05fr] gap-6 mt-1">
-<div class="pb">
+<div class="grid grid-cols-[0.8fr_1.2fr] gap-7 mt-2 items-center">
+<div class="beats">
 
-<div class="card-soft"><b>Задача.</b> Windows-игра 2008 года — <i>Naruto: The Setting Dawn 2.4</i> на движке Little Fighter 2. Движок тоже закрытый: исходников нет ни у игры, ни у движка — <b>на руках только бинарники</b>. Нужна нативная игра для macOS, а потом и для остальных платформ.</div>
+<div class="bt"><span class="big">0</span><div><b>строк исходников</b><span>ни у игры 2008 года, ни у её движка — только бинарники</span></div></div>
 
-<div class="card-soft"><b>«Так же», а не «похоже».</b> Я хотел вернуть ровно ту игру, которую помню: тот же урон, те же тайминги, тот же характер компьютерного противника — без «почти». Бонус полного совпадения: повторы матчей открываются и в порте, и в оригинале, а сетевую партию с оригиналом можно сыграть по его же протоколу.</div>
-
-<div class="card-soft"><b>Почему это вопрос доверия.</b> «Похоже» и «так же» выглядят одинаково — справа Mac и оригинал. Десятки тысяч строк человек не прочитает. А видимого прогресса может не быть неделями.</div>
-
-<div class="ask"><span class="pixel">вопрос доклада</span>Можно ли дать агенту свободу и безлимит токенов — и чему тогда доверять, если не глазам и не ревью кода?</div>
+<div class="bt"><span class="big">=</span><div><b>так же, а не похоже</b><span>та самая игра, какой я её помню; совместимость с оригиналом — бонус</span></div></div>
 
 </div>
 <div>
 
-<BeforeAfter before="/img/compare/summary-mac.jpg" after="/img/compare/summary-original.jpg" before-label="порт на Mac" after-label="оригинал для Windows" height="19.5rem" :start="50" />
-<div class="xsmall muted mt-1">Таблица итогов одного и того же матча. Тяните ползунок — различий нет: их и не должно быть.</div>
+<BeforeAfter before="/img/compare/summary-mac.jpg" after="/img/compare/summary-original.jpg" before-label="порт" after-label="оригинал" height="17.5rem" :start="50" />
 
 </div>
 </div>
+
+<div class="ask mt-5"><span class="pixel">вопрос доклада</span>Чему доверять агенту, если разницу не видно глазами, а код не прочитать?</div>
 
 <style>
-.pb { display: flex; flex-direction: column; gap: .5rem; }
-.pb .card-soft { font-size: .72rem; line-height: 1.42; color: var(--ink-2); padding: .5rem .75rem; }
-.pb b { color: var(--ink); }
-.pb code { font-size: .64rem !important; }
-.ask { font-size: .82rem; line-height: 1.38; color: var(--ink); background: rgba(255,138,61,.1); border: 1px solid rgba(255,138,61,.5); border-radius: 12px; padding: .55rem .8rem; }
+.beats { display: flex; flex-direction: column; gap: 1.4rem; }
+.bt { display: grid; grid-template-columns: 4.2rem 1fr; gap: .9rem; align-items: center; }
+.bt .big { font-family: var(--font-display); font-weight: 700; font-size: 3.6rem; line-height: 1; color: var(--naruto); text-align: center; }
+.bt b { display: block; font-family: var(--font-display); font-size: 1.05rem; color: var(--ink); margin-bottom: .2rem; }
+.bt span:not(.big) { display: block; font-size: .8rem; line-height: 1.38; color: var(--ink-2); }
+.ask { font-size: 1.05rem; line-height: 1.38; color: var(--ink); background: rgba(255,138,61,.1); border: 1px solid rgba(255,138,61,.5); border-radius: 12px; padding: .6rem 1rem; }
 .ask .pixel { display: block; font-size: .6rem; color: var(--naruto); text-transform: uppercase; letter-spacing: .08em; margin-bottom: .2rem; }
 </style>
 
@@ -59,38 +57,39 @@ clicks: 0
 
 # Что было на руках
 
-<div class="grid grid-cols-3 gap-3 mt-1 ctx">
-<div class="card"><div class="h pixel">один exe — и годы доработок</div>Внутри — движок Little Fighter 2. Сообщество <b>годами дорабатывало игру без исходников</b>: правило байты прямо в exe — по словам моддеров, больше тысячи правок — и добавило маленькую библиотеку, которая при запуске <b>переписывает код игры в памяти</b>. Порт обязан повторить и движок, и все эти доработки.</div>
-<div class="card"><div class="h pixel">без Windows</div>Настоящей Windows-машины в проекте так и не появилось. Эталонов два: <b>вся игра-оригинал</b>, запущенная на Mac через слой совместимости с Windows, и <b>отдельные функции оригинала</b> — в эмуляторе процессора, по одной.</div>
-<div class="card"><div class="h pixel">человек — пара строк в день</div>У Codex — <b>163 сообщения человека против 383 автопродолжений</b> /goal за 20 дней. У Claude — <b>56 реплик за 241 час</b> одной сессии.</div>
+<div class="grid grid-cols-3 gap-4 mt-3 ctx">
+<div class="card"><span class="big">1 exe</span><span class="cap">движок Little Fighter 2 и годы доработок сообщества поверх него — без исходников</span></div>
+<div class="card"><span class="big">0 Windows</span><span class="cap">эталон — сам оригинал: игра целиком и её функции по одной</span></div>
+<div class="card"><span class="big">163 : 383</span><span class="cap">моих сообщений против продолжений, которые агент запускал сам, — за 20 дней</span></div>
 </div>
 
-<div class="grid grid-cols-[1fr_1fr] gap-4 mt-3">
-<div class="card-soft terms">
-<div class="pixel hl xsmall mb-1">термины</div>
-<p><b>Харнесс</b> — всё вокруг модели, что превращает её вывод в проверенный результат: оракулы, тесты, ворота, журналы, ревьюеры.</p>
-<p><b>Оракул</b> — эталон, который исполняют рядом с портом на тех же входах и сравнивают выходы. Здесь — сам код оригинала.</p>
-<p><b>Ворота</b> — проверки, без которых шаг не коммитится; «exit 0» воротами не считается.</p>
-</div>
-<div class="card-soft terms">
-<div class="pixel hl xsmall mb-1">агенты и бюджет</div>
-<p><b>7–27 сентября</b> — Codex, GPT-6 Astra, режим <code>/goal</code>: одна цель, автопродолжения часами.</p>
-<p><b>С 28 сентября</b> — Claude Code, Opus 5.5, режим <code>/loop</code>: агент сам будит себя по расписанию.</p>
-<p><b>Подписки</b> ChatGPT Pro и Claude Max: <b>6,3 млрд токенов</b> до релиза 3 октября, ещё <b>4,6 млрд</b> прочитала одна сессия Claude 3–13 октября.</p>
-</div>
+<div class="gl mt-6">
+<div><b>харнесс</b><span>всё вокруг модели, что проверяет её работу</span></div>
+<div><b>оракул</b><span>эталон, который исполняют рядом с портом и сравнивают ответы</span></div>
+<div><b>ворота</b><span>проверки, без которых шаг не принимается</span></div>
 </div>
 
+<div class="agents mt-5"><span>Codex · GPT-6 Astra</span><i>7–27 сентября</i><span class="arr">→</span><span>Claude Code · Opus 5.5</span><i>с 28 сентября</i></div>
 
 <style>
-.ctx .card { font-size: .7rem; line-height: 1.42; color: var(--ink-2); padding: .65rem .8rem; }
-.ctx .h { font-size: .66rem; color: var(--naruto); text-transform: uppercase; letter-spacing: .06em; margin-bottom: .3rem; }
-.ctx b, .terms b { color: var(--ink); }
-.ctx code, .terms code { font-size: .62rem !important; }
-.terms p { font-size: .68rem; line-height: 1.4; color: var(--ink-2); margin: .25rem 0 !important; }
+.ctx .card { display: flex; flex-direction: column; gap: .55rem; padding: 1.1rem 1.1rem 1.15rem; }
+.ctx .big { font-family: var(--font-display); font-weight: 700; font-size: 2.05rem; line-height: 1; color: var(--naruto); white-space: nowrap; }
+.ctx .cap { font-size: .82rem; line-height: 1.4; color: var(--ink-2); }
+.gl { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.gl div { border-top: 2px solid var(--axis); padding-top: .45rem; }
+.gl b { display: block; font-family: var(--font-pixel); font-size: .78rem; color: var(--chakra); letter-spacing: .04em; margin-bottom: .15rem; }
+.gl span { font-size: .78rem; line-height: 1.38; color: var(--ink-2); }
+.agents { display: flex; align-items: baseline; gap: .55rem; font-size: .8rem; color: var(--ink); }
+.agents i { font-style: normal; font-size: .7rem; color: var(--muted); }
+.agents .arr { color: var(--naruto); margin: 0 .4rem; }
 </style>
 
 <!--
-≈ 60 секунд. Термины — коротко, они нужны для следующих слайдов.
+≈ 45 секунд. Три цифры и три термина — их хватит для следующих слайдов.
+
+0 Windows: настоящей Windows-машины в проекте так и не появилось. Эталонов два: вся игра-оригинал, запущенная на Mac через слой совместимости с Windows (CrossOver), и отдельные функции оригинала — в эмуляторе процессора, по одной.
+
+Агенты и бюджет: 7–27 сентября — Codex, GPT-6 Astra, режим /goal (одна цель, автопродолжения часами); с 28 сентября — Claude Code, Opus 5.5, режим /loop (агент сам будит себя по расписанию). Подписки ChatGPT Pro и Claude Max: 6,3 млрд токенов до релиза 3 октября, ещё 4,6 млрд прочитала одна сессия Claude 3–13 октября.
 
 Что за доработки. Exe — это движок Little Fighter 2 (Марти и Старски Вонги), поверх которого сообщество NTSD строило игру без исходников. Первый слой — правки байтов прямо в exe; в 2009 году моддеры писали: «the mods for LF2 include more than 1000 hex edits». Второй — lib.dll, 6 КБ, собрана в 2011 году, автор не установлен: точка входа exe уводится в пустое место кода и грузит DLL, а та переписывает 62 байта в 13 местах — 12 переходов и одна двухбайтовая правка (превращения, попадания, экран загрузки). Сама библиотека — не доработанный exe, а заплатка к нему. Без неё порт был бы портом другой игры: агент нашёл её 10 сентября и проверил, какие уже сверенные куски она задевает.
 
@@ -232,48 +231,48 @@ Unicorn — эмулятор процессора (ядро QEMU как библ
 -->
 
 ---
+clicks: 6
+---
 
 <DemoPhase at="solution" />
 
-<Kicker>решение · слой 2 · целое против частей</Kicker>
+<Kicker>решение · слой 2 · как агент не обманывает сам себя</Kicker>
 
-# Оракул ошибся вместе с портом
+# План замораживают до запуска
 
-<div class="grid grid-cols-[1fr_1fr] gap-6 mt-1">
-<div class="small ink2 wh">
+<Pipeline class="mt-3" stepwise :steps="[
+  { name: 'PLAN', ru: 'план', desc: 'вопрос, входы и критерии приёмки — коммит до запуска' },
+  { name: 'PREFLIGHT', ru: 'разведка', desc: 'только чтение: найти разрывы заранее' },
+  { name: 'CANDIDATE', ru: 'кандидат', desc: 'код в изолированной копии' },
+  { name: 'VALIDATION', ru: 'проверка', desc: 'свежая сборка против эталона, каждый исход записан', accent: true },
+  { name: 'CORRECTION', ru: 'исправление', desc: 'новый запуск; старый провал остаётся провалом' },
+  { name: 'COMPLETION', ru: 'перенос', desc: 'регрессии, ворота — и только потом в игру' },
+]" loop-label="не больше трёх раундов на механизм" :loop-from="3" :loop-to="4" />
 
-Десятки функций совпадали с эмулятором побайтно. Но записями матчей с оригиналом **обменяться было нельзя**: каждая сторона отвергала чужие файлы.
-
-- Контрольная сумма каталога: у оригинала <code>0x1ec3356</code>, у порта <code>0x1e046b2</code>.
-- Причина: из-за lookahead в CRT VC80 цикл <code>fscanf("%c")</code> / <code>feof</code> считает последний токен файла <b>дважды</b>.
-- Эмулятор давал то же неверное значение, что и порт: оба опирались на одну и ту же неверную модель стандартной библиотеки.
-
-<div class="card mt-2" style="border-color: rgba(255,138,61,.5)"><b class="ink">Механизм доверия:</b> части сверяет оракул, целое — настоящий рантайм. Запись матча с Mac проигрывается в оригинале под CrossOver, и обе программы должны выдать одну и ту же таблицу итогов.</div>
-
+<div class="grid grid-cols-3 gap-4 mt-5 disc">
+<div class="card"><span class="big">202</span><span class="cap">плана закоммичены до запуска: цель и критерии не поправить задним числом</span></div>
+<div class="card"><span class="big">0</span><span class="cap">эталонов переписано под код — расхождение всегда ошибка порта, а не эталона</span></div>
+<div class="card q"><span class="mono">«This is an incomplete resource-limited run, not a successful comparison»</span><span class="cap">так агент записал тест, упавший по памяти, — не «прошло» и не «упало»</span></div>
 </div>
-<div>
-
-<div class="pixel hl xsmall mb-1">после правки · 58 из 58 целых матчей равны оригиналу</div>
-
-<CrossplayTiles />
-
-</div>
-</div>
-
 
 <style>
-.wh ul { margin-top: .35rem; }
-.wh li { font-size: .7rem; line-height: 1.38; }
-.wh code { font-size: .6rem !important; }
-.wh .card { font-size: .7rem; line-height: 1.4; }
+.disc .card { display: flex; flex-direction: column; gap: .45rem; padding: .85rem 1rem; }
+.disc .big { font-family: var(--font-display); font-weight: 700; font-size: 2.2rem; line-height: 1; color: var(--naruto); }
+.disc .cap { font-size: .74rem; line-height: 1.4; color: var(--ink-2); }
+.disc .q { border-color: rgba(255,138,61,.5); }
+.disc .q .mono { font-size: .72rem; line-height: 1.4; color: var(--ink); }
 </style>
 
 <!--
-≈ 60 секунд. Самый важный механизм для доверия: оракул проверяет функцию против модели мира, которую мы сами в него заложили. Если модель CRT неверна, оракул и порт ошибаются одинаково, и «совпало» ничего не значит.
+≈ 60 секунд. Это ответ на «а не подгонит ли агент результат под себя». Каждый шаг — карточка исследования с шестью стадиями; агент сам довёл этот процесс до такой формы (стадии и карточки в docs/research, WORKFLOW.md), разделение исполнителя и ревьюера пришло из ReAgent.
 
-58 = 42 случайных матча Mac → оригинал (VS 32, Stage 6, War 4) + 5 матчей оригинал → Mac + 11 ранних повторов; все равны. Порт ни разу не разошёлся с оригиналом в целом матче — после правки контрольной суммы.
+Клики открывают стадии по одной. Главное — первая и пятая: план коммитится до запуска и больше не правится (уточнение — отдельный amendment, который описывает только различие); провал не перезаписывается — исправление получает новый run ID, старый провал остаётся в истории. Не больше трёх раундов на механизм, и переименование не обнуляет счётчик.
 
-Отсюда урок «целое — не сумма частей»: 692 теста и 215 оракулов не заменили 58 целых матчей.
+202 плана и 27 исправлений — на 3 октября, в docs/research 567 карточек. «Ни одно expected не переписывали под код» — первый урок полной деки; на новых платформах правило звучало так: «A difference on a new platform is a recorded mismatch, never a regenerated expected value».
+
+Цитата — из карточки APPLICATION_HOST_LOADING_CORRECTION1 (22 сентября): тест №28 упал не на логике игры, а на XCTAssertNotNil, который рекурсивно печатал огромное значение — пик 13,2 ГБ. Агент записал это как третий исход: «This is an incomplete resource-limited run, not a successful comparison or an assertion mismatch». Всего исходов семь — среди них «оригинал упал» и «сломался сам стенд», — и ни один не схлопывается в «прошло».
+
+Если спросят про самый поучительный провал: контрольная сумма каталога. Десятки функций совпадали с эмулятором, но записями матчей с оригиналом обменяться было нельзя — оба опирались на одну неверную модель стандартной библиотеки (lookahead в fscanf/feof VC80 считал последний токен файла дважды). Поймал целый матч против оригинала; после правки — 58 из 58 матчей равны.
 -->
 
 ---
