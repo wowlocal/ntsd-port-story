@@ -138,7 +138,6 @@ clicks: 0
 
 <div class="shrink mt-6">
 <div><span class="lb2">AGENTS.md</span><b>4 954</b><i>→</i><b class="hl">153</b><span class="lb2">строки</span></div>
-<div class="when">через 14 минут после просьбы</div>
 </div>
 
 <style>
@@ -346,11 +345,7 @@ iPhone — экран 874×402 точки меньше окна игры 794×55
 
 <Kicker>демо · режим Demo, одна и та же партия</Kicker>
 
-# Сначала оригинал — потом порт
-
 <DemoHandoff class="mt-1" />
-
-<div class="hand mt-2">посреди боя картинка переключается на порт — и бой идёт дальше так же</div>
 
 <style>
 .hand { text-align: center; font-size: .82rem; color: var(--ink-2); }
