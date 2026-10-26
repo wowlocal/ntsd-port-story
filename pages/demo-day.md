@@ -562,7 +562,7 @@ shade: 0.7
 <Kicker>спасибо · вопросы</Kicker>
 <h1 class="cover-title">Делегируйте «как».<br><span class="hl">Оставьте себе «зачем».</span></h1>
 <p class="small ink" style="max-width: 40rem; margin-top: -0.3rem">Агент построил оракул, харнесс и правило остановки сам. Человек задал рамку и принимал решения на развилках. Остальное проверяли слои, которые от агента не зависят.</p>
-<p class="small ink2" style="max-width: 40rem">Игра в браузере: <span class="mono">ntsd-web-ashy.vercel.app</span> · порт: <span class="mono">github.com/wowlocal/ntsd-2.4</span> · полная версия доклада — 195 слайдов: <span class="mono">github.com/wowlocal/ntsd-port-story</span></p>
+<p class="small ink2" style="max-width: 40rem">порт: <span class="mono">github.com/wowlocal/ntsd-2.4</span></p>
 </div>
 
 <style>
